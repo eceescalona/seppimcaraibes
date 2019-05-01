@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +70,130 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Data\ORM\Bank.cs" />
+    <Compile Include="Data\ORM\Customer.cs" />
+    <Compile Include="Data\ORM\CustomersView.cs" />
+    <Compile Include="Data\ORM\InvoicesView.cs" />
+    <Compile Include="Data\ORM\Order.cs" />
+    <Compile Include="Data\ORM\OrdersView.cs" />
+    <Compile Include="Data\ORM\Origin.cs" />
+    <Compile Include="Data\ORM\PreOrdersView.cs" />
+    <Compile Include="Data\ORM\Product.cs" />
+    <Compile Include="Data\ORM\ProductsOrder.cs" />
+    <Compile Include="Data\ORM\ProductsView.cs" />
+    <Compile Include="Data\ORM\Provider.cs" />
+    <Compile Include="Data\ORM\ProvidersView.cs" />
+    <Compile Include="Data\ORM\QuotesView.cs" />
+    <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
+    <Compile Include="Data\ORM\Shipment.cs" />
+    <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\Repository\CustomerRepository.cs" />
+    <Compile Include="Data\Repository\OrderRepository.cs" />
+    <Compile Include="Data\Repository\ProductRepository.cs" />
+    <Compile Include="Data\Repository\ProviderRepository.cs" />
+    <Compile Include="Domain\Controller\C_Customer.cs" />
+    <Compile Include="Domain\Controller\C_Order.cs" />
+    <Compile Include="Domain\Controller\C_Product.cs" />
+    <Compile Include="Domain\Controller\C_Provider.cs" />
+    <Compile Include="Domain\Model\Customer.cs" />
+    <Compile Include="Domain\Model\Order.cs" />
+    <Compile Include="Domain\Model\Product.cs" />
+    <Compile Include="Domain\Model\Provider.cs" />
+    <Compile Include="Domain\View\Customer\V_AddEditCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Domain\View\Customer\V_AddEditCustomerForm.Designer.cs">
+      <DependentUpon>V_AddEditCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Customer\V_ListCustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Customer\V_ListCustomersForm.Designer.cs">
+      <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Invoice\V_AddEditInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Invoice\V_AddEditInvoiceForm.Designer.cs">
+      <DependentUpon>V_AddEditInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Invoice\V_ListInvoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Invoice\V_ListInvoicesForm.Designer.cs">
+      <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditOrderForm.Designer.cs">
+      <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.Designer.cs">
+      <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.Designer.cs">
+      <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListOrdersForm.Designer.cs">
+      <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.Designer.cs">
+      <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListQuotesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ListQuotesForm.Designer.cs">
+      <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Product\V_AddEditProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Product\V_AddEditProductForm.Designer.cs">
+      <DependentUpon>V_AddEditProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Product\V_ListProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Product\V_ListProductsForm.Designer.cs">
+      <DependentUpon>V_ListProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Provider\V_AddEditProviderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Provider\V_AddEditProviderForm.Designer.cs">
+      <DependentUpon>V_AddEditProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Provider\V_ListProvidersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
+      <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\V_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\V_MainForm.Designer.cs">
+      <DependentUpon>V_MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Domain\View\V_MainForm.resx">
+      <DependentUpon>V_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +202,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +217,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Img\SendPDF_32x32.png" />
+    <None Include="Resources\Img\SendPDF_16x16.png" />
+    <None Include="Resources\Img\Report_32x32.png" />
+    <None Include="Resources\Img\Report_16x16.png" />
+    <None Include="Resources\Img\Refresh_32x32.png" />
+    <None Include="Resources\Img\Refresh_16x16.png" />
+    <None Include="Resources\Img\New_32x32.png" />
+    <None Include="Resources\Img\New_16x16.png" />
+    <None Include="Resources\Img\Find_32x32.png" />
+    <None Include="Resources\Img\Find_16x16.png" />
+    <None Include="Resources\Img\Filter_32x32.png" />
+    <None Include="Resources\Img\Filter_16x16.png" />
+    <None Include="Resources\Img\ExportToPDF_32x32.png" />
+    <None Include="Resources\Img\ExportToPDF_16x16.png" />
+    <None Include="Resources\Img\Edit_32x32.png" />
+    <None Include="Resources\Img\Edit_16x16.png" />
+    <None Include="Resources\Img\Delete_32x32.png" />
+    <None Include="Resources\Img\Delete_16x16.png" />
+    <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

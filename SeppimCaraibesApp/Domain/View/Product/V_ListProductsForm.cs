@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SeppimCaraibesApp
+namespace SeppimCaraibesApp.Domain.View.Product
 {
-    public partial class Form1 : Form
+    public partial class V_ListProductsForm : Form
     {
-        public Form1()
+        public V_ListProductsForm()
         {
             InitializeComponent();
         }
