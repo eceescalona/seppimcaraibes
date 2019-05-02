@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -86,23 +86,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ORM\Bank.cs" />
-    <Compile Include="Data\ORM\Customer.cs" />
-    <Compile Include="Data\ORM\CustomersView.cs" />
-    <Compile Include="Data\ORM\InvoicesView.cs" />
-    <Compile Include="Data\ORM\Order.cs" />
-    <Compile Include="Data\ORM\OrdersView.cs" />
-    <Compile Include="Data\ORM\Origin.cs" />
-    <Compile Include="Data\ORM\PreOrdersView.cs" />
-    <Compile Include="Data\ORM\Product.cs" />
-    <Compile Include="Data\ORM\ProductsOrder.cs" />
-    <Compile Include="Data\ORM\ProductsView.cs" />
-    <Compile Include="Data\ORM\Provider.cs" />
-    <Compile Include="Data\ORM\ProvidersView.cs" />
-    <Compile Include="Data\ORM\QuotesView.cs" />
-    <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
-    <Compile Include="Data\ORM\Shipment.cs" />
-    <Compile Include="Data\ORM\ShipmentsView.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />
@@ -249,6 +232,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SeppimCaraibesAppLocalDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SeppimCaraibesAppLocalDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
+    </Content>
     <None Include="Resources\Img\SendPDF_32x32.png" />
     <None Include="Resources\Img\SendPDF_16x16.png" />
     <None Include="Resources\Img\Report_32x32.png" />
@@ -286,6 +276,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\ORM\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

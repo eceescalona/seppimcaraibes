@@ -133,6 +133,7 @@
 
             _mCustomer.DeleteCustomer(_context, code);
             listCustomers.ShowMessage(ETypeOfMessage.Information, message);
+            listCustomers.RefreshView();
         }
         #endregion
     }

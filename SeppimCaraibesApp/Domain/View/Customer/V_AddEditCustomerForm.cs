@@ -220,27 +220,7 @@
 
                 if (result == DialogResult.Retry)
                 {
-                    var customer = (Data.ORM.Customer)customerBS.Current;
-
-                    if (_isAddOrEdit)
-                    {
-                        _cCustomer.EditCustomer(this, customer);
-                        _isCCustomerAlive = true;
-                        DialogResult = DialogResult.OK;
-                        Close();
-                    }
-                    else
-                    {
-                        _cCustomer.AddCustomer(this, customer);
-
-                        if (!string.IsNullOrWhiteSpace(_whereFrom))
-                        {
-                            code = customer.CustomerId;
-                            _isCCustomerAlive = false;
-                            DialogResult = DialogResult.OK;
-                            Close();
-                        }
-                    }
+                    acceptSB.Click += AcceptSB_Click;
                 }
                 else if (result == DialogResult.Abort)
                 {

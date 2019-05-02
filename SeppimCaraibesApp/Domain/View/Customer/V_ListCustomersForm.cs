@@ -171,7 +171,7 @@
                     var row = (Data.ORM.CustomersView)customersGV.GetRow(customersGV.FocusedRowHandle);
                     DialogResult result = MessageBox.Show(DELETE_MESSAGE + row.Name + "?", _cCustomer.GetEnumDescription(ETypeOfMessage.Warning),
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.OK)
+                    if (result == DialogResult.Yes)
                     {
                         _cCustomer.DeleteCustomer(this, row.Code);
                     }
