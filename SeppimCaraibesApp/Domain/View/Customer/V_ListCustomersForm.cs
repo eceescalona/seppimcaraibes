@@ -153,6 +153,7 @@
                 DialogResult result = editCustomer.ShowDialog();
                 if (result == DialogResult.OK)
                 {
+                    _cCustomer.GetContext().Entry(row).Reload();
                     RefreshView();
                 }
                 else if (result == DialogResult.Cancel)
