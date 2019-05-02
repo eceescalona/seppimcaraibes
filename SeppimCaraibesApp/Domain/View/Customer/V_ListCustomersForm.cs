@@ -56,8 +56,7 @@
 
         private void CustomersGV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
-            var row = (Data.ORM.CustomersView)customersGV.GetRow(e.RowHandle);
-            if (row != null)
+            if (customersGV.GetRow(e.RowHandle) is Data.ORM.CustomersView row)
             {
                 if (string.IsNullOrWhiteSpace(row.Phone) && string.IsNullOrWhiteSpace(row.Email))
                 {
@@ -122,7 +121,7 @@
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _isCCustomerAlive = true;
-            var addCustomer = new V_AddEditCustomerForm();
+            var addCustomer = new V_AddEditCustomerForm(_cCustomer);
             addCustomer.BringToFront();
             DialogResult result = addCustomer.ShowDialog();
             if (result == DialogResult.OK)
@@ -146,7 +145,7 @@
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
                 _isCCustomerAlive = true;
-                var row = (Data.ORM.CustomersView)customersGV.GetRow(customersGV.FocusedRowHandle);
+                var row = customersGV.GetRow(customersGV.FocusedRowHandle) as Data.ORM.CustomersView;
                 var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code);
                 editCustomer.BringToFront();
                 DialogResult result = editCustomer.ShowDialog();

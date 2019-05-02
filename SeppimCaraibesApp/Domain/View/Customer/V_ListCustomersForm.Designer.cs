@@ -156,6 +156,7 @@
             // 
             // customersEIFS
             // 
+            this.customersEIFS.AreSourceRowsThreadSafe = true;
             this.customersEIFS.DefaultSorting = "Name ASC";
             this.customersEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.CustomersView);
             this.customersEIFS.KeyExpression = "Code";

@@ -18,7 +18,8 @@
         private Controller.C_Customer _cCustomer;
         private bool _isCCustomerAlive;
         private string _whereFrom;
-        private bool _flag;
+        private bool _isAddOrEdit;
+        private bool _isFieldWithError;
         public string code;
 
 
@@ -31,7 +32,10 @@
             _cCustomer = new Controller.C_Customer();
             _isCCustomerAlive = true;
             _whereFrom = CALL_FROM_ORDERS;
-            _flag = false;
+            _isAddOrEdit = false;
+            _isFieldWithError = false;
+
+            customerBS.DataSource = new Data.ORM.Customer();
         }
 
         public V_AddEditCustomerForm(Controller.C_Customer cCustomer)
@@ -42,7 +46,10 @@
             _cCustomer = cCustomer;
             _isCCustomerAlive = true;
             _whereFrom = string.Empty;
-            _flag = false;
+            _isAddOrEdit = false;
+            _isFieldWithError = false;
+
+            customerBS.DataSource = new Data.ORM.Customer();
         }
 
         public V_AddEditCustomerForm(Controller.C_Customer cCustomer, string code)
@@ -54,22 +61,23 @@
             _isCCustomerAlive = true;
             this.code = code;
             _whereFrom = string.Empty;
-            _flag = true;
+            _isAddOrEdit = true;
+            _isFieldWithError = false;
+
+            _cCustomer.EditCustomer(this, code);
         }
         #endregion
 
 
         private void V_AddEditCustomerForm_Load(object sender, EventArgs e)
         {
-            if (_flag)
+            if (_isAddOrEdit)
             {
-                _cCustomer.EditCustomer(this, code);
-                codeTE.Enabled = false;
                 nameTE.Focus();
+                codeTE.Enabled = false;
             }
             else
             {
-                customerBS.DataSource = new Data.ORM.Customer();
                 codeTE.Focus();
             }
         }
@@ -117,6 +125,8 @@
                         codeErrorLC.Text = field.Value;
                         codeErrorLC.LineColor = Color.Red;
                         codeErrorLC.ForeColor = Color.Red;
+
+                        _isFieldWithError = true;
                     }
                     else if (nameTE.Name == field.Key)
                     {
@@ -124,6 +134,8 @@
                         nameErrorLC.Text = field.Value;
                         nameErrorLC.LineColor = Color.Red;
                         nameErrorLC.ForeColor = Color.Red;
+
+                        _isFieldWithError = true;
                     }
                     else
                     {
@@ -131,6 +143,8 @@
                         emailErrorLC.Text = field.Value;
                         emailErrorLC.LineColor = Color.Red;
                         emailErrorLC.ForeColor = Color.Red;
+
+                        _isFieldWithError = true;
                     }
                 }
 
@@ -174,7 +188,7 @@
             {
                 var customer = (Data.ORM.Customer)customerBS.Current;
 
-                if (_flag)
+                if (_isAddOrEdit)
                 {
                     _cCustomer.EditCustomer(this, customer);
                     _isCCustomerAlive = true;
@@ -192,6 +206,12 @@
                         DialogResult = DialogResult.OK;
                         Close();
                     }
+
+                    if (!_isFieldWithError)
+                    {
+                        RefreshView();
+                        _isFieldWithError = false;
+                    }
                 }
             }
             catch (Exception)
@@ -202,7 +222,7 @@
                 {
                     var customer = (Data.ORM.Customer)customerBS.Current;
 
-                    if (_flag)
+                    if (_isAddOrEdit)
                     {
                         _cCustomer.EditCustomer(this, customer);
                         _isCCustomerAlive = true;
@@ -224,7 +244,7 @@
                 }
                 else if (result == DialogResult.Abort)
                 {
-                    if (_flag)
+                    if (_isAddOrEdit)
                     {
                         _isCCustomerAlive = true;
                         DialogResult = DialogResult.Abort;
@@ -257,7 +277,7 @@
         private void CancelSB_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (_flag)
+            if (_isAddOrEdit)
             {
                 if (result == DialogResult.Yes)
                 {

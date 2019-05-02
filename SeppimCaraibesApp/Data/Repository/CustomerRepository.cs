@@ -15,6 +15,7 @@
 
         public void EditCustomer(ORM.SeppimCaraibesLocalEntities context, ORM.Customer customer)
         {
+            context.Customers.Add(customer);
             context.Entry(customer).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }

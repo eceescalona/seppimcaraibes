@@ -42,10 +42,12 @@
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formPC = new DevExpress.XtraEditors.PanelControl();
+            this.codeErrorLC = new DevExpress.XtraEditors.LabelControl();
+            this.codeLC = new DevExpress.XtraEditors.LabelControl();
+            this.codeTE = new DevExpress.XtraEditors.TextEdit();
             this.emailErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.addressTE = new DevExpress.XtraEditors.TextEdit();
-            this.customerBS = new System.Windows.Forms.BindingSource(this.components);
             this.emailTE = new DevExpress.XtraEditors.TextEdit();
             this.phoneTE = new DevExpress.XtraEditors.TextEdit();
             this.nameTE = new DevExpress.XtraEditors.TextEdit();
@@ -56,9 +58,7 @@
             this.addEditCustomerLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.codeTE = new DevExpress.XtraEditors.TextEdit();
-            this.codeLC = new DevExpress.XtraEditors.LabelControl();
-            this.codeErrorLC = new DevExpress.XtraEditors.LabelControl();
+            this.customerBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLC)).BeginInit();
             this.addEditCustomerLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -76,15 +76,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditCustomerLC
@@ -221,6 +221,29 @@
             this.formPC.Size = new System.Drawing.Size(641, 240);
             this.formPC.TabIndex = 4;
             // 
+            // codeErrorLC
+            // 
+            this.codeErrorLC.Location = new System.Drawing.Point(115, 38);
+            this.codeErrorLC.Name = "codeErrorLC";
+            this.codeErrorLC.Size = new System.Drawing.Size(0, 13);
+            this.codeErrorLC.TabIndex = 11;
+            // 
+            // codeLC
+            // 
+            this.codeLC.Location = new System.Drawing.Point(66, 15);
+            this.codeLC.Name = "codeLC";
+            this.codeLC.Size = new System.Drawing.Size(43, 13);
+            this.codeLC.TabIndex = 10;
+            this.codeLC.Text = "Código*:";
+            // 
+            // codeTE
+            // 
+            this.codeTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBS, "CustomerId", true));
+            this.codeTE.Location = new System.Drawing.Point(115, 12);
+            this.codeTE.Name = "codeTE";
+            this.codeTE.Size = new System.Drawing.Size(240, 20);
+            this.codeTE.TabIndex = 1;
+            // 
             // emailErrorLC
             // 
             this.emailErrorLC.Location = new System.Drawing.Point(115, 178);
@@ -237,19 +260,15 @@
             // 
             // addressTE
             // 
-            this.addressTE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.customerBS, "CustomerAddress", true));
+            this.addressTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBS, "CustomerAddress", true));
             this.addressTE.Location = new System.Drawing.Point(115, 204);
             this.addressTE.Name = "addressTE";
             this.addressTE.Size = new System.Drawing.Size(507, 20);
             this.addressTE.TabIndex = 7;
             // 
-            // customerBS
-            // 
-            this.customerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Customer);
-            // 
             // emailTE
             // 
-            this.emailTE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.customerBS, "CustomerEmail", true));
+            this.emailTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBS, "CustomerEmail", true));
             this.emailTE.Location = new System.Drawing.Point(115, 152);
             this.emailTE.Name = "emailTE";
             this.emailTE.Size = new System.Drawing.Size(240, 20);
@@ -257,7 +276,7 @@
             // 
             // phoneTE
             // 
-            this.phoneTE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.customerBS, "CustomerPhone", true));
+            this.phoneTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBS, "CustomerPhone", true));
             this.phoneTE.Location = new System.Drawing.Point(115, 112);
             this.phoneTE.Name = "phoneTE";
             this.phoneTE.Size = new System.Drawing.Size(240, 20);
@@ -265,7 +284,7 @@
             // 
             // nameTE
             // 
-            this.nameTE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.customerBS, "CustomerName", true));
+            this.nameTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBS, "CustomerName", true));
             this.nameTE.Location = new System.Drawing.Point(115, 61);
             this.nameTE.Name = "nameTE";
             this.nameTE.Size = new System.Drawing.Size(346, 20);
@@ -332,28 +351,9 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // codeTE
+            // customerBS
             // 
-            this.codeTE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.customerBS, "CustomerId", true));
-            this.codeTE.Location = new System.Drawing.Point(115, 12);
-            this.codeTE.Name = "codeTE";
-            this.codeTE.Size = new System.Drawing.Size(240, 20);
-            this.codeTE.TabIndex = 1;
-            // 
-            // codeLC
-            // 
-            this.codeLC.Location = new System.Drawing.Point(66, 15);
-            this.codeLC.Name = "codeLC";
-            this.codeLC.Size = new System.Drawing.Size(43, 13);
-            this.codeLC.TabIndex = 10;
-            this.codeLC.Text = "Código*:";
-            // 
-            // codeErrorLC
-            // 
-            this.codeErrorLC.Location = new System.Drawing.Point(115, 38);
-            this.codeErrorLC.Name = "codeErrorLC";
-            this.codeErrorLC.Size = new System.Drawing.Size(0, 13);
-            this.codeErrorLC.TabIndex = 11;
+            this.customerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Customer);
             // 
             // V_AddEditCustomerForm
             // 
@@ -385,15 +385,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).EndInit();
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,9 +426,9 @@
         private DevExpress.XtraEditors.TextEdit emailTE;
         private DevExpress.XtraEditors.TextEdit phoneTE;
         private DevExpress.XtraEditors.TextEdit nameTE;
-        private System.Windows.Forms.BindingSource customerBS;
         private DevExpress.XtraEditors.LabelControl codeErrorLC;
         private DevExpress.XtraEditors.LabelControl codeLC;
         private DevExpress.XtraEditors.TextEdit codeTE;
+        private System.Windows.Forms.BindingSource customerBS;
     }
 }
