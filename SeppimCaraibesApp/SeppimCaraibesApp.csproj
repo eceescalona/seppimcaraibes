@@ -249,13 +249,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SeppimCaraibesAppLocalDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SeppimCaraibesAppLocalDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\Img\SendPDF_32x32.png" />
     <None Include="Resources\Img\SendPDF_16x16.png" />
     <None Include="Resources\Img\Report_32x32.png" />

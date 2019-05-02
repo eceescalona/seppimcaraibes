@@ -5,6 +5,7 @@
     using System.ComponentModel;
     using System.Net.Mail;
     using System.Reflection;
+    using SeppimCaraibesApp.Domain.View.Customer;
 
     internal class C_Customer : IDisposable
     {

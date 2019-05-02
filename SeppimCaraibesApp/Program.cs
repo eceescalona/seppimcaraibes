@@ -16,7 +16,7 @@ namespace SeppimCaraibesApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Domain.View.Customer.V_ListCustomersForm());
+            Application.Run(new V_MainForm());
         }
     }
 }

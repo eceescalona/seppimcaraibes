@@ -16,5 +16,17 @@ namespace SeppimCaraibesApp
         {
             InitializeComponent();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            var listCustomer = new Domain.View.Customer.V_ListCustomersForm
+            {
+                TopLevel = false
+            };
+            panelControl1.Controls.Add(listCustomer);
+            listCustomer.Dock = DockStyle.Fill;
+            listCustomer.BringToFront();
+            listCustomer.Show();
+        }
     }
 }

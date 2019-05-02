@@ -71,6 +71,7 @@
         #region IListCustomers
         public void RefreshView()
         {
+            customersEIFS.Refresh();
             customersEIFS.GetQueryable += CustomerEIFS_GetQueryable;
         }
 
@@ -131,6 +132,7 @@
             else if (result == DialogResult.Cancel)
             {
                 MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshView();
             }
             else
             {
@@ -157,7 +159,7 @@
                 {
                     MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                else if (result == DialogResult.Abort)
                 {
                     MessageBox.Show(EDIT_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
