@@ -21,8 +21,6 @@
 
         public void EditProvider(ORM.SeppimCaraibesLocalEntities context, ORM.Provider provider)
         {
-            context.Providers.Add(provider);
-            context.Entry(provider).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }
 
