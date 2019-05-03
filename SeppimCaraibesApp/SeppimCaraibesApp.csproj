@@ -112,7 +112,9 @@
     <Compile Include="Domain\Controller\C_Product.cs" />
     <Compile Include="Domain\Controller\C_Provider.cs" />
     <Compile Include="Domain\Controller\IAddEditCustomer.cs" />
+    <Compile Include="Domain\Controller\IAddEditProvider.cs" />
     <Compile Include="Domain\Controller\IListCustomers.cs" />
+    <Compile Include="Domain\Controller\IListProviders.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
     <Compile Include="Domain\Model\Order.cs" />
@@ -216,6 +218,12 @@
     <EmbeddedResource Include="Domain\View\Customer\V_ListCustomersForm.resx">
       <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Provider\V_AddEditProviderForm.resx">
+      <DependentUpon>V_AddEditProviderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
+      <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +240,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Customer.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

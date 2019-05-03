@@ -28,5 +28,17 @@ namespace SeppimCaraibesApp
             listCustomer.BringToFront();
             listCustomer.Show();
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            var listProvider = new Domain.View.Provider.V_ListProvidersForm
+            {
+                TopLevel = false
+            };
+            panelControl1.Controls.Add(listProvider);
+            listProvider.Dock = DockStyle.Fill;
+            listProvider.BringToFront();
+            listProvider.Show();
+        }
     }
 }
