@@ -258,6 +258,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Customer.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Order.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
     <None Include="Properties\Settings.settings">

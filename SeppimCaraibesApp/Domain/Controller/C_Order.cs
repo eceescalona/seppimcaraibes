@@ -33,31 +33,62 @@
             string field = string.Empty;
             string message = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(order.OrderId))
+            if (order.Date == null)
             {
                 flag = false;
-                field = "codeTE";
-                message = "El Campo Código no puede ser vacío.";
+                field = "dateDE";
+                message = "El Campo Fecha no puede ser vacío.";
+                fields.Add(field, message);
+            }
+
+            if (string.IsNullOrWhiteSpace(order.CustomerReference))
+            {
+                flag = false;
+                field = "customerReferenceTE";
+                message = "El Campo Nombre no puede ser vacío.";
+                fields.Add(field, message);
+            }
+
+            if (order.ProductsOrders == null || order.ProductsOrders.Count <= 0)
+            {
+                flag = false;
+                field = "productsGC";
+                message = "El Campo Productos no puede ser vacío.";
                 fields.Add(field, message);
             }
 
             if (string.IsNullOrWhiteSpace(order.CustomerId))
             {
                 flag = false;
-                field = "nameME";
-                message = "El Campo Nombre no puede ser vacío.";
-                fields.Add(field, message);
-            }
-
-            if (order.ProductsOrders == null)
-            {
-                flag = false;
-                field = "providersGridC";
-                message = "El Campo Proveedor no puede ser vacío.";
+                field = "customerSLUE";
+                message = "El Campo Cliente no puede ser vacío.";
                 fields.Add(field, message);
             }
 
             return flag;
+        }
+
+        private string OrderCode(DateTime date)
+        {
+            var random = new Random();
+            int units = random.Next(0, 9);
+            int dozens = random.Next(0, 9);
+            int hundreds = random.Next(0, 9);
+
+            string back = hundreds.ToString() + dozens.ToString() + units.ToString();
+
+            string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
+
+
+            var order = _mOrder.GetOrder(_context, orderCode);
+            if (order == null)
+            {
+                return orderCode;
+            }
+            else
+            {
+                return OrderCode(date);
+            }
         }
 
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
@@ -83,9 +114,27 @@
 
 
         #region OrderManage
-        public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order)
+        public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
         {
+            order.OrderId = OrderCode(DateTime.Parse(order.Date.ToString()));
+
             string message = string.Format("La orden {0} ha sido registrado satisfactoriamente.", order.OrderId);
+
+            var productsOrders = new List<Data.ORM.ProductsOrder>();
+            foreach (var product in productsOrdersViews)
+            {
+                var productOrder = new Data.ORM.ProductsOrder
+                {
+                    OrderId = order.OrderId,
+                    ProductId = product.ProductId,
+                    Qty = product.Qty,
+                    Discount = product.Discount,
+                    Interests = product.Interests
+                };
+
+                productsOrders.Add(productOrder);
+            }
+            order.ProductsOrders = productsOrders;
 
             if (Validate(order, out Dictionary<string, string> fields))
             {
@@ -104,9 +153,25 @@
             addEditOrder.EditOrder(order);
         }
 
-        public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order)
+        public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
+
+            var productsOrders = new List<Data.ORM.ProductsOrder>();
+            foreach (var product in productsOrdersViews)
+            {
+                var productOrder = new Data.ORM.ProductsOrder
+                {
+                    OrderId = order.OrderId,
+                    ProductId = product.ProductId,
+                    Qty = product.Qty,
+                    Discount = product.Discount,
+                    Interests = product.Interests
+                };
+
+                productsOrders.Add(productOrder);
+            }
+            order.ProductsOrders = productsOrders;
 
             if (Validate(order, out Dictionary<string, string> fields))
             {

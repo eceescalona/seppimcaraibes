@@ -30,6 +30,16 @@
         {
             this.addEditPreOrderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
+            this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
+            this.cancelPC = new DevExpress.XtraEditors.PanelControl();
+            this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
+            this.acceptPC = new DevExpress.XtraEditors.PanelControl();
+            this.acceptSB = new DevExpress.XtraEditors.SimpleButton();
+            this.emptyPC = new DevExpress.XtraEditors.PanelControl();
+            this.buttonsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptyLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsPC = new DevExpress.XtraEditors.PanelControl();
             this.productsLC = new DevExpress.XtraLayout.LayoutControl();
             this.productsLabelsPC = new DevExpress.XtraEditors.PanelControl();
@@ -39,11 +49,15 @@
             this.productsGC = new DevExpress.XtraGrid.GridControl();
             this.productsEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLabelsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.customerPC = new DevExpress.XtraEditors.PanelControl();
             this.customerLC = new DevExpress.XtraLayout.LayoutControl();
+            this.emptyCustomerPC = new DevExpress.XtraEditors.PanelControl();
             this.addCustomerPC = new DevExpress.XtraEditors.PanelControl();
             this.addCustomerSB = new DevExpress.XtraEditors.SimpleButton();
             this.customerLabelsPC = new DevExpress.XtraEditors.PanelControl();
@@ -59,10 +73,12 @@
             this.customerGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.customerLabelsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.addCustomerLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptyCustomerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formPC = new DevExpress.XtraEditors.PanelControl();
             this.customerReferenceErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.dateErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceTE = new DevExpress.XtraEditors.TextEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource();
             this.dateDE = new DevExpress.XtraEditors.DateEdit();
             this.customerReferenceLC = new DevExpress.XtraEditors.LabelControl();
             this.dateLC = new DevExpress.XtraEditors.LabelControl();
@@ -74,6 +90,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).BeginInit();
             this.addEditPreOrderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
+            this.buttonsPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).BeginInit();
+            this.buttonsLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
+            this.cancelPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
+            this.acceptPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).BeginInit();
             this.productsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsLC)).BeginInit();
@@ -91,6 +119,7 @@
             this.customerPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerLC)).BeginInit();
             this.customerLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyCustomerPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addCustomerPC)).BeginInit();
             this.addCustomerPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerLabelsPC)).BeginInit();
@@ -103,9 +132,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerGCLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerLabelsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addCustomerLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyCustomerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLCG)).BeginInit();
@@ -131,17 +162,114 @@
             // 
             // buttonsPC
             // 
-            this.buttonsPC.Location = new System.Drawing.Point(12, 353);
+            this.buttonsPC.Controls.Add(this.buttonsLC);
+            this.buttonsPC.Location = new System.Drawing.Point(12, 384);
             this.buttonsPC.Name = "buttonsPC";
-            this.buttonsPC.Size = new System.Drawing.Size(776, 85);
+            this.buttonsPC.Size = new System.Drawing.Size(776, 54);
             this.buttonsPC.TabIndex = 0;
+            // 
+            // buttonsLC
+            // 
+            this.buttonsLC.Controls.Add(this.cancelPC);
+            this.buttonsLC.Controls.Add(this.acceptPC);
+            this.buttonsLC.Controls.Add(this.emptyPC);
+            this.buttonsLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsLC.Location = new System.Drawing.Point(2, 2);
+            this.buttonsLC.Name = "buttonsLC";
+            this.buttonsLC.Root = this.buttonsLCG;
+            this.buttonsLC.Size = new System.Drawing.Size(772, 50);
+            this.buttonsLC.TabIndex = 0;
+            this.buttonsLC.Text = "layoutControl1";
+            // 
+            // cancelPC
+            // 
+            this.cancelPC.Controls.Add(this.cancelSB);
+            this.cancelPC.Location = new System.Drawing.Point(632, 12);
+            this.cancelPC.Name = "cancelPC";
+            this.cancelPC.Size = new System.Drawing.Size(128, 26);
+            this.cancelPC.TabIndex = 0;
+            // 
+            // cancelSB
+            // 
+            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelSB.Location = new System.Drawing.Point(2, 2);
+            this.cancelSB.Name = "cancelSB";
+            this.cancelSB.Size = new System.Drawing.Size(124, 22);
+            this.cancelSB.TabIndex = 0;
+            this.cancelSB.Text = "Cancelar";
+            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
+            // 
+            // acceptPC
+            // 
+            this.acceptPC.Controls.Add(this.acceptSB);
+            this.acceptPC.Location = new System.Drawing.Point(492, 12);
+            this.acceptPC.Name = "acceptPC";
+            this.acceptPC.Size = new System.Drawing.Size(136, 26);
+            this.acceptPC.TabIndex = 0;
+            // 
+            // acceptSB
+            // 
+            this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.acceptSB.Location = new System.Drawing.Point(2, 2);
+            this.acceptSB.Name = "acceptSB";
+            this.acceptSB.Size = new System.Drawing.Size(132, 22);
+            this.acceptSB.TabIndex = 0;
+            this.acceptSB.Text = "Aceptar";
+            this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
+            // 
+            // emptyPC
+            // 
+            this.emptyPC.Location = new System.Drawing.Point(12, 12);
+            this.emptyPC.Name = "emptyPC";
+            this.emptyPC.Size = new System.Drawing.Size(476, 26);
+            this.emptyPC.TabIndex = 1;
+            // 
+            // buttonsLCG
+            // 
+            this.buttonsLCG.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.buttonsLCG.GroupBordersVisible = false;
+            this.buttonsLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptyLCI,
+            this.acceptLCI,
+            this.cancelLCI});
+            this.buttonsLCG.Name = "buttonsLCG";
+            this.buttonsLCG.Size = new System.Drawing.Size(772, 50);
+            this.buttonsLCG.TextVisible = false;
+            // 
+            // emptyLCI
+            // 
+            this.emptyLCI.Control = this.emptyPC;
+            this.emptyLCI.Location = new System.Drawing.Point(0, 0);
+            this.emptyLCI.Name = "emptyLCI";
+            this.emptyLCI.Size = new System.Drawing.Size(480, 30);
+            this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.emptyLCI.TextVisible = false;
+            // 
+            // acceptLCI
+            // 
+            this.acceptLCI.Control = this.acceptPC;
+            this.acceptLCI.Location = new System.Drawing.Point(480, 0);
+            this.acceptLCI.Name = "acceptLCI";
+            this.acceptLCI.Size = new System.Drawing.Size(140, 30);
+            this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.acceptLCI.TextVisible = false;
+            // 
+            // cancelLCI
+            // 
+            this.cancelLCI.Control = this.cancelPC;
+            this.cancelLCI.Location = new System.Drawing.Point(620, 0);
+            this.cancelLCI.Name = "cancelLCI";
+            this.cancelLCI.Size = new System.Drawing.Size(132, 30);
+            this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.cancelLCI.TextVisible = false;
             // 
             // productsPC
             // 
             this.productsPC.Controls.Add(this.productsLC);
             this.productsPC.Location = new System.Drawing.Point(342, 12);
             this.productsPC.Name = "productsPC";
-            this.productsPC.Size = new System.Drawing.Size(446, 337);
+            this.productsPC.Size = new System.Drawing.Size(446, 368);
             this.productsPC.TabIndex = 0;
             // 
             // productsLC
@@ -152,7 +280,7 @@
             this.productsLC.Location = new System.Drawing.Point(2, 2);
             this.productsLC.Name = "productsLC";
             this.productsLC.Root = this.productsLCG;
-            this.productsLC.Size = new System.Drawing.Size(442, 333);
+            this.productsLC.Size = new System.Drawing.Size(442, 364);
             this.productsLC.TabIndex = 0;
             this.productsLC.Text = "layoutControl1";
             // 
@@ -162,7 +290,7 @@
             this.productsLabelsPC.Controls.Add(this.productsLabelC);
             this.productsLabelsPC.Location = new System.Drawing.Point(12, 12);
             this.productsLabelsPC.Name = "productsLabelsPC";
-            this.productsLabelsPC.Size = new System.Drawing.Size(418, 25);
+            this.productsLabelsPC.Size = new System.Drawing.Size(418, 23);
             this.productsLabelsPC.TabIndex = 0;
             // 
             // productsErrorLC
@@ -184,18 +312,19 @@
             // productsGCPC
             // 
             this.productsGCPC.Controls.Add(this.productsGC);
-            this.productsGCPC.Location = new System.Drawing.Point(12, 41);
+            this.productsGCPC.Location = new System.Drawing.Point(12, 39);
             this.productsGCPC.Name = "productsGCPC";
-            this.productsGCPC.Size = new System.Drawing.Size(418, 280);
+            this.productsGCPC.Size = new System.Drawing.Size(418, 313);
             this.productsGCPC.TabIndex = 1;
             // 
             // productsGC
             // 
             this.productsGC.DataSource = this.productsEIFS;
-            this.productsGC.Location = new System.Drawing.Point(5, 25);
+            this.productsGC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productsGC.Location = new System.Drawing.Point(2, 2);
             this.productsGC.MainView = this.productsGV;
             this.productsGC.Name = "productsGC";
-            this.productsGC.Size = new System.Drawing.Size(400, 200);
+            this.productsGC.Size = new System.Drawing.Size(414, 309);
             this.productsGC.TabIndex = 0;
             this.productsGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
@@ -203,11 +332,48 @@
             // productsEIFS
             // 
             this.productsEIFS.AreSourceRowsThreadSafe = true;
+            this.productsEIFS.DefaultSorting = "ProductName ASC";
+            this.productsEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.ProductsOrdersView);
+            this.productsEIFS.KeyExpression = "ProductId";
             // 
             // productsGV
             // 
+            this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colProductCode,
+            this.colProductName,
+            this.colQty});
             this.productsGV.GridControl = this.productsGC;
             this.productsGV.Name = "productsGV";
+            this.productsGV.OptionsSelection.MultiSelect = true;
+            this.productsGV.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.productsGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ProductsGV_RowStyle);
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.Caption = "Código";
+            this.colProductCode.FieldName = "ProductId";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.Visible = true;
+            this.colProductCode.VisibleIndex = 1;
+            this.colProductCode.Width = 134;
+            // 
+            // colProductName
+            // 
+            this.colProductName.Caption = "Nombre";
+            this.colProductName.FieldName = "ProductName";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.Visible = true;
+            this.colProductName.VisibleIndex = 2;
+            this.colProductName.Width = 156;
+            // 
+            // colQty
+            // 
+            this.colQty.Caption = "Cantidad";
+            this.colQty.FieldName = "Qty";
+            this.colQty.Name = "colQty";
+            this.colQty.Visible = true;
+            this.colQty.VisibleIndex = 3;
+            this.colQty.Width = 66;
             // 
             // productsLCG
             // 
@@ -217,15 +383,15 @@
             this.productsGCLCI,
             this.productsLabelsLCI});
             this.productsLCG.Name = "productsLCG";
-            this.productsLCG.Size = new System.Drawing.Size(442, 333);
+            this.productsLCG.Size = new System.Drawing.Size(442, 364);
             this.productsLCG.TextVisible = false;
             // 
             // productsGCLCI
             // 
             this.productsGCLCI.Control = this.productsGCPC;
-            this.productsGCLCI.Location = new System.Drawing.Point(0, 29);
+            this.productsGCLCI.Location = new System.Drawing.Point(0, 27);
             this.productsGCLCI.Name = "productsGCLCI";
-            this.productsGCLCI.Size = new System.Drawing.Size(422, 284);
+            this.productsGCLCI.Size = new System.Drawing.Size(422, 317);
             this.productsGCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsGCLCI.TextVisible = false;
             // 
@@ -234,7 +400,7 @@
             this.productsLabelsLCI.Control = this.productsLabelsPC;
             this.productsLabelsLCI.Location = new System.Drawing.Point(0, 0);
             this.productsLabelsLCI.Name = "productsLabelsLCI";
-            this.productsLabelsLCI.Size = new System.Drawing.Size(422, 29);
+            this.productsLabelsLCI.Size = new System.Drawing.Size(422, 27);
             this.productsLabelsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLabelsLCI.TextVisible = false;
             // 
@@ -243,11 +409,12 @@
             this.customerPC.Controls.Add(this.customerLC);
             this.customerPC.Location = new System.Drawing.Point(12, 164);
             this.customerPC.Name = "customerPC";
-            this.customerPC.Size = new System.Drawing.Size(326, 185);
+            this.customerPC.Size = new System.Drawing.Size(326, 216);
             this.customerPC.TabIndex = 0;
             // 
             // customerLC
             // 
+            this.customerLC.Controls.Add(this.emptyCustomerPC);
             this.customerLC.Controls.Add(this.addCustomerPC);
             this.customerLC.Controls.Add(this.customerLabelsPC);
             this.customerLC.Controls.Add(this.customerGCPC);
@@ -255,25 +422,34 @@
             this.customerLC.Location = new System.Drawing.Point(2, 2);
             this.customerLC.Name = "customerLC";
             this.customerLC.Root = this.customerLCG;
-            this.customerLC.Size = new System.Drawing.Size(322, 181);
+            this.customerLC.Size = new System.Drawing.Size(322, 212);
             this.customerLC.TabIndex = 0;
             this.customerLC.Text = "layoutControl1";
+            // 
+            // emptyCustomerPC
+            // 
+            this.emptyCustomerPC.Location = new System.Drawing.Point(12, 67);
+            this.emptyCustomerPC.Name = "emptyCustomerPC";
+            this.emptyCustomerPC.Size = new System.Drawing.Size(298, 103);
+            this.emptyCustomerPC.TabIndex = 1;
             // 
             // addCustomerPC
             // 
             this.addCustomerPC.Controls.Add(this.addCustomerSB);
-            this.addCustomerPC.Location = new System.Drawing.Point(12, 140);
+            this.addCustomerPC.Location = new System.Drawing.Point(12, 174);
             this.addCustomerPC.Name = "addCustomerPC";
-            this.addCustomerPC.Size = new System.Drawing.Size(298, 29);
+            this.addCustomerPC.Size = new System.Drawing.Size(298, 26);
             this.addCustomerPC.TabIndex = 1;
             // 
             // addCustomerSB
             // 
-            this.addCustomerSB.Location = new System.Drawing.Point(106, 2);
+            this.addCustomerSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addCustomerSB.Location = new System.Drawing.Point(2, 2);
             this.addCustomerSB.Name = "addCustomerSB";
-            this.addCustomerSB.Size = new System.Drawing.Size(130, 23);
+            this.addCustomerSB.Size = new System.Drawing.Size(294, 22);
             this.addCustomerSB.TabIndex = 0;
             this.addCustomerSB.Text = "Adicionar Nuevo Cliente";
+            this.addCustomerSB.Click += new System.EventHandler(this.AddCustomerSB_Click);
             // 
             // customerLabelsPC
             // 
@@ -305,12 +481,13 @@
             this.customerGCPC.Controls.Add(this.customerSLUE);
             this.customerGCPC.Location = new System.Drawing.Point(12, 39);
             this.customerGCPC.Name = "customerGCPC";
-            this.customerGCPC.Size = new System.Drawing.Size(298, 97);
+            this.customerGCPC.Size = new System.Drawing.Size(298, 24);
             this.customerGCPC.TabIndex = 4;
             // 
             // customerSLUE
             // 
-            this.customerSLUE.Location = new System.Drawing.Point(5, 5);
+            this.customerSLUE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerSLUE.Location = new System.Drawing.Point(2, 2);
             this.customerSLUE.Name = "customerSLUE";
             this.customerSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -320,7 +497,7 @@
             this.customerSLUE.Properties.NullValuePrompt = "Cliente";
             this.customerSLUE.Properties.PopupView = this.customerSLUEV;
             this.customerSLUE.Properties.ValueMember = "CustomerId";
-            this.customerSLUE.Size = new System.Drawing.Size(288, 20);
+            this.customerSLUE.Size = new System.Drawing.Size(294, 20);
             this.customerSLUE.TabIndex = 0;
             // 
             // customerEIFS
@@ -339,6 +516,7 @@
             this.customerSLUEV.Name = "customerSLUEV";
             this.customerSLUEV.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.customerSLUEV.OptionsView.ShowGroupPanel = false;
+            this.customerSLUEV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.CustomerSLUEV_RowStyle);
             // 
             // colCode
             // 
@@ -363,9 +541,10 @@
             this.customerLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.customerGCLCI,
             this.customerLabelsLCI,
-            this.addCustomerLCI});
+            this.addCustomerLCI,
+            this.emptyCustomerLCI});
             this.customerLCG.Name = "customerLCG";
-            this.customerLCG.Size = new System.Drawing.Size(322, 181);
+            this.customerLCG.Size = new System.Drawing.Size(322, 212);
             this.customerLCG.TextVisible = false;
             // 
             // customerGCLCI
@@ -373,7 +552,7 @@
             this.customerGCLCI.Control = this.customerGCPC;
             this.customerGCLCI.Location = new System.Drawing.Point(0, 27);
             this.customerGCLCI.Name = "customerGCLCI";
-            this.customerGCLCI.Size = new System.Drawing.Size(302, 101);
+            this.customerGCLCI.Size = new System.Drawing.Size(302, 28);
             this.customerGCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.customerGCLCI.TextVisible = false;
             // 
@@ -389,11 +568,20 @@
             // addCustomerLCI
             // 
             this.addCustomerLCI.Control = this.addCustomerPC;
-            this.addCustomerLCI.Location = new System.Drawing.Point(0, 128);
+            this.addCustomerLCI.Location = new System.Drawing.Point(0, 162);
             this.addCustomerLCI.Name = "addCustomerLCI";
-            this.addCustomerLCI.Size = new System.Drawing.Size(302, 33);
+            this.addCustomerLCI.Size = new System.Drawing.Size(302, 30);
             this.addCustomerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addCustomerLCI.TextVisible = false;
+            // 
+            // emptyCustomerLCI
+            // 
+            this.emptyCustomerLCI.Control = this.emptyCustomerPC;
+            this.emptyCustomerLCI.Location = new System.Drawing.Point(0, 55);
+            this.emptyCustomerLCI.Name = "emptyCustomerLCI";
+            this.emptyCustomerLCI.Size = new System.Drawing.Size(302, 107);
+            this.emptyCustomerLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.emptyCustomerLCI.TextVisible = false;
             // 
             // formPC
             // 
@@ -410,7 +598,7 @@
             // 
             // customerReferenceErrorLC
             // 
-            this.customerReferenceErrorLC.Location = new System.Drawing.Point(136, 137);
+            this.customerReferenceErrorLC.Location = new System.Drawing.Point(136, 120);
             this.customerReferenceErrorLC.Name = "customerReferenceErrorLC";
             this.customerReferenceErrorLC.Size = new System.Drawing.Size(0, 13);
             this.customerReferenceErrorLC.TabIndex = 4;
@@ -424,13 +612,19 @@
             // 
             // customerReferenceTE
             // 
-            this.customerReferenceTE.Location = new System.Drawing.Point(136, 110);
+            this.customerReferenceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "CustomerReference", true));
+            this.customerReferenceTE.Location = new System.Drawing.Point(136, 94);
             this.customerReferenceTE.Name = "customerReferenceTE";
             this.customerReferenceTE.Size = new System.Drawing.Size(173, 20);
             this.customerReferenceTE.TabIndex = 3;
             // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
             // dateDE
             // 
+            this.dateDE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderBS, "Date", true));
             this.dateDE.EditValue = null;
             this.dateDE.Location = new System.Drawing.Point(136, 35);
             this.dateDE.Name = "dateDE";
@@ -443,7 +637,7 @@
             // 
             // customerReferenceLC
             // 
-            this.customerReferenceLC.Location = new System.Drawing.Point(15, 113);
+            this.customerReferenceLC.Location = new System.Drawing.Point(15, 97);
             this.customerReferenceLC.Name = "customerReferenceLC";
             this.customerReferenceLC.Size = new System.Drawing.Size(115, 13);
             this.customerReferenceLC.TabIndex = 1;
@@ -484,7 +678,7 @@
             this.customerLCI.Control = this.customerPC;
             this.customerLCI.Location = new System.Drawing.Point(0, 152);
             this.customerLCI.Name = "customerLCI";
-            this.customerLCI.Size = new System.Drawing.Size(330, 189);
+            this.customerLCI.Size = new System.Drawing.Size(330, 220);
             this.customerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.customerLCI.TextVisible = false;
             // 
@@ -493,30 +687,46 @@
             this.productsLCI.Control = this.productsPC;
             this.productsLCI.Location = new System.Drawing.Point(330, 0);
             this.productsLCI.Name = "productsLCI";
-            this.productsLCI.Size = new System.Drawing.Size(450, 341);
+            this.productsLCI.Size = new System.Drawing.Size(450, 372);
             this.productsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLCI.TextVisible = false;
             // 
             // buttonsLCI
             // 
             this.buttonsLCI.Control = this.buttonsPC;
-            this.buttonsLCI.Location = new System.Drawing.Point(0, 341);
+            this.buttonsLCI.Location = new System.Drawing.Point(0, 372);
             this.buttonsLCI.Name = "buttonsLCI";
-            this.buttonsLCI.Size = new System.Drawing.Size(780, 89);
+            this.buttonsLCI.Size = new System.Drawing.Size(780, 58);
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
             // V_AddEditPreOrderForm
             // 
+            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditPreOrderLC);
             this.Name = "V_AddEditPreOrderForm";
             this.Text = "V_AddEditPreOrderForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditPreOrderForm_FormClosed);
+            this.Load += new System.EventHandler(this.V_AddEditPreOrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).EndInit();
             this.addEditPreOrderLC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).EndInit();
+            this.buttonsPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).EndInit();
+            this.buttonsLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
+            this.cancelPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
+            this.acceptPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).EndInit();
             this.productsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsLC)).EndInit();
@@ -535,6 +745,7 @@
             this.customerPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customerLC)).EndInit();
             this.customerLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.emptyCustomerPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addCustomerPC)).EndInit();
             this.addCustomerPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customerLabelsPC)).EndInit();
@@ -548,10 +759,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerGCLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerLabelsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addCustomerLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyCustomerLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).EndInit();
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLCG)).EndInit();
@@ -608,5 +821,21 @@
         private DevExpress.XtraGrid.GridControl productsGC;
         private DevExpress.XtraGrid.Views.Grid.GridView productsGV;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource productsEIFS;
+        private System.Windows.Forms.BindingSource orderBS;
+        private DevExpress.XtraLayout.LayoutControl buttonsLC;
+        private DevExpress.XtraEditors.PanelControl cancelPC;
+        private DevExpress.XtraEditors.PanelControl acceptPC;
+        private DevExpress.XtraEditors.PanelControl emptyPC;
+        private DevExpress.XtraLayout.LayoutControlGroup buttonsLCG;
+        private DevExpress.XtraLayout.LayoutControlItem emptyLCI;
+        private DevExpress.XtraLayout.LayoutControlItem acceptLCI;
+        private DevExpress.XtraLayout.LayoutControlItem cancelLCI;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductName;
+        private DevExpress.XtraGrid.Columns.GridColumn colQty;
+        private DevExpress.XtraEditors.SimpleButton cancelSB;
+        private DevExpress.XtraEditors.SimpleButton acceptSB;
+        private DevExpress.XtraEditors.PanelControl emptyCustomerPC;
+        private DevExpress.XtraLayout.LayoutControlItem emptyCustomerLCI;
     }
 }

@@ -149,11 +149,11 @@
                 var product = (Data.ORM.Product)productBS.Current;
                 foreach (var origin in product.Origins)
                 {
-                    if (providersGV.GetRow(e.RowHandle) is Data.ORM.Origin row)
+                    if (originsSLUEV.GetRow(e.RowHandle) is Data.ORM.Origin row)
                     {
                         if (row.OriginId == origin.OriginId)
                         {
-                            providersGV.SelectRow(e.RowHandle);
+                            originsSLUEV.SelectRow(e.RowHandle);
                         }
                     }
                 }
@@ -202,6 +202,7 @@
 
             providersEIFS.Refresh();
             providersEIFS.GetQueryable += ProvidersEIFS_GetQueryable;
+            originsEIFS.Refresh();
             originsEIFS.GetQueryable += OriginsEIFS_GetQueryable;
             productBS.ResetBindings(true);
             productBS.DataSource = new Data.ORM.Product();
