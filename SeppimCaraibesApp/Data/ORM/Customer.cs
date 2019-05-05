@@ -1,12 +1,8 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class Customer
+    internal partial class Customer
     {
         [StringLength(50)]
         public string CustomerId { get; set; }

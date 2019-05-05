@@ -1,9 +1,33 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
+    using System.Data.Entity;
     using System.Linq;
 
     internal class Product
     {
+        public DbSet<Data.POCO.ProductsOrders> GetProductsOrders(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var rProduct = new Data.Repository.ProductRepository();
+            var products = rProduct.GetProducts(context);
+            DbSet<Data.POCO.ProductsOrders> list = null;
+
+            foreach (var product in products)
+            {
+                var productOrder = new Data.POCO.ProductsOrders
+                {
+                    ProductId = product.ProductId,
+                    ProductName = product.ProductName,
+                    Qty = 0,
+                    Discount = 0,
+                    Interests = 0,
+                };
+
+                list.Add(productOrder);
+            }
+
+            return list;
+        }
+
         public Data.ORM.Product GetProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rProduct = new Data.Repository.ProductRepository();

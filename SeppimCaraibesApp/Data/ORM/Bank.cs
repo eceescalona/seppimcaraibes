@@ -1,12 +1,8 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class Bank
+    internal partial class Bank
     {
         public int BankId { get; set; }
 

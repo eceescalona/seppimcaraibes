@@ -48,6 +48,7 @@ namespace SeppimCaraibesApp.Domain.View.Product
         }
         #endregion
 
+
         private void V_ListProductsForm_Load(object sender, EventArgs e)
         {
             productsEIFS.GetQueryable += ProductEIFS_GetQueryable;

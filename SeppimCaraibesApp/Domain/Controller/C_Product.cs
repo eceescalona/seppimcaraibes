@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Data.Entity;
     using System.Reflection;
 
     internal class C_Product : IDisposable
@@ -15,6 +16,12 @@
         {
             _mProduct = new Model.Product();
             _context = new Data.ORM.SeppimCaraibesLocalEntities();
+        }
+
+        public C_Product(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            _context = context;
+            _mProduct = new Model.Product();
         }
 
 
@@ -90,6 +97,11 @@
 
 
         #region ProductManage
+        public DbSet<Data.POCO.ProductsOrders> FillProductsOrders()
+        {
+            return _mProduct.GetProductsOrders(_context);
+        }
+
         public void AddProduct(IAddEditProduct addEditProduct, Data.ORM.Product product)
         {
             string message = string.Format("El producto {0} ha sido registrado satisfactoriamente.", product.ProductName);

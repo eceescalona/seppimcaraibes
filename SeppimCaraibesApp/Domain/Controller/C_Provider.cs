@@ -3,11 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
     using System.Net.Mail;
     using System.Reflection;
-    using System.Text;
-    using System.Threading.Tasks;
 
     internal class C_Provider : IDisposable
     {

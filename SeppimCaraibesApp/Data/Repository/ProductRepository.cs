@@ -1,7 +1,14 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
+    using System.Data.Entity;
+
     internal class ProductRepository
     {
+        public DbSet<ORM.Product> GetProducts(ORM.SeppimCaraibesLocalEntities context)
+        {
+            return context.Products;
+        }
+
         public ORM.Product GetProduct(ORM.SeppimCaraibesLocalEntities context, string code)
         {
             return context.Products.Find(code);

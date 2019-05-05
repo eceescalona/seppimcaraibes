@@ -103,6 +103,7 @@
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />
@@ -112,9 +113,11 @@
     <Compile Include="Domain\Controller\C_Product.cs" />
     <Compile Include="Domain\Controller\C_Provider.cs" />
     <Compile Include="Domain\Controller\IAddEditCustomer.cs" />
+    <Compile Include="Domain\Controller\IAddEditOrder.cs" />
     <Compile Include="Domain\Controller\IAddEditProduct.cs" />
     <Compile Include="Domain\Controller\IAddEditProvider.cs" />
     <Compile Include="Domain\Controller\IListCustomers.cs" />
+    <Compile Include="Domain\Controller\IListOrders.cs" />
     <Compile Include="Domain\Controller\IListProducts.cs" />
     <Compile Include="Domain\Controller\IListProviders.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
@@ -219,6 +222,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Customer\V_ListCustomersForm.resx">
       <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_AddEditPreOrderForm.resx">
+      <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_ListPreOrdersForm.resx">
+      <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
       <DependentUpon>V_AddEditProductForm.cs</DependentUpon>

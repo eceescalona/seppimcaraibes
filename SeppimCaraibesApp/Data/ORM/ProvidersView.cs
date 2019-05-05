@@ -1,13 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("ProvidersView")]
-    public partial class ProvidersView
+    internal partial class ProvidersView
     {
         [Key]
         [Column("Provider Code", Order = 0)]
