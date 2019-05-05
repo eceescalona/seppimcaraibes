@@ -26,7 +26,7 @@
         #endregion
 
 
-        private bool Validate(Data.ORM.Order order, out Dictionary<string, string> fields)
+        private bool Validate(Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews, out Dictionary<string, string> fields)
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
@@ -49,7 +49,7 @@
                 fields.Add(field, message);
             }
 
-            if (order.ProductsOrders == null || order.ProductsOrders.Count <= 0)
+            if (productsOrdersViews == null || productsOrdersViews.Count <= 0)
             {
                 flag = false;
                 field = "productsGC";
@@ -91,6 +91,11 @@
             }
         }
 
+        private string Message(params object[] value)
+        {
+            return string.Format("La orden {0} ha sido registrado satisfactoriamente.", value);
+        }
+
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
             return _context;
@@ -116,30 +121,14 @@
         #region OrderManage
         public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
         {
-            order.OrderId = OrderCode(DateTime.Parse(order.Date.ToString()));
 
-            string message = string.Format("La orden {0} ha sido registrado satisfactoriamente.", order.OrderId);
-
-            var productsOrders = new List<Data.ORM.ProductsOrder>();
-            foreach (var product in productsOrdersViews)
+            if (Validate(order, productsOrdersViews, out Dictionary<string, string> fields))
             {
-                var productOrder = new Data.ORM.ProductsOrder
-                {
-                    OrderId = order.OrderId,
-                    ProductId = product.ProductId,
-                    Qty = product.Qty,
-                    Discount = product.Discount,
-                    Interests = product.Interests
-                };
+                order.OrderId = OrderCode(DateTime.Parse(order.Date.ToString()));
 
-                productsOrders.Add(productOrder);
-            }
-            order.ProductsOrders = productsOrders;
+                _mOrder.AddOrder(_context, order, productsOrdersViews);
 
-            if (Validate(order, out Dictionary<string, string> fields))
-            {
-                _mOrder.AddOrder(_context, order);
-                addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
+                addEditOrder.ShowMessage(ETypeOfMessage.Information, Message(new object[] { order.OrderId }));
             }
             else
             {
@@ -157,25 +146,9 @@
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
 
-            var productsOrders = new List<Data.ORM.ProductsOrder>();
-            foreach (var product in productsOrdersViews)
+            if (Validate(order, productsOrdersViews, out Dictionary<string, string> fields))
             {
-                var productOrder = new Data.ORM.ProductsOrder
-                {
-                    OrderId = order.OrderId,
-                    ProductId = product.ProductId,
-                    Qty = product.Qty,
-                    Discount = product.Discount,
-                    Interests = product.Interests
-                };
-
-                productsOrders.Add(productOrder);
-            }
-            order.ProductsOrders = productsOrders;
-
-            if (Validate(order, out Dictionary<string, string> fields))
-            {
-                _mOrder.EditOrder(_context, order);
+                _mOrder.EditOrder(_context, order, productsOrdersViews);
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
