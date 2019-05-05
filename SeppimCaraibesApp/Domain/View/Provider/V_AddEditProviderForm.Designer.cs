@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.addEditProviderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonLC = new DevExpress.XtraLayout.LayoutControl();
@@ -45,15 +44,23 @@
             this.productsGC = new DevExpress.XtraEditors.GroupControl();
             this.productsGCLC = new DevExpress.XtraLayout.LayoutControl();
             this.productsErrorLCPC = new DevExpress.XtraEditors.PanelControl();
+            this.productsErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.addProductPC = new DevExpress.XtraEditors.PanelControl();
             this.addProductSP = new DevExpress.XtraEditors.SimpleButton();
             this.productsGCPC = new DevExpress.XtraEditors.PanelControl();
+            this.productsGridC = new DevExpress.XtraGrid.GridControl();
+            this.productsEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colProductId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.addProductLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productErrorLCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.providerPC = new DevExpress.XtraEditors.PanelControl();
             this.addressME = new DevExpress.XtraEditors.MemoEdit();
+            this.providerBS = new System.Windows.Forms.BindingSource();
             this.emailErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.codeErrorLC = new DevExpress.XtraEditors.LabelControl();
@@ -70,14 +77,6 @@
             this.providerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.providerBS = new System.Windows.Forms.BindingSource(this.components);
-            this.productsErrorLC = new DevExpress.XtraEditors.LabelControl();
-            this.productsGridC = new DevExpress.XtraGrid.GridControl();
-            this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.productsEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
-            this.colProductId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditProviderLC)).BeginInit();
             this.addEditProviderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonPC)).BeginInit();
@@ -105,6 +104,8 @@
             this.addProductPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGCPC)).BeginInit();
             this.productsGCPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGridC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGCLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProductLCI)).BeginInit();
@@ -112,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.providerPC)).BeginInit();
             this.providerPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTE.Properties)).BeginInit();
@@ -120,9 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.providerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsGridC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditProviderLC
@@ -258,7 +257,7 @@
             this.productsGC.Name = "productsGC";
             this.productsGC.Size = new System.Drawing.Size(374, 363);
             this.productsGC.TabIndex = 0;
-            this.productsGC.Text = "Productos*:";
+            this.productsGC.Text = "Producto(s)*:";
             // 
             // productsGCLC
             // 
@@ -276,17 +275,27 @@
             // productsErrorLCPC
             // 
             this.productsErrorLCPC.Controls.Add(this.productsErrorLC);
+            this.productsErrorLCPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsErrorLCPC.Location = new System.Drawing.Point(12, 12);
             this.productsErrorLCPC.Name = "productsErrorLCPC";
-            this.productsErrorLCPC.Size = new System.Drawing.Size(346, 20);
+            this.productsErrorLCPC.Size = new System.Drawing.Size(164, 17);
             this.productsErrorLCPC.TabIndex = 5;
+            // 
+            // productsErrorLC
+            // 
+            this.productsErrorLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productsErrorLC.Location = new System.Drawing.Point(2, 2);
+            this.productsErrorLC.Name = "productsErrorLC";
+            this.productsErrorLC.Size = new System.Drawing.Size(160, 13);
+            this.productsErrorLC.TabIndex = 0;
+            this.productsErrorLC.Text = "Debe elegir al menos un producto";
             // 
             // addProductPC
             // 
             this.addProductPC.Controls.Add(this.addProductSP);
-            this.addProductPC.Location = new System.Drawing.Point(12, 300);
+            this.addProductPC.Location = new System.Drawing.Point(12, 303);
             this.addProductPC.Name = "addProductPC";
-            this.addProductPC.Size = new System.Drawing.Size(346, 29);
+            this.addProductPC.Size = new System.Drawing.Size(346, 26);
             this.addProductPC.TabIndex = 0;
             // 
             // addProductSP
@@ -294,7 +303,7 @@
             this.addProductSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addProductSP.Location = new System.Drawing.Point(2, 2);
             this.addProductSP.Name = "addProductSP";
-            this.addProductSP.Size = new System.Drawing.Size(342, 25);
+            this.addProductSP.Size = new System.Drawing.Size(342, 22);
             this.addProductSP.TabIndex = 0;
             this.addProductSP.Text = "Adicionar Nuevo Producto";
             this.addProductSP.Click += new System.EventHandler(this.AddProductSP_Click);
@@ -302,10 +311,68 @@
             // productsGCPC
             // 
             this.productsGCPC.Controls.Add(this.productsGridC);
-            this.productsGCPC.Location = new System.Drawing.Point(12, 36);
+            this.productsGCPC.Location = new System.Drawing.Point(12, 33);
             this.productsGCPC.Name = "productsGCPC";
-            this.productsGCPC.Size = new System.Drawing.Size(346, 260);
+            this.productsGCPC.Size = new System.Drawing.Size(346, 266);
             this.productsGCPC.TabIndex = 4;
+            // 
+            // productsGridC
+            // 
+            this.productsGridC.DataSource = this.productsEIFS;
+            this.productsGridC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productsGridC.Location = new System.Drawing.Point(2, 2);
+            this.productsGridC.MainView = this.productsGV;
+            this.productsGridC.Name = "productsGridC";
+            this.productsGridC.Size = new System.Drawing.Size(342, 262);
+            this.productsGridC.TabIndex = 0;
+            this.productsGridC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.productsGV});
+            // 
+            // productsEIFS
+            // 
+            this.productsEIFS.AreSourceRowsThreadSafe = true;
+            this.productsEIFS.DefaultSorting = "ProductName ASC";
+            this.productsEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Product);
+            this.productsEIFS.KeyExpression = "ProductId";
+            // 
+            // productsGV
+            // 
+            this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colProductId,
+            this.colProductName,
+            this.colProductDescription});
+            this.productsGV.GridControl = this.productsGridC;
+            this.productsGV.Name = "productsGV";
+            this.productsGV.OptionsSelection.MultiSelect = true;
+            this.productsGV.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.productsGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ProductsGV_RowStyle);
+            // 
+            // colProductId
+            // 
+            this.colProductId.Caption = "Código";
+            this.colProductId.FieldName = "ProductId";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.Visible = true;
+            this.colProductId.VisibleIndex = 1;
+            this.colProductId.Width = 97;
+            // 
+            // colProductName
+            // 
+            this.colProductName.Caption = "Nombre";
+            this.colProductName.FieldName = "ProductName";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.Visible = true;
+            this.colProductName.VisibleIndex = 2;
+            this.colProductName.Width = 97;
+            // 
+            // colProductDescription
+            // 
+            this.colProductDescription.Caption = "Descripción";
+            this.colProductDescription.FieldName = "ProductDescription";
+            this.colProductDescription.Name = "colProductDescription";
+            this.colProductDescription.Visible = true;
+            this.colProductDescription.VisibleIndex = 3;
+            this.colProductDescription.Width = 104;
             // 
             // productsLCG
             // 
@@ -322,18 +389,18 @@
             // productsGCLCI
             // 
             this.productsGCLCI.Control = this.productsGCPC;
-            this.productsGCLCI.Location = new System.Drawing.Point(0, 24);
+            this.productsGCLCI.Location = new System.Drawing.Point(0, 21);
             this.productsGCLCI.Name = "productsGCLCI";
-            this.productsGCLCI.Size = new System.Drawing.Size(350, 264);
+            this.productsGCLCI.Size = new System.Drawing.Size(350, 270);
             this.productsGCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsGCLCI.TextVisible = false;
             // 
             // addProductLCI
             // 
             this.addProductLCI.Control = this.addProductPC;
-            this.addProductLCI.Location = new System.Drawing.Point(0, 288);
+            this.addProductLCI.Location = new System.Drawing.Point(0, 291);
             this.addProductLCI.Name = "addProductLCI";
-            this.addProductLCI.Size = new System.Drawing.Size(350, 33);
+            this.addProductLCI.Size = new System.Drawing.Size(350, 30);
             this.addProductLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addProductLCI.TextVisible = false;
             // 
@@ -342,7 +409,7 @@
             this.productErrorLCLCI.Control = this.productsErrorLCPC;
             this.productErrorLCLCI.Location = new System.Drawing.Point(0, 0);
             this.productErrorLCLCI.Name = "productErrorLCLCI";
-            this.productErrorLCLCI.Size = new System.Drawing.Size(350, 24);
+            this.productErrorLCLCI.Size = new System.Drawing.Size(350, 21);
             this.productErrorLCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productErrorLCLCI.TextVisible = false;
             // 
@@ -373,6 +440,10 @@
             this.addressME.Name = "addressME";
             this.addressME.Size = new System.Drawing.Size(270, 96);
             this.addressME.TabIndex = 13;
+            // 
+            // providerBS
+            // 
+            this.providerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Provider);
             // 
             // emailErrorLC
             // 
@@ -506,77 +577,6 @@
             this.buttonLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonLCI.TextVisible = false;
             // 
-            // providerBS
-            // 
-            this.providerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Provider);
-            // 
-            // productsErrorLC
-            // 
-            this.productsErrorLC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productsErrorLC.Location = new System.Drawing.Point(2, 2);
-            this.productsErrorLC.Name = "productsErrorLC";
-            this.productsErrorLC.Size = new System.Drawing.Size(160, 13);
-            this.productsErrorLC.TabIndex = 0;
-            this.productsErrorLC.Text = "Debe elegir al menos un producto";
-            // 
-            // productsGridC
-            // 
-            this.productsGridC.DataSource = this.productsEIFS;
-            this.productsGridC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productsGridC.Location = new System.Drawing.Point(2, 2);
-            this.productsGridC.MainView = this.productsGV;
-            this.productsGridC.Name = "productsGridC";
-            this.productsGridC.Size = new System.Drawing.Size(342, 256);
-            this.productsGridC.TabIndex = 0;
-            this.productsGridC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.productsGV});
-            // 
-            // productsGV
-            // 
-            this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colProductId,
-            this.colProductName,
-            this.colProductDescription});
-            this.productsGV.GridControl = this.productsGridC;
-            this.productsGV.Name = "productsGV";
-            this.productsGV.OptionsSelection.MultiSelect = true;
-            this.productsGV.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.productsGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ProductsGV_RowStyle);
-            // 
-            // productsEIFS
-            // 
-            this.productsEIFS.AreSourceRowsThreadSafe = true;
-            this.productsEIFS.DefaultSorting = "ProductName ASC";
-            this.productsEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Product);
-            this.productsEIFS.KeyExpression = "ProductId";
-            // 
-            // colProductId
-            // 
-            this.colProductId.Caption = "Código";
-            this.colProductId.FieldName = "ProductId";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.Visible = true;
-            this.colProductId.VisibleIndex = 1;
-            this.colProductId.Width = 97;
-            // 
-            // colProductName
-            // 
-            this.colProductName.Caption = "Nombre";
-            this.colProductName.FieldName = "ProductName";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.Visible = true;
-            this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 97;
-            // 
-            // colProductDescription
-            // 
-            this.colProductDescription.Caption = "Descripción";
-            this.colProductDescription.FieldName = "ProductDescription";
-            this.colProductDescription.Name = "colProductDescription";
-            this.colProductDescription.Visible = true;
-            this.colProductDescription.VisibleIndex = 3;
-            this.colProductDescription.Width = 104;
-            // 
             // V_AddEditProviderForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -617,6 +617,8 @@
             this.addProductPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsGCPC)).EndInit();
             this.productsGCPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.productsGridC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGCLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProductLCI)).EndInit();
@@ -625,6 +627,7 @@
             this.providerPC.ResumeLayout(false);
             this.providerPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTE.Properties)).EndInit();
@@ -633,9 +636,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.providerLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsGridC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsGV)).EndInit();
             this.ResumeLayout(false);
 
         }

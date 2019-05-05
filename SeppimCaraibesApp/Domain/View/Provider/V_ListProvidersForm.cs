@@ -2,13 +2,7 @@
 {
     using DevExpress.XtraEditors;
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     internal partial class V_ListProvidersForm : Form, Controller.IListProviders
@@ -16,12 +10,12 @@
         private const string NAME_FORM = "Listar Proveedores";
         private const string DELETE_MESSAGE = "Si elimina al proveedor del sistema, este desaparecerá permanentemente del mismo. " +
             "¿Está seguro(a) de querer eliminar al proveedor ";
-        private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo proveedor. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
-            " Gracias y disculpe las molestias.";
-        private const string EDIT_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo editar al proveedor. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
-            " Gracias y disculpe las molestias.";
-        private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar al proveedor. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
-            " Gracias y disculpe las molestias.";
+        private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo proveedor. Porfavor vuelva a intentarlo. " +
+            "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string EDIT_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo editar al proveedor. Porfavor vuelva a intentarlo. " +
+            "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar al proveedor. Porfavor vuelva a intentarlo. " +
+            "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
 
         private Controller.C_Provider _cProvider;

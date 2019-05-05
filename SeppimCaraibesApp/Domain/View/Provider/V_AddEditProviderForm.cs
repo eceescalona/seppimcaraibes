@@ -2,12 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     internal partial class V_AddEditProviderForm : Form, Controller.IAddEditProvider
@@ -326,7 +322,7 @@
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
 

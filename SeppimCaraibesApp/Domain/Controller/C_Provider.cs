@@ -68,6 +68,14 @@
                 }
             }
 
+            if (provider.Products == null)
+            {
+                flag = false;
+                field = "productsGridC";
+                message = "El Campo Productos no puede ser vacío.";
+                fields.Add(field, message);
+            }
+
             return flag;
         }
 
