@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace SeppimCaraibesApp.Data.POCO
+﻿namespace SeppimCaraibesApp.Data.ORM
 {
-    internal partial class ProductsOrders
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    internal partial class ProductsOrdersView
     {
         [Key]
         [Column(Order = 0)]

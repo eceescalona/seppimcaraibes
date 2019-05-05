@@ -30,7 +30,7 @@
             throw new NotImplementedException();
         }
 
-        public void FillProductsOrder(DbSet<Data.POCO.ProductsOrders> productsOrders)
+        public void FillProductsOrder(DbSet<Data.ORM.ProductsOrdersView> productsOrders)
         {
             throw new NotImplementedException();
         }

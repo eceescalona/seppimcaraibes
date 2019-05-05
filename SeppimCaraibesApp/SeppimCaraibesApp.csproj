@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ORM\Add\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
     <Compile Include="Data\ORM\CustomersView.cs" />
@@ -103,7 +104,7 @@
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
-    <Compile Include="Data\POCO\ProductsOrders.cs" />
+    <Compile Include="Data\POCO\ProductsOrdersView.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />

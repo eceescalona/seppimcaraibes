@@ -97,7 +97,7 @@
 
 
         #region ProductManage
-        public DbSet<Data.POCO.ProductsOrders> FillProductsOrders()
+        public DbSet<Data.ORM.ProductsOrdersView> FillProductsOrders()
         {
             return _mProduct.GetProductsOrders(_context);
         }
