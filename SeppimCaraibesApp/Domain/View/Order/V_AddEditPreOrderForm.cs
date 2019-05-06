@@ -1,4 +1,5 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Order
+﻿using System.Data.Entity;
+namespace SeppimCaraibesApp.Domain.View.Order
 {
     using System;
     using System.Collections.Generic;
@@ -27,7 +28,6 @@
         private Controller.C_Order _cOrder;
         private Controller.C_Product _cProduct;
         private bool _isCOrderAlive;
-        private bool _isCProductAlive;
         private bool _isAddOrEdit;
         private bool _isFieldWithError;
         private string _idCustomer;
@@ -42,14 +42,11 @@
             _cOrder = new Controller.C_Order();
             _cProduct = new Controller.C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
-            _isCProductAlive = true;
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
-            orderBS.DataSource = new Data.ORM.Order();
         }
 
         public V_AddEditPreOrderForm(Controller.C_Order cOrder)
@@ -60,13 +57,11 @@
             _cOrder = cOrder;
             _cProduct = new Controller.C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
-            _isCProductAlive = true;
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
             orderBS.DataSource = new Data.ORM.Order();
         }
 
@@ -78,7 +73,6 @@
             _cOrder = cOrder;
             _cProduct = new Controller.C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
-            _isCProductAlive = true;
             _isAddOrEdit = true;
             _isFieldWithError = false;
             _idCustomer = string.Empty;
@@ -86,7 +80,6 @@
             _cOrder.EditOrder(this, code);
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
             orderBS.DataSource = new Data.ORM.Order();
         }
         #endregion
@@ -98,17 +91,13 @@
             {
                 customerSLUE.Enabled = false;
             }
+            productsBS.DataSource = _cProduct.FillProductsOrders().Local.ToBindingList();
         }
 
         void CustomerEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = new Data.ORM.SeppimCaraibesLocalEntities();
             e.QueryableSource = dataContext.Customers;
-        }
-
-        void ProductEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
-        {
-            e.QueryableSource = _cProduct.FillProductsOrders();
         }
 
         private void ProductsGV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
@@ -149,7 +138,6 @@
         }
 
 
-
         #region IAddEditOrder
         public void EditOrder(Data.ORM.Order order)
         {
@@ -183,12 +171,12 @@
             productsErrorLC.LineColor = Color.Black;
             productsErrorLC.ForeColor = Color.Black;
 
-            productsEIFS.Refresh();
-            productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
             customerEIFS.Refresh();
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             orderBS.ResetBindings(true);
             orderBS.DataSource = new Data.ORM.Order();
+            productsBS.ResetBindings(true);
+            productsBS.DataSource = _cProduct.FillProductsOrders().Local.ToBindingList();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -322,7 +310,6 @@
                 if (_isAddOrEdit)
                 {
                     _cOrder.EditOrder(this, order, products);
-                    _isCProductAlive = true;
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -347,7 +334,6 @@
                 }
                 else if (result == DialogResult.Abort)
                 {
-                    _isCProductAlive = true;
                     DialogResult = DialogResult.Abort;
                     Close();
                 }
@@ -374,16 +360,6 @@
 
         private void V_AddEditPreOrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (_isCProductAlive)
-            {
-                Dispose();
-                _cProduct.Dispose();
-            }
-            else
-            {
-                Dispose();
-            }
-
             if (_isCOrderAlive)
                 Dispose();
             else

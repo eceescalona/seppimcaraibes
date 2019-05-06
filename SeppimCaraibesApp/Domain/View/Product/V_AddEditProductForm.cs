@@ -66,6 +66,7 @@
 
         public V_AddEditProductForm(Controller.C_Product cProduct, string code)
         {
+            InitializeComponent();
             Text = NAME_FORM_EDIT;
 
             _cProduct = cProduct;

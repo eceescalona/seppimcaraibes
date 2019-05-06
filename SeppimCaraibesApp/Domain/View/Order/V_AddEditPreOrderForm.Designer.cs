@@ -47,7 +47,7 @@
             this.productsLabelC = new DevExpress.XtraEditors.LabelControl();
             this.productsGCPC = new DevExpress.XtraEditors.PanelControl();
             this.productsGC = new DevExpress.XtraGrid.GridControl();
-            this.productsEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.productsBS = new System.Windows.Forms.BindingSource();
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -111,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsGCPC)).BeginInit();
             this.productsGCPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGCLCI)).BeginInit();
@@ -319,7 +320,7 @@
             // 
             // productsGC
             // 
-            this.productsGC.DataSource = this.productsEIFS;
+            this.productsGC.DataSource = this.productsBS;
             this.productsGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsGC.Location = new System.Drawing.Point(2, 2);
             this.productsGC.MainView = this.productsGV;
@@ -329,12 +330,9 @@
             this.productsGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
             // 
-            // productsEIFS
+            // productsBS
             // 
-            this.productsEIFS.AreSourceRowsThreadSafe = true;
-            this.productsEIFS.DefaultSorting = "ProductName ASC";
-            this.productsEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.ProductsOrdersView);
-            this.productsEIFS.KeyExpression = "ProductId";
+            this.productsBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.ProductsOrdersView);
             // 
             // productsGV
             // 
@@ -737,6 +735,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsGCPC)).EndInit();
             this.productsGCPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsGC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGCLCI)).EndInit();
@@ -820,7 +819,6 @@
         private DevExpress.XtraEditors.LabelControl productsLabelC;
         private DevExpress.XtraGrid.GridControl productsGC;
         private DevExpress.XtraGrid.Views.Grid.GridView productsGV;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource productsEIFS;
         private System.Windows.Forms.BindingSource orderBS;
         private DevExpress.XtraLayout.LayoutControl buttonsLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
@@ -837,5 +835,6 @@
         private DevExpress.XtraEditors.SimpleButton acceptSB;
         private DevExpress.XtraEditors.PanelControl emptyCustomerPC;
         private DevExpress.XtraLayout.LayoutControlItem emptyCustomerLCI;
+        private System.Windows.Forms.BindingSource productsBS;
     }
 }

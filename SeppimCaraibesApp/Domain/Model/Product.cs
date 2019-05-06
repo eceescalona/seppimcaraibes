@@ -1,5 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
@@ -9,7 +10,6 @@
         {
             var rProduct = new Data.Repository.ProductRepository();
             var products = rProduct.GetProducts(context);
-
             foreach (var product in products)
             {
                 var productOrder = new Data.ORM.ProductsOrdersView
@@ -46,6 +46,7 @@
         {
             var rProduct = new Data.Repository.ProductRepository();
             rProduct.EditProduct(context, product);
+            context.Entry(product).Reload();
         }
 
         public void DeleteProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)

@@ -65,6 +65,8 @@
             this.providerErrorLCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.addProviderLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productPC = new DevExpress.XtraEditors.PanelControl();
+            this.originErrorLC = new DevExpress.XtraEditors.LabelControl();
+            this.originLC = new DevExpress.XtraEditors.LabelControl();
             this.salePriceTE = new DevExpress.XtraEditors.TextEdit();
             this.qtyPriceTE = new DevExpress.XtraEditors.TextEdit();
             this.qtyUnitsTE = new DevExpress.XtraEditors.TextEdit();
@@ -90,8 +92,6 @@
             this.buttonLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptyOriginsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productBS = new System.Windows.Forms.BindingSource();
-            this.originLC = new DevExpress.XtraEditors.LabelControl();
-            this.originErrorLC = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.addEditProductLC)).BeginInit();
             this.addEditProductLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptyOriginsPC)).BeginInit();
@@ -522,8 +522,25 @@
             this.productPC.Size = new System.Drawing.Size(408, 295);
             this.productPC.TabIndex = 4;
             // 
+            // originErrorLC
+            // 
+            this.originErrorLC.Location = new System.Drawing.Point(118, 277);
+            this.originErrorLC.Name = "originErrorLC";
+            this.originErrorLC.Size = new System.Drawing.Size(136, 13);
+            this.originErrorLC.TabIndex = 0;
+            this.originErrorLC.Text = "Debe elegir al menos un país";
+            // 
+            // originLC
+            // 
+            this.originLC.Location = new System.Drawing.Point(14, 277);
+            this.originLC.Name = "originLC";
+            this.originLC.Size = new System.Drawing.Size(48, 13);
+            this.originLC.TabIndex = 18;
+            this.originLC.Text = "País(es)*:";
+            // 
             // salePriceTE
             // 
+            this.salePriceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "SalePrice", true));
             this.salePriceTE.Location = new System.Drawing.Point(303, 251);
             this.salePriceTE.Name = "salePriceTE";
             this.salePriceTE.Size = new System.Drawing.Size(100, 20);
@@ -531,6 +548,7 @@
             // 
             // qtyPriceTE
             // 
+            this.qtyPriceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "QtyPrice", true));
             this.qtyPriceTE.Location = new System.Drawing.Point(65, 251);
             this.qtyPriceTE.Name = "qtyPriceTE";
             this.qtyPriceTE.Size = new System.Drawing.Size(100, 20);
@@ -538,6 +556,7 @@
             // 
             // qtyUnitsTE
             // 
+            this.qtyUnitsTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "QtyUnits", true));
             this.qtyUnitsTE.Location = new System.Drawing.Point(303, 206);
             this.qtyUnitsTE.Name = "qtyUnitsTE";
             this.qtyUnitsTE.Size = new System.Drawing.Size(100, 20);
@@ -545,6 +564,7 @@
             // 
             // unitPriceTE
             // 
+            this.unitPriceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "UnitPrice", true));
             this.unitPriceTE.Location = new System.Drawing.Point(65, 206);
             this.unitPriceTE.Name = "unitPriceTE";
             this.unitPriceTE.Size = new System.Drawing.Size(100, 20);
@@ -552,6 +572,7 @@
             // 
             // customCodeTE
             // 
+            this.customCodeTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "CustomsCode", true));
             this.customCodeTE.Location = new System.Drawing.Point(118, 158);
             this.customCodeTE.Name = "customCodeTE";
             this.customCodeTE.Size = new System.Drawing.Size(216, 20);
@@ -559,6 +580,7 @@
             // 
             // descriptionME
             // 
+            this.descriptionME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "ProductDescription", true));
             this.descriptionME.Location = new System.Drawing.Point(118, 118);
             this.descriptionME.Name = "descriptionME";
             this.descriptionME.Size = new System.Drawing.Size(285, 34);
@@ -573,6 +595,7 @@
             // 
             // nameME
             // 
+            this.nameME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "ProductName", true));
             this.nameME.Location = new System.Drawing.Point(118, 57);
             this.nameME.Name = "nameME";
             this.nameME.Size = new System.Drawing.Size(285, 36);
@@ -587,6 +610,7 @@
             // 
             // codeTE
             // 
+            this.codeTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "ProductId", true));
             this.codeTE.Location = new System.Drawing.Point(118, 12);
             this.codeTE.Name = "codeTE";
             this.codeTE.Size = new System.Drawing.Size(214, 20);
@@ -718,22 +742,6 @@
             // productBS
             // 
             this.productBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Product);
-            // 
-            // originLC
-            // 
-            this.originLC.Location = new System.Drawing.Point(14, 277);
-            this.originLC.Name = "originLC";
-            this.originLC.Size = new System.Drawing.Size(48, 13);
-            this.originLC.TabIndex = 18;
-            this.originLC.Text = "País(es)*:";
-            // 
-            // originErrorLC
-            // 
-            this.originErrorLC.Location = new System.Drawing.Point(118, 277);
-            this.originErrorLC.Name = "originErrorLC";
-            this.originErrorLC.Size = new System.Drawing.Size(136, 13);
-            this.originErrorLC.TabIndex = 0;
-            this.originErrorLC.Text = "Debe elegir al menos un país";
             // 
             // V_AddEditProductForm
             // 
