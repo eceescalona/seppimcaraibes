@@ -43,12 +43,12 @@ namespace SeppimCaraibesApp.Data.ORM
         public string Customer_Address { get; set; }
 
         [Column("Payment Option")]
-        public byte? Payment_Option { get; set; }
+        public PaymentOption Payment_Option { get; set; }
 
         [Column("Shipping Method")]
-        public byte? Shipping_Method { get; set; }
+        public ShippingMethod Shipping_Method { get; set; }
 
-        public byte? Devise { get; set; }
+        public Devise Devise { get; set; }
 
         [StringLength(250)]
         public string Incoterm { get; set; }

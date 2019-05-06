@@ -124,7 +124,7 @@
 
             if (Validate(order, productsOrdersViews, out Dictionary<string, string> fields))
             {
-                order.OrderId = OrderCode(DateTime.Parse(order.Date.ToString()));
+                order.OrderId = OrderCode(order.Date.GetValueOrDefault());
 
                 _mOrder.AddOrder(_context, order, productsOrdersViews);
 

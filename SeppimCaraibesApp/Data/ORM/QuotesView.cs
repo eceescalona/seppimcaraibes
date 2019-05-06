@@ -46,12 +46,12 @@ namespace SeppimCaraibesApp.Data.ORM
         public string Customer_Address { get; set; }
 
         [Column("Payment Option")]
-        public byte? Payment_Option { get; set; }
+        public PaymentOption Payment_Option { get; set; }
 
         [Column("Shipping Method")]
-        public byte? Shipping_Method { get; set; }
+        public ShippingMethod Shipping_Method { get; set; }
 
-        public byte? Devise { get; set; }
+        public Devise Devise { get; set; }
 
         [StringLength(250)]
         public string Incoterm { get; set; }
@@ -78,7 +78,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public decimal? Freight { get; set; }
 
         [Column("CPT-CFR")]
-        public byte? CPT_CFR { get; set; }
+        public CptCfr CPT_CFR { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }

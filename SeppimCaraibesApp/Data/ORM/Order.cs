@@ -32,14 +32,14 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public int? Period { get; set; }
 
-        public byte? PeriodState { get; set; }
+        public PeriodState PeriodState { get; set; }
 
         [StringLength(250)]
         public string Incoterm { get; set; }
 
-        public byte? Devise { get; set; }
+        public Devise Devise { get; set; }
 
-        public byte? PaymentOption { get; set; }
+        public PaymentOption PaymentOption { get; set; }
 
         public double? TotalDiscount { get; set; }
 
@@ -59,13 +59,13 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public double? TotalCost { get; set; }
 
-        public byte? CptCfr { get; set; }
+        public CptCfr CptCfr { get; set; }
 
-        public byte? OrderState { get; set; }
+        public OrderState OrderState { get; set; }
 
-        public byte? OrderProcessState { get; set; }
+        public OrderProcessState OrderProcessState { get; set; }
 
-        public byte? InvoiceState { get; set; }
+        public InvoiceState InvoiceState { get; set; }
 
         public int? BankId { get; set; }
 
