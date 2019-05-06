@@ -86,6 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CptCfr.cs" />
+    <Compile Include="Data\Devise.cs" />
+    <Compile Include="Data\InvoiceState.cs" />
+    <Compile Include="Data\OrderProcessState.cs" />
+    <Compile Include="Data\OrderState.cs" />
     <Compile Include="Data\ORM\Add\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
@@ -104,11 +109,14 @@
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\PaymentOption.cs" />
+    <Compile Include="Data\PeriodState.cs" />
     <Compile Include="Data\POCO\ProductsOrdersView.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />
     <Compile Include="Data\Repository\ProviderRepository.cs" />
+    <Compile Include="Data\ShippingMethod.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
