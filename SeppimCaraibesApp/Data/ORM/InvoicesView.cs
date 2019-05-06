@@ -45,7 +45,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public decimal? Product_Discount { get; set; }
 
         [Column("Payment Option")]
-        public PaymentOption Payment_Option { get; set; }
+        public EPaymentOption Payment_Option { get; set; }
 
         public int? Period { get; set; }
 
@@ -78,7 +78,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public double? Total_Interests { get; set; }
 
         [Column("CPT-CFR")]
-        public CptCfr CPT_CFR { get; set; }
+        public ECptCfr CPT_CFR { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }

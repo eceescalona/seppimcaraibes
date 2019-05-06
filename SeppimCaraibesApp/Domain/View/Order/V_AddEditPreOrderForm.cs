@@ -47,6 +47,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
+            productsBS.DataSource = _cProduct.FillProductsOrders();
+            orderBS.DataSource = new Data.ORM.Order();
         }
 
         public V_AddEditPreOrderForm(Controller.C_Order cOrder)
@@ -62,6 +64,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
+            productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
         }
 
@@ -80,7 +83,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
             _cOrder.EditOrder(this, code);
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            orderBS.DataSource = new Data.ORM.Order();
+            productsBS.DataSource = _cProduct.FillProductsOrders();
         }
         #endregion
 
@@ -90,8 +93,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
             if (_isAddOrEdit)
             {
                 customerSLUE.Enabled = false;
+                addCustomerSB.Enabled = false;
             }
-            productsBS.DataSource = _cProduct.FillProductsOrders().Local.ToBindingList();
         }
 
         void CustomerEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
@@ -107,10 +110,11 @@ namespace SeppimCaraibesApp.Domain.View.Order
                 var order = (Data.ORM.Order)orderBS.Current;
                 foreach (var product in order.ProductsOrders)
                 {
-                    if (productsGV.GetRow(e.RowHandle) is Data.ORM.ProductsOrdersView row)
+                    if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
                     {
                         if (row.ProductId == product.ProductId)
                         {
+                            row.Qty = product.Qty;
                             productsGV.SelectRow(e.RowHandle);
                         }
                     }
@@ -176,7 +180,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
             orderBS.ResetBindings(true);
             orderBS.DataSource = new Data.ORM.Order();
             productsBS.ResetBindings(true);
-            productsBS.DataSource = _cProduct.FillProductsOrders().Local.ToBindingList();
+            productsBS.DataSource = _cProduct.FillProductsOrders();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -290,22 +294,21 @@ namespace SeppimCaraibesApp.Domain.View.Order
         {
             try
             {
-                var products = new List<Data.ORM.ProductsOrdersView>();
+                var products = new List<Data.POCO.ProductsOrders>();
 
-                int[] indexsProviders = productsGV.GetSelectedRows();
+                int[] indexsProducts = productsGV.GetSelectedRows();
 
-                for (int i = 0; i < indexsProviders.Length; i++)
+                for (int i = 0; i < indexsProducts.Length; i++)
                 {
-                    if (indexsProviders[i] != -1)
+                    if (indexsProducts[i] != -1)
                     {
-                        products.Add((Data.ORM.ProductsOrdersView)productsGV.GetRow(indexsProviders[i]));
+                        products.Add((Data.POCO.ProductsOrders)productsGV.GetRow(indexsProducts[i]));
                     }
                 }
 
                 var customer = (Data.ORM.Customer)customerSLUEV.GetFocusedRow();
 
                 var order = (Data.ORM.Order)orderBS.Current;
-                order.CustomerId = customer.CustomerId;
 
                 if (_isAddOrEdit)
                 {
@@ -315,6 +318,9 @@ namespace SeppimCaraibesApp.Domain.View.Order
                 }
                 else
                 {
+                    order.CustomerId = customer.CustomerId;
+                    order.OrderState = EOrderState.InProcess;
+                    order.OrderProcessState = EOrderProcessState.PreOrder;
                     _cOrder.AddOrder(this, order, products);
 
                     if (!_isFieldWithError)
@@ -326,7 +332,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
             }
             catch (Exception)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Error);
 
                 if (result == DialogResult.Retry)
                 {

@@ -69,6 +69,11 @@ namespace SeppimCaraibesApp.Data.ORM
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete();
 
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.ProductsOrders)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(e => e.OrderId);
+
             modelBuilder.Entity<Origin>()
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
@@ -89,6 +94,11 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<Product>()
                 .Property(e => e.SalePrice)
                 .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.ProductsOrders)
+                .WithRequired(e => e.Product)
+                .HasForeignKey(e => e.ProductId);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Providers)

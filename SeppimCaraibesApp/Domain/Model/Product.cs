@@ -1,18 +1,19 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
-    using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Data.Entity;
     using System.Linq;
 
     internal class Product
     {
-        public DbSet<Data.ORM.ProductsOrdersView> GetProductsOrders(Data.ORM.SeppimCaraibesLocalEntities context)
+        public BindingList<Data.POCO.ProductsOrders> GetProductsOrders(Data.ORM.SeppimCaraibesLocalEntities context)
         {
             var rProduct = new Data.Repository.ProductRepository();
             var products = rProduct.GetProducts(context);
+            var list = new BindingList<Data.POCO.ProductsOrders>();
             foreach (var product in products)
             {
-                var productOrder = new Data.ORM.ProductsOrdersView
+                var productOrder = new Data.POCO.ProductsOrders
                 {
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
@@ -21,10 +22,10 @@
                     Interests = 0,
                 };
 
-                context.PocoProductsOrders.Add(productOrder);
+                list.Add(productOrder);
             }
 
-            return context.PocoProductsOrders;
+            return list;
         }
 
         public Data.ORM.Product GetProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)

@@ -332,7 +332,7 @@
             // 
             // productsBS
             // 
-            this.productsBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.ProductsOrdersView);
+            this.productsBS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.ProductsOrders);
             // 
             // productsGV
             // 

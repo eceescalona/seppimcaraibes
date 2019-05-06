@@ -11,7 +11,7 @@
             return rOrder.GetOrder(context, code);
         }
 
-        public void AddOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
+        public void AddOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
         {
             var rOrder = new Data.Repository.OrderRepository();
             if (!context.Orders.Any(o => o.OrderId == order.OrderId))
@@ -36,7 +36,7 @@
             }
         }
 
-        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
@@ -57,6 +57,17 @@
             order.ProductsOrders = productsOrders;
 
             rOrder.EditOrder(context, order);
+        }
+
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            var order = rOrder.GetOrder(context, code);
+            order.OrderProcessState = orderProcessState;
+
+            rOrder.EditOrder(context, order);
+            context.Entry(order).Reload();
         }
 
         public void DeleteOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)

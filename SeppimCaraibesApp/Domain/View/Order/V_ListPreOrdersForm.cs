@@ -11,11 +11,14 @@
             "¿Está seguro(a) de querer eliminar la orden ";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar la nueva orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string EDIT_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo editar la orden. Porfavor vuelva a intentarlo. " +
-            "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo. " +
-            "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string EDIT_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo editar la orden. Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
+        private const string CONVERT_MESSAGE = "Uds. está cambiando la Pre-Orden a Cotizar. ¿Está seguro(a) de querer continuar?";
+        private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
         private Controller.C_Order _cOrden;
         private bool _isCOrdenAlive;
@@ -168,6 +171,26 @@
                 catch (Exception)
                 {
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (e.Button == btnEdit.Properties.Buttons[2])
+            {
+                try
+                {
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
+                    DialogResult result = MessageBox.Show(CONVERT_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
+                        RefreshView();
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

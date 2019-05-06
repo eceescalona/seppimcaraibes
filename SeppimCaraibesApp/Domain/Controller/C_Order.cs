@@ -26,7 +26,7 @@
         #endregion
 
 
-        private bool Validate(Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews, out Dictionary<string, string> fields)
+        private bool Validate(Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders, out Dictionary<string, string> fields)
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
@@ -49,7 +49,7 @@
                 fields.Add(field, message);
             }
 
-            if (productsOrdersViews == null || productsOrdersViews.Count <= 0)
+            if (productsOrders == null || productsOrders.Count <= 0)
             {
                 flag = false;
                 field = "productsGC";
@@ -119,14 +119,14 @@
 
 
         #region OrderManage
-        public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
+        public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
         {
 
-            if (Validate(order, productsOrdersViews, out Dictionary<string, string> fields))
+            if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
                 order.OrderId = OrderCode(order.Date.GetValueOrDefault());
 
-                _mOrder.AddOrder(_context, order, productsOrdersViews);
+                _mOrder.AddOrder(_context, order, productsOrders);
 
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, Message(new object[] { order.OrderId }));
             }
@@ -142,19 +142,27 @@
             addEditOrder.EditOrder(order);
         }
 
-        public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.ORM.ProductsOrdersView> productsOrdersViews)
+        public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
 
-            if (Validate(order, productsOrdersViews, out Dictionary<string, string> fields))
+            if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                _mOrder.EditOrder(_context, order, productsOrdersViews);
+                _mOrder.EditOrder(_context, order, productsOrders);
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
             {
                 addEditOrder.ShowFieldsWithError(fields);
             }
+        }
+
+        public void EditOrder(IListOrders listOrders, string code, EOrderProcessState orderProcessState)
+        {
+            string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
+
+            _mOrder.EditOrder(_context, code, orderProcessState);
+            listOrders.ShowMessage(ETypeOfMessage.Information, message);
         }
 
         public void DeleteOrder(IListOrders listOrders, string code)

@@ -38,17 +38,22 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listPreOrdersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listPreOrdersPC = new DevExpress.XtraEditors.PanelControl();
             this.listPreOrdersGC = new DevExpress.XtraGrid.GridControl();
-            this.preOrdersGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.preOrdersEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.preOrdersGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomer_Reference = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,8 +62,8 @@
             this.colProduct_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProduct_Name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProduct_Qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersPC)).BeginInit();
             this.listPreOrdersPC.SuspendLayout();
@@ -88,20 +93,6 @@
             this.listPreOrdersRC.Toolbar.ShowCustomizeItem = false;
             this.listPreOrdersRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listPreOrdersRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // actionsRP
-            // 
-            this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.actionsRPG});
-            this.actionsRP.Name = "actionsRP";
-            // 
-            // actionsRPG
-            // 
-            this.actionsRPG.ItemLinks.Add(this.registerBBI);
-            this.actionsRPG.ItemLinks.Add(this.findBBI);
-            this.actionsRPG.ItemLinks.Add(this.filterBBI);
-            this.actionsRPG.ItemLinks.Add(this.refreshBBI);
-            this.actionsRPG.Name = "actionsRPG";
             // 
             // registerBBI
             // 
@@ -135,6 +126,20 @@
             this.refreshBBI.Name = "refreshBBI";
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // actionsRP
+            // 
+            this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.actionsRPG});
+            this.actionsRP.Name = "actionsRP";
+            // 
+            // actionsRPG
+            // 
+            this.actionsRPG.ItemLinks.Add(this.registerBBI);
+            this.actionsRPG.ItemLinks.Add(this.findBBI);
+            this.actionsRPG.ItemLinks.Add(this.filterBBI);
+            this.actionsRPG.ItemLinks.Add(this.refreshBBI);
+            this.actionsRPG.Name = "actionsRPG";
+            // 
             // listPreOrdersPC
             // 
             this.listPreOrdersPC.Controls.Add(this.listPreOrdersGC);
@@ -159,6 +164,13 @@
             this.listPreOrdersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.preOrdersGV});
             // 
+            // preOrdersEIFS
+            // 
+            this.preOrdersEIFS.AreSourceRowsThreadSafe = true;
+            this.preOrdersEIFS.DefaultSorting = "Date DESC";
+            this.preOrdersEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.PreOrdersView);
+            this.preOrdersEIFS.KeyExpression = "Order_Code";
+            // 
             // preOrdersGV
             // 
             this.preOrdersGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -177,13 +189,6 @@
             this.preOrdersGV.OptionsBehavior.AutoExpandAllGroups = true;
             this.preOrdersGV.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCustomer_Name, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // preOrdersEIFS
-            // 
-            this.preOrdersEIFS.AreSourceRowsThreadSafe = true;
-            this.preOrdersEIFS.DefaultSorting = "Date DESC";
-            this.preOrdersEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.PreOrdersView);
-            this.preOrdersEIFS.KeyExpression = "Order_Code";
             // 
             // colOrder_Code
             // 
@@ -257,18 +262,6 @@
             this.colProduct_Qty.VisibleIndex = 6;
             this.colProduct_Qty.Width = 72;
             // 
-            // actionsRIBE
-            // 
-            this.actionsRIBE.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
-            editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
-            this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.actionsRIBE.Name = "actionsRIBE";
-            this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
-            // 
             // colActions
             // 
             this.colActions.Caption = "Acciones";
@@ -277,6 +270,20 @@
             this.colActions.Visible = true;
             this.colActions.VisibleIndex = 7;
             this.colActions.Width = 53;
+            // 
+            // actionsRIBE
+            // 
+            this.actionsRIBE.AutoHeight = false;
+            editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
+            editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
+            editorButtonImageOptions3.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
+            this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir A Cotizar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.actionsRIBE.Name = "actionsRIBE";
+            this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
             // V_ListPreOrdersForm
             // 

@@ -12,7 +12,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public string Order_Reference { get; set; }
 
         [Column("Shipping Method")]
-        public ShippingMethod Shipping_Method { get; set; }
+        public EShippingMethod Shipping_Method { get; set; }
 
         [Column("Gross Weight")]
         public decimal? Gross_Weight { get; set; }
