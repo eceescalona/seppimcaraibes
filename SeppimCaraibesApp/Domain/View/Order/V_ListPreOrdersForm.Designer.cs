@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listPreOrdersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
@@ -52,7 +53,7 @@
             this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listPreOrdersPC = new DevExpress.XtraEditors.PanelControl();
             this.listPreOrdersGC = new DevExpress.XtraGrid.GridControl();
-            this.preOrdersEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.preOrdersBS = new System.Windows.Forms.BindingSource(this.components);
             this.preOrdersGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersPC)).BeginInit();
             this.listPreOrdersPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersGC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preOrdersBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preOrdersGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).BeginInit();
             this.SuspendLayout();
@@ -151,7 +153,7 @@
             // 
             // listPreOrdersGC
             // 
-            this.listPreOrdersGC.DataSource = this.preOrdersEIFS;
+            this.listPreOrdersGC.DataSource = this.preOrdersBS;
             this.listPreOrdersGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listPreOrdersGC.Location = new System.Drawing.Point(2, 2);
             this.listPreOrdersGC.MainView = this.preOrdersGV;
@@ -164,12 +166,9 @@
             this.listPreOrdersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.preOrdersGV});
             // 
-            // preOrdersEIFS
+            // preOrdersBS
             // 
-            this.preOrdersEIFS.AreSourceRowsThreadSafe = true;
-            this.preOrdersEIFS.DefaultSorting = "Date DESC";
-            this.preOrdersEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.PreOrdersView);
-            this.preOrdersEIFS.KeyExpression = "Order_Code";
+            this.preOrdersBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.PreOrdersView);
             // 
             // preOrdersGV
             // 
@@ -274,13 +273,13 @@
             // actionsRIBE
             // 
             this.actionsRIBE.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
-            editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
-            editorButtonImageOptions3.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
+            editorButtonImageOptions4.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
+            editorButtonImageOptions5.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
+            editorButtonImageOptions6.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir A Cotizar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Editar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "Eliminar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "Convertir A Cotizar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
@@ -300,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersPC)).EndInit();
             this.listPreOrdersPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersGC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preOrdersBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.preOrdersGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).EndInit();
             this.ResumeLayout(false);
@@ -319,7 +319,6 @@
         private DevExpress.XtraEditors.PanelControl listPreOrdersPC;
         private DevExpress.XtraGrid.GridControl listPreOrdersGC;
         private DevExpress.XtraGrid.Views.Grid.GridView preOrdersGV;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource preOrdersEIFS;
         private DevExpress.XtraGrid.Columns.GridColumn colOrder_Code;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
         private DevExpress.XtraGrid.Columns.GridColumn colCustomer_Reference;
@@ -330,5 +329,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colProduct_Qty;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
+        private System.Windows.Forms.BindingSource preOrdersBS;
     }
 }

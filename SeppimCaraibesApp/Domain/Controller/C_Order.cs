@@ -163,6 +163,7 @@
 
             _mOrder.EditOrder(_context, code, orderProcessState);
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
+            listOrders.RefreshView();
         }
 
         public void DeleteOrder(IListOrders listOrders, string code)

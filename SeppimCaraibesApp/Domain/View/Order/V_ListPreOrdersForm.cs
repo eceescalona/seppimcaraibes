@@ -1,4 +1,5 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Order
+﻿using System.Data.Entity;
+namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System;
@@ -47,21 +48,19 @@
 
         private void V_ListPreOrdersForm_Load(object sender, EventArgs e)
         {
-            preOrdersEIFS.GetQueryable += PreOrdersEIFS_GetQueryable;
-        }
-
-        void PreOrdersEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
-        {
-            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrden.GetContext();
-            e.QueryableSource = dataContext.PreOrdersViews;
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.PreOrdersViews.Load();
+            preOrdersBS.DataSource = dbContext.PreOrdersViews.Local.ToBindingList();
         }
 
 
         #region IListOrders
         public void RefreshView()
         {
-            preOrdersEIFS.Refresh();
-            preOrdersEIFS.GetQueryable += PreOrdersEIFS_GetQueryable;
+            preOrdersBS.ResetBindings(true);
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.PreOrdersViews.Load();
+            preOrdersBS.DataSource = dbContext.PreOrdersViews.Local.ToBindingList();
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
@@ -136,13 +135,12 @@
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
                 _isCOrdenAlive = true;
-                var row = preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle) as Data.ORM.PreOrdersView;
+                var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
                 var editOrder = new V_AddEditPreOrderForm(_cOrden, row.Order_Code);
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    _cOrden.GetContext().Entry(row).Reload();
                     RefreshView();
                 }
                 else if (result == DialogResult.Cancel)
@@ -185,7 +183,6 @@
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
-                        RefreshView();
                     }
                 }
                 catch (Exception)
