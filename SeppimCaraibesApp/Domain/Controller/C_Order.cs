@@ -129,6 +129,7 @@
                 _mOrder.AddOrder(_context, order, productsOrders);
 
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, Message(new object[] { order.OrderId }));
+                addEditOrder.RefreshView();
             }
             else
             {

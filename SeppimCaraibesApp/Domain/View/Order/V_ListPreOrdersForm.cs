@@ -3,6 +3,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
 
     internal partial class V_ListPreOrdersForm : Form, Controller.IListOrders
@@ -51,6 +52,26 @@ namespace SeppimCaraibesApp.Domain.View.Order
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
             dbContext.PreOrdersViews.Load();
             preOrdersBS.DataSource = dbContext.PreOrdersViews.Local.ToBindingList();
+        }
+
+        private void Refresh(Data.ORM.PreOrdersView row)
+        {
+            int rowHandle = 0;
+            var list = new List<Data.ORM.PreOrdersView>();
+            while (preOrdersGV.IsValidRowHandle(rowHandle))
+            {
+                var data = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(rowHandle);
+                if (data.Order_Code == row.Order_Code)
+                {
+                    list.Add(data);
+                }
+                rowHandle++;
+            }
+
+            foreach (var item in list)
+            {
+                _cOrden.GetContext().Entry(item).Reload();
+            }
         }
 
 
@@ -164,6 +185,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.DeleteOrder(this, row.Order_Code);
+
+                        Refresh(row);
                     }
                 }
                 catch (Exception)
@@ -183,6 +206,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)

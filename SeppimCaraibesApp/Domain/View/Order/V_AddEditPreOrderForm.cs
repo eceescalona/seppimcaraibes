@@ -1,15 +1,9 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Data.Entity;
     using System.Drawing;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     internal partial class V_AddEditPreOrderForm : Form, Controller.IAddEditOrder
@@ -175,6 +169,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
             productsErrorLC.LineColor = Color.Black;
             productsErrorLC.ForeColor = Color.Black;
 
+            customerSLUE.RefreshEditValue();
             customerEIFS.Refresh();
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             orderBS.ResetBindings(true);
