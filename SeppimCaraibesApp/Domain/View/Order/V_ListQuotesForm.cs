@@ -1,9 +1,9 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System;
     using System.Windows.Forms;
+    using System.Data.Entity;
 
     internal partial class V_ListQuotesForm : Form, Controller.IListOrders
     {
@@ -51,16 +51,17 @@ namespace SeppimCaraibesApp.Domain.View.Order
         private void V_ListQuotesForm_Load(object sender, EventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
-            {
-                quotesViewsBindingSource.DataSource = dbContext.QuotesViews.Local.ToBindingList();
-            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+            dbContext.QuotesViews.Load();
+            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
         }
 
 
         #region IListOrders
         public void RefreshView()
         {
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.QuotesViews.Load();
+            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
@@ -162,7 +163,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
                         MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
+                        _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Order);
                     }
                 }
                 catch (Exception)
@@ -173,6 +174,13 @@ namespace SeppimCaraibesApp.Domain.View.Order
         }
         #endregion
 
+
+        private void ListOrdersBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var listOrders = new V_ListOrdersForm(_cOrden);
+            listOrders.BringToFront();
+            listOrders.ShowDialog();
+        }
 
         private void V_ListQuotesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
