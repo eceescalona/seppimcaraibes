@@ -169,7 +169,7 @@
             productsErrorLC.LineColor = Color.Black;
             productsErrorLC.ForeColor = Color.Black;
 
-            customerSLUE.RefreshEditValue();
+            customerSLUE.EditValue = null;
             customerEIFS.Refresh();
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             orderBS.ResetBindings(true);
