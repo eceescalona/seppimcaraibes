@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -44,15 +45,14 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listQuotesRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.listQuotesRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.listQuotesRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.listQuotesRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.listQuotesRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listQuotesPC = new DevExpress.XtraEditors.PanelControl();
             this.quotesGC = new DevExpress.XtraGrid.GridControl();
             this.quotesGV = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.quotesEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOffer_Period = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,12 +82,14 @@
             this.colPlace_of_Departure = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.quotesViewsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesPC)).BeginInit();
             this.listQuotesPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesViewsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listQuotesRC
@@ -110,21 +112,6 @@
             this.listQuotesRC.Toolbar.ShowCustomizeItem = false;
             this.listQuotesRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listQuotesRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // listQuotesRP
-            // 
-            this.listQuotesRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.listQuotesRPG});
-            this.listQuotesRP.Name = "listQuotesRP";
-            // 
-            // listQuotesRPG
-            // 
-            this.listQuotesRPG.AllowTextClipping = false;
-            this.listQuotesRPG.ItemLinks.Add(this.findBBI);
-            this.listQuotesRPG.ItemLinks.Add(this.filterBBI);
-            this.listQuotesRPG.ItemLinks.Add(this.refreshBBI);
-            this.listQuotesRPG.Name = "listQuotesRPG";
-            this.listQuotesRPG.ShowCaptionButton = false;
             // 
             // findBBI
             // 
@@ -150,6 +137,21 @@
             this.refreshBBI.Name = "refreshBBI";
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // listQuotesRP
+            // 
+            this.listQuotesRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.listQuotesRPG});
+            this.listQuotesRP.Name = "listQuotesRP";
+            // 
+            // listQuotesRPG
+            // 
+            this.listQuotesRPG.AllowTextClipping = false;
+            this.listQuotesRPG.ItemLinks.Add(this.findBBI);
+            this.listQuotesRPG.ItemLinks.Add(this.filterBBI);
+            this.listQuotesRPG.ItemLinks.Add(this.refreshBBI);
+            this.listQuotesRPG.Name = "listQuotesRPG";
+            this.listQuotesRPG.ShowCaptionButton = false;
+            // 
             // listQuotesPC
             // 
             this.listQuotesPC.Controls.Add(this.quotesGC);
@@ -161,7 +163,7 @@
             // 
             // quotesGC
             // 
-            this.quotesGC.DataSource = this.quotesEIFS;
+            this.quotesGC.DataSource = this.quotesViewsBindingSource;
             this.quotesGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quotesGC.Location = new System.Drawing.Point(2, 2);
             this.quotesGC.MainView = this.quotesGV;
@@ -207,12 +209,6 @@
             this.colActions});
             this.quotesGV.GridControl = this.quotesGC;
             this.quotesGV.Name = "quotesGV";
-            // 
-            // quotesEIFS
-            // 
-            this.quotesEIFS.DefaultSorting = "Date ASC";
-            this.quotesEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.QuotesView);
-            this.quotesEIFS.KeyExpression = "Order_Code";
             // 
             // colOrder_Code
             // 
@@ -452,6 +448,10 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // quotesViewsBindingSource
+            // 
+            this.quotesViewsBindingSource.DataSource = typeof(SeppimCaraibesApp.Data.ORM.QuotesView);
+            // 
             // V_ListQuotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotesGC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesViewsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,7 +485,6 @@
         private DevExpress.XtraBars.BarButtonItem refreshBBI;
         private DevExpress.XtraEditors.PanelControl listQuotesPC;
         private DevExpress.XtraGrid.GridControl quotesGC;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource quotesEIFS;
         private DevExpress.XtraGrid.Views.Grid.GridView quotesGV;
         private DevExpress.XtraGrid.Columns.GridColumn colOrder_Code;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
@@ -515,5 +515,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPlace_of_Departure;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private System.Windows.Forms.BindingSource quotesViewsBindingSource;
     }
 }

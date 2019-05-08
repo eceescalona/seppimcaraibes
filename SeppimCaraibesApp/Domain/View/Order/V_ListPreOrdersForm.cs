@@ -1,10 +1,10 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System;
     using System.Collections.Generic;
     using System.Windows.Forms;
+    using System.Data.Entity;
 
     internal partial class V_ListPreOrdersForm : Form, Controller.IListOrders
     {
@@ -217,6 +217,13 @@ namespace SeppimCaraibesApp.Domain.View.Order
         }
         #endregion
 
+
+        private void ListQuotesBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var listQuotes = new V_ListQuotesForm(_cOrden);
+            listQuotes.BringToFront();
+            listQuotes.ShowDialog();
+        }
 
         private void V_ListPreOrdersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
