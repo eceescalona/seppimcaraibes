@@ -61,6 +61,7 @@
     <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -236,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\V_ListPreOrdersForm.resx">
       <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_ListQuotesForm.resx">
+      <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
       <DependentUpon>V_AddEditProductForm.cs</DependentUpon>

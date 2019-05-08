@@ -64,5 +64,17 @@ namespace SeppimCaraibesApp
             listPreOrder.BringToFront();
             listPreOrder.Show();
         }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            var listQuotes = new Domain.View.Order.V_ListQuotesForm
+            {
+                TopLevel = false
+            };
+            panelControl1.Controls.Add(listQuotes);
+            listQuotes.Dock = DockStyle.Fill;
+            listQuotes.BringToFront();
+            listQuotes.Show();
+        }
     }
 }
