@@ -8,7 +8,7 @@ namespace SeppimCaraibesApp.Data.ORM
     internal partial class QuotesView
     {
         [Key]
-        [Column("Order Code", Order = 0)]
+        [Column("Order Code")]
         [StringLength(50)]
         public string Order_Code { get; set; }
 
@@ -46,18 +46,17 @@ namespace SeppimCaraibesApp.Data.ORM
         public string Customer_Address { get; set; }
 
         [Column("Payment Option")]
-        public EPaymentOption Payment_Option { get; set; }
+        public byte? Payment_Option { get; set; }
 
         [Column("Shipping Method")]
-        public EShippingMethod Shipping_Method { get; set; }
+        public byte? Shipping_Method { get; set; }
 
-        public EDevise Devise { get; set; }
+        public byte? Devise { get; set; }
 
         [StringLength(250)]
         public string Incoterm { get; set; }
 
-        [Key]
-        [Column("Product Code", Order = 1)]
+        [Column("Product Code")]
         [StringLength(50)]
         public string Product_Code { get; set; }
 
@@ -78,7 +77,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public decimal? Freight { get; set; }
 
         [Column("CPT-CFR")]
-        public ECptCfr CPT_CFR { get; set; }
+        public byte? CPT_CFR { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }
@@ -89,8 +88,6 @@ namespace SeppimCaraibesApp.Data.ORM
         [Column("Net Weight")]
         public decimal? Net_Weight { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
         [StringLength(50)]
         public string Packing { get; set; }
 
