@@ -348,7 +348,7 @@
 
         private void CancelSB_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(CANCEL_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

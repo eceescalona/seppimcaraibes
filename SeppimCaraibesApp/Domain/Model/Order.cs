@@ -8,7 +8,17 @@
         public Data.ORM.Order GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rOrder = new Data.Repository.OrderRepository();
-            return rOrder.GetOrder(context, code);
+            var order = rOrder.GetOrder(context, code);
+
+            if (order != null)
+            {
+                if (context.ProductsOrders.Any(po => po.OrderId == order.OrderId))
+                {
+                    order.ProductsOrders = context.ProductsOrders.Where(po => po.OrderId == order.OrderId).ToList();
+                }
+            }
+
+            return order;
         }
 
         public void AddOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
@@ -16,7 +26,6 @@
             var rOrder = new Data.Repository.OrderRepository();
             if (!context.Orders.Any(o => o.OrderId == order.OrderId))
             {
-                var productsOrders = new List<Data.ORM.ProductsOrder>();
                 foreach (var product in productsOrdersViews)
                 {
                     var productOrder = new Data.ORM.ProductsOrder
@@ -28,9 +37,8 @@
                         Interests = product.Interests
                     };
 
-                    productsOrders.Add(productOrder);
+                    order.ProductsOrders.Add(productOrder);
                 }
-                order.ProductsOrders = productsOrders;
 
                 rOrder.AddOrder(context, order);
             }
@@ -67,7 +75,6 @@
             order.OrderProcessState = orderProcessState;
 
             rOrder.EditOrder(context, order);
-            context.Entry(order).Reload();
         }
 
         public void DeleteOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)

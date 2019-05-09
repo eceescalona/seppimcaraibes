@@ -1,9 +1,10 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Order
+﻿using System.Data.Entity;
+namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System;
     using System.Windows.Forms;
-    using System.Data.Entity;
+    using System.Collections.Generic;
 
     internal partial class V_ListQuotesForm : Form, Controller.IListOrders
     {
@@ -33,7 +34,6 @@
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
             _isCallFrom = false;
-
         }
 
         public V_ListQuotesForm(Controller.C_Order cOrden)
@@ -50,18 +50,41 @@
 
         private void V_ListQuotesForm_Load(object sender, EventArgs e)
         {
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.QuotesViews.Load();
-            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
+            quotesEIFS.GetQueryable += QuotesEIFS_GetQueryable;
+
+        }
+        void QuotesEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        {
+            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrden.GetContext();
+            e.QueryableSource = dataContext.QuotesViews;
+        }
+
+        private void Refresh(Data.ORM.QuotesView row)
+        {
+            int rowHandle = 0;
+            var list = new List<Data.ORM.QuotesView>();
+            while (quotesGV.IsValidRowHandle(rowHandle))
+            {
+                var data = (Data.ORM.QuotesView)quotesGV.GetRow(rowHandle);
+                if (data.Order_Code == row.Order_Code)
+                {
+                    list.Add(data);
+                }
+                rowHandle++;
+            }
+
+            foreach (var item in list)
+            {
+                _cOrden.GetContext().Entry(item).Reload();
+            }
         }
 
 
         #region IListOrders
         public void RefreshView()
         {
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.QuotesViews.Load();
-            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
+            this.quotesEIFS.GetQueryable += QuotesEIFS_GetQueryable;
+
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
@@ -145,6 +168,7 @@
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.DeleteOrder(this, row.Order_Code);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)
@@ -164,6 +188,7 @@
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Order);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)

@@ -111,6 +111,7 @@
     <Compile Include="Data\ORM\ShipmentsView.cs" />
     <Compile Include="Data\EPaymentOption.cs" />
     <Compile Include="Data\EPeriodState.cs" />
+    <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
@@ -235,6 +236,9 @@
     <EmbeddedResource Include="Domain\View\Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_AddEditQuoteForm.resx">
+      <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\V_ListOrdersForm.resx">
       <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +279,8 @@
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Order.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Shipment.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.POCO.ProductsOrders.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
