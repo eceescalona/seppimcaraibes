@@ -16,6 +16,11 @@
                 {
                     order.ProductsOrders = context.ProductsOrders.Where(po => po.OrderId == order.OrderId).ToList();
                 }
+
+                if (context.Shipments.Any(s => s.ShipmentId == order.OrderId))
+                {
+                    order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
+                }
             }
 
             return order;
