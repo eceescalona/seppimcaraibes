@@ -7,7 +7,7 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(50)]
         public string ShipmentId { get; set; }
 
-        public EShippingMethod ShippingMethod { get; set; }
+        public EShippingMethod? ShippingMethod { get; set; }
 
         public decimal? GrossWeight { get; set; }
 

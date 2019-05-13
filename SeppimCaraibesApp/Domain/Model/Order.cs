@@ -63,6 +63,7 @@
                 productsOrders.Add(productOrder);
             }
             order.ProductsOrders = productsOrders;
+            order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
 
             rOrder.EditOrder(context, order);
         }

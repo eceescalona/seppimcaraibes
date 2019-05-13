@@ -33,7 +33,6 @@
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
             _isCallFrom = false;
-
         }
 
         public V_ListOrdersForm(Controller.C_Order cOrden)

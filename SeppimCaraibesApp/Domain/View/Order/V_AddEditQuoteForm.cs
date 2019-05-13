@@ -2,12 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     internal partial class V_AddEditQuoteForm : Form, Controller.IAddEditOrder
@@ -37,6 +33,7 @@
             _cOrder.EditOrder(this, code);
 
             productsBS.DataSource = _cProduct.FillProductsOrders();
+            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
 
@@ -66,12 +63,21 @@
         private void InitializeLUE()
         {
             paymentOptionsBS.DataSource = typeof(EPaymentOption);
+            var tempEPO = Enum.GetValues(typeof(EPaymentOption));
+            paymentOptionsBS.Clear();
+            paymentOptionsBS.DataSource = tempEPO;
             paymentOptionLUE.Properties.DataSource = paymentOptionsBS.List;
 
             deviseBS.DataSource = typeof(EDevise);
+            var tempEDevise = Enum.GetValues(typeof(EDevise));
+            deviseBS.Clear();
+            deviseBS.DataSource = tempEDevise;
             deviseLUE.Properties.DataSource = deviseBS.List;
 
             shipmentMethodBS.DataSource = typeof(EShippingMethod);
+            var tempESM = Enum.GetValues(typeof(EShippingMethod));
+            shipmentMethodBS.Clear();
+            shipmentMethodBS.DataSource = tempESM;
             shipmentMLUE.Properties.DataSource = shipmentMethodBS.List;
         }
 
@@ -80,18 +86,24 @@
         public void EditOrder(Data.ORM.Order order)
         {
             orderBS.DataSource = order;
+
+            if (order.Shipment != null)
+            {
+                shipmentBS.Clear();
+                shipmentBS.DataSource = order.Shipment;
+            }
+
             if (order.Shipment != null)
             {
                 shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
-
             }
 
-            if (order.Devise != 0)
+            if (order.Devise != null)
             {
                 deviseLUE.EditValue = order.Devise;
             }
 
-            if (order.PaymentOption != 0)
+            if (order.PaymentOption != null)
             {
                 paymentOptionLUE.EditValue = order.PaymentOption;
             }
@@ -180,6 +192,11 @@
                 }
 
                 var order = (Data.ORM.Order)orderBS.Current;
+                order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
+                order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
+                var shipment = (Data.ORM.Shipment)shipmentBS.Current;
+                shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+                order.Shipment = shipment;
 
                 _cOrder.EditOrder(this, order, products);
 
@@ -191,8 +208,6 @@
 
                 DialogResult = DialogResult.OK;
                 Close();
-
-
             }
             catch (Exception)
             {

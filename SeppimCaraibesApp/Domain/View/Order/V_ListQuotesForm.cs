@@ -2,6 +2,7 @@
 namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
+    using System.Data.Entity;
     using System;
     using System.Windows.Forms;
     using System.Collections.Generic;
@@ -50,13 +51,11 @@ namespace SeppimCaraibesApp.Domain.View.Order
 
         private void V_ListQuotesForm_Load(object sender, EventArgs e)
         {
-            quotesEIFS.GetQueryable += QuotesEIFS_GetQueryable;
-
-        }
-        void QuotesEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
-        {
-            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrden.GetContext();
-            e.QueryableSource = dataContext.QuotesViews;
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
+            {
+                quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
+            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Refresh(Data.ORM.QuotesView row)
@@ -83,8 +82,11 @@ namespace SeppimCaraibesApp.Domain.View.Order
         #region IListOrders
         public void RefreshView()
         {
-            this.quotesEIFS.GetQueryable += QuotesEIFS_GetQueryable;
-
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
+            {
+                quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
+            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
@@ -168,7 +170,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.DeleteOrder(this, row.Order_Code);
-                        Refresh(row);
+                        _cOrden.GetContext().Entry(row).Reload();
                     }
                 }
                 catch (Exception)
@@ -188,7 +190,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Order);
-                        Refresh(row);
+                        _cOrden.GetContext().Entry(row).Reload();
                     }
                 }
                 catch (Exception)

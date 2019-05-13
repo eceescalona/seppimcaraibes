@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -53,7 +54,7 @@
             this.navigationRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listQuotesPC = new DevExpress.XtraEditors.PanelControl();
             this.quotesGC = new DevExpress.XtraGrid.GridControl();
-            this.quotesEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.quotesBS = new System.Windows.Forms.BindingSource(this.components);
             this.quotesGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesPC)).BeginInit();
             this.listQuotesPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).BeginInit();
             this.SuspendLayout();
@@ -180,7 +182,7 @@
             // 
             // quotesGC
             // 
-            this.quotesGC.DataSource = this.quotesEIFS;
+            this.quotesGC.DataSource = this.quotesBS;
             this.quotesGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quotesGC.Location = new System.Drawing.Point(2, 2);
             this.quotesGC.MainView = this.quotesGV;
@@ -193,11 +195,9 @@
             this.quotesGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.quotesGV});
             // 
-            // quotesEIFS
+            // quotesBS
             // 
-            this.quotesEIFS.DefaultSorting = "Date DESC";
-            this.quotesEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.QuotesView);
-            this.quotesEIFS.KeyExpression = "Order_Code";
+            this.quotesBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.QuotesView);
             // 
             // quotesGV
             // 
@@ -253,16 +253,16 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
-            this.colDate.Width = 27;
+            this.colDate.Width = 28;
             // 
             // colOffer_Period
             // 
-            this.colOffer_Period.Caption = "Período";
+            this.colOffer_Period.Caption = "Período de la Oferta";
             this.colOffer_Period.FieldName = "Offer_Period";
             this.colOffer_Period.Name = "colOffer_Period";
             this.colOffer_Period.Visible = true;
             this.colOffer_Period.VisibleIndex = 2;
-            this.colOffer_Period.Width = 27;
+            this.colOffer_Period.Width = 28;
             // 
             // colProvider_Reference
             // 
@@ -271,7 +271,7 @@
             this.colProvider_Reference.Name = "colProvider_Reference";
             this.colProvider_Reference.Visible = true;
             this.colProvider_Reference.VisibleIndex = 3;
-            this.colProvider_Reference.Width = 27;
+            this.colProvider_Reference.Width = 28;
             // 
             // colProvider_Name
             // 
@@ -280,7 +280,7 @@
             this.colProvider_Name.Name = "colProvider_Name";
             this.colProvider_Name.Visible = true;
             this.colProvider_Name.VisibleIndex = 4;
-            this.colProvider_Name.Width = 27;
+            this.colProvider_Name.Width = 28;
             // 
             // colProvider_Phone
             // 
@@ -289,7 +289,7 @@
             this.colProvider_Phone.Name = "colProvider_Phone";
             this.colProvider_Phone.Visible = true;
             this.colProvider_Phone.VisibleIndex = 5;
-            this.colProvider_Phone.Width = 27;
+            this.colProvider_Phone.Width = 28;
             // 
             // colCustomer_Reference
             // 
@@ -298,7 +298,7 @@
             this.colCustomer_Reference.Name = "colCustomer_Reference";
             this.colCustomer_Reference.Visible = true;
             this.colCustomer_Reference.VisibleIndex = 6;
-            this.colCustomer_Reference.Width = 27;
+            this.colCustomer_Reference.Width = 28;
             // 
             // colCustomer_Name
             // 
@@ -307,7 +307,6 @@
             this.colCustomer_Name.Name = "colCustomer_Name";
             this.colCustomer_Name.Visible = true;
             this.colCustomer_Name.VisibleIndex = 7;
-            this.colCustomer_Name.Width = 101;
             // 
             // colCustomer_Phone
             // 
@@ -316,7 +315,7 @@
             this.colCustomer_Phone.Name = "colCustomer_Phone";
             this.colCustomer_Phone.Visible = true;
             this.colCustomer_Phone.VisibleIndex = 7;
-            this.colCustomer_Phone.Width = 23;
+            this.colCustomer_Phone.Width = 28;
             // 
             // colCustomer_Address
             // 
@@ -325,7 +324,7 @@
             this.colCustomer_Address.Name = "colCustomer_Address";
             this.colCustomer_Address.Visible = true;
             this.colCustomer_Address.VisibleIndex = 8;
-            this.colCustomer_Address.Width = 23;
+            this.colCustomer_Address.Width = 28;
             // 
             // colPayment_Option
             // 
@@ -334,7 +333,7 @@
             this.colPayment_Option.Name = "colPayment_Option";
             this.colPayment_Option.Visible = true;
             this.colPayment_Option.VisibleIndex = 9;
-            this.colPayment_Option.Width = 23;
+            this.colPayment_Option.Width = 28;
             // 
             // colShipping_Method
             // 
@@ -343,7 +342,7 @@
             this.colShipping_Method.Name = "colShipping_Method";
             this.colShipping_Method.Visible = true;
             this.colShipping_Method.VisibleIndex = 10;
-            this.colShipping_Method.Width = 23;
+            this.colShipping_Method.Width = 28;
             // 
             // colDevise
             // 
@@ -352,16 +351,15 @@
             this.colDevise.Name = "colDevise";
             this.colDevise.Visible = true;
             this.colDevise.VisibleIndex = 11;
-            this.colDevise.Width = 23;
+            this.colDevise.Width = 28;
             // 
             // colIncoterm
             // 
-            this.colIncoterm.Caption = "Incoterm";
             this.colIncoterm.FieldName = "Incoterm";
             this.colIncoterm.Name = "colIncoterm";
             this.colIncoterm.Visible = true;
             this.colIncoterm.VisibleIndex = 12;
-            this.colIncoterm.Width = 23;
+            this.colIncoterm.Width = 28;
             // 
             // colProduct_Code
             // 
@@ -370,7 +368,7 @@
             this.colProduct_Code.Name = "colProduct_Code";
             this.colProduct_Code.Visible = true;
             this.colProduct_Code.VisibleIndex = 13;
-            this.colProduct_Code.Width = 23;
+            this.colProduct_Code.Width = 28;
             // 
             // colProduct_Name
             // 
@@ -379,7 +377,7 @@
             this.colProduct_Name.Name = "colProduct_Name";
             this.colProduct_Name.Visible = true;
             this.colProduct_Name.VisibleIndex = 14;
-            this.colProduct_Name.Width = 23;
+            this.colProduct_Name.Width = 28;
             // 
             // colProduct_Qty
             // 
@@ -388,16 +386,16 @@
             this.colProduct_Qty.Name = "colProduct_Qty";
             this.colProduct_Qty.Visible = true;
             this.colProduct_Qty.VisibleIndex = 15;
-            this.colProduct_Qty.Width = 23;
+            this.colProduct_Qty.Width = 28;
             // 
             // colUnit_Price
             // 
-            this.colUnit_Price.Caption = "Precio por Unidad";
+            this.colUnit_Price.Caption = "Precio Unitario";
             this.colUnit_Price.FieldName = "Unit_Price";
             this.colUnit_Price.Name = "colUnit_Price";
             this.colUnit_Price.Visible = true;
             this.colUnit_Price.VisibleIndex = 16;
-            this.colUnit_Price.Width = 23;
+            this.colUnit_Price.Width = 28;
             // 
             // colDiscount
             // 
@@ -406,16 +404,15 @@
             this.colDiscount.Name = "colDiscount";
             this.colDiscount.Visible = true;
             this.colDiscount.VisibleIndex = 17;
-            this.colDiscount.Width = 23;
+            this.colDiscount.Width = 28;
             // 
             // colEXW
             // 
-            this.colEXW.Caption = "EXW";
             this.colEXW.FieldName = "EXW";
             this.colEXW.Name = "colEXW";
             this.colEXW.Visible = true;
             this.colEXW.VisibleIndex = 18;
-            this.colEXW.Width = 23;
+            this.colEXW.Width = 28;
             // 
             // colFreight
             // 
@@ -424,16 +421,15 @@
             this.colFreight.Name = "colFreight";
             this.colFreight.Visible = true;
             this.colFreight.VisibleIndex = 19;
-            this.colFreight.Width = 23;
+            this.colFreight.Width = 28;
             // 
             // colCPT_CFR
             // 
-            this.colCPT_CFR.Caption = "CPT-CFR";
             this.colCPT_CFR.FieldName = "CPT_CFR";
             this.colCPT_CFR.Name = "colCPT_CFR";
             this.colCPT_CFR.Visible = true;
             this.colCPT_CFR.VisibleIndex = 20;
-            this.colCPT_CFR.Width = 23;
+            this.colCPT_CFR.Width = 28;
             // 
             // colTotal_Cost
             // 
@@ -442,7 +438,7 @@
             this.colTotal_Cost.Name = "colTotal_Cost";
             this.colTotal_Cost.Visible = true;
             this.colTotal_Cost.VisibleIndex = 21;
-            this.colTotal_Cost.Width = 23;
+            this.colTotal_Cost.Width = 28;
             // 
             // colGross_Weight
             // 
@@ -451,7 +447,7 @@
             this.colGross_Weight.Name = "colGross_Weight";
             this.colGross_Weight.Visible = true;
             this.colGross_Weight.VisibleIndex = 22;
-            this.colGross_Weight.Width = 23;
+            this.colGross_Weight.Width = 28;
             // 
             // colNet_Weight
             // 
@@ -460,7 +456,7 @@
             this.colNet_Weight.Name = "colNet_Weight";
             this.colNet_Weight.Visible = true;
             this.colNet_Weight.VisibleIndex = 23;
-            this.colNet_Weight.Width = 23;
+            this.colNet_Weight.Width = 28;
             // 
             // colPacking
             // 
@@ -469,7 +465,7 @@
             this.colPacking.Name = "colPacking";
             this.colPacking.Visible = true;
             this.colPacking.VisibleIndex = 24;
-            this.colPacking.Width = 23;
+            this.colPacking.Width = 31;
             // 
             // colPlace_of_Departure
             // 
@@ -478,7 +474,7 @@
             this.colPlace_of_Departure.Name = "colPlace_of_Departure";
             this.colPlace_of_Departure.Visible = true;
             this.colPlace_of_Departure.VisibleIndex = 25;
-            this.colPlace_of_Departure.Width = 23;
+            this.colPlace_of_Departure.Width = 35;
             // 
             // colActions
             // 
@@ -487,7 +483,7 @@
             this.colActions.Name = "colActions";
             this.colActions.Visible = true;
             this.colActions.VisibleIndex = 26;
-            this.colActions.Width = 51;
+            this.colActions.Width = 27;
             // 
             // actionsRIBE
             // 
@@ -498,7 +494,7 @@
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir Orden Firme", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir en Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
@@ -518,6 +514,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesPC)).EndInit();
             this.listQuotesPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.quotesGC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotesGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).EndInit();
             this.ResumeLayout(false);
@@ -534,8 +531,11 @@
         private DevExpress.XtraBars.BarButtonItem filterBBI;
         private DevExpress.XtraBars.BarButtonItem refreshBBI;
         private DevExpress.XtraEditors.PanelControl listQuotesPC;
+        private DevExpress.XtraBars.BarButtonItem listOrdersBBI;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup navigationRPG;
         private DevExpress.XtraGrid.GridControl quotesGC;
         private DevExpress.XtraGrid.Views.Grid.GridView quotesGV;
+        private System.Windows.Forms.BindingSource quotesBS;
         private DevExpress.XtraGrid.Columns.GridColumn colOrder_Code;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
         private DevExpress.XtraGrid.Columns.GridColumn colOffer_Period;
@@ -565,8 +565,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPlace_of_Departure;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
-        private DevExpress.XtraBars.BarButtonItem listOrdersBBI;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup navigationRPG;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource quotesEIFS;
     }
 }

@@ -11,6 +11,7 @@
         {
             context.Orders.Add(order);
             context.SaveChanges();
+            context.Entry(order).Reload();
         }
 
         public void EditOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)
