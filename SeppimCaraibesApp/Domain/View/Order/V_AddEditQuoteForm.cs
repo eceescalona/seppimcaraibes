@@ -8,7 +8,6 @@
 
     internal partial class V_AddEditQuoteForm : Form, Controller.IAddEditOrder
     {
-        private const string CANCEL_ADD_CUSTOMER_MESSAGE = "La operación ha sido cancelada.";
         private const string NAME_FORM_EDIT = "Editar Cotización";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";

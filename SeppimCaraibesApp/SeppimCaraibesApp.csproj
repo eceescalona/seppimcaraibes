@@ -237,6 +237,9 @@
     <EmbeddedResource Include="Domain\View\Customer\V_ListCustomersForm.resx">
       <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_AddEditOrderForm.resx">
+      <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </EmbeddedResource>

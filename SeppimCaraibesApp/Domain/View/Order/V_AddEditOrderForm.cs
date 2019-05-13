@@ -1,25 +1,148 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
-    internal partial class V_AddEditOrderForm : Form
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+
+    internal partial class V_AddEditOrderForm : Form, Controller.IAddEditOrder
     {
-        public V_AddEditOrderForm()
-        {
-            InitializeComponent();
-        }
+        private const string NAME_FORM_EDIT = "Editar Orden Firme";
+        private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
+            "vuelva a abrirlo. Gracias y disculpe las molestias.";
+        private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+
+        private readonly Controller.C_Order _cOrder;
+        private readonly Controller.C_Product _cProduct;
+        private bool _isCOrderAlive;
+        private bool _isFieldWithError;
+
 
         public V_AddEditOrderForm(Controller.C_Order cOrder, string code)
         {
+            InitializeComponent();
+            Text = NAME_FORM_EDIT;
 
+            _cOrder = cOrder;
+            _cProduct = new Controller.C_Product(_cOrder.GetContext());
+            _isCOrderAlive = true;
+            _isFieldWithError = false;
+
+            _cOrder.EditOrder(this, code);
+        }
+
+
+        private void V_AddEditOrderForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        #region IAddEditOrder
+        public void EditOrder(Data.ORM.Order order)
+        {
+            orderBS.DataSource = order;
+
+            if (string.IsNullOrWhiteSpace(order.DocRequired))
+            {
+                docME.Text = order.DocRequired;
+            }
+
+            if (string.IsNullOrWhiteSpace(order.ContractDescription))
+            {
+                descriptionME.Text = order.ContractDescription;
+            }
+        }
+
+        public void RefreshView()
+        {
+            docME.Text = string.Empty;
+            descriptionME.Text = string.Empty;
+        }
+
+        public void ShowFieldsWithError(Dictionary<string, string> fields)
+        {
+        }
+
+        public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
+        {
+            switch (typeOfMessage)
+            {
+                case ETypeOfMessage.Warning:
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                case ETypeOfMessage.Error:
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default:
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+            }
+        }
+        #endregion
+
+
+        #region ActionsButtons
+        private void AcceptSB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var order = (Data.ORM.Order)orderBS.Current;
+
+                _cOrder.EditOrder(this, order);
+
+                if (!_isFieldWithError)
+                {
+                    RefreshView();
+                    _isFieldWithError = false;
+                }
+
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception)
+            {
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Error);
+
+                if (result == DialogResult.Retry)
+                {
+                    acceptSB.Click += AcceptSB_Click;
+                }
+                else if (result == DialogResult.Abort)
+                {
+                    DialogResult = DialogResult.Abort;
+                    Close();
+                }
+                else
+                {
+                    RefreshView();
+                }
+            }
+        }
+
+        private void CancelSB_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                _isCOrderAlive = true;
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
+        }
+        #endregion
+
+
+        private void V_AddEditOrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_isCOrderAlive)
+                Dispose();
+            else
+            {
+                _cOrder.Dispose();
+                Dispose();
+            }
         }
     }
 }

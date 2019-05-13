@@ -102,7 +102,7 @@
             this.listOrdersRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.listOrdersRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listOrdersRC.ShowToolbarCustomizeItem = false;
-            this.listOrdersRC.Size = new System.Drawing.Size(800, 95);
+            this.listOrdersRC.Size = new System.Drawing.Size(1802, 95);
             this.listOrdersRC.Toolbar.ShowCustomizeItem = false;
             this.listOrdersRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listOrdersRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -152,7 +152,7 @@
             this.listOrderPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listOrderPC.Location = new System.Drawing.Point(0, 95);
             this.listOrderPC.Name = "listOrderPC";
-            this.listOrderPC.Size = new System.Drawing.Size(800, 355);
+            this.listOrderPC.Size = new System.Drawing.Size(1802, 355);
             this.listOrderPC.TabIndex = 1;
             // 
             // ordersGC
@@ -165,7 +165,7 @@
             this.ordersGC.Name = "ordersGC";
             this.ordersGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.ordersGC.Size = new System.Drawing.Size(796, 351);
+            this.ordersGC.Size = new System.Drawing.Size(1798, 351);
             this.ordersGC.TabIndex = 0;
             this.ordersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ordersGV});
@@ -209,6 +209,7 @@
             this.colOrder_Code.Name = "colOrder_Code";
             this.colOrder_Code.Visible = true;
             this.colOrder_Code.VisibleIndex = 0;
+            this.colOrder_Code.Width = 80;
             // 
             // colDate
             // 
@@ -217,6 +218,7 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
+            this.colDate.Width = 80;
             // 
             // colProvider_Reference
             // 
@@ -225,6 +227,7 @@
             this.colProvider_Reference.Name = "colProvider_Reference";
             this.colProvider_Reference.Visible = true;
             this.colProvider_Reference.VisibleIndex = 2;
+            this.colProvider_Reference.Width = 114;
             // 
             // colProvider_Name
             // 
@@ -233,6 +236,7 @@
             this.colProvider_Name.Name = "colProvider_Name";
             this.colProvider_Name.Visible = true;
             this.colProvider_Name.VisibleIndex = 3;
+            this.colProvider_Name.Width = 109;
             // 
             // colProvider_Phone
             // 
@@ -241,6 +245,7 @@
             this.colProvider_Phone.Name = "colProvider_Phone";
             this.colProvider_Phone.Visible = true;
             this.colProvider_Phone.VisibleIndex = 4;
+            this.colProvider_Phone.Width = 91;
             // 
             // colCustomer_Reference
             // 
@@ -249,6 +254,7 @@
             this.colCustomer_Reference.Name = "colCustomer_Reference";
             this.colCustomer_Reference.Visible = true;
             this.colCustomer_Reference.VisibleIndex = 5;
+            this.colCustomer_Reference.Width = 99;
             // 
             // colCustomer_Name
             // 
@@ -257,6 +263,7 @@
             this.colCustomer_Name.Name = "colCustomer_Name";
             this.colCustomer_Name.Visible = true;
             this.colCustomer_Name.VisibleIndex = 6;
+            this.colCustomer_Name.Width = 86;
             // 
             // colCustomer_Phone
             // 
@@ -265,6 +272,7 @@
             this.colCustomer_Phone.Name = "colCustomer_Phone";
             this.colCustomer_Phone.Visible = true;
             this.colCustomer_Phone.VisibleIndex = 7;
+            this.colCustomer_Phone.Width = 91;
             // 
             // colCustomer_Address
             // 
@@ -273,6 +281,7 @@
             this.colCustomer_Address.Name = "colCustomer_Address";
             this.colCustomer_Address.Visible = true;
             this.colCustomer_Address.VisibleIndex = 8;
+            this.colCustomer_Address.Width = 95;
             // 
             // colPayment_Option
             // 
@@ -281,6 +290,7 @@
             this.colPayment_Option.Name = "colPayment_Option";
             this.colPayment_Option.Visible = true;
             this.colPayment_Option.VisibleIndex = 9;
+            this.colPayment_Option.Width = 86;
             // 
             // colShipping_Method
             // 
@@ -289,6 +299,7 @@
             this.colShipping_Method.Name = "colShipping_Method";
             this.colShipping_Method.Visible = true;
             this.colShipping_Method.VisibleIndex = 10;
+            this.colShipping_Method.Width = 89;
             // 
             // colDevise
             // 
@@ -297,6 +308,7 @@
             this.colDevise.Name = "colDevise";
             this.colDevise.Visible = true;
             this.colDevise.VisibleIndex = 11;
+            this.colDevise.Width = 61;
             // 
             // colIncoterm
             // 
@@ -305,6 +317,7 @@
             this.colIncoterm.Name = "colIncoterm";
             this.colIncoterm.Visible = true;
             this.colIncoterm.VisibleIndex = 12;
+            this.colIncoterm.Width = 61;
             // 
             // colProduct_Code
             // 
@@ -313,6 +326,7 @@
             this.colProduct_Code.Name = "colProduct_Code";
             this.colProduct_Code.Visible = true;
             this.colProduct_Code.VisibleIndex = 13;
+            this.colProduct_Code.Width = 77;
             // 
             // colProduct_Name
             // 
@@ -321,6 +335,7 @@
             this.colProduct_Name.Name = "colProduct_Name";
             this.colProduct_Name.Visible = true;
             this.colProduct_Name.VisibleIndex = 14;
+            this.colProduct_Name.Width = 84;
             // 
             // colProduct_Qty
             // 
@@ -329,6 +344,7 @@
             this.colProduct_Qty.Name = "colProduct_Qty";
             this.colProduct_Qty.Visible = true;
             this.colProduct_Qty.VisibleIndex = 15;
+            this.colProduct_Qty.Width = 56;
             // 
             // colUnit_Price
             // 
@@ -337,6 +353,7 @@
             this.colUnit_Price.Name = "colUnit_Price";
             this.colUnit_Price.Visible = true;
             this.colUnit_Price.VisibleIndex = 16;
+            this.colUnit_Price.Width = 62;
             // 
             // colProduct_Discount
             // 
@@ -345,6 +362,7 @@
             this.colProduct_Discount.Name = "colProduct_Discount";
             this.colProduct_Discount.Visible = true;
             this.colProduct_Discount.VisibleIndex = 17;
+            this.colProduct_Discount.Width = 70;
             // 
             // colTotal_Cost
             // 
@@ -353,6 +371,7 @@
             this.colTotal_Cost.Name = "colTotal_Cost";
             this.colTotal_Cost.Visible = true;
             this.colTotal_Cost.VisibleIndex = 18;
+            this.colTotal_Cost.Width = 78;
             // 
             // colContract_Description
             // 
@@ -361,6 +380,7 @@
             this.colContract_Description.Name = "colContract_Description";
             this.colContract_Description.Visible = true;
             this.colContract_Description.VisibleIndex = 19;
+            this.colContract_Description.Width = 94;
             // 
             // colDocuments_Required
             // 
@@ -369,6 +389,7 @@
             this.colDocuments_Required.Name = "colDocuments_Required";
             this.colDocuments_Required.Visible = true;
             this.colDocuments_Required.VisibleIndex = 20;
+            this.colDocuments_Required.Width = 66;
             // 
             // colActions
             // 
@@ -377,6 +398,7 @@
             this.colActions.Name = "colActions";
             this.colActions.Visible = true;
             this.colActions.VisibleIndex = 21;
+            this.colActions.Width = 51;
             // 
             // actionsRIBE
             // 
@@ -396,7 +418,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1802, 450);
             this.Controls.Add(this.listOrderPC);
             this.Controls.Add(this.listOrdersRC);
             this.Name = "V_ListOrdersForm";

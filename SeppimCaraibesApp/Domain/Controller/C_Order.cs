@@ -143,6 +143,14 @@
             addEditOrder.EditOrder(order);
         }
 
+        public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order)
+        {
+            string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
+
+            _mOrder.EditOrder(_context, order);
+            addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
+        }
+
         public void EditOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);

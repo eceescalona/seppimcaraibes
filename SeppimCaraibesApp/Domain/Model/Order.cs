@@ -49,6 +49,12 @@
             }
         }
 
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+            rOrder.EditOrder(context, order);
+        }
+
         public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
         {
             var rOrder = new Data.Repository.OrderRepository();
