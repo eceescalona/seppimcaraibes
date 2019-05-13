@@ -58,30 +58,11 @@ namespace SeppimCaraibesApp.Domain.View.Order
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        private void Refresh(Data.ORM.QuotesView row)
-        {
-            int rowHandle = 0;
-            var list = new List<Data.ORM.QuotesView>();
-            while (quotesGV.IsValidRowHandle(rowHandle))
-            {
-                var data = (Data.ORM.QuotesView)quotesGV.GetRow(rowHandle);
-                if (data.Order_Code == row.Order_Code)
-                {
-                    list.Add(data);
-                }
-                rowHandle++;
-            }
-
-            foreach (var item in list)
-            {
-                _cOrden.GetContext().Entry(item).Reload();
-            }
-        }
-
 
         #region IListOrders
         public void RefreshView()
         {
+            quotesBS.Clear();
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
             dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
             {

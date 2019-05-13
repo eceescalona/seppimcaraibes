@@ -1,4 +1,5 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Order
+﻿using System.Data.Entity;
+namespace SeppimCaraibesApp.Domain.View.Order
 {
     using System;
     using System.Windows.Forms;
@@ -19,7 +20,7 @@
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
-        private bool _isCallFrom;
+        private readonly bool _isCallFrom;
         private Controller.C_Order _cOrden;
         private bool _isCOrdenAlive;
 
@@ -50,17 +51,22 @@
         private void V_ListOrdersForm_Load(object sender, EventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.OrdersViews.Load();
-            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
+            dbContext.OrdersViews.LoadAsync().ContinueWith(loadTask =>
+            {
+                ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
+            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
 
         #region IListOrders
         public void RefreshView()
         {
+            ordersBS.Clear();
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.OrdersViews.Load();
-            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
+            dbContext.OrdersViews.LoadAsync().ContinueWith(loadTask =>
+            {
+                ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
+            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)

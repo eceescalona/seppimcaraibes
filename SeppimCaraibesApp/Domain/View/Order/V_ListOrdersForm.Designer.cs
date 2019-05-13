@@ -102,7 +102,7 @@
             this.listOrdersRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.listOrdersRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listOrdersRC.ShowToolbarCustomizeItem = false;
-            this.listOrdersRC.Size = new System.Drawing.Size(1802, 95);
+            this.listOrdersRC.Size = new System.Drawing.Size(1021, 95);
             this.listOrdersRC.Toolbar.ShowCustomizeItem = false;
             this.listOrdersRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listOrdersRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -152,7 +152,7 @@
             this.listOrderPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listOrderPC.Location = new System.Drawing.Point(0, 95);
             this.listOrderPC.Name = "listOrderPC";
-            this.listOrderPC.Size = new System.Drawing.Size(1802, 355);
+            this.listOrderPC.Size = new System.Drawing.Size(1021, 355);
             this.listOrderPC.TabIndex = 1;
             // 
             // ordersGC
@@ -165,7 +165,7 @@
             this.ordersGC.Name = "ordersGC";
             this.ordersGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.ordersGC.Size = new System.Drawing.Size(1798, 351);
+            this.ordersGC.Size = new System.Drawing.Size(1017, 351);
             this.ordersGC.TabIndex = 0;
             this.ordersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ordersGV});
@@ -418,7 +418,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1802, 450);
+            this.ClientSize = new System.Drawing.Size(1021, 450);
             this.Controls.Add(this.listOrderPC);
             this.Controls.Add(this.listOrdersRC);
             this.Name = "V_ListOrdersForm";
@@ -447,7 +447,6 @@
         private DevExpress.XtraBars.BarButtonItem refreshBBI;
         private DevExpress.XtraEditors.PanelControl listOrderPC;
         private DevExpress.XtraGrid.GridControl ordersGC;
-        private System.Windows.Forms.BindingSource ordersBS;
         private DevExpress.XtraGrid.Views.Grid.GridView ordersGV;
         private DevExpress.XtraGrid.Columns.GridColumn colOrder_Code;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
@@ -472,5 +471,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDocuments_Required;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private System.Windows.Forms.BindingSource ordersBS;
     }
 }
