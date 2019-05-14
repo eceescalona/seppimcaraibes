@@ -52,10 +52,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
         private void V_ListQuotesForm_Load(object sender, EventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
-            {
-                quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
-            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+            dbContext.QuotesViews.Load();
+            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
         }
 
 
@@ -64,10 +62,8 @@ namespace SeppimCaraibesApp.Domain.View.Order
         {
             quotesBS.ResetBindings(true);
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
-            {
-                quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
-            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+            dbContext.QuotesViews.Load();
+            quotesBS.DataSource = dbContext.QuotesViews.Local.ToBindingList();
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
