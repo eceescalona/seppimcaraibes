@@ -38,7 +38,7 @@
 
         void InvoicesEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
-            Data.ORM.SeppimCaraibesLocalEntities dataContext = new SeppimCaraibesApp.Data.ORM.SeppimCaraibesLocalEntities();
+            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrden.GetContext();
             e.QueryableSource = dataContext.InvoicesViews;
         }
 
