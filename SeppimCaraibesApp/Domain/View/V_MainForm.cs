@@ -88,5 +88,17 @@ namespace SeppimCaraibesApp
             listOrders.BringToFront();
             listOrders.Show();
         }
+
+        private void SimpleButton7_Click(object sender, EventArgs e)
+        {
+            var listInvoices = new Domain.View.Invoice.V_ListInvoicesForm
+            {
+                TopLevel = false
+            };
+            panelControl1.Controls.Add(listInvoices);
+            listInvoices.Dock = DockStyle.Fill;
+            listInvoices.BringToFront();
+            listInvoices.Show();
+        }
     }
 }

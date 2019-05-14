@@ -31,6 +31,8 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
@@ -49,19 +51,22 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
+            this.panelControl9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
@@ -80,13 +85,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
-            this.panelControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
+            this.panelControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -111,6 +117,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.panelControl10);
             this.layoutControl2.Controls.Add(this.panelControl9);
             this.layoutControl2.Controls.Add(this.panelControl8);
             this.layoutControl2.Controls.Add(this.panelControl7);
@@ -125,6 +132,24 @@
             this.layoutControl2.Size = new System.Drawing.Size(139, 422);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // panelControl9
+            // 
+            this.panelControl9.Controls.Add(this.simpleButton6);
+            this.panelControl9.Location = new System.Drawing.Point(12, 162);
+            this.panelControl9.Name = "panelControl9";
+            this.panelControl9.Size = new System.Drawing.Size(115, 26);
+            this.panelControl9.TabIndex = 7;
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton6.Location = new System.Drawing.Point(2, 2);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(111, 22);
+            this.simpleButton6.TabIndex = 0;
+            this.simpleButton6.Text = "Listar Ordenes";
+            this.simpleButton6.Click += new System.EventHandler(this.SimpleButton6_Click);
             // 
             // panelControl8
             // 
@@ -182,9 +207,9 @@
             // 
             // panelControl5
             // 
-            this.panelControl5.Location = new System.Drawing.Point(12, 189);
+            this.panelControl5.Location = new System.Drawing.Point(12, 223);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(115, 221);
+            this.panelControl5.Size = new System.Drawing.Size(115, 187);
             this.panelControl5.TabIndex = 4;
             // 
             // panelControl4
@@ -234,7 +259,8 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlItem10});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(139, 422);
             this.layoutControlGroup2.TextVisible = false;
@@ -260,9 +286,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.panelControl5;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 177);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 211);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(119, 225);
+            this.layoutControlItem5.Size = new System.Drawing.Size(119, 191);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -292,6 +318,15 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(119, 30);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.panelControl9;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 150);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(119, 30);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // panelControl1
             // 
@@ -329,32 +364,32 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // panelControl9
+            // panelControl10
             // 
-            this.panelControl9.Controls.Add(this.simpleButton6);
-            this.panelControl9.Location = new System.Drawing.Point(12, 162);
-            this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(115, 23);
-            this.panelControl9.TabIndex = 7;
+            this.panelControl10.Controls.Add(this.simpleButton7);
+            this.panelControl10.Location = new System.Drawing.Point(12, 192);
+            this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Size = new System.Drawing.Size(115, 27);
+            this.panelControl10.TabIndex = 0;
             // 
-            // layoutControlItem9
+            // layoutControlItem10
             // 
-            this.layoutControlItem9.Control = this.panelControl9;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 150);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(119, 27);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
+            this.layoutControlItem10.Control = this.panelControl10;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 180);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(119, 31);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
             // 
-            // simpleButton6
+            // simpleButton7
             // 
-            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton6.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(111, 19);
-            this.simpleButton6.TabIndex = 0;
-            this.simpleButton6.Text = "Listar Ordenes";
-            this.simpleButton6.Click += new System.EventHandler(this.SimpleButton6_Click);
+            this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton7.Location = new System.Drawing.Point(2, 2);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(111, 23);
+            this.simpleButton7.TabIndex = 0;
+            this.simpleButton7.Text = "Listar Facturas";
+            this.simpleButton7.Click += new System.EventHandler(this.SimpleButton7_Click);
             // 
             // V_MainForm
             // 
@@ -370,6 +405,8 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
+            this.panelControl9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
@@ -388,13 +425,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
-            this.panelControl9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
+            this.panelControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,6 +467,9 @@
         private DevExpress.XtraEditors.PanelControl panelControl9;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraEditors.PanelControl panelControl10;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }
 

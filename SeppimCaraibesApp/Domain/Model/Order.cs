@@ -89,6 +89,16 @@
             rOrder.EditOrder(context, order);
         }
 
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            var order = rOrder.GetOrder(context, code);
+            order.InvoiceState = invoiceState;
+
+            rOrder.EditOrder(context, order);
+        }
+
         public void DeleteOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rOrder = new Data.Repository.OrderRepository();

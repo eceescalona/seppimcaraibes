@@ -221,6 +221,7 @@
             // 
             // docME
             // 
+            this.docME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "DocRequired", true));
             this.docME.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docME.Location = new System.Drawing.Point(2, 20);
             this.docME.Name = "docME";
@@ -247,6 +248,7 @@
             // 
             // descriptionME
             // 
+            this.descriptionME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "ContractDescription", true));
             this.descriptionME.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionME.Location = new System.Drawing.Point(2, 20);
             this.descriptionME.Name = "descriptionME";

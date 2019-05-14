@@ -175,6 +175,15 @@
             listOrders.RefreshView();
         }
 
+        public void EditOrder(IListOrders listOrders, string code, EInvoiceState invoiceState)
+        {
+            string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
+
+            _mOrder.EditOrder(_context, code, invoiceState);
+            listOrders.ShowMessage(ETypeOfMessage.Information, message);
+            listOrders.RefreshView();
+        }
+
         public void DeleteOrder(IListOrders listOrders, string code)
         {
             string message = string.Format("La orden con código {0} ha sido eliminado satisfactoriamente.", code);
