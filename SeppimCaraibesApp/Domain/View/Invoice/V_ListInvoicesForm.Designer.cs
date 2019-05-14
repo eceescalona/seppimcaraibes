@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -51,7 +52,7 @@
             this.listInvoicesRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.invoicesPC = new DevExpress.XtraEditors.PanelControl();
             this.invoiceGC = new DevExpress.XtraGrid.GridControl();
-            this.invoicesEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.invoicesBS = new System.Windows.Forms.BindingSource(this.components);
             this.invoiceGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInvoice_Reference = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,12 +78,13 @@
             this.colTotal_Interests = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCPT_CFR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal_Cost = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.listInvoicesRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoicesPC)).BeginInit();
             this.invoicesPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceGC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).BeginInit();
             this.SuspendLayout();
@@ -162,7 +164,7 @@
             // 
             // invoiceGC
             // 
-            this.invoiceGC.DataSource = this.invoicesEIFS;
+            this.invoiceGC.DataSource = this.invoicesBS;
             this.invoiceGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.invoiceGC.Location = new System.Drawing.Point(2, 2);
             this.invoiceGC.MainView = this.invoiceGV;
@@ -175,12 +177,9 @@
             this.invoiceGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.invoiceGV});
             // 
-            // invoicesEIFS
+            // invoicesBS
             // 
-            this.invoicesEIFS.AreSourceRowsThreadSafe = true;
-            this.invoicesEIFS.DefaultSorting = "Customer_Name ASC";
-            this.invoicesEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.InvoicesView);
-            this.invoicesEIFS.KeyExpression = "Order_Code";
+            this.invoicesBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.InvoicesView);
             // 
             // invoiceGV
             // 
@@ -384,6 +383,14 @@
             this.colTotal_Cost.Visible = true;
             this.colTotal_Cost.VisibleIndex = 22;
             // 
+            // colActions
+            // 
+            this.colActions.Caption = "Acciones";
+            this.colActions.ColumnEdit = this.actionsRIBE;
+            this.colActions.Name = "colActions";
+            this.colActions.Visible = true;
+            this.colActions.VisibleIndex = 23;
+            // 
             // actionsRIBE
             // 
             this.actionsRIBE.AutoHeight = false;
@@ -397,14 +404,6 @@
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
-            // 
-            // colActions
-            // 
-            this.colActions.Caption = "Acciones";
-            this.colActions.ColumnEdit = this.actionsRIBE;
-            this.colActions.Name = "colActions";
-            this.colActions.Visible = true;
-            this.colActions.VisibleIndex = 23;
             // 
             // V_ListInvoicesForm
             // 
@@ -421,6 +420,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.invoicesPC)).EndInit();
             this.invoicesPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.invoiceGC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).EndInit();
             this.ResumeLayout(false);
@@ -438,7 +438,6 @@
         private DevExpress.XtraBars.BarButtonItem refreshBBI;
         private DevExpress.XtraEditors.PanelControl invoicesPC;
         private DevExpress.XtraGrid.GridControl invoiceGC;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource invoicesEIFS;
         private DevExpress.XtraGrid.Views.Grid.GridView invoiceGV;
         private DevExpress.XtraGrid.Columns.GridColumn colOrder_Code;
         private DevExpress.XtraGrid.Columns.GridColumn colInvoice_Reference;
@@ -466,5 +465,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTotal_Cost;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
+        private System.Windows.Forms.BindingSource invoicesBS;
     }
 }

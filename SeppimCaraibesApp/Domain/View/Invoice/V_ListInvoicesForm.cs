@@ -1,4 +1,5 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Invoice
+﻿using System.Data.Entity;
+namespace SeppimCaraibesApp.Domain.View.Invoice
 {
     using DevExpress.XtraEditors;
     using System;
@@ -29,25 +30,23 @@
 
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
+
         }
 
         private void V_ListInvoicesForm_Load(object sender, EventArgs e)
         {
-            invoicesEIFS.GetQueryable += InvoicesEIFS_GetQueryable;
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.InvoicesViews.Load();
+            invoicesBS.DataSource = dbContext.InvoicesViews.Local.ToBindingList();
         }
-
-        void InvoicesEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
-        {
-            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrden.GetContext();
-            e.QueryableSource = dataContext.InvoicesViews;
-        }
-
 
         #region IListOrders
         public void RefreshView()
         {
-            invoicesEIFS.Refresh();
-            invoicesEIFS.GetQueryable += InvoicesEIFS_GetQueryable;
+            invoicesBS.ResetBindings(true);
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.InvoicesViews.Load();
+            invoicesBS.DataSource = dbContext.InvoicesViews.Local.ToBindingList();
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
