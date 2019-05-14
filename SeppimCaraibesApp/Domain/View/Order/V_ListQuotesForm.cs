@@ -1,11 +1,9 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
     using DevExpress.XtraEditors;
     using System.Data.Entity;
     using System;
     using System.Windows.Forms;
-    using System.Collections.Generic;
 
     internal partial class V_ListQuotesForm : Form, Controller.IListOrders
     {

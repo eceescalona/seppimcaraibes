@@ -33,10 +33,6 @@
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
             _isCallFrom = false;
-
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.OrdersViews.Load();
-            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
         }
 
         public V_ListOrdersForm(Controller.C_Order cOrden)
@@ -53,19 +49,19 @@
 
         private void V_ListOrdersForm_Load(object sender, EventArgs e)
         {
-
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.OrdersViews.Load();
+            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
         }
 
 
         #region IListOrders
         public void RefreshView()
         {
-            ordersBS.Clear();
+            ordersBS.ResetBindings(true);
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.OrdersViews.LoadAsync().ContinueWith(loadTask =>
-            {
-                ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
-            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+            dbContext.OrdersViews.Load();
+            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
         }
 
         public void ShowMessage(ETypeOfMessage typeOfMessage, string message)
