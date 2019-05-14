@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
     using System;
     using System.Windows.Forms;
@@ -21,7 +20,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
         private readonly bool _isCallFrom;
-        private Controller.C_Order _cOrden;
+        private readonly Controller.C_Order _cOrden;
         private bool _isCOrdenAlive;
 
 
@@ -34,6 +33,10 @@ namespace SeppimCaraibesApp.Domain.View.Order
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
             _isCallFrom = false;
+
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            dbContext.OrdersViews.Load();
+            ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
         }
 
         public V_ListOrdersForm(Controller.C_Order cOrden)
@@ -50,11 +53,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
 
         private void V_ListOrdersForm_Load(object sender, EventArgs e)
         {
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
-            dbContext.OrdersViews.LoadAsync().ContinueWith(loadTask =>
-            {
-                ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
-            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
 

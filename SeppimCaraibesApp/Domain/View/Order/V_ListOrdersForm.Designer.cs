@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listOrdersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
@@ -52,7 +52,6 @@
             this.listOrdersRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listOrderPC = new DevExpress.XtraEditors.PanelControl();
             this.ordersGC = new DevExpress.XtraGrid.GridControl();
-            this.ordersBS = new System.Windows.Forms.BindingSource(this.components);
             this.ordersGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOrder_Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,13 +76,14 @@
             this.colDocuments_Required = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.ordersBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.listOrdersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listOrderPC)).BeginInit();
             this.listOrderPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBS)).BeginInit();
             this.SuspendLayout();
             // 
             // listOrdersRC
@@ -170,10 +170,6 @@
             this.ordersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ordersGV});
             // 
-            // ordersBS
-            // 
-            this.ordersBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.OrdersView);
-            // 
             // ordersGV
             // 
             this.ordersGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -200,7 +196,11 @@
             this.colDocuments_Required,
             this.colActions});
             this.ordersGV.GridControl = this.ordersGC;
+            this.ordersGV.GroupCount = 1;
             this.ordersGV.Name = "ordersGV";
+            this.ordersGV.OptionsBehavior.AutoExpandAllGroups = true;
+            this.ordersGV.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCustomer_Name, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colOrder_Code
             // 
@@ -271,7 +271,7 @@
             this.colCustomer_Phone.FieldName = "Customer_Phone";
             this.colCustomer_Phone.Name = "colCustomer_Phone";
             this.colCustomer_Phone.Visible = true;
-            this.colCustomer_Phone.VisibleIndex = 7;
+            this.colCustomer_Phone.VisibleIndex = 6;
             this.colCustomer_Phone.Width = 91;
             // 
             // colCustomer_Address
@@ -280,7 +280,7 @@
             this.colCustomer_Address.FieldName = "Customer_Address";
             this.colCustomer_Address.Name = "colCustomer_Address";
             this.colCustomer_Address.Visible = true;
-            this.colCustomer_Address.VisibleIndex = 8;
+            this.colCustomer_Address.VisibleIndex = 7;
             this.colCustomer_Address.Width = 95;
             // 
             // colPayment_Option
@@ -289,7 +289,7 @@
             this.colPayment_Option.FieldName = "Payment_Option";
             this.colPayment_Option.Name = "colPayment_Option";
             this.colPayment_Option.Visible = true;
-            this.colPayment_Option.VisibleIndex = 9;
+            this.colPayment_Option.VisibleIndex = 8;
             this.colPayment_Option.Width = 86;
             // 
             // colShipping_Method
@@ -298,7 +298,7 @@
             this.colShipping_Method.FieldName = "Shipping_Method";
             this.colShipping_Method.Name = "colShipping_Method";
             this.colShipping_Method.Visible = true;
-            this.colShipping_Method.VisibleIndex = 10;
+            this.colShipping_Method.VisibleIndex = 9;
             this.colShipping_Method.Width = 89;
             // 
             // colDevise
@@ -307,7 +307,7 @@
             this.colDevise.FieldName = "Devise";
             this.colDevise.Name = "colDevise";
             this.colDevise.Visible = true;
-            this.colDevise.VisibleIndex = 11;
+            this.colDevise.VisibleIndex = 10;
             this.colDevise.Width = 61;
             // 
             // colIncoterm
@@ -316,7 +316,7 @@
             this.colIncoterm.FieldName = "Incoterm";
             this.colIncoterm.Name = "colIncoterm";
             this.colIncoterm.Visible = true;
-            this.colIncoterm.VisibleIndex = 12;
+            this.colIncoterm.VisibleIndex = 11;
             this.colIncoterm.Width = 61;
             // 
             // colProduct_Code
@@ -325,7 +325,7 @@
             this.colProduct_Code.FieldName = "Product_Code";
             this.colProduct_Code.Name = "colProduct_Code";
             this.colProduct_Code.Visible = true;
-            this.colProduct_Code.VisibleIndex = 13;
+            this.colProduct_Code.VisibleIndex = 12;
             this.colProduct_Code.Width = 77;
             // 
             // colProduct_Name
@@ -334,7 +334,7 @@
             this.colProduct_Name.FieldName = "Product_Name";
             this.colProduct_Name.Name = "colProduct_Name";
             this.colProduct_Name.Visible = true;
-            this.colProduct_Name.VisibleIndex = 14;
+            this.colProduct_Name.VisibleIndex = 13;
             this.colProduct_Name.Width = 84;
             // 
             // colProduct_Qty
@@ -343,7 +343,7 @@
             this.colProduct_Qty.FieldName = "Product_Qty";
             this.colProduct_Qty.Name = "colProduct_Qty";
             this.colProduct_Qty.Visible = true;
-            this.colProduct_Qty.VisibleIndex = 15;
+            this.colProduct_Qty.VisibleIndex = 14;
             this.colProduct_Qty.Width = 56;
             // 
             // colUnit_Price
@@ -352,7 +352,7 @@
             this.colUnit_Price.FieldName = "Unit_Price";
             this.colUnit_Price.Name = "colUnit_Price";
             this.colUnit_Price.Visible = true;
-            this.colUnit_Price.VisibleIndex = 16;
+            this.colUnit_Price.VisibleIndex = 15;
             this.colUnit_Price.Width = 62;
             // 
             // colProduct_Discount
@@ -361,7 +361,7 @@
             this.colProduct_Discount.FieldName = "Product_Discount";
             this.colProduct_Discount.Name = "colProduct_Discount";
             this.colProduct_Discount.Visible = true;
-            this.colProduct_Discount.VisibleIndex = 17;
+            this.colProduct_Discount.VisibleIndex = 16;
             this.colProduct_Discount.Width = 70;
             // 
             // colTotal_Cost
@@ -370,7 +370,7 @@
             this.colTotal_Cost.FieldName = "Total_Cost";
             this.colTotal_Cost.Name = "colTotal_Cost";
             this.colTotal_Cost.Visible = true;
-            this.colTotal_Cost.VisibleIndex = 18;
+            this.colTotal_Cost.VisibleIndex = 17;
             this.colTotal_Cost.Width = 78;
             // 
             // colContract_Description
@@ -379,7 +379,7 @@
             this.colContract_Description.FieldName = "Contract_Description";
             this.colContract_Description.Name = "colContract_Description";
             this.colContract_Description.Visible = true;
-            this.colContract_Description.VisibleIndex = 19;
+            this.colContract_Description.VisibleIndex = 18;
             this.colContract_Description.Width = 94;
             // 
             // colDocuments_Required
@@ -388,7 +388,7 @@
             this.colDocuments_Required.FieldName = "Documents_Required";
             this.colDocuments_Required.Name = "colDocuments_Required";
             this.colDocuments_Required.Visible = true;
-            this.colDocuments_Required.VisibleIndex = 20;
+            this.colDocuments_Required.VisibleIndex = 19;
             this.colDocuments_Required.Width = 66;
             // 
             // colActions
@@ -397,22 +397,26 @@
             this.colActions.ColumnEdit = this.actionsRIBE;
             this.colActions.Name = "colActions";
             this.colActions.Visible = true;
-            this.colActions.VisibleIndex = 21;
+            this.colActions.VisibleIndex = 20;
             this.colActions.Width = 51;
             // 
             // actionsRIBE
             // 
             this.actionsRIBE.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
-            editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
-            editorButtonImageOptions3.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
+            editorButtonImageOptions4.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
+            editorButtonImageOptions5.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
+            editorButtonImageOptions6.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir a Factura", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Editar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "Convertir a Factura", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
+            // 
+            // ordersBS
+            // 
+            this.ordersBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.OrdersView);
             // 
             // V_ListOrdersForm
             // 
@@ -429,9 +433,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.listOrderPC)).EndInit();
             this.listOrderPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ordersGC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionsRIBE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

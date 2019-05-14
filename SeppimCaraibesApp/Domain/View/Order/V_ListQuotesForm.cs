@@ -62,7 +62,7 @@ namespace SeppimCaraibesApp.Domain.View.Order
         #region IListOrders
         public void RefreshView()
         {
-            quotesBS.Clear();
+            quotesBS.ResetBindings(true);
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
             dbContext.QuotesViews.LoadAsync().ContinueWith(loadTask =>
             {
