@@ -91,7 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ECptCfr.cs" />
+    <Compile Include="Data\EIncoterms.cs" />
     <Compile Include="Data\EDevise.cs" />
     <Compile Include="Data\EInvoiceState.cs" />
     <Compile Include="Data\EOrderProcessState.cs" />
@@ -117,11 +117,13 @@
     <Compile Include="Data\EPeriodState.cs" />
     <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
+    <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />
     <Compile Include="Data\Repository\ProviderRepository.cs" />
     <Compile Include="Data\EShippingMethod.cs" />
+    <Compile Include="Data\Repository\ShipmentRepository.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
@@ -236,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Customer\V_ListCustomersForm.resx">
       <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Invoice\V_AddEditInvoiceForm.resx">
+      <DependentUpon>V_AddEditInvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Invoice\V_ListInvoicesForm.resx">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>

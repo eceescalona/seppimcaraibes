@@ -52,6 +52,7 @@
         public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
         {
             var rOrder = new Data.Repository.OrderRepository();
+
             rOrder.EditOrder(context, order);
         }
 
@@ -73,8 +74,21 @@
 
                 productsOrders.Add(productOrder);
             }
+
+            if (order.Shipment != null)
+            {
+                var rShipment = new Data.Repository.ShipmentRepository();
+                if (!context.Shipments.Any(s => s.ShipmentId == order.Shipment.ShipmentId))
+                {
+                    rShipment.AddShipment(context, order.Shipment);
+                }
+            }
+            else
+            {
+                order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
+            }
+
             order.ProductsOrders = productsOrders;
-            order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
 
             rOrder.EditOrder(context, order);
         }
@@ -85,6 +99,11 @@
 
             var order = rOrder.GetOrder(context, code);
             order.OrderProcessState = orderProcessState;
+
+            if (orderProcessState == EOrderProcessState.Invoice)
+            {
+                order.InvoiceState = EInvoiceState.InProcess;
+            }
 
             rOrder.EditOrder(context, order);
         }

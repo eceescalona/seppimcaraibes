@@ -3,6 +3,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
 {
     using DevExpress.XtraEditors;
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
 
     internal partial class V_ListInvoicesForm : Form, Controller.IListOrders
@@ -30,7 +31,6 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
 
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
-
         }
 
         private void V_ListInvoicesForm_Load(object sender, EventArgs e)
@@ -39,6 +39,27 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
             dbContext.InvoicesViews.Load();
             invoicesBS.DataSource = dbContext.InvoicesViews.Local.ToBindingList();
         }
+
+        private void Refresh(Data.ORM.InvoicesView row)
+        {
+            int rowHandle = 0;
+            var list = new List<Data.ORM.InvoicesView>();
+            while (invoiceGV.IsValidRowHandle(rowHandle))
+            {
+                var data = (Data.ORM.InvoicesView)invoiceGV.GetRow(rowHandle);
+                if (data.Order_Code == row.Order_Code)
+                {
+                    list.Add(data);
+                }
+                rowHandle++;
+            }
+
+            foreach (var item in list)
+            {
+                _cOrden.GetContext().Entry(item).Reload();
+            }
+        }
+
 
         #region IListOrders
         public void RefreshView()
@@ -129,6 +150,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.DeleteOrder(this, row.Order_Code);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)
@@ -148,6 +170,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EInvoiceState.Settled);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)

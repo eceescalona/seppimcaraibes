@@ -59,7 +59,7 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public double? TotalCost { get; set; }
 
-        public ECptCfr? CptCfr { get; set; }
+        public EIncoterms? CptCfr { get; set; }
 
         public EOrderState? OrderState { get; set; }
 

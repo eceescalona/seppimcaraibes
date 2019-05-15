@@ -77,7 +77,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public decimal? Freight { get; set; }
 
         [Column("CPT-CFR")]
-        public ECptCfr? CPT_CFR { get; set; }
+        public EIncoterms? CPT_CFR { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }

@@ -51,6 +51,9 @@
                     if (row.ProductId == product.ProductId)
                     {
                         row.Qty = product.Qty;
+                        row.Discount = product.Discount;
+                        row.Interests = product.Interests;
+                        row.UnitPrice = product.Product.UnitPrice;
                         productsGV.SelectRow(e.RowHandle);
                     }
                 }
@@ -78,6 +81,12 @@
             shipmentMethodBS.Clear();
             shipmentMethodBS.DataSource = tempESM;
             shipmentMLUE.Properties.DataSource = shipmentMethodBS.List;
+
+            incotermsBS.DataSource = typeof(EIncoterms);
+            var tempEI = Enum.GetValues(typeof(EIncoterms));
+            incotermsBS.Clear();
+            incotermsBS.DataSource = tempEI;
+            eIncotermLUE.Properties.DataSource = incotermsBS.List;
         }
 
 
@@ -106,6 +115,11 @@
             {
                 paymentOptionLUE.EditValue = order.PaymentOption;
             }
+
+            if (order.CptCfr != null)
+            {
+                eIncotermLUE.EditValue = order.CptCfr;
+            }
         }
 
         public void RefreshView()
@@ -129,6 +143,7 @@
             deviseLUE.EditValue = null;
             paymentOptionLUE.EditValue = null;
             shipmentMLUE.EditValue = null;
+            eIncotermLUE.EditValue = null;
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -193,6 +208,7 @@
                 var order = (Data.ORM.Order)orderBS.Current;
                 order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
                 order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
+                order.CptCfr = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
                 shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
                 order.Shipment = shipment;

@@ -4,6 +4,7 @@
     using System.Windows.Forms;
     using System.Data.Entity;
     using DevExpress.XtraEditors;
+    using System.Collections.Generic;
 
     internal partial class V_ListOrdersForm : Form, Controller.IListOrders
     {
@@ -52,6 +53,26 @@
             Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
             dbContext.OrdersViews.Load();
             ordersBS.DataSource = dbContext.OrdersViews.Local.ToBindingList();
+        }
+
+        private void Refresh(Data.ORM.OrdersView row)
+        {
+            int rowHandle = 0;
+            var list = new List<Data.ORM.OrdersView>();
+            while (ordersGV.IsValidRowHandle(rowHandle))
+            {
+                var data = (Data.ORM.OrdersView)ordersGV.GetRow(rowHandle);
+                if (data.Order_Code == row.Order_Code)
+                {
+                    list.Add(data);
+                }
+                rowHandle++;
+            }
+
+            foreach (var item in list)
+            {
+                _cOrden.GetContext().Entry(item).Reload();
+            }
         }
 
 
@@ -145,6 +166,7 @@
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.DeleteOrder(this, row.Order_Code);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)
@@ -164,6 +186,7 @@
                     if (result == DialogResult.Yes)
                     {
                         _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Invoice);
+                        Refresh(row);
                     }
                 }
                 catch (Exception)

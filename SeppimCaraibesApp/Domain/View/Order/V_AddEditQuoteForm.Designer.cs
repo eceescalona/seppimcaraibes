@@ -34,6 +34,7 @@
             this.formLC = new DevExpress.XtraLayout.LayoutControl();
             this.shipmentPC = new DevExpress.XtraEditors.PanelControl();
             this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
             this.placeDTE = new DevExpress.XtraEditors.TextEdit();
             this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
             this.packingTE = new DevExpress.XtraEditors.TextEdit();
@@ -45,8 +46,12 @@
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
+            this.eIncotermLC = new DevExpress.XtraEditors.LabelControl();
+            this.eIncotermLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.deviseLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.deviseBS = new System.Windows.Forms.BindingSource(this.components);
             this.paymentOptionLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
             this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.incotermTE = new DevExpress.XtraEditors.TextEdit();
@@ -80,13 +85,12 @@
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInterests = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addEditQuoteLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.deviseBS = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
+            this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
@@ -96,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipmentPC)).BeginInit();
             this.shipmentPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeDTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).BeginInit();
@@ -103,8 +108,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
             this.quotePC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).BeginInit();
@@ -135,9 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -279,6 +285,8 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.eIncotermLC);
+            this.quotePC.Controls.Add(this.eIncotermLUE);
             this.quotePC.Controls.Add(this.deviseLUE);
             this.quotePC.Controls.Add(this.paymentOptionLUE);
             this.quotePC.Controls.Add(this.totalCostTE);
@@ -296,6 +304,24 @@
             this.quotePC.Name = "quotePC";
             this.quotePC.Size = new System.Drawing.Size(424, 179);
             this.quotePC.TabIndex = 4;
+            // 
+            // eIncotermLC
+            // 
+            this.eIncotermLC.Location = new System.Drawing.Point(255, 85);
+            this.eIncotermLC.Name = "eIncotermLC";
+            this.eIncotermLC.Size = new System.Drawing.Size(47, 13);
+            this.eIncotermLC.TabIndex = 14;
+            this.eIncotermLC.Text = "Incoterm:";
+            // 
+            // eIncotermLUE
+            // 
+            this.eIncotermLUE.Location = new System.Drawing.Point(308, 82);
+            this.eIncotermLUE.Name = "eIncotermLUE";
+            this.eIncotermLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.eIncotermLUE.Properties.NullText = "";
+            this.eIncotermLUE.Size = new System.Drawing.Size(100, 20);
+            this.eIncotermLUE.TabIndex = 13;
             // 
             // deviseLUE
             // 
@@ -388,11 +414,11 @@
             // 
             // incotermLC
             // 
-            this.incotermLC.Location = new System.Drawing.Point(100, 85);
+            this.incotermLC.Location = new System.Drawing.Point(52, 85);
             this.incotermLC.Name = "incotermLC";
-            this.incotermLC.Size = new System.Drawing.Size(47, 13);
+            this.incotermLC.Size = new System.Drawing.Size(95, 13);
             this.incotermLC.TabIndex = 2;
-            this.incotermLC.Text = "Incoterm:";
+            this.incotermLC.Text = "Costo del Incoterm:";
             // 
             // periodOfferLC
             // 
@@ -565,7 +591,8 @@
             this.colProductName,
             this.colQty,
             this.colDiscount,
-            this.colUnitPrice});
+            this.colUnitPrice,
+            this.colInterests});
             this.productsGV.GridControl = this.productsGridC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -601,8 +628,16 @@
             this.colUnitPrice.Caption = "Precio por Unidad";
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
-            this.colUnitPrice.VisibleIndex = 4;
+            this.colUnitPrice.VisibleIndex = 5;
             this.colUnitPrice.Width = 70;
+            // 
+            // colInterests
+            // 
+            this.colInterests.Caption = "Interes";
+            this.colInterests.FieldName = "Interests";
+            this.colInterests.Name = "colInterests";
+            this.colInterests.Visible = true;
+            this.colInterests.VisibleIndex = 4;
             // 
             // addEditQuoteLCG
             // 
@@ -665,6 +700,7 @@
             this.shipmentPC.ResumeLayout(false);
             this.shipmentPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeDTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).EndInit();
@@ -673,8 +709,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
             this.quotePC.ResumeLayout(false);
             this.quotePC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).EndInit();
@@ -705,9 +744,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -772,5 +809,9 @@
         private System.Windows.Forms.BindingSource deviseBS;
         private System.Windows.Forms.BindingSource paymentOptionsBS;
         private System.Windows.Forms.BindingSource shipmentMethodBS;
+        private DevExpress.XtraGrid.Columns.GridColumn colInterests;
+        private DevExpress.XtraEditors.LabelControl eIncotermLC;
+        private DevExpress.XtraEditors.LookUpEdit eIncotermLUE;
+        private System.Windows.Forms.BindingSource incotermsBS;
     }
 }
