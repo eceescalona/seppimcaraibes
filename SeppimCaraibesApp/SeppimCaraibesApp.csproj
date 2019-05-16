@@ -124,10 +124,12 @@
     <Compile Include="Data\Repository\ProviderRepository.cs" />
     <Compile Include="Data\EShippingMethod.cs" />
     <Compile Include="Data\Repository\ShipmentRepository.cs" />
+    <Compile Include="Domain\Controller\C_Bank.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
     <Compile Include="Domain\Controller\C_Provider.cs" />
+    <Compile Include="Domain\Controller\IAddEditBank.cs" />
     <Compile Include="Domain\Controller\IAddEditCustomer.cs" />
     <Compile Include="Domain\Controller\IAddEditOrder.cs" />
     <Compile Include="Domain\Controller\IAddEditProduct.cs" />
@@ -137,10 +139,17 @@
     <Compile Include="Domain\Controller\IListProducts.cs" />
     <Compile Include="Domain\Controller\IListProviders.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
+    <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
     <Compile Include="Domain\Model\Order.cs" />
     <Compile Include="Domain\Model\Product.cs" />
     <Compile Include="Domain\Model\Provider.cs" />
+    <Compile Include="Domain\View\Bank\V_AddEditBankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Bank\V_AddEditBankForm.Designer.cs">
+      <DependentUpon>V_AddEditBankForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Customer\V_AddEditCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +242,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Domain\View\Bank\V_AddEditBankForm.resx">
+      <DependentUpon>V_AddEditBankForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Customer\V_AddEditCustomerForm.resx">
       <DependentUpon>V_AddEditCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +302,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Bank.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Customer.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Order.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />

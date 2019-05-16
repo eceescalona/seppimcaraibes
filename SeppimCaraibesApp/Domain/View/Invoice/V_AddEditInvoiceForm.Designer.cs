@@ -28,175 +28,403 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bankGC = new DevExpress.XtraEditors.GroupControl();
-            this.insuranceLC = new DevExpress.XtraEditors.LabelControl();
-            this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
-            this.insuranceTE = new DevExpress.XtraEditors.TextEdit();
-            this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.acceptSB = new DevExpress.XtraEditors.SimpleButton();
+            this.components = new System.ComponentModel.Container();
+            this.addEditLC = new DevExpress.XtraLayout.LayoutControl();
+            this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
+            this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
+            this.cancelPC = new DevExpress.XtraEditors.PanelControl();
             this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
+            this.acceptPC = new DevExpress.XtraEditors.PanelControl();
+            this.acceptSB = new DevExpress.XtraEditors.SimpleButton();
+            this.emptyPC = new DevExpress.XtraEditors.PanelControl();
+            this.buttonsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptyLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bankPC = new DevExpress.XtraEditors.PanelControl();
+            this.bankGC = new DevExpress.XtraEditors.GroupControl();
+            this.bankLC = new DevExpress.XtraLayout.LayoutControl();
+            this.bankErrorLCPC = new DevExpress.XtraEditors.PanelControl();
+            this.bankErrorLC = new DevExpress.XtraEditors.LabelControl();
+            this.addBankPC = new DevExpress.XtraEditors.PanelControl();
             this.addBankSB = new DevExpress.XtraEditors.SimpleButton();
+            this.banlSLUEPC = new DevExpress.XtraEditors.PanelControl();
             this.banksSLUE = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.bankGV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bankLCG = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.bankSLUELCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.addBankLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bankErrorLCLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.formPC = new DevExpress.XtraEditors.PanelControl();
+            this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
+            this.totalCostLC = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
+            this.insuranceTE = new DevExpress.XtraEditors.TextEdit();
+            this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
+            this.insuranceLC = new DevExpress.XtraEditors.LabelControl();
+            this.addEditInvoiceLCG = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bankLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAccountNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
+            this.addEditLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
+            this.buttonsPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).BeginInit();
+            this.buttonsLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
+            this.cancelPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
+            this.acceptPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankPC)).BeginInit();
+            this.bankPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bankGC)).BeginInit();
             this.bankGC.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
-            this.layoutControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
-            this.panelControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
-            this.panelControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLC)).BeginInit();
+            this.bankLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bankErrorLCPC)).BeginInit();
+            this.bankErrorLCPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addBankPC)).BeginInit();
+            this.addBankPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.banlSLUEPC)).BeginInit();
+            this.banlSLUEPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.banksSLUE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLCG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankSLUELCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addBankLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankErrorLCLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
+            this.formPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // addEditLC
             // 
-            this.layoutControl1.Controls.Add(this.panelControl2);
-            this.layoutControl1.Controls.Add(this.panelControl3);
-            this.layoutControl1.Controls.Add(this.panelControl1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(647, 450);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.addEditLC.Controls.Add(this.buttonsPC);
+            this.addEditLC.Controls.Add(this.bankPC);
+            this.addEditLC.Controls.Add(this.formPC);
+            this.addEditLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addEditLC.Location = new System.Drawing.Point(0, 0);
+            this.addEditLC.Name = "addEditLC";
+            this.addEditLC.Root = this.addEditInvoiceLCG;
+            this.addEditLC.Size = new System.Drawing.Size(647, 402);
+            this.addEditLC.TabIndex = 0;
+            this.addEditLC.Text = "layoutControl1";
             // 
-            // Root
+            // buttonsPC
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.layoutControlItem2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(647, 450);
-            this.Root.TextVisible = false;
+            this.buttonsPC.Controls.Add(this.buttonsLC);
+            this.buttonsPC.Location = new System.Drawing.Point(12, 335);
+            this.buttonsPC.Name = "buttonsPC";
+            this.buttonsPC.Size = new System.Drawing.Size(623, 55);
+            this.buttonsPC.TabIndex = 5;
             // 
-            // panelControl1
+            // buttonsLC
             // 
-            this.panelControl1.Controls.Add(this.inspectionTE);
-            this.panelControl1.Controls.Add(this.insuranceTE);
-            this.panelControl1.Controls.Add(this.inspectionLC);
-            this.panelControl1.Controls.Add(this.insuranceLC);
-            this.panelControl1.Location = new System.Drawing.Point(12, 12);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(245, 343);
-            this.panelControl1.TabIndex = 4;
+            this.buttonsLC.Controls.Add(this.cancelPC);
+            this.buttonsLC.Controls.Add(this.acceptPC);
+            this.buttonsLC.Controls.Add(this.emptyPC);
+            this.buttonsLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsLC.Location = new System.Drawing.Point(2, 2);
+            this.buttonsLC.Name = "buttonsLC";
+            this.buttonsLC.Root = this.buttonsLCG;
+            this.buttonsLC.Size = new System.Drawing.Size(619, 51);
+            this.buttonsLC.TabIndex = 0;
+            this.buttonsLC.Text = "layoutControl3";
             // 
-            // layoutControlItem1
+            // cancelPC
             // 
-            this.layoutControlItem1.Control = this.panelControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(249, 347);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.cancelPC.Controls.Add(this.cancelSB);
+            this.cancelPC.Location = new System.Drawing.Point(493, 12);
+            this.cancelPC.Name = "cancelPC";
+            this.cancelPC.Size = new System.Drawing.Size(114, 26);
+            this.cancelPC.TabIndex = 6;
             // 
-            // panelControl2
+            // cancelSB
             // 
-            this.panelControl2.Controls.Add(this.layoutControl3);
-            this.panelControl2.Location = new System.Drawing.Point(12, 359);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(623, 79);
-            this.panelControl2.TabIndex = 5;
+            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelSB.Location = new System.Drawing.Point(2, 2);
+            this.cancelSB.Name = "cancelSB";
+            this.cancelSB.Size = new System.Drawing.Size(110, 22);
+            this.cancelSB.TabIndex = 0;
+            this.cancelSB.Text = "Cancelar";
+            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
             // 
-            // panelControl3
+            // acceptPC
             // 
-            this.panelControl3.Controls.Add(this.bankGC);
-            this.panelControl3.Location = new System.Drawing.Point(261, 12);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(374, 343);
-            this.panelControl3.TabIndex = 6;
+            this.acceptPC.Controls.Add(this.acceptSB);
+            this.acceptPC.Location = new System.Drawing.Point(374, 12);
+            this.acceptPC.Name = "acceptPC";
+            this.acceptPC.Size = new System.Drawing.Size(115, 26);
+            this.acceptPC.TabIndex = 5;
             // 
-            // layoutControlItem3
+            // acceptSB
             // 
-            this.layoutControlItem3.Control = this.panelControl3;
-            this.layoutControlItem3.Location = new System.Drawing.Point(249, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(378, 347);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.acceptSB.Location = new System.Drawing.Point(2, 2);
+            this.acceptSB.Name = "acceptSB";
+            this.acceptSB.Size = new System.Drawing.Size(111, 22);
+            this.acceptSB.TabIndex = 0;
+            this.acceptSB.Text = "Aceptar";
+            this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
             // 
-            // layoutControlItem2
+            // emptyPC
             // 
-            this.layoutControlItem2.Control = this.panelControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 347);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(627, 83);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.emptyPC.Location = new System.Drawing.Point(12, 12);
+            this.emptyPC.Name = "emptyPC";
+            this.emptyPC.Size = new System.Drawing.Size(358, 27);
+            this.emptyPC.TabIndex = 4;
+            // 
+            // buttonsLCG
+            // 
+            this.buttonsLCG.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.buttonsLCG.GroupBordersVisible = false;
+            this.buttonsLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptyLCI,
+            this.acceptLCI,
+            this.cancelLCI});
+            this.buttonsLCG.Name = "buttonsLCG";
+            this.buttonsLCG.Size = new System.Drawing.Size(619, 51);
+            this.buttonsLCG.TextVisible = false;
+            // 
+            // emptyLCI
+            // 
+            this.emptyLCI.Control = this.emptyPC;
+            this.emptyLCI.Location = new System.Drawing.Point(0, 0);
+            this.emptyLCI.Name = "emptyLCI";
+            this.emptyLCI.Size = new System.Drawing.Size(362, 31);
+            this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.emptyLCI.TextVisible = false;
+            // 
+            // acceptLCI
+            // 
+            this.acceptLCI.Control = this.acceptPC;
+            this.acceptLCI.Location = new System.Drawing.Point(362, 0);
+            this.acceptLCI.Name = "acceptLCI";
+            this.acceptLCI.Size = new System.Drawing.Size(119, 31);
+            this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.acceptLCI.TextVisible = false;
+            // 
+            // cancelLCI
+            // 
+            this.cancelLCI.Control = this.cancelPC;
+            this.cancelLCI.Location = new System.Drawing.Point(481, 0);
+            this.cancelLCI.Name = "cancelLCI";
+            this.cancelLCI.Size = new System.Drawing.Size(118, 31);
+            this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.cancelLCI.TextVisible = false;
+            // 
+            // bankPC
+            // 
+            this.bankPC.Controls.Add(this.bankGC);
+            this.bankPC.Location = new System.Drawing.Point(261, 12);
+            this.bankPC.Name = "bankPC";
+            this.bankPC.Size = new System.Drawing.Size(374, 319);
+            this.bankPC.TabIndex = 6;
             // 
             // bankGC
             // 
-            this.bankGC.Controls.Add(this.layoutControl2);
+            this.bankGC.Controls.Add(this.bankLC);
             this.bankGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bankGC.Location = new System.Drawing.Point(2, 2);
             this.bankGC.Name = "bankGC";
-            this.bankGC.Size = new System.Drawing.Size(370, 339);
+            this.bankGC.Size = new System.Drawing.Size(370, 315);
             this.bankGC.TabIndex = 0;
             this.bankGC.Text = "Banco*:";
             // 
-            // insuranceLC
+            // bankLC
             // 
-            this.insuranceLC.Location = new System.Drawing.Point(31, 14);
-            this.insuranceLC.Name = "insuranceLC";
-            this.insuranceLC.Size = new System.Drawing.Size(38, 13);
-            this.insuranceLC.TabIndex = 0;
-            this.insuranceLC.Text = "Seguro:";
+            this.bankLC.Controls.Add(this.bankErrorLCPC);
+            this.bankLC.Controls.Add(this.addBankPC);
+            this.bankLC.Controls.Add(this.banlSLUEPC);
+            this.bankLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bankLC.Location = new System.Drawing.Point(2, 20);
+            this.bankLC.Name = "bankLC";
+            this.bankLC.Root = this.bankLCG;
+            this.bankLC.Size = new System.Drawing.Size(366, 293);
+            this.bankLC.TabIndex = 0;
+            this.bankLC.Text = "layoutControl2";
+            // 
+            // bankErrorLCPC
+            // 
+            this.bankErrorLCPC.Controls.Add(this.bankErrorLC);
+            this.bankErrorLCPC.Location = new System.Drawing.Point(12, 12);
+            this.bankErrorLCPC.Name = "bankErrorLCPC";
+            this.bankErrorLCPC.Size = new System.Drawing.Size(132, 17);
+            this.bankErrorLCPC.TabIndex = 6;
+            // 
+            // bankErrorLC
+            // 
+            this.bankErrorLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bankErrorLC.Location = new System.Drawing.Point(2, 2);
+            this.bankErrorLC.Name = "bankErrorLC";
+            this.bankErrorLC.Size = new System.Drawing.Size(128, 13);
+            this.bankErrorLC.TabIndex = 0;
+            this.bankErrorLC.Text = "Debe seleccionar un banco";
+            // 
+            // addBankPC
+            // 
+            this.addBankPC.Controls.Add(this.addBankSB);
+            this.addBankPC.Location = new System.Drawing.Point(12, 255);
+            this.addBankPC.Name = "addBankPC";
+            this.addBankPC.Size = new System.Drawing.Size(342, 26);
+            this.addBankPC.TabIndex = 5;
+            // 
+            // addBankSB
+            // 
+            this.addBankSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addBankSB.Location = new System.Drawing.Point(2, 2);
+            this.addBankSB.Name = "addBankSB";
+            this.addBankSB.Size = new System.Drawing.Size(338, 22);
+            this.addBankSB.TabIndex = 0;
+            this.addBankSB.Text = "Adicionar Nuevo Banco";
+            this.addBankSB.Click += new System.EventHandler(this.AddBankSB_Click);
+            // 
+            // banlSLUEPC
+            // 
+            this.banlSLUEPC.Controls.Add(this.banksSLUE);
+            this.banlSLUEPC.Location = new System.Drawing.Point(12, 33);
+            this.banlSLUEPC.Name = "banlSLUEPC";
+            this.banlSLUEPC.Size = new System.Drawing.Size(342, 218);
+            this.banlSLUEPC.TabIndex = 4;
+            // 
+            // banksSLUE
+            // 
+            this.banksSLUE.EditValue = "";
+            this.banksSLUE.Location = new System.Drawing.Point(7, 5);
+            this.banksSLUE.Name = "banksSLUE";
+            this.banksSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.banksSLUE.Properties.DataSource = this.banksEIFS;
+            this.banksSLUE.Properties.DisplayMember = "AccountName";
+            this.banksSLUE.Properties.PopupView = this.bankGV;
+            this.banksSLUE.Properties.ValueMember = "BankId";
+            this.banksSLUE.Size = new System.Drawing.Size(330, 20);
+            this.banksSLUE.TabIndex = 0;
+            // 
+            // banksEIFS
+            // 
+            this.banksEIFS.AreSourceRowsThreadSafe = true;
+            this.banksEIFS.DefaultSorting = "BankName ASC";
+            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
+            this.banksEIFS.KeyExpression = "BankId";
+            // 
+            // bankGV
+            // 
+            this.bankGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName,
+            this.colAccountNumber});
+            this.bankGV.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.bankGV.Name = "bankGV";
+            this.bankGV.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.bankGV.OptionsView.ShowGroupPanel = false;
+            this.bankGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.BankGV_RowStyle);
+            // 
+            // bankLCG
+            // 
+            this.bankLCG.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.bankLCG.GroupBordersVisible = false;
+            this.bankLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.bankSLUELCI,
+            this.addBankLCI,
+            this.bankErrorLCLCI});
+            this.bankLCG.Name = "bankLCG";
+            this.bankLCG.Size = new System.Drawing.Size(366, 293);
+            this.bankLCG.TextVisible = false;
+            // 
+            // bankSLUELCI
+            // 
+            this.bankSLUELCI.Control = this.banlSLUEPC;
+            this.bankSLUELCI.Location = new System.Drawing.Point(0, 21);
+            this.bankSLUELCI.Name = "bankSLUELCI";
+            this.bankSLUELCI.Size = new System.Drawing.Size(346, 222);
+            this.bankSLUELCI.TextSize = new System.Drawing.Size(0, 0);
+            this.bankSLUELCI.TextVisible = false;
+            // 
+            // addBankLCI
+            // 
+            this.addBankLCI.Control = this.addBankPC;
+            this.addBankLCI.Location = new System.Drawing.Point(0, 243);
+            this.addBankLCI.Name = "addBankLCI";
+            this.addBankLCI.Size = new System.Drawing.Size(346, 30);
+            this.addBankLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.addBankLCI.TextVisible = false;
+            // 
+            // bankErrorLCLCI
+            // 
+            this.bankErrorLCLCI.Control = this.bankErrorLCPC;
+            this.bankErrorLCLCI.Location = new System.Drawing.Point(0, 0);
+            this.bankErrorLCLCI.Name = "bankErrorLCLCI";
+            this.bankErrorLCLCI.Size = new System.Drawing.Size(346, 21);
+            this.bankErrorLCLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.bankErrorLCLCI.TextVisible = false;
+            // 
+            // formPC
+            // 
+            this.formPC.Controls.Add(this.totalCostTE);
+            this.formPC.Controls.Add(this.totalCostLC);
+            this.formPC.Controls.Add(this.inspectionTE);
+            this.formPC.Controls.Add(this.insuranceTE);
+            this.formPC.Controls.Add(this.inspectionLC);
+            this.formPC.Controls.Add(this.insuranceLC);
+            this.formPC.Location = new System.Drawing.Point(12, 12);
+            this.formPC.Name = "formPC";
+            this.formPC.Size = new System.Drawing.Size(245, 319);
+            this.formPC.TabIndex = 4;
+            // 
+            // totalCostTE
+            // 
+            this.totalCostTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "TotalCost", true));
+            this.totalCostTE.Location = new System.Drawing.Point(75, 88);
+            this.totalCostTE.Name = "totalCostTE";
+            this.totalCostTE.Size = new System.Drawing.Size(128, 20);
+            this.totalCostTE.TabIndex = 5;
+            // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
+            // totalCostLC
+            // 
+            this.totalCostLC.Location = new System.Drawing.Point(10, 91);
+            this.totalCostLC.Name = "totalCostLC";
+            this.totalCostLC.Size = new System.Drawing.Size(59, 13);
+            this.totalCostLC.TabIndex = 4;
+            this.totalCostLC.Text = "Costo Total:";
+            // 
+            // inspectionTE
+            // 
+            this.inspectionTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Inspection", true));
+            this.inspectionTE.Location = new System.Drawing.Point(75, 52);
+            this.inspectionTE.Name = "inspectionTE";
+            this.inspectionTE.Size = new System.Drawing.Size(128, 20);
+            this.inspectionTE.TabIndex = 3;
+            // 
+            // insuranceTE
+            // 
+            this.insuranceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Insurance", true));
+            this.insuranceTE.Location = new System.Drawing.Point(75, 11);
+            this.insuranceTE.Name = "insuranceTE";
+            this.insuranceTE.Size = new System.Drawing.Size(128, 20);
+            this.insuranceTE.TabIndex = 2;
             // 
             // inspectionLC
             // 
@@ -206,289 +434,172 @@
             this.inspectionLC.TabIndex = 1;
             this.inspectionLC.Text = "Inspección:";
             // 
-            // insuranceTE
+            // insuranceLC
             // 
-            this.insuranceTE.Location = new System.Drawing.Point(75, 11);
-            this.insuranceTE.Name = "insuranceTE";
-            this.insuranceTE.Size = new System.Drawing.Size(128, 20);
-            this.insuranceTE.TabIndex = 2;
+            this.insuranceLC.Location = new System.Drawing.Point(31, 14);
+            this.insuranceLC.Name = "insuranceLC";
+            this.insuranceLC.Size = new System.Drawing.Size(38, 13);
+            this.insuranceLC.TabIndex = 0;
+            this.insuranceLC.Text = "Seguro:";
             // 
-            // inspectionTE
+            // addEditInvoiceLCG
             // 
-            this.inspectionTE.Location = new System.Drawing.Point(75, 52);
-            this.inspectionTE.Name = "inspectionTE";
-            this.inspectionTE.Size = new System.Drawing.Size(128, 20);
-            this.inspectionTE.TabIndex = 3;
+            this.addEditInvoiceLCG.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.addEditInvoiceLCG.GroupBordersVisible = false;
+            this.addEditInvoiceLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.formLCI,
+            this.bankLCI,
+            this.buttonsLCI});
+            this.addEditInvoiceLCG.Name = "addEditInvoiceLCG";
+            this.addEditInvoiceLCG.Size = new System.Drawing.Size(647, 402);
+            this.addEditInvoiceLCG.TextVisible = false;
             // 
-            // layoutControl2
+            // formLCI
             // 
-            this.layoutControl2.Controls.Add(this.panelControl5);
-            this.layoutControl2.Controls.Add(this.panelControl4);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(366, 317);
-            this.layoutControl2.TabIndex = 0;
-            this.layoutControl2.Text = "layoutControl2";
+            this.formLCI.Control = this.formPC;
+            this.formLCI.Location = new System.Drawing.Point(0, 0);
+            this.formLCI.Name = "formLCI";
+            this.formLCI.Size = new System.Drawing.Size(249, 323);
+            this.formLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.formLCI.TextVisible = false;
             // 
-            // layoutControlGroup1
+            // bankLCI
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4,
-            this.layoutControlItem5});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(366, 317);
-            this.layoutControlGroup1.TextVisible = false;
+            this.bankLCI.Control = this.bankPC;
+            this.bankLCI.Location = new System.Drawing.Point(249, 0);
+            this.bankLCI.Name = "bankLCI";
+            this.bankLCI.Size = new System.Drawing.Size(378, 323);
+            this.bankLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.bankLCI.TextVisible = false;
             // 
-            // panelControl4
+            // buttonsLCI
             // 
-            this.panelControl4.Controls.Add(this.banksSLUE);
-            this.panelControl4.Location = new System.Drawing.Point(12, 12);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(342, 241);
-            this.panelControl4.TabIndex = 4;
+            this.buttonsLCI.Control = this.buttonsPC;
+            this.buttonsLCI.Location = new System.Drawing.Point(0, 323);
+            this.buttonsLCI.Name = "buttonsLCI";
+            this.buttonsLCI.Size = new System.Drawing.Size(627, 59);
+            this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonsLCI.TextVisible = false;
             // 
-            // layoutControlItem4
+            // colName
             // 
-            this.layoutControlItem4.Control = this.panelControl4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(346, 245);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.colName.Caption = "Banco";
+            this.colName.FieldName = "BankName";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
             // 
-            // panelControl5
+            // colAccountNumber
             // 
-            this.panelControl5.Controls.Add(this.addBankSB);
-            this.panelControl5.Location = new System.Drawing.Point(12, 257);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(342, 48);
-            this.panelControl5.TabIndex = 5;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.panelControl5;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 245);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(346, 52);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // layoutControl3
-            // 
-            this.layoutControl3.Controls.Add(this.panelControl8);
-            this.layoutControl3.Controls.Add(this.panelControl7);
-            this.layoutControl3.Controls.Add(this.panelControl6);
-            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl3.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl3.Name = "layoutControl3";
-            this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(619, 75);
-            this.layoutControl3.TabIndex = 0;
-            this.layoutControl3.Text = "layoutControl3";
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup2.GroupBordersVisible = false;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.layoutControlItem8});
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(619, 75);
-            this.layoutControlGroup2.TextVisible = false;
-            // 
-            // panelControl6
-            // 
-            this.panelControl6.Location = new System.Drawing.Point(12, 12);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(358, 51);
-            this.panelControl6.TabIndex = 4;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.panelControl6;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(362, 55);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // panelControl7
-            // 
-            this.panelControl7.Controls.Add(this.acceptSB);
-            this.panelControl7.Location = new System.Drawing.Point(374, 12);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(120, 51);
-            this.panelControl7.TabIndex = 5;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.panelControl7;
-            this.layoutControlItem7.Location = new System.Drawing.Point(362, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(124, 55);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // panelControl8
-            // 
-            this.panelControl8.Controls.Add(this.cancelSB);
-            this.panelControl8.Location = new System.Drawing.Point(498, 12);
-            this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(109, 51);
-            this.panelControl8.TabIndex = 6;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.panelControl8;
-            this.layoutControlItem8.Location = new System.Drawing.Point(486, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(113, 55);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // acceptSB
-            // 
-            this.acceptSB.Location = new System.Drawing.Point(35, 17);
-            this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(75, 23);
-            this.acceptSB.TabIndex = 0;
-            this.acceptSB.Text = "Aceptar";
-            // 
-            // cancelSB
-            // 
-            this.cancelSB.Location = new System.Drawing.Point(29, 17);
-            this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(75, 23);
-            this.cancelSB.TabIndex = 0;
-            this.cancelSB.Text = "Cancelar";
-            // 
-            // addBankSB
-            // 
-            this.addBankSB.Location = new System.Drawing.Point(146, 16);
-            this.addBankSB.Name = "addBankSB";
-            this.addBankSB.Size = new System.Drawing.Size(133, 23);
-            this.addBankSB.TabIndex = 0;
-            this.addBankSB.Text = "Adicionar Nuevo Banco";
-            // 
-            // banksSLUE
-            // 
-            this.banksSLUE.EditValue = "";
-            this.banksSLUE.Location = new System.Drawing.Point(5, 5);
-            this.banksSLUE.Name = "banksSLUE";
-            this.banksSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.banksSLUE.Properties.DataSource = this.banksEIFS;
-            this.banksSLUE.Properties.DisplayMember = "BankName";
-            this.banksSLUE.Properties.PopupView = this.searchLookUpEdit1View;
-            this.banksSLUE.Properties.ValueMember = "BankId";
-            this.banksSLUE.Size = new System.Drawing.Size(332, 20);
-            this.banksSLUE.TabIndex = 0;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // banksEIFS
-            // 
-            this.banksEIFS.AreSourceRowsThreadSafe = true;
-            this.banksEIFS.DefaultSorting = "BankName ASC";
-            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
-            this.banksEIFS.KeyExpression = "BankId";
+            this.colAccountNumber.Caption = "Número de Cuenta";
+            this.colAccountNumber.FieldName = "AccountNumber";
+            this.colAccountNumber.Name = "colAccountNumber";
+            this.colAccountNumber.Visible = true;
+            this.colAccountNumber.VisibleIndex = 1;
             // 
             // V_AddEditInvoiceForm
             // 
+            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 450);
-            this.Controls.Add(this.layoutControl1);
+            this.CancelButton = this.cancelSB;
+            this.ClientSize = new System.Drawing.Size(647, 402);
+            this.Controls.Add(this.addEditLC);
             this.Name = "V_AddEditInvoiceForm";
             this.Text = "V_AddEditInvoiceForm";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditInvoiceForm_FormClosed);
+            this.Load += new System.EventHandler(this.V_AddEditInvoiceForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).EndInit();
+            this.addEditLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).EndInit();
+            this.buttonsPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).EndInit();
+            this.buttonsLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
+            this.cancelPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
+            this.acceptPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankPC)).EndInit();
+            this.bankPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bankGC)).EndInit();
             this.bankGC.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
-            this.layoutControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
-            this.panelControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
-            this.panelControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLC)).EndInit();
+            this.bankLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bankErrorLCPC)).EndInit();
+            this.bankErrorLCPC.ResumeLayout(false);
+            this.bankErrorLCPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addBankPC)).EndInit();
+            this.addBankPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.banlSLUEPC)).EndInit();
+            this.banlSLUEPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.banksSLUE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLCG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankSLUELCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addBankLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankErrorLCLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formPC)).EndInit();
+            this.formPC.ResumeLayout(false);
+            this.formPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControl layoutControl3;
-        private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraLayout.LayoutControl addEditLC;
+        private DevExpress.XtraLayout.LayoutControlGroup addEditInvoiceLCG;
+        private DevExpress.XtraEditors.PanelControl buttonsPC;
+        private DevExpress.XtraEditors.PanelControl formPC;
+        private DevExpress.XtraLayout.LayoutControlItem formLCI;
+        private DevExpress.XtraEditors.PanelControl bankPC;
+        private DevExpress.XtraLayout.LayoutControlItem bankLCI;
+        private DevExpress.XtraLayout.LayoutControlItem buttonsLCI;
+        private DevExpress.XtraLayout.LayoutControl buttonsLC;
+        private DevExpress.XtraEditors.PanelControl cancelPC;
         private DevExpress.XtraEditors.SimpleButton cancelSB;
-        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.PanelControl acceptPC;
         private DevExpress.XtraEditors.SimpleButton acceptSB;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.PanelControl emptyPC;
+        private DevExpress.XtraLayout.LayoutControlGroup buttonsLCG;
+        private DevExpress.XtraLayout.LayoutControlItem emptyLCI;
+        private DevExpress.XtraLayout.LayoutControlItem acceptLCI;
+        private DevExpress.XtraLayout.LayoutControlItem cancelLCI;
         private DevExpress.XtraEditors.GroupControl bankGC;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraLayout.LayoutControl bankLC;
+        private DevExpress.XtraEditors.PanelControl addBankPC;
         private DevExpress.XtraEditors.SimpleButton addBankSB;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.SearchLookUpEdit banksSLUE;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.PanelControl banlSLUEPC;
+        private DevExpress.XtraLayout.LayoutControlGroup bankLCG;
+        private DevExpress.XtraLayout.LayoutControlItem bankSLUELCI;
+        private DevExpress.XtraLayout.LayoutControlItem addBankLCI;
         private DevExpress.XtraEditors.TextEdit inspectionTE;
         private DevExpress.XtraEditors.TextEdit insuranceTE;
         private DevExpress.XtraEditors.LabelControl inspectionLC;
         private DevExpress.XtraEditors.LabelControl insuranceLC;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource banksEIFS;
+        private DevExpress.XtraEditors.TextEdit totalCostTE;
+        private DevExpress.XtraEditors.LabelControl totalCostLC;
+        private System.Windows.Forms.BindingSource orderBS;
+        private DevExpress.XtraEditors.PanelControl bankErrorLCPC;
+        private DevExpress.XtraEditors.LabelControl bankErrorLC;
+        private DevExpress.XtraLayout.LayoutControlItem bankErrorLCLCI;
+        private DevExpress.XtraEditors.SearchLookUpEdit banksSLUE;
+        private DevExpress.XtraGrid.Views.Grid.GridView bankGV;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colAccountNumber;
     }
 }

@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listInvoicesRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
@@ -104,7 +104,7 @@
             this.listInvoicesRC.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.listInvoicesRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listInvoicesRC.ShowToolbarCustomizeItem = false;
-            this.listInvoicesRC.Size = new System.Drawing.Size(1808, 95);
+            this.listInvoicesRC.Size = new System.Drawing.Size(873, 95);
             this.listInvoicesRC.Toolbar.ShowCustomizeItem = false;
             this.listInvoicesRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listInvoicesRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -157,7 +157,7 @@
             this.invoicesPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.invoicesPC.Location = new System.Drawing.Point(0, 95);
             this.invoicesPC.Name = "invoicesPC";
-            this.invoicesPC.Size = new System.Drawing.Size(1808, 355);
+            this.invoicesPC.Size = new System.Drawing.Size(873, 355);
             this.invoicesPC.TabIndex = 1;
             // 
             // invoiceGC
@@ -170,7 +170,7 @@
             this.invoiceGC.Name = "invoiceGC";
             this.invoiceGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.invoiceGC.Size = new System.Drawing.Size(1804, 351);
+            this.invoiceGC.Size = new System.Drawing.Size(869, 351);
             this.invoiceGC.TabIndex = 0;
             this.invoiceGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.invoiceGV});
@@ -354,7 +354,7 @@
             this.colInsurance.FieldName = "Insurance";
             this.colInsurance.Name = "colInsurance";
             this.colInsurance.Visible = true;
-            this.colInsurance.VisibleIndex = 18;
+            this.colInsurance.VisibleIndex = 16;
             // 
             // colInspection
             // 
@@ -362,7 +362,7 @@
             this.colInspection.FieldName = "Inspection";
             this.colInspection.Name = "colInspection";
             this.colInspection.Visible = true;
-            this.colInspection.VisibleIndex = 19;
+            this.colInspection.VisibleIndex = 17;
             // 
             // colTotal_Interests
             // 
@@ -370,7 +370,7 @@
             this.colTotal_Interests.FieldName = "Total_Interests";
             this.colTotal_Interests.Name = "colTotal_Interests";
             this.colTotal_Interests.Visible = true;
-            this.colTotal_Interests.VisibleIndex = 20;
+            this.colTotal_Interests.VisibleIndex = 18;
             // 
             // colCPT_CFR
             // 
@@ -378,7 +378,7 @@
             this.colCPT_CFR.FieldName = "CPT_CFR";
             this.colCPT_CFR.Name = "colCPT_CFR";
             this.colCPT_CFR.Visible = true;
-            this.colCPT_CFR.VisibleIndex = 21;
+            this.colCPT_CFR.VisibleIndex = 19;
             // 
             // colTotal_Cost
             // 
@@ -386,7 +386,7 @@
             this.colTotal_Cost.FieldName = "Total_Cost";
             this.colTotal_Cost.Name = "colTotal_Cost";
             this.colTotal_Cost.Visible = true;
-            this.colTotal_Cost.VisibleIndex = 22;
+            this.colTotal_Cost.VisibleIndex = 20;
             // 
             // colActions
             // 
@@ -399,13 +399,13 @@
             // actionsRIBE
             // 
             this.actionsRIBE.AutoHeight = false;
-            editorButtonImageOptions7.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
-            editorButtonImageOptions8.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
-            editorButtonImageOptions9.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            editorButtonImageOptions4.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
+            editorButtonImageOptions5.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
+            editorButtonImageOptions6.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "Editar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "Cerrar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Editar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "Cerrar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
@@ -414,7 +414,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1808, 450);
+            this.ClientSize = new System.Drawing.Size(873, 450);
             this.Controls.Add(this.invoicesPC);
             this.Controls.Add(this.listInvoicesRC);
             this.Name = "V_ListInvoicesForm";
