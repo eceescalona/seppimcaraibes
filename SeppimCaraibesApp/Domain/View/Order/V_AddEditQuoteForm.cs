@@ -51,8 +51,6 @@
                     if (row.ProductId == product.ProductId)
                     {
                         row.Qty = product.Qty;
-                        row.Discount = product.Discount;
-                        row.Interests = product.Interests;
                         row.UnitPrice = product.Product.UnitPrice;
                         productsGV.SelectRow(e.RowHandle);
                     }
