@@ -28,448 +28,197 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
-            this.panelControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
-            this.panelControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
-            this.panelControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
-            this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            this.mainLC = new DevExpress.XtraLayout.LayoutControl();
+            this.viewsPC = new DevExpress.XtraEditors.PanelControl();
+            this.menuPC = new DevExpress.XtraEditors.PanelControl();
+            this.mainAC = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.customersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.providersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.productsACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ordersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.preOrdersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.quotesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ordersOACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.invoicesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mainLCG = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.menuLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.viewsLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
+            this.mainLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuPC)).BeginInit();
+            this.menuPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainAC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLCG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewsLCI)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // mainLC
             // 
-            this.layoutControl1.Controls.Add(this.panelControl2);
-            this.layoutControl1.Controls.Add(this.panelControl1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 450);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.mainLC.Controls.Add(this.viewsPC);
+            this.mainLC.Controls.Add(this.menuPC);
+            this.mainLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainLC.Location = new System.Drawing.Point(0, 0);
+            this.mainLC.Name = "mainLC";
+            this.mainLC.Root = this.mainLCG;
+            this.mainLC.Size = new System.Drawing.Size(800, 450);
+            this.mainLC.TabIndex = 0;
+            this.mainLC.Text = "layoutControl1";
             // 
-            // panelControl2
+            // viewsPC
             // 
-            this.panelControl2.Controls.Add(this.layoutControl2);
-            this.panelControl2.Location = new System.Drawing.Point(645, 12);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(143, 426);
-            this.panelControl2.TabIndex = 0;
+            this.viewsPC.Location = new System.Drawing.Point(149, 12);
+            this.viewsPC.Name = "viewsPC";
+            this.viewsPC.Size = new System.Drawing.Size(639, 426);
+            this.viewsPC.TabIndex = 5;
             // 
-            // layoutControl2
+            // menuPC
             // 
-            this.layoutControl2.Controls.Add(this.panelControl10);
-            this.layoutControl2.Controls.Add(this.panelControl9);
-            this.layoutControl2.Controls.Add(this.panelControl8);
-            this.layoutControl2.Controls.Add(this.panelControl7);
-            this.layoutControl2.Controls.Add(this.panelControl6);
-            this.layoutControl2.Controls.Add(this.panelControl5);
-            this.layoutControl2.Controls.Add(this.panelControl4);
-            this.layoutControl2.Controls.Add(this.panelControl3);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(139, 422);
-            this.layoutControl2.TabIndex = 0;
-            this.layoutControl2.Text = "layoutControl2";
+            this.menuPC.Controls.Add(this.mainAC);
+            this.menuPC.Location = new System.Drawing.Point(12, 12);
+            this.menuPC.Name = "menuPC";
+            this.menuPC.Size = new System.Drawing.Size(133, 426);
+            this.menuPC.TabIndex = 4;
             // 
-            // panelControl9
+            // mainAC
             // 
-            this.panelControl9.Controls.Add(this.simpleButton6);
-            this.panelControl9.Location = new System.Drawing.Point(12, 162);
-            this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(115, 26);
-            this.panelControl9.TabIndex = 7;
+            this.mainAC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainAC.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.customersACE,
+            this.providersACE,
+            this.productsACE,
+            this.ordersACE,
+            this.invoicesACE});
+            this.mainAC.Location = new System.Drawing.Point(2, 2);
+            this.mainAC.Name = "mainAC";
+            this.mainAC.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            this.mainAC.Size = new System.Drawing.Size(129, 422);
+            this.mainAC.TabIndex = 0;
+            this.mainAC.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // simpleButton6
+            // customersACE
             // 
-            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton6.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton6.TabIndex = 0;
-            this.simpleButton6.Text = "Listar Ordenes";
-            this.simpleButton6.Click += new System.EventHandler(this.SimpleButton6_Click);
+            this.customersACE.Name = "customersACE";
+            this.customersACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.customersACE.Text = "Clientes";
+            this.customersACE.Click += new System.EventHandler(this.CustomersACE_Click);
             // 
-            // panelControl8
+            // providersACE
             // 
-            this.panelControl8.Controls.Add(this.simpleButton5);
-            this.panelControl8.Location = new System.Drawing.Point(12, 132);
-            this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(115, 26);
-            this.panelControl8.TabIndex = 6;
+            this.providersACE.Name = "providersACE";
+            this.providersACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.providersACE.Text = "Proveedores";
+            this.providersACE.Click += new System.EventHandler(this.ProvidersACE_Click);
             // 
-            // simpleButton5
+            // productsACE
             // 
-            this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton5.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton5.TabIndex = 0;
-            this.simpleButton5.Text = "Listar Cotizaciones";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            this.productsACE.Name = "productsACE";
+            this.productsACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.productsACE.Text = "Productos";
+            this.productsACE.Click += new System.EventHandler(this.ProductsACE_Click);
             // 
-            // panelControl7
+            // ordersACE
             // 
-            this.panelControl7.Controls.Add(this.simpleButton4);
-            this.panelControl7.Location = new System.Drawing.Point(12, 102);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(115, 26);
-            this.panelControl7.TabIndex = 5;
+            this.ordersACE.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.preOrdersACE,
+            this.quotesACE,
+            this.ordersOACE});
+            this.ordersACE.Name = "ordersACE";
+            this.ordersACE.Text = "Ordenes";
             // 
-            // simpleButton4
+            // preOrdersACE
             // 
-            this.simpleButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton4.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton4.TabIndex = 0;
-            this.simpleButton4.Text = "Listar Pre-Orders";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            this.preOrdersACE.Name = "preOrdersACE";
+            this.preOrdersACE.Text = "Pre-Ordenes";
+            this.preOrdersACE.Click += new System.EventHandler(this.PreOrdersACE_Click);
             // 
-            // panelControl6
+            // quotesACE
             // 
-            this.panelControl6.Controls.Add(this.simpleButton3);
-            this.panelControl6.Location = new System.Drawing.Point(12, 72);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(115, 26);
-            this.panelControl6.TabIndex = 0;
+            this.quotesACE.Name = "quotesACE";
+            this.quotesACE.Text = "Cotizaciones";
+            this.quotesACE.Click += new System.EventHandler(this.QuotesACE_Click);
             // 
-            // simpleButton3
+            // ordersOACE
             // 
-            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton3.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton3.TabIndex = 0;
-            this.simpleButton3.Text = "Listar Productos";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.ordersOACE.Name = "ordersOACE";
+            this.ordersOACE.Text = "Ordenes Firmes";
+            this.ordersOACE.Click += new System.EventHandler(this.OrdersOACE_Click);
             // 
-            // panelControl5
+            // invoicesACE
             // 
-            this.panelControl5.Location = new System.Drawing.Point(12, 223);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(115, 187);
-            this.panelControl5.TabIndex = 4;
+            this.invoicesACE.Name = "invoicesACE";
+            this.invoicesACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.invoicesACE.Text = "Facturas";
+            this.invoicesACE.Click += new System.EventHandler(this.InvoicesACE_Click);
             // 
-            // panelControl4
+            // mainLCG
             // 
-            this.panelControl4.Controls.Add(this.simpleButton2);
-            this.panelControl4.Location = new System.Drawing.Point(12, 42);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(115, 26);
-            this.panelControl4.TabIndex = 0;
+            this.mainLCG.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.mainLCG.GroupBordersVisible = false;
+            this.mainLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.menuLCI,
+            this.viewsLCI});
+            this.mainLCG.Name = "mainLCG";
+            this.mainLCG.Size = new System.Drawing.Size(800, 450);
+            this.mainLCG.TextVisible = false;
             // 
-            // simpleButton2
+            // menuLCI
             // 
-            this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton2.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "Listar Proveedores";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.menuLCI.Control = this.menuPC;
+            this.menuLCI.Location = new System.Drawing.Point(0, 0);
+            this.menuLCI.Name = "menuLCI";
+            this.menuLCI.Size = new System.Drawing.Size(137, 430);
+            this.menuLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.menuLCI.TextVisible = false;
             // 
-            // panelControl3
+            // viewsLCI
             // 
-            this.panelControl3.Controls.Add(this.simpleButton1);
-            this.panelControl3.Location = new System.Drawing.Point(12, 12);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(115, 26);
-            this.panelControl3.TabIndex = 0;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton1.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 22);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Listar Clientes";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup2.GroupBordersVisible = false;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem10});
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(139, 422);
-            this.layoutControlGroup2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.panelControl3;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.panelControl4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 30);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.panelControl5;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 211);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(119, 191);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.panelControl6;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 60);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.panelControl7;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 90);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.panelControl8;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.panelControl9;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 150);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(119, 30);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Location = new System.Drawing.Point(12, 12);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(629, 426);
-            this.panelControl1.TabIndex = 4;
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 450);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.panelControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(633, 430);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.panelControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(633, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(147, 430);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // panelControl10
-            // 
-            this.panelControl10.Controls.Add(this.simpleButton7);
-            this.panelControl10.Location = new System.Drawing.Point(12, 192);
-            this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(115, 27);
-            this.panelControl10.TabIndex = 0;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.panelControl10;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 180);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(119, 31);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
-            // simpleButton7
-            // 
-            this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton7.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(111, 23);
-            this.simpleButton7.TabIndex = 0;
-            this.simpleButton7.Text = "Listar Facturas";
-            this.simpleButton7.Click += new System.EventHandler(this.SimpleButton7_Click);
+            this.viewsLCI.Control = this.viewsPC;
+            this.viewsLCI.Location = new System.Drawing.Point(137, 0);
+            this.viewsLCI.Name = "viewsLCI";
+            this.viewsLCI.Size = new System.Drawing.Size(643, 430);
+            this.viewsLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.viewsLCI.TextVisible = false;
             // 
             // V_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.mainLC);
             this.Name = "V_MainForm";
-            this.Text = "Seppim Caraibes App";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
-            this.panelControl9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
-            this.panelControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
-            this.panelControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
-            this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            this.Text = "Elitech";
+            ((System.ComponentModel.ISupportInitialize)(this.mainLC)).EndInit();
+            this.mainLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuPC)).EndInit();
+            this.menuPC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainAC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLCG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewsLCI)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.PanelControl panelControl5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraEditors.PanelControl panelControl7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraEditors.PanelControl panelControl8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraEditors.PanelControl panelControl9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraEditors.PanelControl panelControl10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControl mainLC;
+        private DevExpress.XtraEditors.PanelControl viewsPC;
+        private DevExpress.XtraEditors.PanelControl menuPC;
+        private DevExpress.XtraBars.Navigation.AccordionControl mainAC;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement customersACE;
+        private DevExpress.XtraLayout.LayoutControlGroup mainLCG;
+        private DevExpress.XtraLayout.LayoutControlItem menuLCI;
+        private DevExpress.XtraLayout.LayoutControlItem viewsLCI;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement providersACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement productsACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ordersACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement preOrdersACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement quotesACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ordersOACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement invoicesACE;
     }
 }
 
