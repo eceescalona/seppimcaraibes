@@ -92,7 +92,10 @@
             this.invoicesACE});
             this.mainAC.Location = new System.Drawing.Point(2, 2);
             this.mainAC.Name = "mainAC";
+            this.mainAC.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.mainAC.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            this.mainAC.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
+            this.mainAC.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
             this.mainAC.Size = new System.Drawing.Size(129, 422);
             this.mainAC.TabIndex = 0;
             this.mainAC.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;

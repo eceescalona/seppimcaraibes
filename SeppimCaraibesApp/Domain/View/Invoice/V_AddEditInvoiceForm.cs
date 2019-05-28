@@ -48,7 +48,7 @@
             }
         }
 
-        void BanksEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void BanksEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cOrder.GetContext();
             e.QueryableSource = dataContext.Banks;
@@ -172,7 +172,7 @@
                 var order = (Data.ORM.Order)orderBS.Current;
                 var bank = (Data.ORM.Bank)bankGV.GetFocusedRow();
                 order.BankId = bank.BankId;
-
+                order.InvoiceReference = _cOrder.GetInvoiceReference(order);
 
                 _cOrder.EditOrder(this, order);
 

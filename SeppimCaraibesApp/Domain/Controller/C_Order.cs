@@ -7,6 +7,8 @@
 
     internal class C_Order : IDisposable
     {
+        private const string FV = "FV";
+        private const string NC = "NC";
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.Order _mOrder;
 
@@ -94,6 +96,27 @@
         private string Message(params object[] value)
         {
             return string.Format("La orden {0} ha sido registrado satisfactoriamente.", value);
+        }
+
+        public string GetInvoiceReference(Data.ORM.Order order)
+        {
+            var random = new Random();
+            int units = random.Next(0, 9);
+            int dozens = random.Next(0, 9);
+            int hundreds = random.Next(0, 9);
+
+            string back = hundreds.ToString() + dozens.ToString() + units.ToString();
+
+            string orderCode = DateTime.Now.Year.ToString() + back;
+
+            if (order.CptCfr == EIncoterms.CPT || order.CptCfr == EIncoterms.CFR || order.CptCfr == EIncoterms.FCA || order.CptCfr == EIncoterms.FOB)
+            {
+                return FV + orderCode;
+            }
+            else
+            {
+                return NC + orderCode;
+            }
         }
 
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
