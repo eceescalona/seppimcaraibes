@@ -104,7 +104,7 @@
             this.refreshBBI,
             this.listOrdersBBI});
             this.listQuotesRC.Location = new System.Drawing.Point(0, 0);
-            this.listQuotesRC.MaxItemId = 5;
+            this.listQuotesRC.MaxItemId = 6;
             this.listQuotesRC.Name = "listQuotesRC";
             this.listQuotesRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.listQuotesRP});
