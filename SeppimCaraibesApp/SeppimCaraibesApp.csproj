@@ -127,6 +127,7 @@
     <Compile Include="Data\EPeriodState.cs" />
     <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
+    <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Domain\Controller\IListOrders.cs" />
     <Compile Include="Domain\Controller\IListProducts.cs" />
     <Compile Include="Domain\Controller\IListProviders.cs" />
+    <Compile Include="Domain\Controller\IReportQuote.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
@@ -220,6 +222,12 @@
     <Compile Include="Domain\View\Order\V_ListQuotesForm.Designer.cs">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Order\V_ReportQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\V_ReportQuoteForm.Designer.cs">
+      <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Product\V_AddEditProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +251,12 @@
     </Compile>
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Quote\R_Quote.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Quote\R_Quote.Designer.cs">
+      <DependentUpon>R_Quote.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\V_MainForm.cs">
       <SubType>Form</SubType>
@@ -285,6 +299,9 @@
     <EmbeddedResource Include="Domain\View\Order\V_ListQuotesForm.resx">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\V_ReportQuoteForm.resx">
+      <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
       <DependentUpon>V_AddEditProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Quote\R_Quote.resx">
+      <DependentUpon>R_Quote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>
@@ -336,6 +356,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Img\Print_32x32.png" />
+    <None Include="Resources\Img\Print_16x16.png" />
+    <None Include="Resources\Img\List_32x32.png" />
+    <None Include="Resources\Img\List_16x16.png" />
     <None Include="Resources\Img\Convert_32x32.png" />
     <None Include="Resources\Img\Convert_16x16.png" />
     <None Include="Resources\Img\Close_32x32.png" />
@@ -378,8 +402,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\View\Reports\Quote\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

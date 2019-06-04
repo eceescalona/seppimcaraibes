@@ -34,8 +34,7 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public EPeriodState? PeriodState { get; set; }
 
-        [StringLength(250)]
-        public string Incoterm { get; set; }
+        public decimal? Incoterm { get; set; }
 
         public EDevise? Devise { get; set; }
 
@@ -59,7 +58,7 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public double? TotalCost { get; set; }
 
-        public EIncoterms? CptCfr { get; set; }
+        public EIncoterms? IncotermType { get; set; }
 
         public EOrderState? OrderState { get; set; }
 
@@ -74,6 +73,9 @@ namespace SeppimCaraibesApp.Data.ORM
 
         [StringLength(50)]
         public string CustomerReference { get; set; }
+
+        [StringLength(50)]
+        public string ProviderId { get; set; }
 
         [StringLength(50)]
         public string ProviderReference { get; set; }

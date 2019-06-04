@@ -9,6 +9,8 @@
     internal partial class V_ListPreOrdersForm : Form, Controller.IListOrders
     {
         private const string NAME_FORM = "Listar Pre-Ordenes";
+        private const string MESSAGE_SHOW_ERROR = "El documento no pudo ser mostrado. Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_MESSAGE = "Si elimina la orden del sistema, este desaparecerá permanentemente del mismo. " +
             "¿Está seguro(a) de querer eliminar la orden ";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar la nueva orden. Porfavor vuelva a intentarlo." +
@@ -212,6 +214,22 @@
                 catch (Exception)
                 {
                     MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (e.Button == btnEdit.Properties.Buttons[3])
+            {
+                try
+                {
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
+                    var documentView = new V_ReportQuoteForm(_cOrden, row.Order_Code);
+                    documentView.BringToFront();
+                    documentView.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(MESSAGE_SHOW_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -203,6 +203,26 @@ namespace SeppimCaraibesApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap List_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("List_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap List_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("List_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New_16x16 {
             get {
                 object obj = ResourceManager.GetObject("New_16x16", resourceCulture);
@@ -216,6 +236,26 @@ namespace SeppimCaraibesApp.Properties {
         internal static System.Drawing.Bitmap New_32x32 {
             get {
                 object obj = ResourceManager.GetObject("New_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Print_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Print_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

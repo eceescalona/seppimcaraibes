@@ -160,11 +160,23 @@
   <data name="Find_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Img\Find_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="List_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Img\List_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="List_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Img\List_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="New_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Img\New_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="New_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Img\New_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Img\Print_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Img\Print_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Refresh_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Img\Refresh_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

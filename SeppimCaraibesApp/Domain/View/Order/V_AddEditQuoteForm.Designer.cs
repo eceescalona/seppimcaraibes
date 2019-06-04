@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.addEditQuoteLC = new DevExpress.XtraLayout.LayoutControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.observationME = new DevExpress.XtraEditors.MemoEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
+            this.observationLC = new DevExpress.XtraEditors.LabelControl();
             this.formPC = new DevExpress.XtraEditors.PanelControl();
             this.formLC = new DevExpress.XtraLayout.LayoutControl();
             this.shipmentPC = new DevExpress.XtraEditors.PanelControl();
@@ -53,7 +57,6 @@
             this.paymentOptionLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
-            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.incotermTE = new DevExpress.XtraEditors.TextEdit();
             this.offerPeriodTE = new DevExpress.XtraEditors.TextEdit();
             this.providerRErrorLC = new DevExpress.XtraEditors.LabelControl();
@@ -90,9 +93,14 @@
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.observationME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formLC)).BeginInit();
@@ -114,7 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.offerPeriodTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerReferenceTE.Properties)).BeginInit();
@@ -143,11 +150,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
             // 
+            this.addEditQuoteLC.Controls.Add(this.panelControl1);
             this.addEditQuoteLC.Controls.Add(this.formPC);
             this.addEditQuoteLC.Controls.Add(this.buttonsPC);
             this.addEditQuoteLC.Controls.Add(this.productsPC);
@@ -158,6 +167,35 @@
             this.addEditQuoteLC.Size = new System.Drawing.Size(800, 406);
             this.addEditQuoteLC.TabIndex = 0;
             this.addEditQuoteLC.Text = "layoutControl1";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.observationME);
+            this.panelControl1.Controls.Add(this.observationLC);
+            this.panelControl1.Location = new System.Drawing.Point(468, 256);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(320, 80);
+            this.panelControl1.TabIndex = 5;
+            // 
+            // observationME
+            // 
+            this.observationME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Observations", true));
+            this.observationME.Location = new System.Drawing.Point(5, 24);
+            this.observationME.Name = "observationME";
+            this.observationME.Size = new System.Drawing.Size(310, 51);
+            this.observationME.TabIndex = 1;
+            // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
+            // observationLC
+            // 
+            this.observationLC.Location = new System.Drawing.Point(5, 5);
+            this.observationLC.Name = "observationLC";
+            this.observationLC.Size = new System.Drawing.Size(75, 13);
+            this.observationLC.TabIndex = 0;
+            this.observationLC.Text = "Observaciones:";
             // 
             // formPC
             // 
@@ -352,10 +390,6 @@
             this.totalCostTE.Name = "totalCostTE";
             this.totalCostTE.Size = new System.Drawing.Size(100, 20);
             this.totalCostTE.TabIndex = 10;
-            // 
-            // orderBS
-            // 
-            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
             // 
             // incotermTE
             // 
@@ -556,7 +590,7 @@
             this.productsPC.Controls.Add(this.productGC);
             this.productsPC.Location = new System.Drawing.Point(468, 12);
             this.productsPC.Name = "productsPC";
-            this.productsPC.Size = new System.Drawing.Size(320, 324);
+            this.productsPC.Size = new System.Drawing.Size(320, 240);
             this.productsPC.TabIndex = 0;
             // 
             // productGC
@@ -565,7 +599,7 @@
             this.productGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productGC.Location = new System.Drawing.Point(2, 2);
             this.productGC.Name = "productGC";
-            this.productGC.Size = new System.Drawing.Size(316, 320);
+            this.productGC.Size = new System.Drawing.Size(316, 236);
             this.productGC.TabIndex = 0;
             this.productGC.Text = "Productos*:";
             // 
@@ -576,7 +610,7 @@
             this.productsGridC.Location = new System.Drawing.Point(2, 20);
             this.productsGridC.MainView = this.productsGV;
             this.productsGridC.Name = "productsGridC";
-            this.productsGridC.Size = new System.Drawing.Size(312, 298);
+            this.productsGridC.Size = new System.Drawing.Size(312, 214);
             this.productsGridC.TabIndex = 0;
             this.productsGridC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
@@ -626,6 +660,7 @@
             // colUnitPrice
             // 
             this.colUnitPrice.Caption = "Precio por Unidad";
+            this.colUnitPrice.FieldName = "UnitPrice";
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 5;
@@ -646,7 +681,8 @@
             this.addEditQuoteLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.productsLCI,
             this.buttonsLCI,
-            this.formLCI});
+            this.formLCI,
+            this.layoutControlItem1});
             this.addEditQuoteLCG.Name = "addEditQuoteLCG";
             this.addEditQuoteLCG.Size = new System.Drawing.Size(800, 406);
             this.addEditQuoteLCG.TextVisible = false;
@@ -656,7 +692,7 @@
             this.productsLCI.Control = this.productsPC;
             this.productsLCI.Location = new System.Drawing.Point(456, 0);
             this.productsLCI.Name = "productsLCI";
-            this.productsLCI.Size = new System.Drawing.Size(324, 328);
+            this.productsLCI.Size = new System.Drawing.Size(324, 244);
             this.productsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLCI.TextVisible = false;
             // 
@@ -678,6 +714,15 @@
             this.formLCI.TextSize = new System.Drawing.Size(0, 0);
             this.formLCI.TextVisible = false;
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.panelControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(456, 244);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(324, 84);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -692,6 +737,11 @@
             this.Load += new System.EventHandler(this.V_AddEditQuoteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).EndInit();
             this.addEditQuoteLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.observationME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).EndInit();
             this.formPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.formLC)).EndInit();
@@ -715,7 +765,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.offerPeriodTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerReferenceTE.Properties)).EndInit();
@@ -744,6 +793,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
             this.ResumeLayout(false);
 
@@ -813,5 +863,9 @@
         private DevExpress.XtraEditors.LabelControl eIncotermLC;
         private DevExpress.XtraEditors.LookUpEdit eIncotermLUE;
         private System.Windows.Forms.BindingSource incotermsBS;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.MemoEdit observationME;
+        private DevExpress.XtraEditors.LabelControl observationLC;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

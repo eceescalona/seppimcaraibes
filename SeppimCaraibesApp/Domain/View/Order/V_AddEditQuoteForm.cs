@@ -51,7 +51,6 @@
                     if (row.ProductId == product.ProductId)
                     {
                         row.Qty = product.Qty;
-                        row.UnitPrice = product.Product.UnitPrice;
                         productsGV.SelectRow(e.RowHandle);
                     }
                 }
@@ -114,9 +113,9 @@
                 paymentOptionLUE.EditValue = order.PaymentOption;
             }
 
-            if (order.CptCfr != null)
+            if (order.IncotermType != null)
             {
-                eIncotermLUE.EditValue = order.CptCfr;
+                eIncotermLUE.EditValue = order.IncotermType;
             }
         }
 
@@ -206,7 +205,7 @@
                 var order = (Data.ORM.Order)orderBS.Current;
                 order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
                 order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
-                order.CptCfr = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
                 shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
                 order.Shipment = shipment;

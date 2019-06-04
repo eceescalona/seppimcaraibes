@@ -44,13 +44,20 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.listPreOrdersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.listQuotesBBI = new DevExpress.XtraBars.BarButtonItem();
             this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.navigateRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listPreOrdersPC = new DevExpress.XtraEditors.PanelControl();
             this.listPreOrdersGC = new DevExpress.XtraGrid.GridControl();
             this.preOrdersBS = new System.Windows.Forms.BindingSource(this.components);
@@ -65,8 +72,6 @@
             this.colProduct_Qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.navigateRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.listQuotesBBI = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersPC)).BeginInit();
             this.listPreOrdersPC.SuspendLayout();
@@ -131,6 +136,15 @@
             this.refreshBBI.Name = "refreshBBI";
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // listQuotesBBI
+            // 
+            this.listQuotesBBI.Caption = "Listar Cotizaciones";
+            this.listQuotesBBI.Id = 5;
+            this.listQuotesBBI.ImageOptions.LargeImage = global::SeppimCaraibesApp.Properties.Resources.List_32x32;
+            this.listQuotesBBI.Name = "listQuotesBBI";
+            this.listQuotesBBI.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.listQuotesBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ListQuotesBBI_ItemClick);
+            // 
             // actionsRP
             // 
             this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -145,6 +159,13 @@
             this.actionsRPG.ItemLinks.Add(this.filterBBI);
             this.actionsRPG.ItemLinks.Add(this.refreshBBI);
             this.actionsRPG.Name = "actionsRPG";
+            // 
+            // navigateRPG
+            // 
+            this.navigateRPG.AllowTextClipping = false;
+            this.navigateRPG.ItemLinks.Add(this.listQuotesBBI);
+            this.navigateRPG.Name = "navigateRPG";
+            this.navigateRPG.ShowCaptionButton = false;
             // 
             // listPreOrdersPC
             // 
@@ -280,28 +301,15 @@
             editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
             editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
             editorButtonImageOptions3.Image = global::SeppimCaraibesApp.Properties.Resources.Convert_16x16;
+            editorButtonImageOptions4.Image = global::SeppimCaraibesApp.Properties.Resources.Report_16x16;
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Editar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Eliminar Pre-Orden", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir A Cotizar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Convertir A Cotizar", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Ver Documento", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
-            // 
-            // navigateRPG
-            // 
-            this.navigateRPG.AllowTextClipping = false;
-            this.navigateRPG.ItemLinks.Add(this.listQuotesBBI);
-            this.navigateRPG.Name = "navigateRPG";
-            this.navigateRPG.ShowCaptionButton = false;
-            // 
-            // listQuotesBBI
-            // 
-            this.listQuotesBBI.Caption = "Listar Cotizaciones";
-            this.listQuotesBBI.Id = 5;
-            this.listQuotesBBI.ImageOptions.LargeImage = global::SeppimCaraibesApp.Properties.Resources.Report_32x32;
-            this.listQuotesBBI.Name = "listQuotesBBI";
-            this.listQuotesBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ListQuotesBBI_ItemClick);
             // 
             // V_ListPreOrdersForm
             // 

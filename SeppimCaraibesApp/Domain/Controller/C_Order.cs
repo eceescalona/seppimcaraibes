@@ -109,7 +109,7 @@
 
             string orderCode = DateTime.Now.Year.ToString() + back;
 
-            if (order.CptCfr == EIncoterms.CPT || order.CptCfr == EIncoterms.CFR || order.CptCfr == EIncoterms.FCA || order.CptCfr == EIncoterms.FOB)
+            if (order.IncotermType == EIncoterms.CPT || order.IncotermType == EIncoterms.CFR || order.IncotermType == EIncoterms.FCA || order.IncotermType == EIncoterms.FOB)
             {
                 return FV + orderCode;
             }
@@ -140,6 +140,11 @@
             }
         }
 
+        public void LoadQuoteReport(IReportQuote reportQuote, string code)
+        {
+            var quote = _mOrder.GetOrderReportView(_context, code);
+            reportQuote.LoadData(quote);
+        }
 
         #region OrderManage
         public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
