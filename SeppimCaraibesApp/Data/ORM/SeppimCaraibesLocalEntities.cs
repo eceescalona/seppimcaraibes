@@ -65,6 +65,10 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
+                .Property(e => e.Incoterm)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Order>()
                 .HasMany(e => e.ProductsOrders)
                 .WithRequired(e => e.Order)
                 .HasForeignKey(e => e.OrderId);
@@ -162,6 +166,10 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()
+                .Property(e => e.Incoterm)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<OrdersView>()
                 .Property(e => e.Contract_Description)
                 .IsUnicode(false);
 
@@ -208,6 +216,10 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<QuotesView>()
                 .Property(e => e.Net_Weight)
                 .HasPrecision(18, 4);
+
+            modelBuilder.Entity<QuotesView>()
+              .Property(e => e.Incoterm)
+              .HasPrecision(18, 4);
 
             modelBuilder.Entity<ShipmentsView>()
                 .Property(e => e.Gross_Weight)

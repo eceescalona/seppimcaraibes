@@ -6,13 +6,13 @@
 
     internal class OrderReportView
     {
-        public readonly string SeppimName = "Seppim Caribes SA";
+        public string SeppimName { get => "Seppim Caribes SA"; }
 
-        public readonly string SeppimAddress = "Ave. Samuel Lewis, Edificio Comosa, 1er piso, Ciudad de Panamá, Panamá";
+        public string SeppimAddress { get => "Ave. Samuel Lewis, Edificio Comosa, 1er piso, Ciudad de Panamá, Panamá"; }
 
-        public readonly string SeppimPhone = "5072147082";
+        public  string SeppimPhone { get => "5072147082"; }
 
-        public readonly string Contact = "Thomas Bouix";
+        public string Contact { get => "Thomas Bouix"; }
 
 
         #region Invoice

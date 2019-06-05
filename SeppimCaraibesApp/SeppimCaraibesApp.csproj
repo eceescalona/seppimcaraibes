@@ -356,6 +356,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Img\SeppimCaraibesLogo.png" />
     <None Include="Resources\Img\Print_32x32.png" />
     <None Include="Resources\Img\Print_16x16.png" />
     <None Include="Resources\Img\List_32x32.png" />

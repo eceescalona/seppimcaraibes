@@ -54,7 +54,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public EDevise? Devise { get; set; }
 
         [StringLength(250)]
-        public string Incoterm { get; set; }
+        public decimal? Incoterm { get; set; }
 
         [Column("Product Code")]
         [StringLength(50)]
