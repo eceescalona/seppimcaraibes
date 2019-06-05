@@ -41,6 +41,10 @@ namespace SeppimCaraibesApp.Data.ORM
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
+                .Property(e => e.Incoterm)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Order>()
                 .Property(e => e.EXW)
                 .HasPrecision(18, 4);
 
@@ -63,15 +67,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<Order>()
                 .Property(e => e.Inspection)
                 .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.ProductsOrders)
-                .WithRequired(e => e.Order)
-                .HasForeignKey(e => e.OrderId);
 
             modelBuilder.Entity<Order>()
                 .HasOptional(e => e.Shipment)
@@ -98,11 +93,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<Product>()
                 .Property(e => e.SalePrice)
                 .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.ProductsOrders)
-                .WithRequired(e => e.Product)
-                .HasForeignKey(e => e.ProductId);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Providers)
@@ -166,10 +156,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<OrdersView>()
                 .Property(e => e.Contract_Description)
                 .IsUnicode(false);
 
@@ -194,6 +180,10 @@ namespace SeppimCaraibesApp.Data.ORM
                 .IsFixedLength();
 
             modelBuilder.Entity<QuotesView>()
+                .Property(e => e.Incoterm)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<QuotesView>()
                 .Property(e => e.Unit_Price)
                 .HasPrecision(18, 4);
 
@@ -216,10 +206,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<QuotesView>()
                 .Property(e => e.Net_Weight)
                 .HasPrecision(18, 4);
-
-            modelBuilder.Entity<QuotesView>()
-              .Property(e => e.Incoterm)
-              .HasPrecision(18, 4);
 
             modelBuilder.Entity<ShipmentsView>()
                 .Property(e => e.Gross_Weight)

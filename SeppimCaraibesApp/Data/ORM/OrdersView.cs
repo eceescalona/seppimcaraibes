@@ -8,7 +8,7 @@ namespace SeppimCaraibesApp.Data.ORM
     internal partial class OrdersView
     {
         [Key]
-        [Column("Order Code", Order = 0)]
+        [Column("Order Code")]
         [StringLength(50)]
         public string Order_Code { get; set; }
 
@@ -50,10 +50,10 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public EDevise? Devise { get; set; }
 
-        public decimal? Incoterm { get; set; }
+        [StringLength(250)]
+        public string Incoterm { get; set; }
 
-        [Key]
-        [Column("Product Code", Order = 1)]
+        [Column("Product Code")]
         [StringLength(50)]
         public string Product_Code { get; set; }
 

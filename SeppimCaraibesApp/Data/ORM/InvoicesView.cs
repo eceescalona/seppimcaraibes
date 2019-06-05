@@ -7,7 +7,7 @@ namespace SeppimCaraibesApp.Data.ORM
     internal partial class InvoicesView
     {
         [Key]
-        [Column("Order Code", Order = 0)]
+        [Column("Order Code")]
         [StringLength(50)]
         public string Order_Code { get; set; }
 
@@ -26,8 +26,7 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(250)]
         public string Customer_Name { get; set; }
 
-        [Key]
-        [Column("Product Code", Order = 1)]
+        [Column("Product Code")]
         [StringLength(50)]
         public string Product_Code { get; set; }
 
@@ -78,7 +77,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public double? Total_Interests { get; set; }
 
         [Column("Incoterm Type")]
-        public EIncoterms? Incoterm_Type { get; set; }
+        public byte? Incoterm_Type { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }

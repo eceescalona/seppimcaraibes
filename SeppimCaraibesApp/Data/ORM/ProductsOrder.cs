@@ -21,10 +21,8 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public decimal? Interests { get; set; }
 
-        [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }
 
-        [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }
     }
 }
