@@ -186,46 +186,46 @@
     <Compile Include="Domain\View\Invoice\V_ListInvoicesForm.Designer.cs">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditOrderForm.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditOrderForm.Designer.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.Designer.cs">
       <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.Designer.cs">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.cs">
+    <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.Designer.cs">
       <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListOrdersForm.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListOrdersForm.Designer.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.Designer.cs">
       <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.Designer.cs">
       <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListQuotesForm.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ListQuotesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListQuotesForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ListQuotesForm.Designer.cs">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ReportQuoteForm.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ReportQuoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ReportQuoteForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ReportQuoteForm.Designer.cs">
       <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Product\V_AddEditProductForm.cs">
@@ -281,25 +281,25 @@
     <EmbeddedResource Include="Domain\View\Invoice\V_ListInvoicesForm.resx">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_AddEditOrderForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.resx">
       <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_AddEditPreOrderForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_AddEditQuoteForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_AddEditQuoteForm.resx">
       <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListOrdersForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.resx">
       <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListPreOrdersForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.resx">
       <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListQuotesForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_ListQuotesForm.resx">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ReportQuoteForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_ReportQuoteForm.resx">
       <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
