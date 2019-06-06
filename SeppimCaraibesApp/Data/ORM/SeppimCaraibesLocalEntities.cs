@@ -156,6 +156,10 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()
+                .Property(e => e.Incoterm)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<OrdersView>()
                 .Property(e => e.Contract_Description)
                 .IsUnicode(false);
 

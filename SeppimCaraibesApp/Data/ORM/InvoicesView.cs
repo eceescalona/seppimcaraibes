@@ -77,7 +77,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public double? Total_Interests { get; set; }
 
         [Column("Incoterm Type")]
-        public byte? Incoterm_Type { get; set; }
+        public EIncoterms? Incoterm_Type { get; set; }
 
         [Column("Total Cost")]
         public double? Total_Cost { get; set; }

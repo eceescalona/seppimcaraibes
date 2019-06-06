@@ -101,6 +101,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ORM\Bank.cs" />
+    <Compile Include="Data\ORM\Customer.cs" />
+    <Compile Include="Data\ORM\CustomersView.cs" />
     <Compile Include="Data\EIncoterms.cs" />
     <Compile Include="Data\EDevise.cs" />
     <Compile Include="Data\EInvoiceState.cs" />
@@ -108,13 +111,13 @@
     <Compile Include="Data\EOrderState.cs" />
     <Compile Include="Data\EPaymentOption.cs" />
     <Compile Include="Data\EPeriodState.cs" />
-    <Compile Include="Data\ORM\Bank.cs" />
-    <Compile Include="Data\ORM\Customer.cs" />
-    <Compile Include="Data\ORM\CustomersView.cs" />
     <Compile Include="Data\ORM\InvoicesView.cs" />
     <Compile Include="Data\ORM\Order.cs" />
     <Compile Include="Data\ORM\OrdersView.cs" />
     <Compile Include="Data\ORM\Origin.cs" />
+    <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
+    <Compile Include="Data\POCO\ProductsOrders.cs" />
+    <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\ORM\PreOrdersView.cs" />
     <Compile Include="Data\ORM\Product.cs" />
     <Compile Include="Data\ORM\ProductsOrder.cs" />
@@ -122,12 +125,6 @@
     <Compile Include="Data\ORM\Provider.cs" />
     <Compile Include="Data\ORM\ProvidersView.cs" />
     <Compile Include="Data\ORM\QuotesView.cs" />
-    <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
-    <Compile Include="Data\ORM\Shipment.cs" />
-    <Compile Include="Data\ORM\ShipmentsView.cs" />
-    <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
-    <Compile Include="Data\POCO\ProductsOrders.cs" />
-    <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
@@ -135,6 +132,9 @@
     <Compile Include="Data\Repository\ProviderRepository.cs" />
     <Compile Include="Data\EShippingMethod.cs" />
     <Compile Include="Data\Repository\ShipmentRepository.cs" />
+    <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
+    <Compile Include="Data\ORM\Shipment.cs" />
+    <Compile Include="Data\ORM\ShipmentsView.cs" />
     <Compile Include="Domain\Controller\C_Bank.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
@@ -361,6 +361,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="SeppimCaraibesAppLocalDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SeppimCaraibesAppLocalDb_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
     </Content>
