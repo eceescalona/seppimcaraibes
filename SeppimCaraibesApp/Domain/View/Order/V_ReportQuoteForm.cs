@@ -1,8 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
-    using System;
     using System.Windows.Forms;
-    using SeppimCaraibesApp.Data.POCO;
 
     internal partial class V_ReportQuoteForm : Form
     {

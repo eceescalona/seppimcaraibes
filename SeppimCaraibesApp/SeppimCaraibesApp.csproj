@@ -264,7 +264,6 @@
     <Compile Include="Domain\View\V_MainForm.Designer.cs">
       <DependentUpon>V_MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Domain\View\Bank\V_AddEditBankForm.resx">
