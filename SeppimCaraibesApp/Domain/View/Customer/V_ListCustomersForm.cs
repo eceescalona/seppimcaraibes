@@ -48,7 +48,7 @@
             customersEIFS.GetQueryable += CustomerEIFS_GetQueryable;
         }
 
-        private void CustomerEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        void CustomerEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cCustomer.GetContext();
             e.QueryableSource = dataContext.CustomersViews;

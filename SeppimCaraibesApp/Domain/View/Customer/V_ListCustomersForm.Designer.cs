@@ -277,7 +277,6 @@
         private DevExpress.XtraBars.BarButtonItem refreshBBI;
         private DevExpress.XtraEditors.PanelControl listCustomersPC;
         private DevExpress.XtraGrid.GridControl listCustomersGC;
-        private DevExpress.Data.Linq.EntityInstantFeedbackSource customersEIFS;
         private DevExpress.XtraGrid.Views.Grid.GridView customersGV;
         private DevExpress.XtraGrid.Columns.GridColumn colCode;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
@@ -286,5 +285,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAddress;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private DevExpress.Data.Linq.EntityInstantFeedbackSource customersEIFS;
     }
 }
