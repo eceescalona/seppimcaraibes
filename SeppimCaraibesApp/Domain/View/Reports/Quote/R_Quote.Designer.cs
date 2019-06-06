@@ -288,6 +288,7 @@
             this.xrLabel22.StylePriority.UseTextAlignment = false;
             this.xrLabel22.Text = "EXW: [EXW!€0.00]";
             this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel22.WordWrap = false;
             // 
             // xrLabel21
             // 
@@ -299,6 +300,7 @@
             this.xrLabel21.StylePriority.UseTextAlignment = false;
             this.xrLabel21.Text = "Costo Total: [TotalCost!€0.00]";
             this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel21.WordWrap = false;
             // 
             // xrLabel20
             // 
