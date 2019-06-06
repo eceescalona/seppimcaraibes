@@ -357,17 +357,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
+    <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
-    </Content>
-    <Content Include="SeppimCaraibesAppLocalDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SeppimCaraibesAppLocalDb_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
     </Content>
