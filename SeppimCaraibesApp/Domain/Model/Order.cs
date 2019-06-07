@@ -119,6 +119,12 @@
             }
         }
 
+        public void SetProviderOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, Data.ORM.Provider provider)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+            rOrder.SetProviderOrder(context, code, provider);
+        }
+
         public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
         {
             var rOrder = new Data.Repository.OrderRepository();

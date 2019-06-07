@@ -150,6 +150,7 @@
     <Compile Include="Domain\Controller\IListProducts.cs" />
     <Compile Include="Domain\Controller\IListProviders.cs" />
     <Compile Include="Domain\Controller\IReportQuote.cs" />
+    <Compile Include="Domain\Controller\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
@@ -197,6 +198,12 @@
     </Compile>
     <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.Designer.cs">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\D_SelectProviderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\D_SelectProviderForm.Designer.cs">
+      <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.cs">
       <SubType>Form</SubType>
@@ -286,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Quote\D_SelectProviderForm.resx">
+      <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\Quote\V_AddEditQuoteForm.resx">
       <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>

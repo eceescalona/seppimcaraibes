@@ -95,6 +95,8 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.freightLC = new DevExpress.XtraEditors.LabelControl();
+            this.freightTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -152,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -229,9 +232,9 @@
             this.shipmentPC.Controls.Add(this.packingLC);
             this.shipmentPC.Controls.Add(this.netWeightLC);
             this.shipmentPC.Controls.Add(this.grossWeightLC);
-            this.shipmentPC.Location = new System.Drawing.Point(12, 195);
+            this.shipmentPC.Location = new System.Drawing.Point(12, 207);
             this.shipmentPC.Name = "shipmentPC";
-            this.shipmentPC.Size = new System.Drawing.Size(424, 171);
+            this.shipmentPC.Size = new System.Drawing.Size(424, 159);
             this.shipmentPC.TabIndex = 0;
             // 
             // shipmentMLUE
@@ -323,6 +326,8 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.freightTE);
+            this.quotePC.Controls.Add(this.freightLC);
             this.quotePC.Controls.Add(this.eIncotermLC);
             this.quotePC.Controls.Add(this.eIncotermLUE);
             this.quotePC.Controls.Add(this.deviseLUE);
@@ -340,7 +345,7 @@
             this.quotePC.Controls.Add(this.providerReferenceLC);
             this.quotePC.Location = new System.Drawing.Point(12, 12);
             this.quotePC.Name = "quotePC";
-            this.quotePC.Size = new System.Drawing.Size(424, 179);
+            this.quotePC.Size = new System.Drawing.Size(424, 191);
             this.quotePC.TabIndex = 4;
             // 
             // eIncotermLC
@@ -486,16 +491,16 @@
             this.quoteLCI.Control = this.quotePC;
             this.quoteLCI.Location = new System.Drawing.Point(0, 0);
             this.quoteLCI.Name = "quoteLCI";
-            this.quoteLCI.Size = new System.Drawing.Size(428, 183);
+            this.quoteLCI.Size = new System.Drawing.Size(428, 195);
             this.quoteLCI.TextSize = new System.Drawing.Size(0, 0);
             this.quoteLCI.TextVisible = false;
             // 
             // shipmentLCI
             // 
             this.shipmentLCI.Control = this.shipmentPC;
-            this.shipmentLCI.Location = new System.Drawing.Point(0, 183);
+            this.shipmentLCI.Location = new System.Drawing.Point(0, 195);
             this.shipmentLCI.Name = "shipmentLCI";
-            this.shipmentLCI.Size = new System.Drawing.Size(428, 175);
+            this.shipmentLCI.Size = new System.Drawing.Size(428, 163);
             this.shipmentLCI.TextSize = new System.Drawing.Size(0, 0);
             this.shipmentLCI.TextVisible = false;
             // 
@@ -723,6 +728,22 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // freightLC
+            // 
+            this.freightLC.Location = new System.Drawing.Point(119, 163);
+            this.freightLC.Name = "freightLC";
+            this.freightLC.Size = new System.Drawing.Size(28, 13);
+            this.freightLC.TabIndex = 10;
+            this.freightLC.Text = "Flete:";
+            // 
+            // freightTE
+            // 
+            this.freightTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Freight", true));
+            this.freightTE.Location = new System.Drawing.Point(153, 160);
+            this.freightTE.Name = "freightTE";
+            this.freightTE.Size = new System.Drawing.Size(100, 20);
+            this.freightTE.TabIndex = 15;
+            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -795,6 +816,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -867,5 +889,7 @@
         private DevExpress.XtraEditors.MemoEdit observationME;
         private DevExpress.XtraEditors.LabelControl observationLC;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.TextEdit freightTE;
+        private DevExpress.XtraEditors.LabelControl freightLC;
     }
 }

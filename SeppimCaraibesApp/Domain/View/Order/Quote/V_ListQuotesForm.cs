@@ -22,8 +22,8 @@
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
-        private bool _isCallFrom;
-        private Controller.C_Order _cOrden;
+        private readonly bool _isCallFrom;
+        private readonly Controller.C_Order _cOrden;
         private bool _isCOrdenAlive;
 
 

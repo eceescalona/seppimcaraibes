@@ -9,6 +9,8 @@
     {
         private const string FV = "FV";
         private const string NC = "NC";
+        private const string FIELD = "providerSLUE";
+        private const string FIELD_MESSAGE = "El Campo Proveedor no puede ser vacío.";
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.Order _mOrder;
 
@@ -32,9 +34,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
-
+            string message;
+            string field;
             if (order.Date == null)
             {
                 flag = false;
@@ -146,6 +147,7 @@
             reportQuote.LoadData(quote);
         }
 
+
         #region OrderManage
         public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
         {
@@ -162,6 +164,21 @@
             else
             {
                 addEditOrder.ShowFieldsWithError(fields);
+            }
+        }
+
+        public void SetProviderOrder(ISelectProvider selectProvider, string code, Data.ORM.Provider provider)
+        {
+            string message = string.Format("El proveedor para la orden {0} ha sido selccionado satisfactoriamente.", code);
+            if (provider != null)
+            {
+                _mOrder.SetProviderOrder(_context, code, provider);
+
+                selectProvider.ShowMessage(ETypeOfMessage.Information, message);
+            }
+            else
+            {
+                selectProvider.ShowFieldsWithError(FIELD, FIELD_MESSAGE);
             }
         }
 
