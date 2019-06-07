@@ -2,19 +2,19 @@
 {
     using System.Windows.Forms;
 
-    internal partial class V_ReportQuoteForm : Form
+    internal partial class V_ReportOrderForm : Form
     {
-        private const string NAME = "Vista Previa Cotización";
+        private const string NAME = "Vista Previa Orden";
 
         private Controller.C_Order _cOrder;
 
-        public V_ReportQuoteForm()
+        public V_ReportOrderForm()
         {
             InitializeComponent();
             _cOrder = new Controller.C_Order();
         }
 
-        public V_ReportQuoteForm(Controller.C_Order cOrder, string code)
+        public V_ReportOrderForm(Controller.C_Order cOrder, string code)
         {
             InitializeComponent();
             _cOrder = cOrder;
@@ -26,8 +26,8 @@
 
         private void LoadDocumentSource(string code)
         {
-            var report = new Reports.Quote.R_Quote(_cOrder, code);
-            quoteDV.DocumentSource = report;
+            var report = new Reports.Order.R_Order(_cOrder, code);
+            orderDV.DocumentSource = report;
         }
     }
 }

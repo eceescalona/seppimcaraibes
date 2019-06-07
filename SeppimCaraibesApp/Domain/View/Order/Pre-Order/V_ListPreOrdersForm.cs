@@ -22,7 +22,7 @@
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
-        private Controller.C_Order _cOrden;
+        private Controller.C_Order _cOrder;
         private bool _isCOrdenAlive;
 
 
@@ -32,7 +32,7 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cOrden = new Controller.C_Order();
+            _cOrder = new Controller.C_Order();
             _isCOrdenAlive = true;
         }
 
@@ -41,7 +41,7 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cOrden = cOrden;
+            _cOrder = cOrden;
             _isCOrdenAlive = true;
         }
         #endregion
@@ -49,7 +49,7 @@
 
         private void V_ListPreOrdersForm_Load(object sender, EventArgs e)
         {
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrder.GetContext();
             dbContext.PreOrdersViews.Load();
             preOrdersBS.DataSource = dbContext.PreOrdersViews.Local.ToBindingList();
         }
@@ -70,7 +70,7 @@
 
             foreach (var item in list)
             {
-                _cOrden.GetContext().Entry(item).Reload();
+                _cOrder.GetContext().Entry(item).Reload();
             }
         }
 
@@ -79,7 +79,7 @@
         public void RefreshView()
         {
             preOrdersBS.ResetBindings(true);
-            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrden.GetContext();
+            Data.ORM.SeppimCaraibesLocalEntities dbContext = _cOrder.GetContext();
             dbContext.PreOrdersViews.Load();
             preOrdersBS.DataSource = dbContext.PreOrdersViews.Local.ToBindingList();
         }
@@ -89,13 +89,13 @@
             switch (typeOfMessage)
             {
                 case ETypeOfMessage.Warning:
-                    MessageBox.Show(message, _cOrden.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 case ETypeOfMessage.Error:
-                    MessageBox.Show(message, _cOrden.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 default:
-                    MessageBox.Show(message, _cOrden.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(message, _cOrder.GetEnumDescription(typeOfMessage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
         }
@@ -131,7 +131,7 @@
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _isCOrdenAlive = true;
-            var addOrder = new V_AddEditPreOrderForm(_cOrden);
+            var addOrder = new V_AddEditPreOrderForm(_cOrder);
             addOrder.BringToFront();
             DialogResult result = addOrder.ShowDialog();
             if (result == DialogResult.OK)
@@ -140,12 +140,12 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
             {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -157,7 +157,7 @@
             {
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                var editOrder = new V_AddEditPreOrderForm(_cOrden, row.Order_Code);
+                var editOrder = new V_AddEditPreOrderForm(_cOrder, row.Order_Code);
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -166,11 +166,11 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (result == DialogResult.Abort)
                 {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -180,18 +180,18 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                    DialogResult result = MessageBox.Show(DELETE_MESSAGE + row.Order_Code + "?", _cOrden.GetEnumDescription(ETypeOfMessage.Warning),
+                    DialogResult result = MessageBox.Show(DELETE_MESSAGE + row.Order_Code + "?", _cOrder.GetEnumDescription(ETypeOfMessage.Warning),
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        _cOrden.DeleteOrder(this, row.Order_Code);
+                        _cOrder.DeleteOrder(this, row.Order_Code);
 
                         Refresh(row);
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(DELETE_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(DELETE_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -201,23 +201,23 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                    DialogResult result = MessageBox.Show(CONVERT_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
+                    DialogResult result = MessageBox.Show(CONVERT_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        var selectProvider = new D_SelectProviderForm(_cOrden, row.Order_Code);
+                        var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code);
                         selectProvider.BringToFront();
                         DialogResult resultDialog = selectProvider.ShowDialog();
                         if (resultDialog == DialogResult.OK)
                         {
-                            _cOrden.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
+                            _cOrder.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
                         }
                         Refresh(row);
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -226,7 +226,7 @@
 
         private void ListQuotesBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var listQuotes = new V_ListQuotesForm(_cOrden);
+            var listQuotes = new V_ListQuotesForm(_cOrder);
             listQuotes.BringToFront();
             listQuotes.ShowDialog();
         }
@@ -235,7 +235,7 @@
         {
             if (_isCOrdenAlive)
             {
-                _cOrden.Dispose();
+                _cOrder.Dispose();
                 Dispose();
             }
             else

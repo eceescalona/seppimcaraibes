@@ -141,7 +141,7 @@
             }
         }
 
-        public void LoadQuoteReport(IReportQuote reportQuote, string code)
+        public void LoadQuoteReport(IReport reportQuote, string code)
         {
             var quote = _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(quote);
