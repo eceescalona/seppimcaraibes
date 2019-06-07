@@ -143,8 +143,8 @@
 
         public void LoadQuoteReport(IReport reportQuote, string code)
         {
-            var quote = _mOrder.GetOrderReportView(_context, code);
-            reportQuote.LoadData(quote);
+            var reportData = _mOrder.GetOrderReportView(_context, code);
+            reportQuote.LoadData(reportData);
         }
 
 
