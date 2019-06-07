@@ -424,7 +424,7 @@
             this.xrTableCell11.Multiline = true;
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.Text = "xrTableCell11";
-            this.xrTableCell11.TextFormatString = "{0:%}";
+            this.xrTableCell11.TextFormatString = "{0}%";
             this.xrTableCell11.Weight = 1.1347231022712252D;
             // 
             // xrTableCell12
@@ -593,7 +593,7 @@
             this.xrLabel19.Multiline = true;
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(650F, 23F);
             this.xrLabel19.Text = "xrLabel19";
             // 
             // xrLabel18
@@ -605,7 +605,7 @@
             this.xrLabel18.Multiline = true;
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(650F, 23F);
             this.xrLabel18.Text = "xrLabel18";
             // 
             // objectDataSource1
