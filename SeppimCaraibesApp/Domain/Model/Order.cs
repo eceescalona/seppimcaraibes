@@ -79,8 +79,8 @@
             {
                 var product = new Data.POCO.ProductsOrders
                 {
-                    ProductId = productOrder.Product.ProductId,
-                    ProductName = productOrder.Product.ProductName,
+                    ProductId = productOrder.ProductId,
+                    ProductName = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.ProductName,
                     Qty = productOrder.Qty,
                     Discount = productOrder.Discount,
                     Interests = productOrder.Interests,

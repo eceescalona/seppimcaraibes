@@ -5,7 +5,7 @@
 
     internal partial class R_Quote : XtraReport, Controller.IReport
     {
-        private Controller.C_Order _cOrder;
+        private readonly Controller.C_Order _cOrder;
 
         public R_Quote()
         {

@@ -6,7 +6,7 @@
     {
         private const string NAME = "Vista Previa Cotización";
 
-        private Controller.C_Order _cOrder;
+        private readonly Controller.C_Order _cOrder;
 
         public V_ReportQuoteForm()
         {
