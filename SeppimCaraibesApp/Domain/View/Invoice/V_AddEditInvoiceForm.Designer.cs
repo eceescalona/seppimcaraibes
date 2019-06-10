@@ -52,6 +52,8 @@
             this.banksSLUE = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.bankGV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAccountNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bankLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.bankSLUELCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.addBankLCI = new DevExpress.XtraLayout.LayoutControlItem();
@@ -68,8 +70,6 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.bankLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAccountNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
             this.addEditLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -314,7 +314,9 @@
             this.banksSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.banksSLUE.Properties.DataSource = this.banksEIFS;
-            this.banksSLUE.Properties.DisplayMember = "AccountName";
+            this.banksSLUE.Properties.DisplayMember = "BankName";
+            this.banksSLUE.Properties.NullText = "";
+            this.banksSLUE.Properties.NullValuePrompt = "Banco";
             this.banksSLUE.Properties.PopupView = this.bankGV;
             this.banksSLUE.Properties.ValueMember = "BankId";
             this.banksSLUE.Size = new System.Drawing.Size(330, 20);
@@ -337,6 +339,22 @@
             this.bankGV.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.bankGV.OptionsView.ShowGroupPanel = false;
             this.bankGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.BankGV_RowStyle);
+            // 
+            // colName
+            // 
+            this.colName.Caption = "Banco";
+            this.colName.FieldName = "BankName";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            // 
+            // colAccountNumber
+            // 
+            this.colAccountNumber.Caption = "Número de Cuenta";
+            this.colAccountNumber.FieldName = "AccountNumber";
+            this.colAccountNumber.Name = "colAccountNumber";
+            this.colAccountNumber.Visible = true;
+            this.colAccountNumber.VisibleIndex = 1;
             // 
             // bankLCG
             // 
@@ -480,22 +498,6 @@
             this.buttonsLCI.Size = new System.Drawing.Size(627, 59);
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
-            // 
-            // colName
-            // 
-            this.colName.Caption = "Banco";
-            this.colName.FieldName = "BankName";
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
-            // 
-            // colAccountNumber
-            // 
-            this.colAccountNumber.Caption = "Número de Cuenta";
-            this.colAccountNumber.FieldName = "AccountNumber";
-            this.colAccountNumber.Name = "colAccountNumber";
-            this.colAccountNumber.Visible = true;
-            this.colAccountNumber.VisibleIndex = 1;
             // 
             // V_AddEditInvoiceForm
             // 
