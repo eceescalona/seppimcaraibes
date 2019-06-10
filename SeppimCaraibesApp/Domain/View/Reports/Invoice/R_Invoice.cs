@@ -11,10 +11,12 @@
         public R_Invoice()
         {
             InitializeComponent();
+            _cOrder = new Controller.C_Order();
         }
 
         public R_Invoice(Controller.C_Order cOrder, string code)
         {
+            InitializeComponent();
             _cOrder = cOrder;
             _cOrder.LoadQuoteReport(this, code);
         }

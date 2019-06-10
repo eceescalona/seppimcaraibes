@@ -386,7 +386,7 @@
             this.printPreviewStaticItem2,
             this.zoomTrackBarEditItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
-            this.ribbonControl1.MaxItemId = 58;
+            this.ribbonControl1.MaxItemId = 59;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
