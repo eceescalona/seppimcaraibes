@@ -7,6 +7,7 @@
     {
         private readonly Controller.C_Order _cOrder;
 
+
         public R_Quote()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@
             _cOrder = cOrder;
             _cOrder.LoadQuoteReport(this, code);
         }
+
 
         public void LoadData(IEnumerable<Data.POCO.OrderReportView> reportView)
         {

@@ -1,23 +1,21 @@
-﻿namespace SeppimCaraibesApp.Domain.View.Order
+﻿namespace SeppimCaraibesApp.Domain.View.Invoice
 {
     using System.Windows.Forms;
 
-    internal partial class V_ReportOrderForm : Form
+    internal partial class V_ReportInvoiceForm : Form
     {
-        private const string NAME = "Vista Previa Orden";
+        private const string NAME = "Vista Previa Factura";
 
         private readonly Controller.C_Order _cOrder;
 
 
-        public V_ReportOrderForm()
+        public V_ReportInvoiceForm()
         {
             InitializeComponent();
-            _cOrder = new Controller.C_Order();
         }
 
-        public V_ReportOrderForm(Controller.C_Order cOrder, string code)
+        public V_ReportInvoiceForm(Controller.C_Order cOrder, string code)
         {
-            InitializeComponent();
             _cOrder = cOrder;
 
             Text = NAME;
@@ -29,7 +27,7 @@
         private void LoadDocumentSource(string code)
         {
             var report = new Reports.Order.R_Order(_cOrder, code);
-            orderDV.DocumentSource = report;
+            invoiceDV.DocumentSource = report;
         }
     }
 }

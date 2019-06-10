@@ -8,6 +8,7 @@
 
         private readonly Controller.C_Order _cOrder;
 
+
         public V_ReportQuoteForm()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@
 
             LoadDocumentSource(code);
         }
+
 
         private void LoadDocumentSource(string code)
         {

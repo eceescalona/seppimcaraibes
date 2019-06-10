@@ -56,8 +56,10 @@
     <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -187,6 +189,12 @@
     <Compile Include="Domain\View\Invoice\V_ListInvoicesForm.Designer.cs">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Invoice\V_ReportInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Invoice\V_ReportInvoiceForm.Designer.cs">
+      <DependentUpon>V_ReportInvoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +273,12 @@
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Reports\Invoice\R_Invoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Invoice\R_Invoice.Designer.cs">
+      <DependentUpon>R_Invoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Reports\Order\R_Order.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -299,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Invoice\V_ListInvoicesForm.resx">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Invoice\V_ReportInvoiceForm.resx">
+      <DependentUpon>V_ReportInvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.resx">
       <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
@@ -338,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Invoice\R_Invoice.resx">
+      <DependentUpon>R_Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\Order\R_Order.resx">
       <DependentUpon>R_Order.cs</DependentUpon>
