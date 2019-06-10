@@ -9,6 +9,8 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
     internal partial class V_ListInvoicesForm : Form, Controller.IListOrders
     {
         private const string NAME_FORM = "Listar Facturas";
+        private const string MESSAGE_SHOW_ERROR = "El documento no pudo ser mostrado. Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_MESSAGE = "Si elimina la factura del sistema, este desaparecerá permanentemente del mismo; así como la orden asociada. " +
             "¿Está seguro(a) de querer eliminar la orden ";
         private const string EDIT_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo editar la factura. Porfavor vuelva a intentarlo." +
@@ -176,6 +178,22 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                 catch (Exception)
                 {
                     MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (e.Button == btnEdit.Properties.Buttons[3])
+            {
+                try
+                {
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.InvoicesView)invoiceGV.GetRow(invoiceGV.FocusedRowHandle);
+                    var documentView = new V_ReportInvoiceForm(_cOrden, row.Order_Code);
+                    documentView.BringToFront();
+                    documentView.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(MESSAGE_SHOW_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
