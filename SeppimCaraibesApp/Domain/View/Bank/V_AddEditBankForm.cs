@@ -13,7 +13,7 @@
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
-        private Controller.C_Bank _cBank;
+        private readonly Controller.C_Bank _cBank;
         private bool _isCBankAlive;
         private bool _isFieldWithError;
         public int code;

@@ -17,7 +17,7 @@
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
-        private Controller.C_Order _cOrder;
+        private readonly Controller.C_Order _cOrder;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
         private int _idBank;
@@ -143,7 +143,10 @@
         private void AddBankSB_Click(object sender, System.EventArgs e)
         {
             _isCOrderAlive = true;
-            var addBank = new Bank.V_AddEditBankForm();
+            var addBank = new Bank.V_AddEditBankForm
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             addBank.BringToFront();
             DialogResult result = addBank.ShowDialog();
             if (result == DialogResult.OK)

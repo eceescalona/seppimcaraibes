@@ -85,22 +85,58 @@
                     Discount = productOrder.Discount,
                     Interests = productOrder.Interests,
                     UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice
-            };
+                };
 
-            products.Add(product);
-        }
+                products.Add(product);
+            }
 
-        data.Products = products;
+            data.Products = products;
 
             reports.Add(data);
             return reports;
         }
 
-    public void AddOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-        if (!context.Orders.Any(o => o.OrderId == order.OrderId))
+        public void AddOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
         {
+            var rOrder = new Data.Repository.OrderRepository();
+            if (!context.Orders.Any(o => o.OrderId == order.OrderId))
+            {
+                foreach (var product in productsOrdersViews)
+                {
+                    var productOrder = new Data.ORM.ProductsOrder
+                    {
+                        OrderId = order.OrderId,
+                        ProductId = product.ProductId,
+                        Qty = product.Qty,
+                        Discount = product.Discount,
+                        Interests = product.Interests
+                    };
+
+                    order.ProductsOrders.Add(productOrder);
+                }
+
+                rOrder.AddOrder(context, order);
+            }
+        }
+
+        public void SetProviderOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, Data.ORM.Provider provider)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+            rOrder.SetProviderOrder(context, code, provider);
+        }
+
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            rOrder.EditOrder(context, order);
+        }
+
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            var productsOrders = new List<Data.ORM.ProductsOrder>();
             foreach (var product in productsOrdersViews)
             {
                 var productOrder = new Data.ORM.ProductsOrder
@@ -112,92 +148,56 @@
                     Interests = product.Interests
                 };
 
-                order.ProductsOrders.Add(productOrder);
+                productsOrders.Add(productOrder);
             }
 
-            rOrder.AddOrder(context, order);
-        }
-    }
-
-    public void SetProviderOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, Data.ORM.Provider provider)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-        rOrder.SetProviderOrder(context, code, provider);
-    }
-
-    public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-
-        rOrder.EditOrder(context, order);
-    }
-
-    public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrdersViews)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-
-        var productsOrders = new List<Data.ORM.ProductsOrder>();
-        foreach (var product in productsOrdersViews)
-        {
-            var productOrder = new Data.ORM.ProductsOrder
+            if (order.Shipment != null)
             {
-                OrderId = order.OrderId,
-                ProductId = product.ProductId,
-                Qty = product.Qty,
-                Discount = product.Discount,
-                Interests = product.Interests
-            };
-
-            productsOrders.Add(productOrder);
-        }
-
-        if (order.Shipment != null)
-        {
-            var rShipment = new Data.Repository.ShipmentRepository();
-            if (!context.Shipments.Any(s => s.ShipmentId == order.Shipment.ShipmentId))
-            {
-                rShipment.AddShipment(context, order.Shipment);
+                var rShipment = new Data.Repository.ShipmentRepository();
+                if (!context.Shipments.Any(s => s.ShipmentId == order.Shipment.ShipmentId))
+                {
+                    rShipment.AddShipment(context, order.Shipment);
+                }
             }
+            else
+            {
+                order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
+            }
+
+            order.ProductsOrders = productsOrders;
+
+            rOrder.EditOrder(context, order);
         }
-        else
+
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
         {
-            order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
+            var rOrder = new Data.Repository.OrderRepository();
+
+            var order = rOrder.GetOrder(context, code);
+            order.OrderProcessState = orderProcessState;
+
+            if (orderProcessState == EOrderProcessState.Invoice)
+            {
+                order.InvoiceState = EInvoiceState.InProcess;
+            }
+
+            rOrder.EditOrder(context, order);
         }
 
-        order.ProductsOrders = productsOrders;
-
-        rOrder.EditOrder(context, order);
-    }
-
-    public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-
-        var order = rOrder.GetOrder(context, code);
-        order.OrderProcessState = orderProcessState;
-
-        if (orderProcessState == EOrderProcessState.Invoice)
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
         {
-            order.InvoiceState = EInvoiceState.InProcess;
+            var rOrder = new Data.Repository.OrderRepository();
+
+            var order = rOrder.GetOrder(context, code);
+            order.InvoiceState = invoiceState;
+
+            rOrder.EditOrder(context, order);
         }
 
-        rOrder.EditOrder(context, order);
+        public void DeleteOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+            rOrder.DeleteOrder(context, code);
+        }
     }
-
-    public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-
-        var order = rOrder.GetOrder(context, code);
-        order.InvoiceState = invoiceState;
-
-        rOrder.EditOrder(context, order);
-    }
-
-    public void DeleteOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
-    {
-        var rOrder = new Data.Repository.OrderRepository();
-        rOrder.DeleteOrder(context, code);
-    }
-}
 }

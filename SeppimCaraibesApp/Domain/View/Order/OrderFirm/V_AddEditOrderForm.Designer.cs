@@ -44,6 +44,7 @@
             this.docPC = new DevExpress.XtraEditors.PanelControl();
             this.docGC = new DevExpress.XtraEditors.GroupControl();
             this.docME = new DevExpress.XtraEditors.MemoEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionPC = new DevExpress.XtraEditors.PanelControl();
             this.descriptionGC = new DevExpress.XtraEditors.GroupControl();
             this.descriptionME = new DevExpress.XtraEditors.MemoEdit();
@@ -51,7 +52,6 @@
             this.descriptionLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.docLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditOrderLC)).BeginInit();
             this.addEditOrderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -72,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.docGC)).BeginInit();
             this.docGC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionPC)).BeginInit();
             this.descriptionPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionGC)).BeginInit();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.descriptionLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditOrderLC
@@ -228,6 +228,10 @@
             this.docME.Size = new System.Drawing.Size(262, 193);
             this.docME.TabIndex = 0;
             // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
             // descriptionPC
             // 
             this.descriptionPC.Controls.Add(this.descriptionGC);
@@ -294,10 +298,6 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // orderBS
-            // 
-            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
-            // 
             // V_AddEditOrderForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -309,7 +309,6 @@
             this.Name = "V_AddEditOrderForm";
             this.Text = "V_AddEditOrderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditOrderForm_FormClosed);
-            this.Load += new System.EventHandler(this.V_AddEditOrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addEditOrderLC)).EndInit();
             this.addEditOrderLC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).EndInit();
@@ -330,6 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.docGC)).EndInit();
             this.docGC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.docME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionPC)).EndInit();
             this.descriptionPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.descriptionGC)).EndInit();
@@ -339,7 +339,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.descriptionLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             this.ResumeLayout(false);
 
         }

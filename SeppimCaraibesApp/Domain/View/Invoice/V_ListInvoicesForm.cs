@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
-namespace SeppimCaraibesApp.Domain.View.Invoice
+﻿namespace SeppimCaraibesApp.Domain.View.Invoice
 {
+    using System.Data.Entity;
     using DevExpress.XtraEditors;
     using System;
     using System.Collections.Generic;
@@ -26,6 +26,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
         private bool _isCOrdenAlive;
 
 
+        #region Ctor
         public V_ListInvoicesForm()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
         }
+        #endregion
+
 
         private void V_ListInvoicesForm_Load(object sender, EventArgs e)
         {
@@ -116,6 +119,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
         #endregion
 
 
+        #region OrderManage
         private void ActionsRIBE_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit btnEdit = sender as ButtonEdit;
@@ -125,6 +129,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.InvoicesView)invoiceGV.GetRow(invoiceGV.FocusedRowHandle);
                 var editOrder = new V_AddEditInvoiceForm(_cOrden, row.Order_Code);
+                editOrder.StartPosition = FormStartPosition.CenterScreen;
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -188,6 +193,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.InvoicesView)invoiceGV.GetRow(invoiceGV.FocusedRowHandle);
                     var documentView = new V_ReportInvoiceForm(_cOrden, row.Order_Code);
+                    documentView.StartPosition = FormStartPosition.CenterScreen;
                     documentView.BringToFront();
                     documentView.ShowDialog();
                 }
@@ -197,6 +203,7 @@ namespace SeppimCaraibesApp.Domain.View.Invoice
                 }
             }
         }
+        #endregion
 
 
         private void V_ListInvoicesForm_FormClosed(object sender, FormClosedEventArgs e)

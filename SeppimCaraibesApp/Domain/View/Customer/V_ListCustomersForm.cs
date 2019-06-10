@@ -123,6 +123,7 @@
         {
             _isCCustomerAlive = true;
             var addCustomer = new V_AddEditCustomerForm(_cCustomer);
+            addCustomer.StartPosition = FormStartPosition.CenterScreen;
             addCustomer.BringToFront();
             DialogResult result = addCustomer.ShowDialog();
             if (result == DialogResult.OK)
@@ -149,6 +150,7 @@
                 _isCCustomerAlive = true;
                 var row = customersGV.GetRow(customersGV.FocusedRowHandle) as Data.ORM.CustomersView;
                 var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code);
+                editCustomer.StartPosition = FormStartPosition.CenterScreen;
                 editCustomer.BringToFront();
                 DialogResult result = editCustomer.ShowDialog();
                 if (result == DialogResult.OK)

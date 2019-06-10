@@ -123,6 +123,7 @@
         {
             _isCProviderAlive = true;
             var addProvider = new V_AddEditProviderForm(_cProvider);
+            addProvider.StartPosition = FormStartPosition.CenterScreen;
             addProvider.BringToFront();
             DialogResult result = addProvider.ShowDialog();
             if (result == DialogResult.OK)
@@ -149,6 +150,7 @@
                 _isCProviderAlive = true;
                 var row = providersGV.GetRow(providersGV.FocusedRowHandle) as Data.ORM.ProvidersView;
                 var editProvider = new V_AddEditProviderForm(_cProvider, row.Provider_Code);
+                editProvider.StartPosition = FormStartPosition.CenterScreen;
                 editProvider.BringToFront();
                 DialogResult result = editProvider.ShowDialog();
                 if (result == DialogResult.OK)

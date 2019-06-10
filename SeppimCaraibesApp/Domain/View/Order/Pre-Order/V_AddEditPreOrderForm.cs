@@ -19,10 +19,10 @@
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
-        private Controller.C_Order _cOrder;
-        private Controller.C_Product _cProduct;
+        private readonly Controller.C_Order _cOrder;
+        private readonly Controller.C_Product _cProduct;
         private bool _isCOrderAlive;
-        private bool _isAddOrEdit;
+        private readonly bool _isAddOrEdit;
         private bool _isFieldWithError;
         private string _idCustomer;
 
@@ -263,7 +263,10 @@
         private void AddCustomerSB_Click(object sender, EventArgs e)
         {
             _isCOrderAlive = true;
-            var addCustomer = new Customer.V_AddEditCustomerForm();
+            var addCustomer = new Customer.V_AddEditCustomerForm
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             addCustomer.BringToFront();
             DialogResult result = addCustomer.ShowDialog();
             if (result == DialogResult.OK)

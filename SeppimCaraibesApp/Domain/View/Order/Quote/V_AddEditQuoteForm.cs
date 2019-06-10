@@ -13,8 +13,8 @@
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
-        private Controller.C_Order _cOrder;
-        private Controller.C_Product _cProduct;
+        private readonly Controller.C_Order _cOrder;
+        private readonly Controller.C_Product _cProduct;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
 

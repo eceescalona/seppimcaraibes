@@ -141,6 +141,7 @@
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
                 var editOrder = new V_AddEditOrderForm(_cOrden, row.Order_Code);
+                editOrder.StartPosition = FormStartPosition.CenterScreen;
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -204,6 +205,7 @@
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
                     var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code);
+                    documentView.StartPosition = FormStartPosition.CenterScreen;
                     documentView.BringToFront();
                     documentView.ShowDialog();
                 }

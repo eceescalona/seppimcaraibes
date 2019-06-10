@@ -132,6 +132,7 @@
         {
             _isCOrdenAlive = true;
             var addOrder = new V_AddEditPreOrderForm(_cOrder);
+            addOrder.StartPosition = FormStartPosition.CenterScreen;
             addOrder.BringToFront();
             DialogResult result = addOrder.ShowDialog();
             if (result == DialogResult.OK)
@@ -158,6 +159,7 @@
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
                 var editOrder = new V_AddEditPreOrderForm(_cOrder, row.Order_Code);
+                editOrder.StartPosition = FormStartPosition.CenterScreen;
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -206,6 +208,7 @@
                     if (result == DialogResult.Yes)
                     {
                         var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code);
+                        selectProvider.StartPosition = FormStartPosition.CenterScreen;
                         selectProvider.BringToFront();
                         DialogResult resultDialog = selectProvider.ShowDialog();
                         if (resultDialog == DialogResult.OK)
@@ -227,6 +230,7 @@
         private void ListQuotesBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var listQuotes = new V_ListQuotesForm(_cOrder);
+            listQuotes.StartPosition = FormStartPosition.CenterScreen;
             listQuotes.BringToFront();
             listQuotes.ShowDialog();
         }

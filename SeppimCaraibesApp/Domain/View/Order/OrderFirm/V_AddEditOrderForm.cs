@@ -31,12 +31,6 @@
         }
 
 
-        private void V_AddEditOrderForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         #region IAddEditOrder
         public void EditOrder(Data.ORM.Order order)
         {

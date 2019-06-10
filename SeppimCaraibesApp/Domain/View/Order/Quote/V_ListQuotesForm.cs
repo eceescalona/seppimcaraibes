@@ -141,6 +141,7 @@
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.QuotesView)quotesGV.GetRow(quotesGV.FocusedRowHandle);
                 var editOrder = new V_AddEditQuoteForm(_cOrden, row.Order_Code);
+                editOrder.StartPosition = FormStartPosition.CenterScreen;
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -204,6 +205,7 @@
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.QuotesView)quotesGV.GetRow(quotesGV.FocusedRowHandle);
                     var documentView = new V_ReportQuoteForm(_cOrden, row.Order_Code);
+                    documentView.StartPosition = FormStartPosition.CenterScreen;
                     documentView.BringToFront();
                     documentView.ShowDialog();
                 }
@@ -219,6 +221,7 @@
         private void ListOrdersBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var listOrders = new V_ListOrdersForm(_cOrden);
+            listOrders.StartPosition = FormStartPosition.CenterScreen;
             listOrders.BringToFront();
             listOrders.ShowDialog();
         }

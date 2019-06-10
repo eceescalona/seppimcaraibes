@@ -68,9 +68,9 @@
             // 
             // viewsPC
             // 
-            this.viewsPC.Location = new System.Drawing.Point(149, 12);
+            this.viewsPC.Location = new System.Drawing.Point(70, 12);
             this.viewsPC.Name = "viewsPC";
-            this.viewsPC.Size = new System.Drawing.Size(639, 426);
+            this.viewsPC.Size = new System.Drawing.Size(718, 426);
             this.viewsPC.TabIndex = 5;
             // 
             // menuPC
@@ -78,7 +78,7 @@
             this.menuPC.Controls.Add(this.mainAC);
             this.menuPC.Location = new System.Drawing.Point(12, 12);
             this.menuPC.Name = "menuPC";
-            this.menuPC.Size = new System.Drawing.Size(133, 426);
+            this.menuPC.Size = new System.Drawing.Size(54, 426);
             this.menuPC.TabIndex = 4;
             // 
             // mainAC
@@ -92,11 +92,10 @@
             this.invoicesACE});
             this.mainAC.Location = new System.Drawing.Point(2, 2);
             this.mainAC.Name = "mainAC";
-            this.mainAC.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.mainAC.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.False;
             this.mainAC.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
-            this.mainAC.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.mainAC.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.mainAC.Size = new System.Drawing.Size(129, 422);
+            this.mainAC.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
+            this.mainAC.Size = new System.Drawing.Size(50, 422);
             this.mainAC.TabIndex = 0;
             this.mainAC.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -171,16 +170,16 @@
             this.menuLCI.Control = this.menuPC;
             this.menuLCI.Location = new System.Drawing.Point(0, 0);
             this.menuLCI.Name = "menuLCI";
-            this.menuLCI.Size = new System.Drawing.Size(137, 430);
+            this.menuLCI.Size = new System.Drawing.Size(58, 430);
             this.menuLCI.TextSize = new System.Drawing.Size(0, 0);
             this.menuLCI.TextVisible = false;
             // 
             // viewsLCI
             // 
             this.viewsLCI.Control = this.viewsPC;
-            this.viewsLCI.Location = new System.Drawing.Point(137, 0);
+            this.viewsLCI.Location = new System.Drawing.Point(58, 0);
             this.viewsLCI.Name = "viewsLCI";
-            this.viewsLCI.Size = new System.Drawing.Size(643, 430);
+            this.viewsLCI.Size = new System.Drawing.Size(722, 430);
             this.viewsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.viewsLCI.TextVisible = false;
             // 
