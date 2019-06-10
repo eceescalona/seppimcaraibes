@@ -26,7 +26,7 @@
 
         private void LoadDocumentSource(string code)
         {
-            var report = new Reports.Order.R_Order(_cOrder, code);
+            var report = new Reports.Invoice.R_Invoice(_cOrder, code);
             invoiceDV.DocumentSource = report;
         }
     }

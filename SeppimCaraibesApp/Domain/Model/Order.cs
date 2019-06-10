@@ -37,7 +37,7 @@
             var customer = context.Customers.SingleOrDefault(c => c.CustomerId == order.CustomerId);
             var provider = context.Providers.SingleOrDefault(p => p.ProviderId == order.ProviderId);
 
-            var quote = new Data.POCO.OrderReportView
+            var data = new Data.POCO.OrderReportView
             {
                 OrderCode = order.OrderId,
                 Date = order.Date,
@@ -90,9 +90,9 @@
             products.Add(product);
         }
 
-        quote.Products = products;
+        data.Products = products;
 
-            reports.Add(quote);
+            reports.Add(data);
             return reports;
         }
 

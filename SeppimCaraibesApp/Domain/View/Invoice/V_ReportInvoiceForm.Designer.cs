@@ -187,9 +187,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem52 = new DevExpress.Utils.ToolTipItem();
             this.invoicePC = new DevExpress.XtraEditors.PanelControl();
             this.invoiceDV = new DevExpress.XtraPrinting.Preview.DocumentViewer();
-            this.documentViewerRibbonController1 = new DevExpress.XtraPrinting.Preview.DocumentViewerRibbonController(this.components);
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.printPreviewStaticItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
+            this.progressBarEditItem1 = new DevExpress.XtraPrinting.Preview.ProgressBarEditItem();
+            this.invoiceDVRC = new DevExpress.XtraPrinting.Preview.DocumentViewerRibbonController(this.components);
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.printPreviewBarItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem3 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
@@ -241,13 +243,10 @@
             this.printPreviewBarItem49 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem50 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem51 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.printPreviewStaticItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
-            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
-            this.progressBarEditItem1 = new DevExpress.XtraPrinting.Preview.ProgressBarEditItem();
             this.printPreviewBarItem52 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewStaticItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
-            this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
             this.zoomTrackBarEditItem1 = new DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem();
+            this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
             this.ribbonPage1 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPage();
             this.printPreviewRibbonPageGroup1 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.printPreviewRibbonPageGroup2 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
@@ -257,12 +256,13 @@
             this.printPreviewRibbonPageGroup6 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.printPreviewRibbonPageGroup7 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.printPreviewRibbonPageGroup8 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
+            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.invoicePC)).BeginInit();
             this.invoicePC.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.documentViewerRibbonController1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceDVRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // invoicePC
@@ -286,11 +286,42 @@
             this.invoiceDV.Size = new System.Drawing.Size(796, 324);
             this.invoiceDV.TabIndex = 0;
             // 
-            // documentViewerRibbonController1
+            // ribbonStatusBar1
             // 
-            this.documentViewerRibbonController1.DocumentViewer = this.invoiceDV;
-            this.documentViewerRibbonController1.RibbonControl = this.ribbonControl1;
-            this.documentViewerRibbonController1.RibbonStatusBar = this.ribbonStatusBar1;
+            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem1);
+            this.ribbonStatusBar1.ItemLinks.Add(this.progressBarEditItem1);
+            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewBarItem52);
+            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem2);
+            this.ribbonStatusBar1.ItemLinks.Add(this.zoomTrackBarEditItem1);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 421);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(796, 27);
+            // 
+            // printPreviewStaticItem1
+            // 
+            this.printPreviewStaticItem1.Caption = "ninguno";
+            this.printPreviewStaticItem1.Id = 52;
+            this.printPreviewStaticItem1.LeftIndent = 1;
+            this.printPreviewStaticItem1.Name = "printPreviewStaticItem1";
+            this.printPreviewStaticItem1.RightIndent = 1;
+            this.printPreviewStaticItem1.Type = "PageOfPages";
+            // 
+            // progressBarEditItem1
+            // 
+            this.progressBarEditItem1.ContextSpecifier = this.invoiceDVRC;
+            this.progressBarEditItem1.Edit = this.repositoryItemProgressBar1;
+            this.progressBarEditItem1.EditHeight = 12;
+            this.progressBarEditItem1.EditWidth = 150;
+            this.progressBarEditItem1.Id = 53;
+            this.progressBarEditItem1.Name = "progressBarEditItem1";
+            this.progressBarEditItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // invoiceDVRC
+            // 
+            this.invoiceDVRC.DocumentViewer = this.invoiceDV;
+            this.invoiceDVRC.RibbonControl = this.ribbonControl1;
+            this.invoiceDVRC.RibbonStatusBar = this.ribbonStatusBar1;
             // 
             // ribbonControl1
             // 
@@ -355,7 +386,7 @@
             this.printPreviewStaticItem2,
             this.zoomTrackBarEditItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
-            this.ribbonControl1.MaxItemId = 57;
+            this.ribbonControl1.MaxItemId = 58;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -372,24 +403,12 @@
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem1);
-            this.ribbonStatusBar1.ItemLinks.Add(this.progressBarEditItem1);
-            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewBarItem52);
-            this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem2);
-            this.ribbonStatusBar1.ItemLinks.Add(this.zoomTrackBarEditItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 421);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(796, 27);
-            // 
             // printPreviewBarItem1
             // 
             this.printPreviewBarItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem1.Caption = "Edición de campos";
             this.printPreviewBarItem1.Command = DevExpress.XtraPrinting.PrintingSystemCommand.HighlightEditingFields;
-            this.printPreviewBarItem1.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem1.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem1.Enabled = false;
             this.printPreviewBarItem1.Id = 1;
             this.printPreviewBarItem1.Name = "printPreviewBarItem1";
@@ -408,7 +427,7 @@
             this.printPreviewBarItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem2.Caption = "Mapa del documento";
             this.printPreviewBarItem2.Command = DevExpress.XtraPrinting.PrintingSystemCommand.DocumentMap;
-            this.printPreviewBarItem2.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem2.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem2.Enabled = false;
             this.printPreviewBarItem2.Id = 2;
             this.printPreviewBarItem2.Name = "printPreviewBarItem2";
@@ -427,7 +446,7 @@
             this.printPreviewBarItem3.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem3.Caption = "Parámetros";
             this.printPreviewBarItem3.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Parameters;
-            this.printPreviewBarItem3.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem3.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem3.Enabled = false;
             this.printPreviewBarItem3.Id = 3;
             this.printPreviewBarItem3.Name = "printPreviewBarItem3";
@@ -445,7 +464,7 @@
             this.printPreviewBarItem4.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem4.Caption = "Buscar";
             this.printPreviewBarItem4.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Find;
-            this.printPreviewBarItem4.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem4.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem4.Enabled = false;
             this.printPreviewBarItem4.Id = 4;
             this.printPreviewBarItem4.Name = "printPreviewBarItem4";
@@ -463,7 +482,7 @@
             this.printPreviewBarItem5.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem5.Caption = "Vistas en miniatura";
             this.printPreviewBarItem5.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Thumbnails;
-            this.printPreviewBarItem5.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem5.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem5.Enabled = false;
             this.printPreviewBarItem5.Id = 5;
             this.printPreviewBarItem5.Name = "printPreviewBarItem5";
@@ -480,7 +499,7 @@
             // 
             this.printPreviewBarItem6.Caption = "Opciones";
             this.printPreviewBarItem6.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Customize;
-            this.printPreviewBarItem6.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem6.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem6.Enabled = false;
             this.printPreviewBarItem6.Id = 6;
             this.printPreviewBarItem6.Name = "printPreviewBarItem6";
@@ -498,7 +517,7 @@
             // 
             this.printPreviewBarItem7.Caption = "Imprimir";
             this.printPreviewBarItem7.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Print;
-            this.printPreviewBarItem7.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem7.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem7.Enabled = false;
             this.printPreviewBarItem7.Id = 7;
             this.printPreviewBarItem7.Name = "printPreviewBarItem7";
@@ -516,7 +535,7 @@
             // 
             this.printPreviewBarItem8.Caption = "Impresión Rápida";
             this.printPreviewBarItem8.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PrintDirect;
-            this.printPreviewBarItem8.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem8.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem8.Enabled = false;
             this.printPreviewBarItem8.Id = 8;
             this.printPreviewBarItem8.Name = "printPreviewBarItem8";
@@ -533,7 +552,7 @@
             // 
             this.printPreviewBarItem9.Caption = "Márgenes personalizados...";
             this.printPreviewBarItem9.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageSetup;
-            this.printPreviewBarItem9.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem9.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem9.Enabled = false;
             this.printPreviewBarItem9.Id = 9;
             this.printPreviewBarItem9.Name = "printPreviewBarItem9";
@@ -550,7 +569,7 @@
             // 
             this.printPreviewBarItem10.Caption = "Cabecera y Pie";
             this.printPreviewBarItem10.Command = DevExpress.XtraPrinting.PrintingSystemCommand.EditPageHF;
-            this.printPreviewBarItem10.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem10.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem10.Enabled = false;
             this.printPreviewBarItem10.Id = 10;
             this.printPreviewBarItem10.Name = "printPreviewBarItem10";
@@ -568,7 +587,7 @@
             this.printPreviewBarItem11.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem11.Caption = "Escala";
             this.printPreviewBarItem11.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Scale;
-            this.printPreviewBarItem11.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem11.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem11.Enabled = false;
             this.printPreviewBarItem11.Id = 11;
             this.printPreviewBarItem11.Name = "printPreviewBarItem11";
@@ -586,7 +605,7 @@
             this.printPreviewBarItem12.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem12.Caption = "Puntero";
             this.printPreviewBarItem12.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Pointer;
-            this.printPreviewBarItem12.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem12.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem12.Down = true;
             this.printPreviewBarItem12.Enabled = false;
             this.printPreviewBarItem12.GroupIndex = 1;
@@ -607,7 +626,7 @@
             this.printPreviewBarItem13.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem13.Caption = "Herramienta de mano";
             this.printPreviewBarItem13.Command = DevExpress.XtraPrinting.PrintingSystemCommand.HandTool;
-            this.printPreviewBarItem13.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem13.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem13.Enabled = false;
             this.printPreviewBarItem13.GroupIndex = 1;
             this.printPreviewBarItem13.Id = 13;
@@ -627,7 +646,7 @@
             this.printPreviewBarItem14.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem14.Caption = "Lupa";
             this.printPreviewBarItem14.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Magnifier;
-            this.printPreviewBarItem14.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem14.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem14.Enabled = false;
             this.printPreviewBarItem14.GroupIndex = 1;
             this.printPreviewBarItem14.Id = 14;
@@ -648,7 +667,7 @@
             // 
             this.printPreviewBarItem15.Caption = "Alejar";
             this.printPreviewBarItem15.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ZoomOut;
-            this.printPreviewBarItem15.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem15.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem15.Enabled = false;
             this.printPreviewBarItem15.Id = 15;
             this.printPreviewBarItem15.Name = "printPreviewBarItem15";
@@ -665,7 +684,7 @@
             // 
             this.printPreviewBarItem16.Caption = "Acercar";
             this.printPreviewBarItem16.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ZoomIn;
-            this.printPreviewBarItem16.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem16.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem16.Enabled = false;
             this.printPreviewBarItem16.Id = 16;
             this.printPreviewBarItem16.Name = "printPreviewBarItem16";
@@ -683,7 +702,7 @@
             this.printPreviewBarItem17.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem17.Caption = "Ampliación";
             this.printPreviewBarItem17.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Zoom;
-            this.printPreviewBarItem17.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem17.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem17.Enabled = false;
             this.printPreviewBarItem17.Id = 17;
             this.printPreviewBarItem17.Name = "printPreviewBarItem17";
@@ -700,7 +719,7 @@
             // 
             this.printPreviewBarItem18.Caption = "Primera Página";
             this.printPreviewBarItem18.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowFirstPage;
-            this.printPreviewBarItem18.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem18.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem18.Enabled = false;
             this.printPreviewBarItem18.Id = 18;
             this.printPreviewBarItem18.Name = "printPreviewBarItem18";
@@ -717,7 +736,7 @@
             // 
             this.printPreviewBarItem19.Caption = "Página Anterior";
             this.printPreviewBarItem19.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowPrevPage;
-            this.printPreviewBarItem19.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem19.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem19.Enabled = false;
             this.printPreviewBarItem19.Id = 19;
             this.printPreviewBarItem19.Name = "printPreviewBarItem19";
@@ -734,7 +753,7 @@
             // 
             this.printPreviewBarItem20.Caption = "Página siguiente ";
             this.printPreviewBarItem20.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowNextPage;
-            this.printPreviewBarItem20.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem20.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem20.Enabled = false;
             this.printPreviewBarItem20.Id = 20;
             this.printPreviewBarItem20.Name = "printPreviewBarItem20";
@@ -751,7 +770,7 @@
             // 
             this.printPreviewBarItem21.Caption = "Última página ";
             this.printPreviewBarItem21.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowLastPage;
-            this.printPreviewBarItem21.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem21.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem21.Enabled = false;
             this.printPreviewBarItem21.Id = 21;
             this.printPreviewBarItem21.Name = "printPreviewBarItem21";
@@ -769,7 +788,7 @@
             this.printPreviewBarItem22.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem22.Caption = "Varias páginas";
             this.printPreviewBarItem22.Command = DevExpress.XtraPrinting.PrintingSystemCommand.MultiplePages;
-            this.printPreviewBarItem22.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem22.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem22.Enabled = false;
             this.printPreviewBarItem22.Id = 22;
             this.printPreviewBarItem22.Name = "printPreviewBarItem22";
@@ -787,7 +806,7 @@
             this.printPreviewBarItem23.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem23.Caption = "Color de Página";
             this.printPreviewBarItem23.Command = DevExpress.XtraPrinting.PrintingSystemCommand.FillBackground;
-            this.printPreviewBarItem23.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem23.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem23.Enabled = false;
             this.printPreviewBarItem23.Id = 23;
             this.printPreviewBarItem23.Name = "printPreviewBarItem23";
@@ -804,7 +823,7 @@
             // 
             this.printPreviewBarItem24.Caption = "Filigrana";
             this.printPreviewBarItem24.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Watermark;
-            this.printPreviewBarItem24.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem24.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem24.Enabled = false;
             this.printPreviewBarItem24.Id = 24;
             this.printPreviewBarItem24.Name = "printPreviewBarItem24";
@@ -823,7 +842,7 @@
             this.printPreviewBarItem25.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem25.Caption = "Exportar como";
             this.printPreviewBarItem25.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportFile;
-            this.printPreviewBarItem25.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem25.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem25.Enabled = false;
             this.printPreviewBarItem25.Id = 25;
             this.printPreviewBarItem25.Name = "printPreviewBarItem25";
@@ -842,7 +861,7 @@
             this.printPreviewBarItem26.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem26.Caption = "E-Mail Como";
             this.printPreviewBarItem26.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendFile;
-            this.printPreviewBarItem26.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem26.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem26.Enabled = false;
             this.printPreviewBarItem26.Id = 26;
             this.printPreviewBarItem26.Name = "printPreviewBarItem26";
@@ -860,7 +879,7 @@
             // 
             this.printPreviewBarItem27.Caption = "Cerrar vista preliminar";
             this.printPreviewBarItem27.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ClosePreview;
-            this.printPreviewBarItem27.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem27.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem27.Enabled = false;
             this.printPreviewBarItem27.Id = 27;
             this.printPreviewBarItem27.Name = "printPreviewBarItem27";
@@ -878,7 +897,7 @@
             this.printPreviewBarItem28.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem28.Caption = "Orientación";
             this.printPreviewBarItem28.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageOrientation;
-            this.printPreviewBarItem28.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem28.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem28.Enabled = false;
             this.printPreviewBarItem28.Id = 28;
             this.printPreviewBarItem28.Name = "printPreviewBarItem28";
@@ -896,7 +915,7 @@
             this.printPreviewBarItem29.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem29.Caption = "Tamaño";
             this.printPreviewBarItem29.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PaperSize;
-            this.printPreviewBarItem29.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem29.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem29.Enabled = false;
             this.printPreviewBarItem29.Id = 29;
             this.printPreviewBarItem29.Name = "printPreviewBarItem29";
@@ -914,7 +933,7 @@
             this.printPreviewBarItem30.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem30.Caption = "Márgenes";
             this.printPreviewBarItem30.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageMargins;
-            this.printPreviewBarItem30.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem30.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem30.Enabled = false;
             this.printPreviewBarItem30.Id = 30;
             this.printPreviewBarItem30.Name = "printPreviewBarItem30";
@@ -932,7 +951,7 @@
             // 
             this.printPreviewBarItem31.Caption = "Documento PDF";
             this.printPreviewBarItem31.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendPdf;
-            this.printPreviewBarItem31.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem31.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem31.Enabled = false;
             this.printPreviewBarItem31.Id = 31;
             this.printPreviewBarItem31.Name = "printPreviewBarItem31";
@@ -949,7 +968,7 @@
             // 
             this.printPreviewBarItem32.Caption = "Documento de Texto";
             this.printPreviewBarItem32.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendTxt;
-            this.printPreviewBarItem32.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem32.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem32.Enabled = false;
             this.printPreviewBarItem32.Id = 32;
             this.printPreviewBarItem32.Name = "printPreviewBarItem32";
@@ -966,7 +985,7 @@
             // 
             this.printPreviewBarItem33.Caption = "Documento CSV";
             this.printPreviewBarItem33.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendCsv;
-            this.printPreviewBarItem33.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem33.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem33.Enabled = false;
             this.printPreviewBarItem33.Id = 33;
             this.printPreviewBarItem33.Name = "printPreviewBarItem33";
@@ -983,7 +1002,7 @@
             // 
             this.printPreviewBarItem34.Caption = "Documento MHT";
             this.printPreviewBarItem34.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendMht;
-            this.printPreviewBarItem34.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem34.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem34.Enabled = false;
             this.printPreviewBarItem34.Id = 34;
             this.printPreviewBarItem34.Name = "printPreviewBarItem34";
@@ -1000,7 +1019,7 @@
             // 
             this.printPreviewBarItem35.Caption = "Documento XLS";
             this.printPreviewBarItem35.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendXls;
-            this.printPreviewBarItem35.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem35.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem35.Enabled = false;
             this.printPreviewBarItem35.Id = 35;
             this.printPreviewBarItem35.Name = "printPreviewBarItem35";
@@ -1017,7 +1036,7 @@
             // 
             this.printPreviewBarItem36.Caption = "Documento XLSX";
             this.printPreviewBarItem36.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendXlsx;
-            this.printPreviewBarItem36.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem36.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem36.Enabled = false;
             this.printPreviewBarItem36.Id = 36;
             this.printPreviewBarItem36.Name = "printPreviewBarItem36";
@@ -1034,7 +1053,7 @@
             // 
             this.printPreviewBarItem37.Caption = "Documento RTF";
             this.printPreviewBarItem37.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendRtf;
-            this.printPreviewBarItem37.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem37.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem37.Enabled = false;
             this.printPreviewBarItem37.Id = 37;
             this.printPreviewBarItem37.Name = "printPreviewBarItem37";
@@ -1051,7 +1070,7 @@
             // 
             this.printPreviewBarItem38.Caption = "Archivo DOCX";
             this.printPreviewBarItem38.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendDocx;
-            this.printPreviewBarItem38.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem38.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem38.Enabled = false;
             this.printPreviewBarItem38.Id = 38;
             this.printPreviewBarItem38.Name = "printPreviewBarItem38";
@@ -1068,7 +1087,7 @@
             // 
             this.printPreviewBarItem39.Caption = "Documento de Imagen";
             this.printPreviewBarItem39.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendGraphic;
-            this.printPreviewBarItem39.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem39.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem39.Enabled = false;
             this.printPreviewBarItem39.Id = 39;
             this.printPreviewBarItem39.Name = "printPreviewBarItem39";
@@ -1085,7 +1104,7 @@
             // 
             this.printPreviewBarItem40.Caption = "Documento PDF";
             this.printPreviewBarItem40.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportPdf;
-            this.printPreviewBarItem40.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem40.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem40.Enabled = false;
             this.printPreviewBarItem40.Id = 40;
             this.printPreviewBarItem40.Name = "printPreviewBarItem40";
@@ -1102,7 +1121,7 @@
             // 
             this.printPreviewBarItem41.Caption = "Documento HTML";
             this.printPreviewBarItem41.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportHtm;
-            this.printPreviewBarItem41.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem41.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem41.Enabled = false;
             this.printPreviewBarItem41.Id = 41;
             this.printPreviewBarItem41.Name = "printPreviewBarItem41";
@@ -1119,7 +1138,7 @@
             // 
             this.printPreviewBarItem42.Caption = "Documento de Texto";
             this.printPreviewBarItem42.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportTxt;
-            this.printPreviewBarItem42.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem42.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem42.Enabled = false;
             this.printPreviewBarItem42.Id = 42;
             this.printPreviewBarItem42.Name = "printPreviewBarItem42";
@@ -1136,7 +1155,7 @@
             // 
             this.printPreviewBarItem43.Caption = "Documento CSV";
             this.printPreviewBarItem43.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportCsv;
-            this.printPreviewBarItem43.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem43.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem43.Enabled = false;
             this.printPreviewBarItem43.Id = 43;
             this.printPreviewBarItem43.Name = "printPreviewBarItem43";
@@ -1153,7 +1172,7 @@
             // 
             this.printPreviewBarItem44.Caption = "Documento MHT";
             this.printPreviewBarItem44.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportMht;
-            this.printPreviewBarItem44.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem44.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem44.Enabled = false;
             this.printPreviewBarItem44.Id = 44;
             this.printPreviewBarItem44.Name = "printPreviewBarItem44";
@@ -1170,7 +1189,7 @@
             // 
             this.printPreviewBarItem45.Caption = "Documento XLS";
             this.printPreviewBarItem45.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXls;
-            this.printPreviewBarItem45.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem45.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem45.Enabled = false;
             this.printPreviewBarItem45.Id = 45;
             this.printPreviewBarItem45.Name = "printPreviewBarItem45";
@@ -1187,7 +1206,7 @@
             // 
             this.printPreviewBarItem46.Caption = "Documento XLSX";
             this.printPreviewBarItem46.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXlsx;
-            this.printPreviewBarItem46.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem46.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem46.Enabled = false;
             this.printPreviewBarItem46.Id = 46;
             this.printPreviewBarItem46.Name = "printPreviewBarItem46";
@@ -1204,7 +1223,7 @@
             // 
             this.printPreviewBarItem47.Caption = "Documento RTF";
             this.printPreviewBarItem47.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportRtf;
-            this.printPreviewBarItem47.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem47.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem47.Enabled = false;
             this.printPreviewBarItem47.Id = 47;
             this.printPreviewBarItem47.Name = "printPreviewBarItem47";
@@ -1221,7 +1240,7 @@
             // 
             this.printPreviewBarItem48.Caption = "Archivo DOCX";
             this.printPreviewBarItem48.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportDocx;
-            this.printPreviewBarItem48.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem48.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem48.Enabled = false;
             this.printPreviewBarItem48.Id = 48;
             this.printPreviewBarItem48.Name = "printPreviewBarItem48";
@@ -1238,7 +1257,7 @@
             // 
             this.printPreviewBarItem49.Caption = "Documento de Imagen";
             this.printPreviewBarItem49.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportGraphic;
-            this.printPreviewBarItem49.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem49.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem49.Enabled = false;
             this.printPreviewBarItem49.Id = 49;
             this.printPreviewBarItem49.Name = "printPreviewBarItem49";
@@ -1255,7 +1274,7 @@
             // 
             this.printPreviewBarItem50.Caption = "Abrir";
             this.printPreviewBarItem50.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Open;
-            this.printPreviewBarItem50.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem50.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem50.Enabled = false;
             this.printPreviewBarItem50.Id = 50;
             this.printPreviewBarItem50.Name = "printPreviewBarItem50";
@@ -1272,7 +1291,7 @@
             // 
             this.printPreviewBarItem51.Caption = "Guardar";
             this.printPreviewBarItem51.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Save;
-            this.printPreviewBarItem51.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem51.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem51.Enabled = false;
             this.printPreviewBarItem51.Id = 51;
             this.printPreviewBarItem51.Name = "printPreviewBarItem51";
@@ -1285,34 +1304,11 @@
             superToolTip51.MaxWidth = 210;
             this.printPreviewBarItem51.SuperTip = superToolTip51;
             // 
-            // printPreviewStaticItem1
-            // 
-            this.printPreviewStaticItem1.Caption = "ninguno";
-            this.printPreviewStaticItem1.Id = 52;
-            this.printPreviewStaticItem1.LeftIndent = 1;
-            this.printPreviewStaticItem1.Name = "printPreviewStaticItem1";
-            this.printPreviewStaticItem1.RightIndent = 1;
-            this.printPreviewStaticItem1.Type = "PageOfPages";
-            // 
-            // repositoryItemProgressBar1
-            // 
-            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
-            // 
-            // progressBarEditItem1
-            // 
-            this.progressBarEditItem1.ContextSpecifier = this.documentViewerRibbonController1;
-            this.progressBarEditItem1.Edit = this.repositoryItemProgressBar1;
-            this.progressBarEditItem1.EditHeight = 12;
-            this.progressBarEditItem1.EditWidth = 150;
-            this.progressBarEditItem1.Id = 53;
-            this.progressBarEditItem1.Name = "progressBarEditItem1";
-            this.progressBarEditItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
             // printPreviewBarItem52
             // 
             this.printPreviewBarItem52.Caption = "Interrumpir";
             this.printPreviewBarItem52.Command = DevExpress.XtraPrinting.PrintingSystemCommand.StopPageBuilding;
-            this.printPreviewBarItem52.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewBarItem52.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewBarItem52.Enabled = false;
             this.printPreviewBarItem52.Hint = "Interrumpir";
             this.printPreviewBarItem52.Id = 54;
@@ -1328,18 +1324,10 @@
             this.printPreviewStaticItem2.Name = "printPreviewStaticItem2";
             this.printPreviewStaticItem2.Type = "ZoomFactorText";
             // 
-            // repositoryItemZoomTrackBar1
-            // 
-            this.repositoryItemZoomTrackBar1.Alignment = DevExpress.Utils.VertAlignment.Center;
-            this.repositoryItemZoomTrackBar1.AllowFocused = false;
-            this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemZoomTrackBar1.Maximum = 180;
-            this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
-            // 
             // zoomTrackBarEditItem1
             // 
             this.zoomTrackBarEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.zoomTrackBarEditItem1.ContextSpecifier = this.documentViewerRibbonController1;
+            this.zoomTrackBarEditItem1.ContextSpecifier = this.invoiceDVRC;
             this.zoomTrackBarEditItem1.Edit = this.repositoryItemZoomTrackBar1;
             this.zoomTrackBarEditItem1.EditValue = 90;
             this.zoomTrackBarEditItem1.EditWidth = 140;
@@ -1350,9 +1338,17 @@
         10,
         500};
             // 
+            // repositoryItemZoomTrackBar1
+            // 
+            this.repositoryItemZoomTrackBar1.Alignment = DevExpress.Utils.VertAlignment.Center;
+            this.repositoryItemZoomTrackBar1.AllowFocused = false;
+            this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemZoomTrackBar1.Maximum = 180;
+            this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
+            // 
             // ribbonPage1
             // 
-            this.ribbonPage1.ContextSpecifier = this.documentViewerRibbonController1;
+            this.ribbonPage1.ContextSpecifier = this.invoiceDVRC;
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.printPreviewRibbonPageGroup1,
             this.printPreviewRibbonPageGroup2,
@@ -1368,7 +1364,7 @@
             // printPreviewRibbonPageGroup1
             // 
             this.printPreviewRibbonPageGroup1.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup1.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup1.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup1.ItemLinks.Add(this.printPreviewBarItem50);
             this.printPreviewRibbonPageGroup1.ItemLinks.Add(this.printPreviewBarItem51);
             this.printPreviewRibbonPageGroup1.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Document;
@@ -1379,7 +1375,7 @@
             // printPreviewRibbonPageGroup2
             // 
             this.printPreviewRibbonPageGroup2.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup2.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup2.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup2.ItemLinks.Add(this.printPreviewBarItem7);
             this.printPreviewRibbonPageGroup2.ItemLinks.Add(this.printPreviewBarItem8);
             this.printPreviewRibbonPageGroup2.ItemLinks.Add(this.printPreviewBarItem6);
@@ -1392,7 +1388,7 @@
             // printPreviewRibbonPageGroup3
             // 
             this.printPreviewRibbonPageGroup3.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup3.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup3.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup3.ItemLinks.Add(this.printPreviewBarItem10);
             this.printPreviewRibbonPageGroup3.ItemLinks.Add(this.printPreviewBarItem11);
             this.printPreviewRibbonPageGroup3.ItemLinks.Add(this.printPreviewBarItem30);
@@ -1413,7 +1409,7 @@
             // printPreviewRibbonPageGroup4
             // 
             this.printPreviewRibbonPageGroup4.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup4.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup4.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup4.ItemLinks.Add(this.printPreviewBarItem4);
             this.printPreviewRibbonPageGroup4.ItemLinks.Add(this.printPreviewBarItem5);
             this.printPreviewRibbonPageGroup4.ItemLinks.Add(this.printPreviewBarItem2);
@@ -1430,7 +1426,7 @@
             // printPreviewRibbonPageGroup5
             // 
             this.printPreviewRibbonPageGroup5.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup5.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup5.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup5.ItemLinks.Add(this.printPreviewBarItem12);
             this.printPreviewRibbonPageGroup5.ItemLinks.Add(this.printPreviewBarItem13);
             this.printPreviewRibbonPageGroup5.ItemLinks.Add(this.printPreviewBarItem14);
@@ -1446,7 +1442,7 @@
             // printPreviewRibbonPageGroup6
             // 
             this.printPreviewRibbonPageGroup6.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup6.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup6.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup6.ItemLinks.Add(this.printPreviewBarItem23);
             this.printPreviewRibbonPageGroup6.ItemLinks.Add(this.printPreviewBarItem24);
             this.printPreviewRibbonPageGroup6.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Background;
@@ -1457,7 +1453,7 @@
             // printPreviewRibbonPageGroup7
             // 
             this.printPreviewRibbonPageGroup7.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup7.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup7.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup7.ItemLinks.Add(this.printPreviewBarItem25);
             this.printPreviewRibbonPageGroup7.ItemLinks.Add(this.printPreviewBarItem26);
             this.printPreviewRibbonPageGroup7.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Export;
@@ -1468,12 +1464,16 @@
             // printPreviewRibbonPageGroup8
             // 
             this.printPreviewRibbonPageGroup8.AllowTextClipping = false;
-            this.printPreviewRibbonPageGroup8.ContextSpecifier = this.documentViewerRibbonController1;
+            this.printPreviewRibbonPageGroup8.ContextSpecifier = this.invoiceDVRC;
             this.printPreviewRibbonPageGroup8.ItemLinks.Add(this.printPreviewBarItem27);
             this.printPreviewRibbonPageGroup8.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Close;
             this.printPreviewRibbonPageGroup8.Name = "printPreviewRibbonPageGroup8";
             this.printPreviewRibbonPageGroup8.ShowCaptionButton = false;
             this.printPreviewRibbonPageGroup8.Text = "Cerrar";
+            // 
+            // repositoryItemProgressBar1
+            // 
+            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
             // 
             // V_ReportInvoiceForm
             // 
@@ -1486,10 +1486,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.invoicePC)).EndInit();
             this.invoicePC.ResumeLayout(false);
             this.invoicePC.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.documentViewerRibbonController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceDVRC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1501,7 +1501,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem1;
         private DevExpress.XtraPrinting.Preview.ProgressBarEditItem progressBarEditItem1;
-        private DevExpress.XtraPrinting.Preview.DocumentViewerRibbonController documentViewerRibbonController1;
+        private DevExpress.XtraPrinting.Preview.DocumentViewerRibbonController invoiceDVRC;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem printPreviewBarItem1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem printPreviewBarItem2;
