@@ -291,6 +291,12 @@
     <Compile Include="Domain\View\Reports\Quote\R_Quote.Designer.cs">
       <DependentUpon>R_Quote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\S_WelcomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\S_WelcomePage.Designer.cs">
+      <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\V_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     <EmbeddedResource Include="Domain\View\Reports\Quote\R_Quote.resx">
       <DependentUpon>R_Quote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\S_WelcomePage.resx">
+      <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,6 +413,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Img\ElitechLogo.png" />
     <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager welcomePageSSM = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SeppimCaraibesApp.Domain.View.S_WelcomePage), true, true);
             this.mainLC = new DevExpress.XtraLayout.LayoutControl();
             this.viewsPC = new DevExpress.XtraEditors.PanelControl();
             this.menuPC = new DevExpress.XtraEditors.PanelControl();
@@ -53,6 +54,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.menuLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewsLCI)).BeginInit();
             this.SuspendLayout();
+            // 
+            // welcomePageSSM
+            // 
+            welcomePageSSM.ClosingDelay = 1000;
             // 
             // mainLC
             // 
@@ -190,6 +195,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mainLC);
             this.Name = "V_MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Elitech";
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).EndInit();
             this.mainLC.ResumeLayout(false);
