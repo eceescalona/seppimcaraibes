@@ -94,7 +94,7 @@
             }
         }
 
-        void ProductsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProductsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProvider.GetContext();
             e.QueryableSource = dataContext.Products;

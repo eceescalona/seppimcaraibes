@@ -1,12 +1,12 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
-    using System;
+    using System.Threading.Tasks;
 
     internal class OrderRepository
     {
-        public ORM.Order GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<ORM.Order> GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            return context.Orders.Find(code);
+            return await context.Orders.FindAsync(code);
         }
 
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)
@@ -16,9 +16,9 @@
             context.Entry(order).Reload();
         }
 
-        public void SetProviderOrder(ORM.SeppimCaraibesLocalEntities context, string code, ORM.Provider provider)
+        public async void SetProviderOrder(ORM.SeppimCaraibesLocalEntities context, string code, ORM.Provider provider)
         {
-            var order = context.Orders.Find(code);
+            var order = await context.Orders.FindAsync(code);
             order.ProviderId = provider.ProviderId;
             context.SaveChanges();
             context.Entry(order).Reload();
@@ -26,13 +26,15 @@
 
         public void EditOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)
         {
+            context.Orders.Add(order);
+            context.Entry(order).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
             context.Entry(order).Reload();
         }
 
-        public void DeleteOrder(ORM.SeppimCaraibesLocalEntities context, string code)
+        public async void DeleteOrder(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            var order = context.Orders.Find(code);
+            var order = await context.Orders.FindAsync(code);
             context.Orders.Remove(order);
             context.SaveChanges();
         }

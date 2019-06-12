@@ -1,6 +1,7 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
     using System.Data.Entity;
+    using System.Threading.Tasks;
 
     internal class ProductRepository
     {
@@ -9,25 +10,29 @@
             return context.Products;
         }
 
-        public ORM.Product GetProduct(ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<ORM.Product> GetProduct(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            return context.Products.Find(code);
+            return await context.Products.FindAsync(code);
         }
 
         public void AddProduct(ORM.SeppimCaraibesLocalEntities context, ORM.Product product)
         {
             context.Products.Add(product);
             context.SaveChanges();
+            context.Entry(product).Reload();
         }
 
         public void EditProduct(ORM.SeppimCaraibesLocalEntities context, ORM.Product product)
         {
+            context.Products.Add(product);
+            context.Entry(product).State = EntityState.Modified;
             context.SaveChanges();
+            context.Entry(product).Reload();
         }
 
-        public void DeleteProduct(ORM.SeppimCaraibesLocalEntities context, string code)
+        public async void DeleteProduct(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            var product = context.Products.Find(code);
+            var product = await context.Products.FindAsync(code);
             context.Products.Remove(product);
             context.SaveChanges();
         }

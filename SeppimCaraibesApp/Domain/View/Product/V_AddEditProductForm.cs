@@ -98,13 +98,13 @@
             }
         }
 
-        void ProvidersEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProvidersEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProduct.GetContext();
             e.QueryableSource = dataContext.Providers;
         }
 
-        void OriginsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void OriginsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProduct.GetContext();
             e.QueryableSource = dataContext.Origins;

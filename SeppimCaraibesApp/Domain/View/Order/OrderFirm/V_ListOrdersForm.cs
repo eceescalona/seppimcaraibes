@@ -131,7 +131,6 @@
         #endregion
 
 
-        #region OrderManage
         private void ActionsRIBE_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit btnEdit = sender as ButtonEdit;
@@ -215,7 +214,6 @@
                 }
             }
         }
-        #endregion
 
 
         private void V_ListOrdersForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -22,6 +22,8 @@
         [StringLength(250)]
         public string BankName { get; set; }
 
+        public string BankAddress { get; set; }
+
         [StringLength(50)]
         public string AccountNumber { get; set; }
 
@@ -64,6 +66,7 @@
 
         public DateTime? Date { get; set; }
 
+
         [StringLength(50)]
         public string ProviderReference { get; set; }
 
@@ -72,6 +75,7 @@
 
         [StringLength(50)]
         public string ProviderPhone { get; set; }
+
 
         [StringLength(50)]
         public string CustomerReference { get; set; }
@@ -84,9 +88,9 @@
 
         public string CustomerAddress { get; set; }
 
-        public EPaymentOption? PaymentOption { get; set; }
+        public string PaymentOption { get; set; }
 
-        public EShippingMethod? ShippingMethod { get; set; }
+        public string ShippingMethod { get; set; }
 
         public EDevise? Devise { get; set; }
 

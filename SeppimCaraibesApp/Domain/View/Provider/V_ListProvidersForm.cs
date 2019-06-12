@@ -48,7 +48,7 @@
             providersEIFS.GetQueryable += ProviderEIFS_GetQueryable;
         }
 
-        void ProviderEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProviderEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProvider.GetContext();
             e.QueryableSource = dataContext.ProvidersViews;

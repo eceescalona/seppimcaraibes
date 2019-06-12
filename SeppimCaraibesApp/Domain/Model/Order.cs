@@ -1,14 +1,35 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
+    using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
 
     internal class Order
     {
-        public Data.ORM.Order GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        private string GetEnumDescription(Enum value)
+        {
+            FieldInfo fielInfo = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] descriptionAttributes = (DescriptionAttribute[])fielInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            if (descriptionAttributes != null && descriptionAttributes.Length > 0)
+            {
+                return descriptionAttributes[0].Description;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+
+        public async Task<Data.ORM.Order> GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rOrder = new Data.Repository.OrderRepository();
-            var order = rOrder.GetOrder(context, code);
+            var order = await rOrder.GetOrder(context, code);
 
             if (order != null)
             {
@@ -26,12 +47,12 @@
             return order;
         }
 
-        public IEnumerable<Data.POCO.OrderReportView> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<IEnumerable<Data.POCO.OrderReportView>> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
             var products = new List<Data.POCO.ProductsOrders>();
             var rOrder = new Data.Repository.OrderRepository();
-            var order = rOrder.GetOrder(context, code);
+            var order = await rOrder.GetOrder(context, code);
             var bank = context.Banks.SingleOrDefault(b => b.BankId == order.BankId);
             var shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
             var customer = context.Customers.SingleOrDefault(c => c.CustomerId == order.CustomerId);
@@ -50,8 +71,8 @@
                 CustomerName = customer == null ? string.Empty : customer.CustomerName,
                 CustomerAddress = customer == null ? string.Empty : customer.CustomerAddress,
                 CustomerPhone = customer == null ? string.Empty : customer.CustomerPhone,
-                PaymentOption = order.PaymentOption,
-                ShippingMethod = shipment?.ShippingMethod,
+                PaymentOption = GetEnumDescription(order.PaymentOption),
+                ShippingMethod = GetEnumDescription(shipment?.ShippingMethod),
                 Devise = order.Devise,
                 IncotermsType = order.IncotermType,
                 Incoterm = order.Incoterm,
@@ -169,11 +190,11 @@
             rOrder.EditOrder(context, order);
         }
 
-        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
+        public async void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            var order = rOrder.GetOrder(context, code);
+            var order = await rOrder.GetOrder(context, code);
             order.OrderProcessState = orderProcessState;
 
             if (orderProcessState == EOrderProcessState.Invoice)
@@ -184,11 +205,11 @@
             rOrder.EditOrder(context, order);
         }
 
-        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
+        public async void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            var order = rOrder.GetOrder(context, code);
+            var order = await rOrder.GetOrder(context, code);
             order.InvoiceState = invoiceState;
 
             rOrder.EditOrder(context, order);

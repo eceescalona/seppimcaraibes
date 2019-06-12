@@ -48,7 +48,7 @@ namespace SeppimCaraibesApp.Domain.View.Product
             productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
         }
 
-        void ProductEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProductEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProduct.GetContext();
             e.QueryableSource = dataContext.ProductsViews;
@@ -140,6 +140,7 @@ namespace SeppimCaraibesApp.Domain.View.Product
                 MessageBox.Show(ADD_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void ActionsRIBE_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit btnEdit = sender as ButtonEdit;

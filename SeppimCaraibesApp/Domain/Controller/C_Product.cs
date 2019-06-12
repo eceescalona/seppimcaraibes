@@ -11,6 +11,7 @@
         private readonly Model.Product _mProduct;
 
 
+        #region Ctor
         public C_Product()
         {
             _mProduct = new Model.Product();
@@ -22,6 +23,7 @@
             _context = context;
             _mProduct = new Model.Product();
         }
+        #endregion
 
 
         #region IDisposable
@@ -36,8 +38,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
+            string field;
+            string message;
 
             if (string.IsNullOrWhiteSpace(product.ProductId))
             {
@@ -72,6 +74,7 @@
             }
             return flag;
         }
+
 
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
@@ -116,9 +119,9 @@
             }
         }
 
-        public void EditProduct(IAddEditProduct addEditProduct, string code)
+        public async void EditProduct(IAddEditProduct addEditProduct, string code)
         {
-            var product = _mProduct.GetProduct(_context, code);
+            var product = await _mProduct.GetProduct(_context, code);
             addEditProduct.EditProduct(product);
         }
 

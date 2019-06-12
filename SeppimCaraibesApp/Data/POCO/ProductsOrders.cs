@@ -18,5 +18,7 @@
         public decimal? Discount { get; set; }
 
         public decimal? Interests { get; set; }
+
+        public decimal? UnitPrice { get; set; }
     }
 }

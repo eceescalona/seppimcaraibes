@@ -26,7 +26,6 @@
         private bool _isCOrdenAlive;
 
 
-        #region Ctor
         public V_ListInvoicesForm()
         {
             InitializeComponent();
@@ -35,7 +34,6 @@
             _cOrden = new Controller.C_Order();
             _isCOrdenAlive = true;
         }
-        #endregion
 
 
         private void V_ListInvoicesForm_Load(object sender, EventArgs e)
@@ -119,7 +117,6 @@
         #endregion
 
 
-        #region OrderManage
         private void ActionsRIBE_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit btnEdit = sender as ButtonEdit;
@@ -203,7 +200,6 @@
                 }
             }
         }
-        #endregion
 
 
         private void V_ListInvoicesForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -31,11 +31,6 @@
             bankBS.DataSource = new Data.ORM.Bank();
         }
 
-        private void V_AddEditBankForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         #region IAddEditBank
         public void RefreshView()

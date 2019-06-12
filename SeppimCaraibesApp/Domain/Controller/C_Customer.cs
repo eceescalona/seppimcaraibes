@@ -31,8 +31,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
+            string field;
+            string message;
 
             if (string.IsNullOrWhiteSpace(customer.CustomerId))
             {
@@ -67,6 +67,7 @@
 
             return flag;
         }
+
 
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
@@ -106,9 +107,9 @@
             }
         }
 
-        public void EditCustomer(IAddEditCustomer addEditCustomer, string code)
+        public async void EditCustomer(IAddEditCustomer addEditCustomer, string code)
         {
-            var customer = _mCustomer.GetCustomer(_context, code);
+            var customer = await _mCustomer.GetCustomer(_context, code);
             addEditCustomer.EditCustomer(customer);
         }
 

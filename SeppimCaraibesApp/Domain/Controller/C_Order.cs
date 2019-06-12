@@ -36,6 +36,7 @@
             bool flag = true;
             string message;
             string field;
+
             if (order.Date == null)
             {
                 flag = false;
@@ -99,6 +100,7 @@
             return string.Format("La orden {0} ha sido registrado satisfactoriamente.", value);
         }
 
+
         public string GetInvoiceReference(Data.ORM.Order order)
         {
             var random = new Random();
@@ -141,9 +143,9 @@
             }
         }
 
-        public void LoadQuoteReport(IReport reportQuote, string code)
+        public async void LoadQuoteReport(IReport reportQuote, string code)
         {
-            var reportData = _mOrder.GetOrderReportView(_context, code);
+            var reportData = await _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(reportData);
         }
 
@@ -169,7 +171,7 @@
 
         public void SetProviderOrder(ISelectProvider selectProvider, string code, Data.ORM.Provider provider)
         {
-            string message = string.Format("El proveedor para la orden {0} ha sido selccionado satisfactoriamente.", code);
+            string message = string.Format("El proveedor {0} ha sido selccionado satisfactoriamente para la orden {1}.", provider.ProviderName, code);
             if (provider != null)
             {
                 _mOrder.SetProviderOrder(_context, code, provider);
@@ -182,9 +184,9 @@
             }
         }
 
-        public void EditOrder(IAddEditOrder addEditOrder, string code)
+        public async void EditOrder(IAddEditOrder addEditOrder, string code)
         {
-            var order = _mOrder.GetOrder(_context, code);
+            var order = await _mOrder.GetOrder(_context, code);
             addEditOrder.EditOrder(order);
         }
 

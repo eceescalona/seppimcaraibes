@@ -52,6 +52,7 @@
             return flag;
         }
 
+
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
             return _context;
@@ -92,6 +93,5 @@
             }
         }
         #endregion
-
     }
 }

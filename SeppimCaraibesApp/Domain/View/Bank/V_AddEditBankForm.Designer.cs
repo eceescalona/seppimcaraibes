@@ -42,6 +42,8 @@
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formPC = new DevExpress.XtraEditors.PanelControl();
+            this.addressErrorLC = new DevExpress.XtraEditors.LabelControl();
+            this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.swiftTE = new DevExpress.XtraEditors.TextEdit();
             this.bankBS = new System.Windows.Forms.BindingSource(this.components);
             this.addressTE = new DevExpress.XtraEditors.TextEdit();
@@ -56,8 +58,6 @@
             this.addEditLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
-            this.addressErrorLC = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
             this.addEditLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -124,7 +124,7 @@
             this.cancelPC.Controls.Add(this.cancelSB);
             this.cancelPC.Location = new System.Drawing.Point(628, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(132, 28);
+            this.cancelPC.Size = new System.Drawing.Size(132, 26);
             this.cancelPC.TabIndex = 0;
             // 
             // cancelSB
@@ -133,7 +133,7 @@
             this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelSB.Location = new System.Drawing.Point(2, 2);
             this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(128, 24);
+            this.cancelSB.Size = new System.Drawing.Size(128, 22);
             this.cancelSB.TabIndex = 0;
             this.cancelSB.Text = "Cancelar";
             this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
@@ -143,7 +143,7 @@
             this.acceptPC.Controls.Add(this.acceptSB);
             this.acceptPC.Location = new System.Drawing.Point(492, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(132, 28);
+            this.acceptPC.Size = new System.Drawing.Size(132, 26);
             this.acceptPC.TabIndex = 5;
             // 
             // acceptSB
@@ -151,7 +151,7 @@
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptSB.Location = new System.Drawing.Point(2, 2);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(128, 24);
+            this.acceptSB.Size = new System.Drawing.Size(128, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
@@ -220,6 +220,20 @@
             this.formPC.Name = "formPC";
             this.formPC.Size = new System.Drawing.Size(776, 219);
             this.formPC.TabIndex = 4;
+            // 
+            // addressErrorLC
+            // 
+            this.addressErrorLC.Location = new System.Drawing.Point(127, 157);
+            this.addressErrorLC.Name = "addressErrorLC";
+            this.addressErrorLC.Size = new System.Drawing.Size(0, 13);
+            this.addressErrorLC.TabIndex = 11;
+            // 
+            // nameErrorLC
+            // 
+            this.nameErrorLC.Location = new System.Drawing.Point(127, 40);
+            this.nameErrorLC.Name = "nameErrorLC";
+            this.nameErrorLC.Size = new System.Drawing.Size(0, 13);
+            this.nameErrorLC.TabIndex = 10;
             // 
             // swiftTE
             // 
@@ -334,20 +348,6 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // nameErrorLC
-            // 
-            this.nameErrorLC.Location = new System.Drawing.Point(127, 40);
-            this.nameErrorLC.Name = "nameErrorLC";
-            this.nameErrorLC.Size = new System.Drawing.Size(0, 13);
-            this.nameErrorLC.TabIndex = 10;
-            // 
-            // addressErrorLC
-            // 
-            this.addressErrorLC.Location = new System.Drawing.Point(127, 157);
-            this.addressErrorLC.Name = "addressErrorLC";
-            this.addressErrorLC.Size = new System.Drawing.Size(0, 13);
-            this.addressErrorLC.TabIndex = 11;
-            // 
             // V_AddEditBankForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -359,7 +359,6 @@
             this.Name = "V_AddEditBankForm";
             this.Text = "V_AddEditBankForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditBankForm_FormClosed);
-            this.Load += new System.EventHandler(this.V_AddEditBankForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).EndInit();
             this.addEditLC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).EndInit();
