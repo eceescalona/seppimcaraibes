@@ -247,5 +247,10 @@
                 Dispose();
             }
         }
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
     }
 }

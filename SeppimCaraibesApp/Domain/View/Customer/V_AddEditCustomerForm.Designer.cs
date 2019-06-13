@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditCustomerForm));
             this.addEditCustomerLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
@@ -45,6 +46,7 @@
             this.codeErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.codeLC = new DevExpress.XtraEditors.LabelControl();
             this.codeTE = new DevExpress.XtraEditors.TextEdit();
+            this.customerBS = new System.Windows.Forms.BindingSource(this.components);
             this.emailErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.addressTE = new DevExpress.XtraEditors.TextEdit();
@@ -58,7 +60,6 @@
             this.addEditCustomerLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.customerBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLC)).BeginInit();
             this.addEditCustomerLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -77,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).BeginInit();
@@ -84,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditCustomerLC
@@ -244,6 +245,10 @@
             this.codeTE.Size = new System.Drawing.Size(240, 20);
             this.codeTE.TabIndex = 1;
             // 
+            // customerBS
+            // 
+            this.customerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Customer);
+            // 
             // emailErrorLC
             // 
             this.emailErrorLC.Location = new System.Drawing.Point(115, 178);
@@ -351,10 +356,6 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // customerBS
-            // 
-            this.customerBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Customer);
-            // 
             // V_AddEditCustomerForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -363,6 +364,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(665, 322);
             this.Controls.Add(this.addEditCustomerLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditCustomerForm";
             this.Text = "V_AddEditCustomerForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditCustomerForm_FormClosed);
@@ -386,6 +388,7 @@
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTE.Properties)).EndInit();
@@ -393,7 +396,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.addEditCustomerLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBS)).EndInit();
             this.ResumeLayout(false);
 
         }

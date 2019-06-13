@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditProductForm));
             this.addEditProductLC = new DevExpress.XtraLayout.LayoutControl();
             this.emptyOriginsPC = new DevExpress.XtraEditors.PanelControl();
             this.originPC = new DevExpress.XtraEditors.PanelControl();
@@ -68,6 +70,7 @@
             this.originErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.originLC = new DevExpress.XtraEditors.LabelControl();
             this.salePriceTE = new DevExpress.XtraEditors.TextEdit();
+            this.productBS = new System.Windows.Forms.BindingSource(this.components);
             this.qtyPriceTE = new DevExpress.XtraEditors.TextEdit();
             this.qtyUnitsTE = new DevExpress.XtraEditors.TextEdit();
             this.unitPriceTE = new DevExpress.XtraEditors.TextEdit();
@@ -91,7 +94,6 @@
             this.providerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptyOriginsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.productBS = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.addEditProductLC)).BeginInit();
             this.addEditProductLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptyOriginsPC)).BeginInit();
@@ -133,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productPC)).BeginInit();
             this.productPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salePriceTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyPriceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyUnitsTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitPriceTE.Properties)).BeginInit();
@@ -146,7 +149,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.providerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptyOriginsLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditProductLC
@@ -546,6 +548,10 @@
             this.salePriceTE.Size = new System.Drawing.Size(100, 20);
             this.salePriceTE.TabIndex = 17;
             // 
+            // productBS
+            // 
+            this.productBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Product);
+            // 
             // qtyPriceTE
             // 
             this.qtyPriceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBS, "QtyPrice", true));
@@ -739,10 +745,6 @@
             this.emptyOriginsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyOriginsLCI.TextVisible = false;
             // 
-            // productBS
-            // 
-            this.productBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Product);
-            // 
             // V_AddEditProductForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -751,6 +753,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditProductLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditProductForm";
             this.Text = "V_AddEditProductForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditProductForm_FormClosed);
@@ -798,6 +801,7 @@
             this.productPC.ResumeLayout(false);
             this.productPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salePriceTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyPriceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyUnitsTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitPriceTE.Properties)).EndInit();
@@ -811,7 +815,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.providerLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptyOriginsLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBS)).EndInit();
             this.ResumeLayout(false);
 
         }

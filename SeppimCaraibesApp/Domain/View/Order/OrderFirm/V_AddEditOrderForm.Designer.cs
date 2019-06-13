@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditOrderForm));
             this.addEditOrderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
@@ -306,6 +307,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(567, 301);
             this.Controls.Add(this.addEditOrderLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditOrderForm";
             this.Text = "V_AddEditOrderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditOrderForm_FormClosed);

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditPreOrderForm));
             this.addEditPreOrderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
@@ -47,7 +49,7 @@
             this.productsLabelC = new DevExpress.XtraEditors.LabelControl();
             this.productsGCPC = new DevExpress.XtraEditors.PanelControl();
             this.productsGC = new DevExpress.XtraGrid.GridControl();
-            this.productsBS = new System.Windows.Forms.BindingSource();
+            this.productsBS = new System.Windows.Forms.BindingSource(this.components);
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -78,7 +80,7 @@
             this.customerReferenceErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.dateErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceTE = new DevExpress.XtraEditors.TextEdit();
-            this.orderBS = new System.Windows.Forms.BindingSource();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.dateDE = new DevExpress.XtraEditors.DateEdit();
             this.customerReferenceLC = new DevExpress.XtraEditors.LabelControl();
             this.dateLC = new DevExpress.XtraEditors.LabelControl();
@@ -706,6 +708,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditPreOrderLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditPreOrderForm";
             this.Text = "V_AddEditPreOrderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditPreOrderForm_FormClosed);

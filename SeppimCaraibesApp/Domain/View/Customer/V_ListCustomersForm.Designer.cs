@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ListCustomersForm));
             this.listCustomersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.closeBBI = new DevExpress.XtraBars.BarButtonItem();
             this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listCustomersPC = new DevExpress.XtraEditors.PanelControl();
@@ -72,16 +74,19 @@
             this.registerBBI,
             this.findBBI,
             this.filterBBI,
-            this.refreshBBI});
+            this.refreshBBI,
+            this.closeBBI});
             this.listCustomersRC.Location = new System.Drawing.Point(0, 0);
-            this.listCustomersRC.MaxItemId = 5;
+            this.listCustomersRC.MaxItemId = 6;
             this.listCustomersRC.Name = "listCustomersRC";
+            this.listCustomersRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listCustomersRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.actionsRP});
             this.listCustomersRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.listCustomersRC.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.listCustomersRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listCustomersRC.ShowToolbarCustomizeItem = false;
-            this.listCustomersRC.Size = new System.Drawing.Size(800, 95);
+            this.listCustomersRC.Size = new System.Drawing.Size(800, 116);
             this.listCustomersRC.Toolbar.ShowCustomizeItem = false;
             this.listCustomersRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listCustomersRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -118,6 +123,14 @@
             this.refreshBBI.Name = "refreshBBI";
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // closeBBI
+            // 
+            this.closeBBI.Caption = "Cerrar";
+            this.closeBBI.Id = 5;
+            this.closeBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            this.closeBBI.Name = "closeBBI";
+            this.closeBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CloseBBI_ItemClick);
+            // 
             // actionsRP
             // 
             this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -138,9 +151,9 @@
             // 
             this.listCustomersPC.Controls.Add(this.listCustomersGC);
             this.listCustomersPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listCustomersPC.Location = new System.Drawing.Point(0, 95);
+            this.listCustomersPC.Location = new System.Drawing.Point(0, 116);
             this.listCustomersPC.Name = "listCustomersPC";
-            this.listCustomersPC.Size = new System.Drawing.Size(800, 355);
+            this.listCustomersPC.Size = new System.Drawing.Size(800, 334);
             this.listCustomersPC.TabIndex = 1;
             // 
             // listCustomersGC
@@ -153,7 +166,7 @@
             this.listCustomersGC.Name = "listCustomersGC";
             this.listCustomersGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.listCustomersGC.Size = new System.Drawing.Size(796, 351);
+            this.listCustomersGC.Size = new System.Drawing.Size(796, 330);
             this.listCustomersGC.TabIndex = 0;
             this.listCustomersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.customersGV});
@@ -235,11 +248,11 @@
             // actionsRIBE
             // 
             this.actionsRIBE.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
-            editorButtonImageOptions4.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
+            editorButtonImageOptions1.Image = global::SeppimCaraibesApp.Properties.Resources.Edit_16x16;
+            editorButtonImageOptions2.Image = global::SeppimCaraibesApp.Properties.Resources.Delete_16x16;
             this.actionsRIBE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Edit Customer", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Delete Customer", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Edit Customer", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Delete Customer", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
@@ -251,6 +264,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listCustomersPC);
             this.Controls.Add(this.listCustomersRC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ListCustomersForm";
             this.Text = "V_ListCustomersForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_ListCustomersForm_FormClosed);
@@ -286,5 +301,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource customersEIFS;
+        private DevExpress.XtraBars.BarButtonItem closeBBI;
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditProviderForm));
             this.addEditProviderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonLC = new DevExpress.XtraLayout.LayoutControl();
@@ -60,7 +62,7 @@
             this.productErrorLCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.providerPC = new DevExpress.XtraEditors.PanelControl();
             this.addressME = new DevExpress.XtraEditors.MemoEdit();
-            this.providerBS = new System.Windows.Forms.BindingSource();
+            this.providerBS = new System.Windows.Forms.BindingSource(this.components);
             this.emailErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.nameErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.codeErrorLC = new DevExpress.XtraEditors.LabelControl();
@@ -275,7 +277,6 @@
             // productsErrorLCPC
             // 
             this.productsErrorLCPC.Controls.Add(this.productsErrorLC);
-            this.productsErrorLCPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsErrorLCPC.Location = new System.Drawing.Point(12, 12);
             this.productsErrorLCPC.Name = "productsErrorLCPC";
             this.productsErrorLCPC.Size = new System.Drawing.Size(164, 17);
@@ -585,6 +586,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditProviderLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditProviderForm";
             this.Text = "V_AddEditProviderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditProviderForm_FormClosed);

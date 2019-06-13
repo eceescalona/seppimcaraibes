@@ -412,6 +412,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Img\elitechicon_32x32.ico" />
     <None Include="Resources\Img\ElitechLogo.png" />
     <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

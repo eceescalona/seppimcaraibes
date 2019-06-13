@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(D_SelectProviderForm));
             this.selectProviderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonLC = new DevExpress.XtraLayout.LayoutControl();
@@ -288,6 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 450);
             this.Controls.Add(this.selectProviderLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "D_SelectProviderForm";
             this.Text = "D_SelectProvider";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.D_SelectProviderForm_FormClosed);

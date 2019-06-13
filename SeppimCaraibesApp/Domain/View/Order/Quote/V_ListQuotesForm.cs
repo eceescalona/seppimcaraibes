@@ -46,6 +46,11 @@
             _cOrden = cOrden;
             _isCOrdenAlive = true;
             _isCallFrom = true;
+
+            closeBBI.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            closeBBI.Enabled = false;
+            listQuotesRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
         #endregion
 
@@ -236,6 +241,11 @@
             {
                 Dispose();
             }
+        }
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
         }
     }
 }

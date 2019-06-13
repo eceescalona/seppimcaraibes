@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditQuoteForm));
             this.addEditQuoteLC = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.observationME = new DevExpress.XtraEditors.MemoEdit();
@@ -50,6 +51,8 @@
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
+            this.freightTE = new DevExpress.XtraEditors.TextEdit();
+            this.freightLC = new DevExpress.XtraEditors.LabelControl();
             this.eIncotermLC = new DevExpress.XtraEditors.LabelControl();
             this.eIncotermLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.deviseLUE = new DevExpress.XtraEditors.LookUpEdit();
@@ -95,8 +98,6 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.freightLC = new DevExpress.XtraEditors.LabelControl();
-            this.freightTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -118,6 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
             this.quotePC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).BeginInit();
@@ -154,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -347,6 +348,22 @@
             this.quotePC.Name = "quotePC";
             this.quotePC.Size = new System.Drawing.Size(424, 191);
             this.quotePC.TabIndex = 4;
+            // 
+            // freightTE
+            // 
+            this.freightTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Freight", true));
+            this.freightTE.Location = new System.Drawing.Point(153, 160);
+            this.freightTE.Name = "freightTE";
+            this.freightTE.Size = new System.Drawing.Size(100, 20);
+            this.freightTE.TabIndex = 15;
+            // 
+            // freightLC
+            // 
+            this.freightLC.Location = new System.Drawing.Point(119, 163);
+            this.freightLC.Name = "freightLC";
+            this.freightLC.Size = new System.Drawing.Size(28, 13);
+            this.freightLC.TabIndex = 10;
+            this.freightLC.Text = "Flete:";
             // 
             // eIncotermLC
             // 
@@ -728,22 +745,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // freightLC
-            // 
-            this.freightLC.Location = new System.Drawing.Point(119, 163);
-            this.freightLC.Name = "freightLC";
-            this.freightLC.Size = new System.Drawing.Size(28, 13);
-            this.freightLC.TabIndex = 10;
-            this.freightLC.Text = "Flete:";
-            // 
-            // freightTE
-            // 
-            this.freightTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Freight", true));
-            this.freightTE.Location = new System.Drawing.Point(153, 160);
-            this.freightTE.Name = "freightTE";
-            this.freightTE.Size = new System.Drawing.Size(100, 20);
-            this.freightTE.TabIndex = 15;
-            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -752,6 +753,7 @@
             this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 406);
             this.Controls.Add(this.addEditQuoteLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditQuoteForm";
             this.Text = "V_AddEditQuoteForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditQuoteForm_FormClosed);
@@ -780,6 +782,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
             this.quotePC.ResumeLayout(false);
             this.quotePC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).EndInit();
@@ -816,7 +819,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freightTE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

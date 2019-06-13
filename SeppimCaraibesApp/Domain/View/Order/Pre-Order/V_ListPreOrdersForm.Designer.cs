@@ -44,12 +44,14 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ListPreOrdersForm));
             this.listPreOrdersRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
             this.listQuotesBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.closeBBI = new DevExpress.XtraBars.BarButtonItem();
             this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navigateRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -85,16 +87,18 @@
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
-            this.listQuotesBBI});
+            this.listQuotesBBI,
+            this.closeBBI});
             this.listPreOrdersRC.Location = new System.Drawing.Point(0, 0);
-            this.listPreOrdersRC.MaxItemId = 6;
+            this.listPreOrdersRC.MaxItemId = 7;
             this.listPreOrdersRC.Name = "listPreOrdersRC";
+            this.listPreOrdersRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listPreOrdersRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.actionsRP});
             this.listPreOrdersRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.listPreOrdersRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listPreOrdersRC.ShowToolbarCustomizeItem = false;
-            this.listPreOrdersRC.Size = new System.Drawing.Size(800, 95);
+            this.listPreOrdersRC.Size = new System.Drawing.Size(800, 116);
             this.listPreOrdersRC.Toolbar.ShowCustomizeItem = false;
             this.listPreOrdersRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listPreOrdersRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -140,6 +144,14 @@
             this.listQuotesBBI.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.listQuotesBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ListQuotesBBI_ItemClick);
             // 
+            // closeBBI
+            // 
+            this.closeBBI.Caption = "Cerrar";
+            this.closeBBI.Id = 6;
+            this.closeBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            this.closeBBI.Name = "closeBBI";
+            this.closeBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CloseBBI_ItemClick);
+            // 
             // actionsRP
             // 
             this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -166,9 +178,9 @@
             // 
             this.listPreOrdersPC.Controls.Add(this.listPreOrdersGC);
             this.listPreOrdersPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listPreOrdersPC.Location = new System.Drawing.Point(0, 95);
+            this.listPreOrdersPC.Location = new System.Drawing.Point(0, 116);
             this.listPreOrdersPC.Name = "listPreOrdersPC";
-            this.listPreOrdersPC.Size = new System.Drawing.Size(800, 355);
+            this.listPreOrdersPC.Size = new System.Drawing.Size(800, 334);
             this.listPreOrdersPC.TabIndex = 1;
             // 
             // listPreOrdersGC
@@ -181,7 +193,7 @@
             this.listPreOrdersGC.Name = "listPreOrdersGC";
             this.listPreOrdersGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.listPreOrdersGC.Size = new System.Drawing.Size(796, 351);
+            this.listPreOrdersGC.Size = new System.Drawing.Size(796, 330);
             this.listPreOrdersGC.TabIndex = 0;
             this.listPreOrdersGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.preOrdersGV});
@@ -311,6 +323,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listPreOrdersPC);
             this.Controls.Add(this.listPreOrdersRC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ListPreOrdersForm";
             this.Text = "V_ListPreOrdersForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_ListPreOrdersForm_FormClosed);
@@ -352,5 +366,6 @@
         private System.Windows.Forms.BindingSource preOrdersBS;
         private DevExpress.XtraBars.BarButtonItem listQuotesBBI;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup navigateRPG;
+        private DevExpress.XtraBars.BarButtonItem closeBBI;
     }
 }
