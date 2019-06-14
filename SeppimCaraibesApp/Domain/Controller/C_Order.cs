@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     internal class C_Order : IDisposable
     {
@@ -72,7 +73,7 @@
             return flag;
         }
 
-        private string OrderCode(DateTime date)
+        private async Task<string> OrderCode(DateTime date)
         {
             var random = new Random();
             int units = random.Next(0, 9);
@@ -84,14 +85,14 @@
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
 
-            var order = _mOrder.GetOrder(_context, orderCode);
+            var order = await _mOrder.GetOrder(_context, orderCode);
             if (order == null)
             {
                 return orderCode;
             }
             else
             {
-                return OrderCode(date);
+                return await OrderCode(date);
             }
         }
 
@@ -151,12 +152,12 @@
 
 
         #region OrderManage
-        public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
+        public async void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
         {
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                order.OrderId = OrderCode(order.Date.GetValueOrDefault());
+                order.OrderId = await OrderCode(order.Date.GetValueOrDefault());
 
                 _mOrder.AddOrder(_context, order, productsOrders);
 

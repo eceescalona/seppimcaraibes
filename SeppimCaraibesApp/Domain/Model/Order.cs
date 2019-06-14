@@ -11,6 +11,11 @@
     {
         private string GetEnumDescription(Enum value)
         {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
             FieldInfo fielInfo = value.GetType().GetField(value.ToString());
 
             DescriptionAttribute[] descriptionAttributes = (DescriptionAttribute[])fielInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -149,6 +154,21 @@
         public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Order order)
         {
             var rOrder = new Data.Repository.OrderRepository();
+
+            if (order.IncotermType == EIncoterms.EXW)
+            {
+                order.EXW = order.Incoterm;
+            }
+
+            if (order.IncotermType == EIncoterms.FOB)
+            {
+                order.FOB = order.Incoterm;
+            }
+
+            if (order.IncotermType == EIncoterms.FCA)
+            {
+                order.FCA = order.Incoterm;
+            }
 
             rOrder.EditOrder(context, order);
         }

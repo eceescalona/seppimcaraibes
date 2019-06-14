@@ -107,6 +107,18 @@ namespace SeppimCaraibesApp.Data.ORM
                 .Property(e => e.Interests)
                 .HasPrecision(18, 4);
 
+            modelBuilder.Entity<ProductsOrder>()
+                .HasRequired(po => po.Order)
+                .WithMany(o => o.ProductsOrders)
+                .HasForeignKey(po => po.OrderId)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<ProductsOrder>()
+                .HasRequired(po => po.Product)
+                .WithMany(p => p.ProductsOrders)
+                .HasForeignKey(po => po.ProductId)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<Shipment>()
                 .Property(e => e.GrossWeight)
                 .HasPrecision(18, 4);

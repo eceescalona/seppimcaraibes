@@ -19,7 +19,6 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(50)]
         public string Customer_Reference { get; set; }
 
-        [Key]
         [Column("Customer Code", Order = 1)]
         [StringLength(50)]
         public string Customer_Code { get; set; }
@@ -28,7 +27,6 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(250)]
         public string Customer_Name { get; set; }
 
-        [Key]
         [Column("Product Code", Order = 2)]
         [StringLength(50)]
         public string Product_Code { get; set; }

@@ -44,19 +44,22 @@
         private void ProductsGV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
             var order = (Data.ORM.Order)orderBS.Current;
-            foreach (var product in order.ProductsOrders)
+            if (order != null)
             {
-                if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
+                foreach (var product in order.ProductsOrders)
                 {
-                    if (row.ProductId == product.ProductId)
+                    if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
                     {
-                        row.Qty = product.Qty;
-                        productsGV.SelectRow(e.RowHandle);
+                        if (row.ProductId == product.ProductId)
+                        {
+                            row.Qty = product.Qty;
+                            productsGV.SelectRow(e.RowHandle);
+                        }
                     }
                 }
-            }
 
-            e.HighPriority = true;
+                e.HighPriority = true;
+            }
         }
 
         private void InitializeLUE()

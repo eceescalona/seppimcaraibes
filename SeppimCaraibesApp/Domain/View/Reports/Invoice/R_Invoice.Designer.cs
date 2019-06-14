@@ -46,13 +46,11 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine6 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
@@ -85,6 +83,8 @@
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -291,12 +291,12 @@
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel24,
+            this.xrLabel18,
             this.xrLabel23,
             this.xrLabel22,
             this.xrLabel21,
             this.xrLabel20,
             this.xrLabel19,
-            this.xrLabel18,
             this.xrLabel17,
             this.xrLine6,
             this.xrLine4,
@@ -305,24 +305,6 @@
             this.GroupFooter1.Dpi = 96F;
             this.GroupFooter1.HeightF = 265.1199F;
             this.GroupFooter1.Name = "GroupFooter1";
-            // 
-            // xrLabel24
-            // 
-            this.xrLabel24.AutoWidth = true;
-            this.xrLabel24.CanGrow = false;
-            this.xrLabel24.Dpi = 96F;
-            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([Interests])")});
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(528F, 198.7201F);
-            this.xrLabel24.Multiline = true;
-            this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
-            this.xrLabel24.StylePriority.UseTextAlignment = false;
-            this.xrLabel24.Text = "Interes: ";
-            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrLabel24.TextFormatString = "{0:€0.00}";
-            this.xrLabel24.WordWrap = false;
             // 
             // xrLabel23
             // 
@@ -401,24 +383,6 @@
             this.xrLabel19.Text = "Sub. Total EXW: [EXW!€0.00]";
             this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel19.WordWrap = false;
-            // 
-            // xrLabel18
-            // 
-            this.xrLabel18.AutoWidth = true;
-            this.xrLabel18.CanGrow = false;
-            this.xrLabel18.Dpi = 96F;
-            this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([Discount])")});
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(528F, 44.16003F);
-            this.xrLabel18.Multiline = true;
-            this.xrLabel18.Name = "xrLabel18";
-            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(96F, 22.08F);
-            this.xrLabel18.StylePriority.UseTextAlignment = false;
-            this.xrLabel18.Text = "Descuento:  ";
-            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrLabel18.TextFormatString = "{0:€0.00}";
-            this.xrLabel18.WordWrap = false;
             // 
             // xrLabel17
             // 
@@ -778,6 +742,42 @@
             this.objectDataSource1.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
+            // xrLabel18
+            // 
+            this.xrLabel18.AutoWidth = true;
+            this.xrLabel18.CanGrow = false;
+            this.xrLabel18.Dpi = 96F;
+            this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([Products].[Discount])")});
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(528F, 44.16003F);
+            this.xrLabel18.Multiline = true;
+            this.xrLabel18.Name = "xrLabel18";
+            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.xrLabel18.StylePriority.UseTextAlignment = false;
+            this.xrLabel18.Text = "Descuento Total: ";
+            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel18.TextFormatString = "{0:€0.00}";
+            this.xrLabel18.WordWrap = false;
+            // 
+            // xrLabel24
+            // 
+            this.xrLabel24.AutoWidth = true;
+            this.xrLabel24.CanGrow = false;
+            this.xrLabel24.Dpi = 96F;
+            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([Products].[Interests])")});
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(528F, 198.7201F);
+            this.xrLabel24.Multiline = true;
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.Text = "Interes Total: ";
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel24.TextFormatString = "{0:€0.00}";
+            this.xrLabel24.WordWrap = false;
+            // 
             // R_Invoice
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -829,13 +829,11 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel24;
         private DevExpress.XtraReports.UI.XRLabel xrLabel23;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
         private DevExpress.XtraReports.UI.XRLabel xrLabel20;
         private DevExpress.XtraReports.UI.XRLabel xrLabel19;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLine xrLine6;
         private DevExpress.XtraReports.UI.XRLine xrLine4;
@@ -863,5 +861,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel24;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
     }
 }

@@ -41,7 +41,7 @@
 
         private void V_AddEditInvoiceForm_Load(object sender, System.EventArgs e)
         {
-            if (((Data.ORM.Order)orderBS.Current).BankId != null)
+            if (((Data.ORM.Order)orderBS.Current)?.BankId != null)
             {
                 banksSLUE.Enabled = false;
                 addBankSB.Enabled = false;
