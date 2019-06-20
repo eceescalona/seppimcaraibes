@@ -17,6 +17,9 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual DbSet<ProductsOrder> ProductsOrders { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<CustomersView> CustomersViews { get; set; }
         public virtual DbSet<InvoicesView> InvoicesViews { get; set; }
         public virtual DbSet<OrdersView> OrdersViews { get; set; }
@@ -126,6 +129,48 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<Shipment>()
                 .Property(e => e.NetWeight)
                 .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Permission>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Permission>()
+                .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Permission>()
+                .Property(e => e.Group)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Permission>()
+                .HasMany(e => e.Roles)
+                .WithMany(e => e.Permissions)
+                .Map(m => m.ToTable("RolePermission").MapLeftKey("PermissionId").MapRightKey("RoleId"));
+
+            modelBuilder.Entity<Role>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Role>()
+                .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Nick)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.NotEnableCause)
+                .IsUnicode(false);
 
             modelBuilder.Entity<InvoicesView>()
                 .Property(e => e.Contract_Description)
