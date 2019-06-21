@@ -150,23 +150,23 @@
     <Compile Include="Domain\Controller\C_Provider.cs" />
     <Compile Include="Domain\Controller\C_Role.cs" />
     <Compile Include="Domain\Controller\C_User.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditBank.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditCustomer.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditOrder.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditPermission.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditProduct.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditProvider.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditRole.cs" />
-    <Compile Include="Domain\Controller\Interfases\IAddEditUser.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListCustomers.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListOrders.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListPermissions.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListProducts.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListProviders.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListRoles.cs" />
-    <Compile Include="Domain\Controller\Interfases\IListUsers.cs" />
-    <Compile Include="Domain\Controller\Interfases\IReport.cs" />
-    <Compile Include="Domain\Controller\Interfases\ISelectProvider.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditBank.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditCustomer.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditOrder.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditPermission.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditProduct.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditProvider.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditRole.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditUser.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListCustomers.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListOrders.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListPermissions.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListProducts.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListProviders.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListRoles.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListUsers.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IReport.cs" />
+    <Compile Include="Domain\Controller\Interfaces\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
@@ -314,6 +314,12 @@
     <Compile Include="Domain\View\S_WelcomePage.Designer.cs">
       <DependentUpon>S_WelcomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\User\V_AddEditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\V_AddEditUserForm.Designer.cs">
+      <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\V_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +397,9 @@
     <EmbeddedResource Include="Domain\View\S_WelcomePage.resx">
       <DependentUpon>S_WelcomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\V_AddEditUserForm.resx">
+      <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +421,7 @@
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Shipment.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.User.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.POCO.ProductsOrders.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

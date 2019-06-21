@@ -7,6 +7,7 @@
 
     internal class C_User : IDisposable
     {
+        private const string PASS = "Not Change";
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.User _mUser;
 
@@ -26,7 +27,7 @@
         #endregion
 
 
-        private bool Validate(Data.ORM.User user, out Dictionary<string, string> fields)
+        private bool Validate(Data.ORM.User user, string copyPassword, out Dictionary<string, string> fields)
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
@@ -49,10 +50,39 @@
                 fields.Add(field, message);
             }
 
+            if (string.IsNullOrWhiteSpace(copyPassword))
+            {
+                flag = false;
+                field = "copyPassTE";
+                message = "El Campo Repetir Contraseña no puede ser vacío.";
+                fields.Add(field, message);
+            }
+            else 
+            {
+                if (!copyPassword.Equals(PASS))
+                {
+                    if (!copyPassword.Equals(user.Password))
+                    {
+                        flag = false;
+                        field = "copyPassTE";
+                        message = "El Campo Repetir Contraseña debe ser igual a Contraseña.";
+                        fields.Add(field, message);
+                    }
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(user.FullName))
+            {
+                flag = false;
+                field = "fullNameTE";
+                message = "El Campo Nombre Completo no puede ser vacío.";
+                fields.Add(field, message);
+            }
+
             if (user.RoleId < 0)
             {
                 flag = false;
-                field = "roleGV";
+                field = "roleSLUE";
                 message = "El Campo Rol no puede ser vacío.";
                 fields.Add(field, message);
 
@@ -85,11 +115,11 @@
 
 
         #region UserManage
-        public void AddUser(IAddEditUser addEditUser, Data.ORM.User user)
+        public void AddUser(IAddEditUser addEditUser, Data.ORM.User user, string copyPassword)
         {
             string message = string.Format("El usuario {0} ha sido registrado satisfactoriamente.", user.Nick);
 
-            if (Validate(user, out Dictionary<string, string> fields))
+            if (Validate(user, copyPassword, out Dictionary<string, string> fields))
             {
                 _mUser.AddUser(_context, user);
                 addEditUser.ShowMessage(ETypeOfMessage.Information, message);
@@ -110,7 +140,22 @@
         {
             string message = string.Format("Los atributos del usuario {0} han sido modificados satisfactoriamente.", user.Nick);
 
-            if (Validate(user, out Dictionary<string, string> fields))
+            if (Validate(user, PASS, out Dictionary<string, string> fields))
+            {
+                _mUser.EditUser(_context, user);
+                addEditUser.ShowMessage(ETypeOfMessage.Information, message);
+            }
+            else
+            {
+                addEditUser.ShowFieldsWithError(fields);
+            }
+        }
+
+        public void EditUser(IAddEditUser addEditUser, Data.ORM.User user, string copyPassword)
+        {
+            string message = string.Format("Los atributos del usuario {0} han sido modificados satisfactoriamente.", user.Nick);
+
+            if (Validate(user, copyPassword, out Dictionary<string, string> fields))
             {
                 _mUser.EditUser(_context, user);
                 addEditUser.ShowMessage(ETypeOfMessage.Information, message);
