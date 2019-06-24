@@ -82,7 +82,7 @@
 
         void RoleEIFBS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
-            Data.ORM.SeppimCaraibesLocalEntities dataContext = new Data.ORM.SeppimCaraibesLocalEntities();
+            Data.ORM.SeppimCaraibesLocalEntities dataContext = _cUser.GetContext();
             e.QueryableSource = dataContext.Roles;
         }
 

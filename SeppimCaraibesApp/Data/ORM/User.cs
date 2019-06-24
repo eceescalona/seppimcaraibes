@@ -13,6 +13,7 @@
         [StringLength(50)]
         public string Nick { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string FullName { get; set; }
 

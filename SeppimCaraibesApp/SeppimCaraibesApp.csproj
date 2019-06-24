@@ -308,6 +308,12 @@
     <Compile Include="Domain\View\Reports\Quote\R_Quote.Designer.cs">
       <DependentUpon>R_Quote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Role\V_AddEditRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_AddEditRoleForm.Designer.cs">
+      <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\S_WelcomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +400,9 @@
     <EmbeddedResource Include="Domain\View\Reports\Quote\R_Quote.resx">
       <DependentUpon>R_Quote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Role\V_AddEditRoleForm.resx">
+      <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\S_WelcomePage.resx">
       <DependentUpon>S_WelcomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +429,7 @@
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Order.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Role.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Shipment.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.User.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.POCO.ProductsOrders.datasource" />
