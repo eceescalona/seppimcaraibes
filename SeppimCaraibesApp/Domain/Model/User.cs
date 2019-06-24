@@ -11,6 +11,12 @@
             return await rUser.GetUser(context, code);
         }
 
+        public async Task<Data.ORM.User> GetUser(Data.ORM.SeppimCaraibesLocalEntities context, string nick, string pass)
+        {
+            var rUser = new Data.Repository.UserRepository();
+            return await rUser.GetUser(context, nick, pass);
+        }
+
         public void AddUser(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.User user)
         {
             var rUser = new Data.Repository.UserRepository();

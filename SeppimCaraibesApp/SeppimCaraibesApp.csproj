@@ -150,6 +150,7 @@
     <Compile Include="Domain\Controller\C_Provider.cs" />
     <Compile Include="Domain\Controller\C_Role.cs" />
     <Compile Include="Domain\Controller\C_User.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IControlUser.cs" />
     <Compile Include="Domain\Controller\Interfaces\IAddEditBank.cs" />
     <Compile Include="Domain\Controller\Interfaces\IAddEditCustomer.cs" />
     <Compile Include="Domain\Controller\Interfaces\IAddEditOrder.cs" />
@@ -326,6 +327,12 @@
     <Compile Include="Domain\View\User\V_AddEditUserForm.Designer.cs">
       <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\U_LogginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\U_LogginPage.Designer.cs">
+      <DependentUpon>U_LogginPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\V_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\User\V_AddEditUserForm.resx">
       <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\U_LogginPage.resx">
+      <DependentUpon>U_LogginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>

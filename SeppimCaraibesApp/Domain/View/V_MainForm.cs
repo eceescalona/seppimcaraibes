@@ -94,5 +94,10 @@
             listInvoices.BringToFront();
             listInvoices.Show();
         }
+
+        private void V_MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

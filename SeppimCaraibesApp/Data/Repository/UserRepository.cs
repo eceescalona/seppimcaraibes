@@ -9,6 +9,11 @@
             return await context.Users.FindAsync(code);
         }
 
+        public async Task<ORM.User> GetUser(ORM.SeppimCaraibesLocalEntities context, string nick, string pass)
+        {
+            return await context.Users.FindAsync(nick, pass);
+        }
+
         public void AddUser(ORM.SeppimCaraibesLocalEntities context, ORM.User user)
         {
             context.Users.Add(user);

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
     using System.Reflection;
 
     internal class C_User : IDisposable
@@ -57,7 +58,7 @@
                 message = "El Campo Repetir Contraseña no puede ser vacío.";
                 fields.Add(field, message);
             }
-            else 
+            else
             {
                 if (!copyPassword.Equals(PASS))
                 {
@@ -173,6 +174,68 @@
             _mUser.DeleteUser(_context, code);
             listUsers.ShowMessage(ETypeOfMessage.Information, message);
             listUsers.RefreshView();
+        }
+        #endregion
+
+
+        #region UserControl
+        private bool ValidateUser(string nick, string password, out Dictionary<string, string> fields)
+        {
+            fields = new Dictionary<string, string>();
+            bool flag = true;
+            string message;
+            string field;
+
+            if (string.IsNullOrWhiteSpace(nick))
+            {
+                flag = false;
+                field = "nickTE";
+                message = "El Campo Usuario no puede ser vacío.";
+                fields.Add(field, message);
+            }
+            else
+            {
+                if (!_context.Users.Any(u => u.Nick == nick))
+                {
+                    flag = false;
+                    field = "nickTE";
+                    message = "El Campo Usuario es incorrecto.";
+                    fields.Add(field, message);
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                flag = false;
+                field = "passwordTE";
+                message = "El Campo Contraseña no puede ser vacío.";
+                fields.Add(field, message);
+            }
+            else
+            {
+                if (!_context.Users.Any(u => u.Password == password))
+                {
+                    flag = false;
+                    field = "nickTE";
+                    message = "El Campo Contraseña es incorrecto.";
+                    fields.Add(field, message);
+                }
+            }
+
+            return flag;
+        }
+
+        public async void Loggin(IControlUser control, string nick, string password)
+        {
+            if (ValidateUser(nick, password, out Dictionary<string, string> fields))
+            {
+                var user = await _mUser.GetUser(_context, nick, password);
+                control.DisplayMain(user);
+            }
+            else
+            {
+                control.ShowFieldsWithError(fields);
+            }
         }
         #endregion
     }
