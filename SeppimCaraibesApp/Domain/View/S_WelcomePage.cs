@@ -8,7 +8,7 @@
         public S_WelcomePage()
         {
             InitializeComponent();
-            this.labelControl1.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
+            copyrightLC.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
         }
 
         #region Overrides

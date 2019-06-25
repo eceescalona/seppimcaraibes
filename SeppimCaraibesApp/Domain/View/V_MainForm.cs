@@ -5,9 +5,17 @@
 
     internal partial class V_MainForm : Form
     {
+        private readonly Domain.Controller.C_User _cUser;
+
         public V_MainForm()
         {
             InitializeComponent();
+        }
+
+        public V_MainForm(Domain.Controller.C_User cUser)
+        {
+            InitializeComponent();
+            _cUser = cUser;
         }
 
 
@@ -97,7 +105,9 @@
 
         private void V_MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            _cUser.LogOff((Domain.Controller.IControlUser)Parent);
+            Dispose();
+            Close();
         }
     }
 }

@@ -101,6 +101,9 @@
             // 
             // buttonsPC
             // 
+            this.buttonsPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.buttonsPC.Appearance.Options.UseBackColor = true;
+            this.buttonsPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.buttonsPC.Controls.Add(this.buttonsLC);
             this.buttonsPC.Location = new System.Drawing.Point(12, 322);
             this.buttonsPC.Name = "buttonsPC";
@@ -113,54 +116,63 @@
             this.buttonsLC.Controls.Add(this.acceptPC);
             this.buttonsLC.Controls.Add(this.emptyPC);
             this.buttonsLC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonsLC.Location = new System.Drawing.Point(2, 2);
+            this.buttonsLC.Location = new System.Drawing.Point(0, 0);
             this.buttonsLC.Name = "buttonsLC";
             this.buttonsLC.Root = this.buttonsLCG;
-            this.buttonsLC.Size = new System.Drawing.Size(451, 50);
+            this.buttonsLC.Size = new System.Drawing.Size(455, 54);
             this.buttonsLC.TabIndex = 0;
             this.buttonsLC.Text = "layoutControl2";
             // 
             // cancelPC
             // 
+            this.cancelPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.cancelPC.Appearance.Options.UseBackColor = true;
+            this.cancelPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Location = new System.Drawing.Point(353, 12);
+            this.cancelPC.Location = new System.Drawing.Point(356, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(86, 26);
+            this.cancelPC.Size = new System.Drawing.Size(87, 22);
             this.cancelPC.TabIndex = 6;
             // 
             // cancelSB
             // 
             this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelSB.Location = new System.Drawing.Point(2, 2);
+            this.cancelSB.Location = new System.Drawing.Point(0, 0);
             this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(82, 22);
+            this.cancelSB.Size = new System.Drawing.Size(87, 22);
             this.cancelSB.TabIndex = 0;
             this.cancelSB.Text = "Cancelar";
             this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
             // 
             // acceptPC
             // 
+            this.acceptPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.acceptPC.Appearance.Options.UseBackColor = true;
+            this.acceptPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Location = new System.Drawing.Point(268, 12);
+            this.acceptPC.Location = new System.Drawing.Point(270, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(81, 26);
+            this.acceptPC.Size = new System.Drawing.Size(82, 22);
             this.acceptPC.TabIndex = 5;
             // 
             // acceptSB
             // 
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.acceptSB.Location = new System.Drawing.Point(2, 2);
+            this.acceptSB.Location = new System.Drawing.Point(0, 0);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(77, 22);
+            this.acceptSB.Size = new System.Drawing.Size(82, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
             // 
             // emptyPC
             // 
+            this.emptyPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.emptyPC.Appearance.Options.UseBackColor = true;
+            this.emptyPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.emptyPC.Location = new System.Drawing.Point(12, 12);
             this.emptyPC.Name = "emptyPC";
-            this.emptyPC.Size = new System.Drawing.Size(252, 26);
+            this.emptyPC.Size = new System.Drawing.Size(254, 30);
             this.emptyPC.TabIndex = 4;
             // 
             // buttonsLCG
@@ -172,7 +184,7 @@
             this.acceptLCI,
             this.cancelLCI});
             this.buttonsLCG.Name = "buttonsLCG";
-            this.buttonsLCG.Size = new System.Drawing.Size(451, 50);
+            this.buttonsLCG.Size = new System.Drawing.Size(455, 54);
             this.buttonsLCG.TextVisible = false;
             // 
             // emptyLCI
@@ -180,30 +192,33 @@
             this.emptyLCI.Control = this.emptyPC;
             this.emptyLCI.Location = new System.Drawing.Point(0, 0);
             this.emptyLCI.Name = "emptyLCI";
-            this.emptyLCI.Size = new System.Drawing.Size(256, 30);
+            this.emptyLCI.Size = new System.Drawing.Size(258, 34);
             this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyLCI.TextVisible = false;
             // 
             // acceptLCI
             // 
             this.acceptLCI.Control = this.acceptPC;
-            this.acceptLCI.Location = new System.Drawing.Point(256, 0);
+            this.acceptLCI.Location = new System.Drawing.Point(258, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(85, 30);
+            this.acceptLCI.Size = new System.Drawing.Size(86, 34);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // cancelLCI
             // 
             this.cancelLCI.Control = this.cancelPC;
-            this.cancelLCI.Location = new System.Drawing.Point(341, 0);
+            this.cancelLCI.Location = new System.Drawing.Point(344, 0);
             this.cancelLCI.Name = "cancelLCI";
-            this.cancelLCI.Size = new System.Drawing.Size(90, 30);
+            this.cancelLCI.Size = new System.Drawing.Size(91, 34);
             this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLCI.TextVisible = false;
             // 
             // formPC
             // 
+            this.formPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.formPC.Appearance.Options.UseBackColor = true;
+            this.formPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.formPC.Controls.Add(this.passwordTE);
             this.formPC.Controls.Add(this.nickTE);
             this.formPC.Controls.Add(this.passwordErrorLC);
@@ -232,15 +247,14 @@
             // 
             // passwordErrorLC
             // 
-            this.passwordErrorLC.Location = new System.Drawing.Point(77, 76);
+            this.passwordErrorLC.Location = new System.Drawing.Point(75, 74);
             this.passwordErrorLC.Name = "passwordErrorLC";
-            this.passwordErrorLC.Size = new System.Drawing.Size(63, 13);
+            this.passwordErrorLC.Size = new System.Drawing.Size(0, 13);
             this.passwordErrorLC.TabIndex = 3;
-            this.passwordErrorLC.Text = "labelControl4";
             // 
             // passwordLC
             // 
-            this.passwordLC.Location = new System.Drawing.Point(5, 53);
+            this.passwordLC.Location = new System.Drawing.Point(3, 51);
             this.passwordLC.Name = "passwordLC";
             this.passwordLC.Size = new System.Drawing.Size(66, 13);
             this.passwordLC.TabIndex = 2;
@@ -248,15 +262,14 @@
             // 
             // nickErrorLC
             // 
-            this.nickErrorLC.Location = new System.Drawing.Point(77, 31);
+            this.nickErrorLC.Location = new System.Drawing.Point(75, 29);
             this.nickErrorLC.Name = "nickErrorLC";
-            this.nickErrorLC.Size = new System.Drawing.Size(63, 13);
+            this.nickErrorLC.Size = new System.Drawing.Size(0, 13);
             this.nickErrorLC.TabIndex = 1;
-            this.nickErrorLC.Text = "labelControl2";
             // 
             // nickLC
             // 
-            this.nickLC.Location = new System.Drawing.Point(25, 8);
+            this.nickLC.Location = new System.Drawing.Point(23, 6);
             this.nickLC.Name = "nickLC";
             this.nickLC.Size = new System.Drawing.Size(46, 13);
             this.nickLC.TabIndex = 0;
@@ -264,6 +277,9 @@
             // 
             // logoPC
             // 
+            this.logoPC.Appearance.BackColor = System.Drawing.Color.White;
+            this.logoPC.Appearance.Options.UseBackColor = true;
+            this.logoPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.logoPC.Controls.Add(this.logoPE);
             this.logoPC.Location = new System.Drawing.Point(12, 12);
             this.logoPC.Name = "logoPC";
@@ -275,6 +291,7 @@
             this.logoPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.ElitechLogo;
             this.logoPE.Location = new System.Drawing.Point(77, 5);
             this.logoPE.Name = "logoPE";
+            this.logoPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.logoPE.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.logoPE.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.logoPE.Size = new System.Drawing.Size(297, 199);
@@ -323,6 +340,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 388);
             this.Controls.Add(this.userControlLC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

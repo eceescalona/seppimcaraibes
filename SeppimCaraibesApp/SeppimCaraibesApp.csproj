@@ -169,6 +169,7 @@
     <Compile Include="Domain\Controller\Interfaces\IReport.cs" />
     <Compile Include="Domain\Controller\Interfaces\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
+    <Compile Include="Domain\UserLog.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
     <Compile Include="Domain\Model\Order.cs" />

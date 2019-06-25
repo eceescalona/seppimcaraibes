@@ -21,9 +21,11 @@
         [StringLength(50)]
         public string Password { get; set; }
 
-        public MailAddress Email { get; set; }
+        [StringLength(50)]
+        public string Email { get; set; }
 
-        public PhoneAttribute Phone { get; set; }
+        [StringLength(50)]
+        public string Phone { get; set; }
 
         public bool Enable { get; set; }
 

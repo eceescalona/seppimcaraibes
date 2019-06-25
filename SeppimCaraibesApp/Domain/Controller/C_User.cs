@@ -227,15 +227,43 @@
 
         public async void Loggin(IControlUser control, string nick, string password)
         {
+            string message = string.Format("Repita, uno de los valores es incorrecto. {0} | {1}", nick, password);
+
             if (ValidateUser(nick, password, out Dictionary<string, string> fields))
             {
                 var user = await _mUser.GetUser(_context, nick, password);
-                control.DisplayMain(user);
+                if (user != null)
+                {
+                    control.DisplayMain(user);
+                }
+                else
+                {
+                    control.ShowMessage(ETypeOfMessage.Warning, message);
+                }
             }
             else
             {
                 control.ShowFieldsWithError(fields);
             }
+        }
+
+        public void SetLogginUser(Data.ORM.User user)
+        {
+            UserLog.Instance.SetUserId = user.UserId;
+            UserLog.Instance.SetNick = user.Nick;
+            UserLog.Instance.SetPassword = user.Password;
+            UserLog.Instance.SetFullName = user.FullName;
+            UserLog.Instance.SetRoleId = user.RoleId;
+            UserLog.Instance.SetRole = user.Role;
+        }
+
+        public void LogOff(IControlUser control)
+        {
+            string message = string.Format("{0} ha cerrado sesión.", UserLog.Instance.FullName);
+
+            UserLog.Dispose();
+            control.ShowMessage(ETypeOfMessage.Warning, message);
+            control.LogOff();
         }
         #endregion
     }

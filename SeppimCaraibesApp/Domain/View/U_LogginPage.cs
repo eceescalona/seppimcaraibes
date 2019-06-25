@@ -19,6 +19,9 @@
         public U_LogginPage()
         {
             InitializeComponent();
+
+            nickTE.Select();
+
             _cUser = new Controller.C_User();
             _isFieldWithError = false;
         }
@@ -27,10 +30,19 @@
         #region IControlUser
         public void DisplayMain(Data.ORM.User user)
         {
-            var main = new V_MainForm();
+            _cUser.SetLogginUser(user);
+            var main = new V_MainForm(_cUser)
+            {
+                Parent = this
+            };
             main.BringToFront();
             main.Show();
             Hide();
+        }
+
+        public void LogOff()
+        {
+            Show();
         }
 
         public void RefreshView()
