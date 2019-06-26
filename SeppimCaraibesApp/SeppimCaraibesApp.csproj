@@ -328,6 +328,12 @@
     <Compile Include="Domain\View\User\V_AddEditUserForm.Designer.cs">
       <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\User\V_ListUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\V_ListUsersForm.Designer.cs">
+      <DependentUpon>V_ListUsersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\U_LogginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\User\V_AddEditUserForm.resx">
       <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\V_ListUsersForm.resx">
+      <DependentUpon>V_ListUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\U_LogginPage.resx">
       <DependentUpon>U_LogginPage.cs</DependentUpon>

@@ -103,6 +103,18 @@
             listInvoices.Show();
         }
 
+        private void UsersACE_Click(object sender, EventArgs e)
+        {
+            var listUsers = new Domain.View.User.V_ListUsersForm(_cUser)
+            {
+                TopLevel = false
+            };
+            viewsPC.Controls.Add(listUsers);
+            listUsers.Dock = DockStyle.Fill;
+            listUsers.BringToFront();
+            listUsers.Show();
+        }
+
         private void V_MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _cUser.LogOff((Domain.Controller.IControlUser)Parent);

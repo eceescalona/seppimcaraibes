@@ -1,6 +1,5 @@
 ﻿namespace SeppimCaraibesApp.Data.ORM
 {
-    using System.Net.Mail;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
