@@ -105,18 +105,22 @@
             if (_isAddOrEdit)
             {
                 var provider = (Data.ORM.Provider)providerBS.Current;
-                foreach (var product in provider.Products)
+
+                if (provider != null)
                 {
-                    if (productsGV.GetRow(e.RowHandle) is Data.ORM.Product row)
+                    foreach (var product in provider.Products)
                     {
-                        if (row.ProductId == product.ProductId)
+                        if (productsGV.GetRow(e.RowHandle) is Data.ORM.Product row)
                         {
-                            productsGV.SelectRow(e.RowHandle);
+                            if (row.ProductId == product.ProductId)
+                            {
+                                productsGV.SelectRow(e.RowHandle);
+                            }
                         }
                     }
-                }
 
-                e.HighPriority = true;
+                    e.HighPriority = true;
+                }
             }
             else
             {
