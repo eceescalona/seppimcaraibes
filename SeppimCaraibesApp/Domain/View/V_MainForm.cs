@@ -117,7 +117,7 @@
 
         private void V_MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _cUser.LogOff((Domain.Controller.IControlUser)Parent);
+            _cUser.LogOff((Domain.Controller.IControlUser)Owner);
             Dispose();
             Close();
         }

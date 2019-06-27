@@ -225,13 +225,13 @@
             return flag;
         }
 
-        public async void Loggin(IControlUser control, string nick, string password)
+        public void Loggin(IControlUser control, string nick, string password)
         {
             string message = string.Format("Repita, uno de los valores es incorrecto. {0} | {1}", nick, password);
 
             if (ValidateUser(nick, password, out Dictionary<string, string> fields))
             {
-                var user = await _mUser.GetUser(_context, nick, password);
+                var user = _mUser.GetUser(_context, nick, password);
                 if (user != null)
                 {
                     control.DisplayMain(user);

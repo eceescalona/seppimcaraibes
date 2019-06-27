@@ -2,7 +2,8 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
+    
+    [Table("User")]
     internal partial class User
     {
         [Key]

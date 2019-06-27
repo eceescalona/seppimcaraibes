@@ -33,16 +33,16 @@
             _cUser.SetLogginUser(user);
             var main = new V_MainForm(_cUser)
             {
-                Parent = this
+                Owner = this
             };
             main.BringToFront();
             main.Show();
-            Hide();
+            Visible = false;
         }
 
         public void LogOff()
         {
-            Show();
+            Visible = true;
         }
 
         public void RefreshView()

@@ -1,5 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     internal class UserRepository
@@ -9,9 +10,9 @@
             return await context.Users.FindAsync(code);
         }
 
-        public async Task<ORM.User> GetUser(ORM.SeppimCaraibesLocalEntities context, string nick, string pass)
+        public  ORM.User GetUser(ORM.SeppimCaraibesLocalEntities context, string nick, string pass)
         {
-            return await context.Users.FindAsync(nick, pass);
+            return context.Users.SingleOrDefault( u => u.Nick.Equals(nick) && u.Password.Equals(pass));
         }
 
         public void AddUser(ORM.SeppimCaraibesLocalEntities context, ORM.User user)
