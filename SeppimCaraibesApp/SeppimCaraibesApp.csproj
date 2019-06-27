@@ -110,6 +110,26 @@
     <Compile Include="Data\EOrderState.cs" />
     <Compile Include="Data\EPaymentOption.cs" />
     <Compile Include="Data\EPeriodState.cs" />
+    <Compile Include="Data\ORM\Bank.cs" />
+    <Compile Include="Data\ORM\Customer.cs" />
+    <Compile Include="Data\ORM\CustomersView.cs" />
+    <Compile Include="Data\ORM\InvoicesView.cs" />
+    <Compile Include="Data\ORM\Order.cs" />
+    <Compile Include="Data\ORM\OrdersView.cs" />
+    <Compile Include="Data\ORM\Origin.cs" />
+    <Compile Include="Data\ORM\Permission.cs" />
+    <Compile Include="Data\ORM\PreOrdersView.cs" />
+    <Compile Include="Data\ORM\Product.cs" />
+    <Compile Include="Data\ORM\ProductsOrder.cs" />
+    <Compile Include="Data\ORM\ProductsView.cs" />
+    <Compile Include="Data\ORM\Provider.cs" />
+    <Compile Include="Data\ORM\ProvidersView.cs" />
+    <Compile Include="Data\ORM\QuotesView.cs" />
+    <Compile Include="Data\ORM\Role.cs" />
+    <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
+    <Compile Include="Data\ORM\Shipment.cs" />
+    <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\ORM\User.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
@@ -499,8 +519,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\ORM\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
