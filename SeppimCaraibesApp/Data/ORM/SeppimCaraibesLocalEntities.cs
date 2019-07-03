@@ -27,7 +27,9 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual DbSet<ProductsView> ProductsViews { get; set; }
         public virtual DbSet<ProvidersView> ProvidersViews { get; set; }
         public virtual DbSet<QuotesView> QuotesViews { get; set; }
+        public virtual DbSet<RoleView> RoleViews { get; set; }
         public virtual DbSet<ShipmentsView> ShipmentsViews { get; set; }
+        public virtual DbSet<UserView> UserViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

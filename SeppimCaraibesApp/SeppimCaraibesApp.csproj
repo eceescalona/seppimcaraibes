@@ -126,10 +126,12 @@
     <Compile Include="Data\ORM\ProvidersView.cs" />
     <Compile Include="Data\ORM\QuotesView.cs" />
     <Compile Include="Data\ORM\Role.cs" />
+    <Compile Include="Data\ORM\RoleView.cs" />
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
     <Compile Include="Data\ORM\User.cs" />
+    <Compile Include="Data\ORM\UserView.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
@@ -470,15 +472,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Img\elitechicon_32x32.ico" />
-    <None Include="Resources\Img\ElitechLogo.png" />
-    <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
+    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Img\elitechicon_32x32.ico" />
+    <None Include="Resources\Img\ElitechLogo.png" />
     <None Include="Resources\Img\SeppimCaraibesLogo.png" />
     <None Include="Resources\Img\Print_32x32.png" />
     <None Include="Resources\Img\Print_16x16.png" />
