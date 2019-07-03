@@ -8,7 +8,7 @@
 
     internal partial class V_AddEditRoleForm : Form, Controller.IAddEditRole
     {
-        private const string NAME_FORM_ADD = "Adicionar Rol";
+        private const string NAME_FORM_ADD = "Registrar Rol";
         private const string LABEL_MESSAGE_PERMISSION = "Debe seleccionar al menos un permiso";
         private const string NAME_FORM_EDIT = "Editar Rol";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
@@ -32,7 +32,7 @@
             _isAddOrEdit = false;
             _isFieldWithError = false;
 
-            roleBS.DataSource = new Data.ORM.User();
+            roleBS.DataSource = new Data.ORM.Role();
         }
 
         public V_AddEditRoleForm(Controller.C_Role cRole, int code)
@@ -55,7 +55,7 @@
             permissionEIFS.GetQueryable += PermissionEIFS_GetQueryable;
         }
 
-        void PermissionEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void PermissionEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cRole.GetContext();
             e.QueryableSource = dataContext.Permissions;
@@ -66,18 +66,21 @@
             if (_isAddOrEdit)
             {
                 var role = (Data.ORM.Role)roleBS.Current;
-                foreach (var permission in role.Permissions)
+                if (role != null && (role.Permissions != null && role.Permissions.Count > 0))
                 {
-                    if (permissionSLUEV.GetRow(e.RowHandle) is Data.ORM.Permission row)
+                    foreach (var permission in role.Permissions)
                     {
-                        if (row.PermissionId == permission.PermissionId)
+                        if (permissionSLUEV.GetRow(e.RowHandle) is Data.ORM.Permission row)
                         {
-                            permissionSLUEV.SelectRow(e.RowHandle);
+                            if (row.PermissionId == permission.PermissionId)
+                            {
+                                permissionSLUEV.SelectRow(e.RowHandle);
+                            }
                         }
                     }
-                }
 
-                e.HighPriority = true;
+                    e.HighPriority = true;
+                }
             }
         }
 
@@ -111,6 +114,8 @@
             permissionSLUE.EditValue = null;
             permissionEIFS.Refresh();
             permissionEIFS.GetQueryable += PermissionEIFS_GetQueryable;
+            roleBS.ResetBindings(true);
+            roleBS.DataSource = new Data.ORM.Role();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)

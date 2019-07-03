@@ -41,8 +41,9 @@
             _isFieldWithError = false;
             _idProduct = string.Empty;
 
-            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
             providerBS.DataSource = new Data.ORM.Provider();
+
+            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
         public V_AddEditProviderForm(Controller.C_Provider cProvider)
@@ -57,8 +58,9 @@
             _isFieldWithError = false;
             _idProduct = string.Empty;
 
-            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
             providerBS.DataSource = new Data.ORM.Provider();
+
+            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
         public V_AddEditProviderForm(Controller.C_Provider cProvider, string code)
@@ -106,7 +108,7 @@
             {
                 var provider = (Data.ORM.Provider)providerBS.Current;
 
-                if (provider != null)
+                if (provider != null && (provider.Products != null && provider.Products.Count > 0))
                 {
                     foreach (var product in provider.Products)
                     {
@@ -174,6 +176,8 @@
 
             productsEIFS.Refresh();
             productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+            providerBS.ResetBindings(true);
+            providerBS.DataSource = new Data.ORM.Product();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -288,6 +292,8 @@
         {
             try
             {
+                var provider = (Data.ORM.Provider)providerBS.Current;
+
                 var products = new List<Data.ORM.Product>();
 
                 int[] indexs = productsGV.GetSelectedRows();
@@ -300,7 +306,6 @@
                     }
                 }
 
-                var provider = (Data.ORM.Provider)providerBS.Current;
                 provider.Products = products;
 
                 if (_isAddOrEdit)

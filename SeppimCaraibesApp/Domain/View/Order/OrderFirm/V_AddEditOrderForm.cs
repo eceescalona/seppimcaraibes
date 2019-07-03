@@ -12,7 +12,6 @@
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
         private readonly Controller.C_Order _cOrder;
-        private readonly Controller.C_Product _cProduct;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
 
@@ -23,7 +22,6 @@
             Text = NAME_FORM_EDIT;
 
             _cOrder = cOrder;
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isFieldWithError = false;
 
@@ -36,12 +34,12 @@
         {
             orderBS.DataSource = order;
 
-            if (string.IsNullOrWhiteSpace(order.DocRequired))
+            if (!string.IsNullOrWhiteSpace(order.DocRequired))
             {
                 docME.Text = order.DocRequired;
             }
 
-            if (string.IsNullOrWhiteSpace(order.ContractDescription))
+            if (!string.IsNullOrWhiteSpace(order.ContractDescription))
             {
                 descriptionME.Text = order.ContractDescription;
             }
@@ -95,7 +93,7 @@
             }
             catch (Exception)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
 
                 if (result == DialogResult.Retry)

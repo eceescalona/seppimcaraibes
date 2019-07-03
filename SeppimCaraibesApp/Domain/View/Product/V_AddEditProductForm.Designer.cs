@@ -192,6 +192,7 @@
             this.originsSLUE.Properties.DisplayMember = "OriginName";
             this.originsSLUE.Properties.NullText = "";
             this.originsSLUE.Properties.NullValuePrompt = "Origen";
+            this.originsSLUE.Properties.NullValuePromptShowForEmptyValue = true;
             this.originsSLUE.Properties.PopupView = this.originsSLUEV;
             this.originsSLUE.Properties.ValueMember = "OriginId";
             this.originsSLUE.Size = new System.Drawing.Size(404, 20);

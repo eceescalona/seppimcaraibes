@@ -8,7 +8,7 @@
 
     internal partial class V_AddEditUserForm : Form, Controller.IAddEditUser
     {
-        private const string NAME_FORM_ADD = "Adicionar Usuario";
+        private const string NAME_FORM_ADD = "Registrar Usuario";
         private const string LABEL_MESSAGE_ROLE = "Debe seleccionar un rol";
         private const string NAME_FORM_EDIT = "Editar Usuario";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
@@ -16,11 +16,11 @@
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
 
         private readonly Controller.C_User _cUser;
+        private readonly bool _isAddOrEdit;
+        private readonly bool _changePassword;
         private bool _isCUserAlive;
         private bool _isFieldWithError;
-        private readonly bool _isAddOrEdit;
         private int _idRole;
-        private readonly bool _changePassword;
 
 
         #region Ctor
@@ -80,7 +80,7 @@
             roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
 
-        void RoleEIFBS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void RoleEIFBS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cUser.GetContext();
             e.QueryableSource = dataContext.Roles;
@@ -135,6 +135,8 @@
             roleSLUE.EditValue = null;
             roleEIFBS.Refresh();
             roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
+            userBS.ResetBindings(true);
+            userBS.DataSource = new Data.ORM.User();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -237,6 +239,7 @@
             try
             {
                 var user = (Data.ORM.User)userBS.Current;
+
                 var role = (Data.ORM.Role)roleSLUEV.GetFocusedRow();
                 user.RoleId = role.RoleId;
                 user.Role = role;

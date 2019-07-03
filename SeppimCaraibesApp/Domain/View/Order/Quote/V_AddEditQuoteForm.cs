@@ -44,7 +44,8 @@
         private void ProductsGV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
             var order = (Data.ORM.Order)orderBS.Current;
-            if (order != null)
+
+            if (order != null && (order.ProductsOrders != null && order.ProductsOrders.Count > 0))
             {
                 foreach (var product in order.ProductsOrders)
                 {
@@ -193,6 +194,8 @@
         {
             try
             {
+                var order = (Data.ORM.Order)orderBS.Current;
+
                 var products = new List<Data.POCO.ProductsOrders>();
 
                 int[] indexsProducts = productsGV.GetSelectedRows();
@@ -205,7 +208,6 @@
                     }
                 }
 
-                var order = (Data.ORM.Order)orderBS.Current;
                 order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
                 order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
                 order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
@@ -226,7 +228,7 @@
             }
             catch (Exception)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
 
                 if (result == DialogResult.Retry)

@@ -102,19 +102,22 @@
             if (_isAddOrEdit)
             {
                 var order = (Data.ORM.Order)orderBS.Current;
-                foreach (var product in order.ProductsOrders)
+                if (order != null && (order.ProductsOrders != null && order.ProductsOrders.Count > 0))
                 {
-                    if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
+                    foreach (var product in order.ProductsOrders)
                     {
-                        if (row.ProductId == product.ProductId)
+                        if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
                         {
-                            row.Qty = product.Qty;
-                            productsGV.SelectRow(e.RowHandle);
+                            if (row.ProductId == product.ProductId)
+                            {
+                                row.Qty = product.Qty;
+                                productsGV.SelectRow(e.RowHandle);
+                            }
                         }
                     }
-                }
 
-                e.HighPriority = true;
+                    e.HighPriority = true;
+                }
             }
         }
 
@@ -292,6 +295,8 @@
         {
             try
             {
+                var order = (Data.ORM.Order)orderBS.Current;
+
                 var products = new List<Data.POCO.ProductsOrders>();
 
                 int[] indexsProducts = productsGV.GetSelectedRows();
@@ -305,8 +310,6 @@
                 }
 
                 var customer = (Data.ORM.Customer)customerSLUEV.GetFocusedRow();
-
-                var order = (Data.ORM.Order)orderBS.Current;
 
                 if (_isAddOrEdit)
                 {
@@ -330,7 +333,7 @@
             }
             catch (Exception)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
 
                 if (result == DialogResult.Retry)

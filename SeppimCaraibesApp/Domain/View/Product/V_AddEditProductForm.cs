@@ -42,9 +42,10 @@
             _isFieldWithError = false;
             _idProvider = string.Empty;
 
+            productBS.DataSource = new Data.ORM.Product();
+
             providersEIFS.GetQueryable += ProvidersEIFS_GetQueryable;
             originsEIFS.GetQueryable += OriginsEIFS_GetQueryable;
-            productBS.DataSource = new Data.ORM.Product();
         }
 
         public V_AddEditProductForm(Controller.C_Product cProduct)
@@ -59,9 +60,10 @@
             _isFieldWithError = false;
             _idProvider = string.Empty;
 
+            productBS.DataSource = new Data.ORM.Product();
+
             providersEIFS.GetQueryable += ProvidersEIFS_GetQueryable;
             originsEIFS.GetQueryable += OriginsEIFS_GetQueryable;
-            productBS.DataSource = new Data.ORM.Product();
         }
 
         public V_AddEditProductForm(Controller.C_Product cProduct, string code)
@@ -115,7 +117,7 @@
             if (_isAddOrEdit)
             {
                 var product = (Data.ORM.Product)productBS.Current;
-                if (product != null)
+                if (product != null && (product.Providers != null && product.Providers.Count > 0))
                 {
                     foreach (var provider in product.Providers)
                     {
@@ -133,7 +135,7 @@
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(_idProvider))
+                if (!string.IsNullOrWhiteSpace(_idProvider))
                 {
                     if (providersGV.GetRow(e.RowHandle) is Data.ORM.Provider row)
                     {
@@ -151,18 +153,21 @@
             if (_isAddOrEdit)
             {
                 var product = (Data.ORM.Product)productBS.Current;
-                foreach (var origin in product.Origins)
+                if (product != null && (product.Origins != null && product.Origins.Count > 0))
                 {
-                    if (originsSLUEV.GetRow(e.RowHandle) is Data.ORM.Origin row)
+                    foreach (var origin in product.Origins)
                     {
-                        if (row.OriginId == origin.OriginId)
+                        if (originsSLUEV.GetRow(e.RowHandle) is Data.ORM.Origin row)
                         {
-                            originsSLUEV.SelectRow(e.RowHandle);
+                            if (row.OriginId == origin.OriginId)
+                            {
+                                originsSLUEV.SelectRow(e.RowHandle);
+                            }
                         }
                     }
-                }
 
-                e.HighPriority = true;
+                    e.HighPriority = true;
+                }
             }
         }
 
@@ -324,6 +329,8 @@
         {
             try
             {
+                var product = (Data.ORM.Product)productBS.Current;
+
                 var providers = new List<Data.ORM.Provider>();
 
                 int[] indexsProviders = providersGV.GetSelectedRows();
@@ -348,7 +355,6 @@
                     }
                 }
 
-                var product = (Data.ORM.Product)productBS.Current;
                 product.Providers = providers;
                 product.Origins = origins;
 

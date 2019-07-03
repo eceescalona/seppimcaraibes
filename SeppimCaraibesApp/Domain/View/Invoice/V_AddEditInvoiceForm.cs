@@ -173,8 +173,10 @@
             try
             {
                 var order = (Data.ORM.Order)orderBS.Current;
+
                 var bank = (Data.ORM.Bank)bankGV.GetFocusedRow();
                 order.BankId = bank.BankId;
+
                 order.InvoiceReference = _cOrder.GetInvoiceReference(order);
 
                 _cOrder.EditOrder(this, order);
@@ -189,7 +191,6 @@
                 {
                     DialogResult = DialogResult.OK;
                     Close();
-
                 }
             }
             catch (Exception)
