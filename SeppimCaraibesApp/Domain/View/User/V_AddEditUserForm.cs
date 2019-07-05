@@ -34,11 +34,12 @@
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idRole = -1;
+            _changePassword = false;
 
             userBS.DataSource = new Data.ORM.User();
         }
 
-        public V_AddEditUserForm(Controller.C_User cUser, int code)
+        public V_AddEditUserForm(Controller.C_User cUser, int idRol)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -47,9 +48,13 @@
             _isCUserAlive = true;
             _isAddOrEdit = true;
             _isFieldWithError = false;
-            _idRole = -1;
 
-            _cUser.EditUser(this, code);
+            _idRole = idRol;
+            roleSLUE.Enabled = false;
+
+            _changePassword = false;
+
+            userBS.DataSource = new Data.ORM.User();
         }
 
         public V_AddEditUserForm(Controller.C_User cUser, int code, bool changePassword)
@@ -64,11 +69,14 @@
             _idRole = -1;
             _changePassword = changePassword;
 
-            nickTE.Enabled = false;
-            fullNameTE.Enabled = false;
-            emailTE.Enabled = false;
-            phoneTE.Enabled = false;
-            roleSLUE.Enabled = false;
+            if (_changePassword)
+            {
+                nickTE.Enabled = false;
+                fullNameTE.Enabled = false;
+                emailTE.Enabled = false;
+                phoneTE.Enabled = false;
+                roleSLUE.Enabled = false;
+            }
 
             _cUser.EditUser(this, code);
         }

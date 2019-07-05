@@ -190,6 +190,37 @@
             }
         }
 
+        public async void DisableUser(IListUsers listUsers, int code, string message)
+        {
+            var user = await _mUser.GetUser(_context, code);
+            user.Enable = false;
+            user.NotEnableCause = message;
+
+            string description = string.Format("El usuario {0} fue inhabilitado.", user.Nick);
+
+            _mUser.EditUser(_context, user);
+            listUsers.ShowMessage(ETypeOfMessage.Information, description);
+            listUsers.RefreshView();
+        }
+
+        public async void EnableUser(IListUsers listUsers, int code)
+        {
+            var user = await _mUser.GetUser(_context, code);
+            user.Enable = true;
+
+            string description = string.Format("El usuario {0} fue habilitado.", user.Nick);
+
+            _mUser.EditUser(_context, user);
+            listUsers.ShowMessage(ETypeOfMessage.Information, description);
+            listUsers.RefreshView();
+        }
+
+        public async void ShowDisableCause(IListUsers listUsers, int code)
+        {
+            var user = await _mUser.GetUser(_context, code);
+            listUsers.ShowMessage(ETypeOfMessage.Information, user.NotEnableCause);
+        }
+
         public void DeleteUser(IListUsers listUsers, int code)
         {
             string message = string.Format("El usuario con código {0} ha sido eliminado satisfactoriamente.", code);

@@ -8,11 +8,11 @@ namespace SeppimCaraibesApp.Data.ORM
     {
         [Key]
         [Column(Order = 0)]
+        public int RoleId { get; set; }
+
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         [StringLength(250)]
         public string Description { get; set; }
 

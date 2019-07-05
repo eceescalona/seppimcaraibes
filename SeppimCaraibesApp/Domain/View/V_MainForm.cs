@@ -7,6 +7,8 @@
     {
         private readonly Domain.Controller.C_User _cUser;
 
+
+        #region Ctor
         public V_MainForm()
         {
             InitializeComponent();
@@ -17,8 +19,10 @@
             InitializeComponent();
             _cUser = cUser;
         }
+        #endregion
 
 
+        #region Menu
         private void CustomersACE_Click(object sender, EventArgs e)
         {
             var listCustomer = new Domain.View.Customer.V_ListCustomersForm
@@ -114,6 +118,20 @@
             listUsers.BringToFront();
             listUsers.Show();
         }
+
+        private void RolesACE_Click(object sender, EventArgs e)
+        {
+            var listRoles = new Domain.View.Role.V_ListRolesForm(_cUser)
+            {
+                TopLevel = false
+            };
+            viewsPC.Controls.Add(listRoles);
+            listRoles.Dock = DockStyle.Fill;
+            listRoles.BringToFront();
+            listRoles.Show();
+        }
+        #endregion
+
 
         private void V_MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {

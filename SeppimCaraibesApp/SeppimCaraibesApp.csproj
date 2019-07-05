@@ -318,11 +318,23 @@
     <Compile Include="Domain\View\Role\V_AddEditRoleForm.Designer.cs">
       <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Role\V_ListRolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_ListRolesForm.Designer.cs">
+      <DependentUpon>V_ListRolesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\S_WelcomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Domain\View\S_WelcomePage.Designer.cs">
       <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\User\D_DisableCauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\D_DisableCauseForm.Designer.cs">
+      <DependentUpon>D_DisableCauseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\User\V_AddEditUserForm.cs">
       <SubType>Form</SubType>
@@ -419,8 +431,14 @@
     <EmbeddedResource Include="Domain\View\Role\V_AddEditRoleForm.resx">
       <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Role\V_ListRolesForm.resx">
+      <DependentUpon>V_ListRolesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\S_WelcomePage.resx">
       <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\D_DisableCauseForm.resx">
+      <DependentUpon>D_DisableCauseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\User\V_AddEditUserForm.resx">
       <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
@@ -479,6 +497,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Img\Show_32x32.png" />
+    <None Include="Resources\Img\Show_16x16.png" />
+    <None Include="Resources\Img\Add_32x32.png" />
+    <None Include="Resources\Img\Add_16x16.png" />
     <None Include="Resources\Img\elitechicon_32x32.ico" />
     <None Include="Resources\Img\ElitechLogo.png" />
     <None Include="Resources\Img\SeppimCaraibesLogo.png" />

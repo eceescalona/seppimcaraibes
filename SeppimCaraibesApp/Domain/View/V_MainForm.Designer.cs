@@ -44,6 +44,7 @@
             this.invoicesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.usersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.rolesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
             this.mainLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
@@ -59,7 +60,7 @@
             this.mainLC.Location = new System.Drawing.Point(50, 0);
             this.mainLC.Name = "mainLC";
             this.mainLC.Root = this.mainLCG;
-            this.mainLC.Size = new System.Drawing.Size(750, 495);
+            this.mainLC.Size = new System.Drawing.Size(750, 563);
             this.mainLC.TabIndex = 0;
             this.mainLC.Text = "layoutControl1";
             // 
@@ -67,7 +68,7 @@
             // 
             this.viewsPC.Location = new System.Drawing.Point(12, 12);
             this.viewsPC.Name = "viewsPC";
-            this.viewsPC.Size = new System.Drawing.Size(726, 471);
+            this.viewsPC.Size = new System.Drawing.Size(726, 539);
             this.viewsPC.TabIndex = 5;
             // 
             // mainLCG
@@ -77,7 +78,7 @@
             this.mainLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.viewsLCI});
             this.mainLCG.Name = "mainLCG";
-            this.mainLCG.Size = new System.Drawing.Size(750, 495);
+            this.mainLCG.Size = new System.Drawing.Size(750, 563);
             this.mainLCG.TextVisible = false;
             // 
             // viewsLCI
@@ -85,7 +86,7 @@
             this.viewsLCI.Control = this.viewsPC;
             this.viewsLCI.Location = new System.Drawing.Point(0, 0);
             this.viewsLCI.Name = "viewsLCI";
-            this.viewsLCI.Size = new System.Drawing.Size(730, 475);
+            this.viewsLCI.Size = new System.Drawing.Size(730, 543);
             this.viewsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.viewsLCI.TextVisible = false;
             // 
@@ -98,13 +99,14 @@
             this.productsACE,
             this.ordersACE,
             this.invoicesACE,
-            this.usersACE});
+            this.usersACE,
+            this.rolesACE});
             this.mainAC.Location = new System.Drawing.Point(0, 0);
             this.mainAC.Name = "mainAC";
             this.mainAC.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.False;
             this.mainAC.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.mainAC.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
-            this.mainAC.Size = new System.Drawing.Size(50, 495);
+            this.mainAC.Size = new System.Drawing.Size(50, 563);
             this.mainAC.TabIndex = 0;
             this.mainAC.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -175,14 +177,21 @@
             this.mainFDFC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFDFC.Location = new System.Drawing.Point(50, 0);
             this.mainFDFC.Name = "mainFDFC";
-            this.mainFDFC.Size = new System.Drawing.Size(750, 495);
+            this.mainFDFC.Size = new System.Drawing.Size(750, 563);
             this.mainFDFC.TabIndex = 1;
+            // 
+            // rolesACE
+            // 
+            this.rolesACE.Name = "rolesACE";
+            this.rolesACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.rolesACE.Text = "Roles";
+            this.rolesACE.Click += new System.EventHandler(this.RolesACE_Click);
             // 
             // V_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 495);
+            this.ClientSize = new System.Drawing.Size(800, 563);
             this.Controls.Add(this.mainLC);
             this.Controls.Add(this.mainFDFC);
             this.Controls.Add(this.mainAC);
@@ -218,6 +227,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement invoicesACE;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer mainFDFC;
         private DevExpress.XtraBars.Navigation.AccordionControlElement usersACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement rolesACE;
     }
 }
 
