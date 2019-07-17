@@ -234,10 +234,10 @@
     <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.Designer.cs">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\Quote\D_SelectProviderForm.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\Quote\D_SelectProviderForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.Designer.cs">
       <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.cs">
@@ -264,10 +264,16 @@
     <Compile Include="Domain\View\Order\Quote\V_ListQuotesForm.Designer.cs">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\Quote\V_ReportQuoteForm.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ReportOfferForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\Quote\V_ReportQuoteForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ReportOfferForm.Designer.cs">
+      <DependentUpon>V_ReportOfferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.Designer.cs">
       <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Product\V_AddEditProductForm.cs">
@@ -299,6 +305,12 @@
     </Compile>
     <Compile Include="Domain\View\Reports\Invoice\R_Invoice.Designer.cs">
       <DependentUpon>R_Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Offer\R_Offer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Offer\R_Offer.Designer.cs">
+      <DependentUpon>R_Offer.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Reports\Order\R_Order.cs">
       <SubType>Component</SubType>
@@ -389,7 +401,7 @@
     <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\Quote\D_SelectProviderForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.resx">
       <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Order\Quote\V_AddEditQuoteForm.resx">
@@ -404,7 +416,10 @@
     <EmbeddedResource Include="Domain\View\Order\Quote\V_ListQuotesForm.resx">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\Quote\V_ReportQuoteForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_ReportOfferForm.resx">
+      <DependentUpon>V_ReportOfferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.resx">
       <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
@@ -421,6 +436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\Invoice\R_Invoice.resx">
       <DependentUpon>R_Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Offer\R_Offer.resx">
+      <DependentUpon>R_Offer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\Order\R_Order.resx">
       <DependentUpon>R_Order.cs</DependentUpon>

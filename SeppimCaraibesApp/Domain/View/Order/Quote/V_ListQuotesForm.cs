@@ -144,8 +144,10 @@
             {
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.QuotesView)quotesGV.GetRow(quotesGV.FocusedRowHandle);
-                var editOrder = new V_AddEditQuoteForm(_cOrden, row.Order_Code);
-                editOrder.StartPosition = FormStartPosition.CenterScreen;
+                var editOrder = new V_AddEditQuoteForm(_cOrden, row.Order_Code)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                };
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -208,8 +210,10 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.QuotesView)quotesGV.GetRow(quotesGV.FocusedRowHandle);
-                    var documentView = new V_ReportQuoteForm(_cOrden, row.Order_Code);
-                    documentView.StartPosition = FormStartPosition.CenterScreen;
+                    var documentView = new V_ReportOfferForm(_cOrden, row.Order_Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    };
                     documentView.BringToFront();
                     documentView.ShowDialog();
                 }
@@ -230,6 +234,11 @@
         }
 
 
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
         private void V_ListQuotesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_isCOrdenAlive && !_isCallFrom)
@@ -241,11 +250,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }
