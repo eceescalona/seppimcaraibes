@@ -10,10 +10,6 @@
 
         public string SeppimAddress { get => "Ave. Samuel Lewis, Edificio Comosa, 1er piso, Ciudad de Panamá, Panamá"; }
 
-        public  string SeppimPhone { get => "5072147082"; }
-
-        public string Contact { get => "Thomas Bouix"; }
-
 
         #region Invoice
         [StringLength(50)]
@@ -66,6 +62,11 @@
 
         public DateTime? Date { get; set; }
 
+        public int? DeliveryTime { get; set; }
+
+        public DateTime? BigingDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
         [StringLength(50)]
         public string ProviderReference { get; set; }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
 
@@ -167,7 +168,7 @@
             throw new ArgumentException("Not found.", "description");
         }
 
-        public async void LoadQuoteReport(IReport reportQuote, string code)
+        public async void LoadReport(IReport reportQuote, string code)
         {
             var reportData = await _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(reportData);
@@ -228,6 +229,11 @@
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
+                order.EXW = productsOrders.Sum(po => po.UnitPrice * po.Qty);
+                order.TotalDiscount = decimal.ToDouble((decimal)productsOrders.Sum(po => po.Discount * po.Qty));
+                order.ToltalInterests = decimal.ToDouble((decimal)productsOrders.Sum(po => po.Interests / 100 * (po.Qty * po.UnitPrice)));
+                order.TotalCost = decimal.ToDouble((decimal)(order.EXW - (decimal)order.TotalDiscount + order.Incoterm + order.Freight + order.Insurance + (decimal)order.ToltalInterests));
+                order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
                 _mOrder.EditOrder(_context, order, productsOrders);
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }

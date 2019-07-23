@@ -63,12 +63,18 @@
             var customer = context.Customers.SingleOrDefault(c => c.CustomerId == order.CustomerId);
             var provider = context.Providers.SingleOrDefault(p => p.ProviderId == order.ProviderId);
 
+            var paymentOption = GetEnumDescription(order.PaymentOption);
+            var shippingMethod = GetEnumDescription(shipment?.ShippingMethod);
+
             var data = new Data.POCO.OrderReportView
             {
                 OrderCode = order.OrderId,
                 Date = order.Date,
                 OfferPeriod = order.OfferPeriod,
                 Period = order.Period,
+                BigingDate = order.BigingDate,
+                EndDate = order.EndDate,
+                DeliveryTime = order.DeliveryTime,
                 ProviderReference = order.ProviderReference,
                 ProviderName = provider == null ? string.Empty : provider.ProviderName,
                 ProviderPhone = provider == null ? string.Empty : provider.ProviderPhone,
@@ -76,8 +82,8 @@
                 CustomerName = customer == null ? string.Empty : customer.CustomerName,
                 CustomerAddress = customer == null ? string.Empty : customer.CustomerAddress,
                 CustomerPhone = customer == null ? string.Empty : customer.CustomerPhone,
-                PaymentOption = GetEnumDescription(order.PaymentOption),
-                ShippingMethod = GetEnumDescription(shipment?.ShippingMethod),
+                PaymentOption = paymentOption,
+                ShippingMethod = shippingMethod,
                 Devise = order.Devise,
                 IncotermsType = order.IncotermType,
                 Incoterm = order.Incoterm,

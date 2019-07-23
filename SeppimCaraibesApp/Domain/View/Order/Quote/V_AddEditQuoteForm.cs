@@ -126,7 +126,8 @@
         public void RefreshView()
         {
             providerReferenceTE.Text = string.Empty;
-            offerPeriodTE.Text = string.Empty;
+            initDateDE.DateTime = DateTime.Now;
+            endDateDE.DateTime = DateTime.Now;
             incotermTE.Text = string.Empty;
             totalCostTE.Text = string.Empty;
             grossWTE.Text = string.Empty;

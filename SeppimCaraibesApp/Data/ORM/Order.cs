@@ -21,6 +21,14 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public int? OfferPeriod { get; set; }
 
+        public int? DeliveryTime { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? BigingDate { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? EndDate { get; set; }
+
         [Column(TypeName = "text")]
         public string ContractDescription { get; set; }
 

@@ -18,7 +18,7 @@
         {
             InitializeComponent();
             _cOrder = cOrder;
-            _cOrder.LoadQuoteReport(this, code);
+            _cOrder.LoadReport(this, code);
         }
 
 
