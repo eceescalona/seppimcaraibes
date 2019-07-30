@@ -24,6 +24,9 @@ namespace SeppimCaraibesApp.Data.ORM
         public int? DeliveryTime { get; set; }
 
         [Column(TypeName = "date")]
+        public DateTime? DeliveryDate { get; set; }
+
+        [Column(TypeName = "date")]
         public DateTime? BigingDate { get; set; }
 
         [Column(TypeName = "date")]

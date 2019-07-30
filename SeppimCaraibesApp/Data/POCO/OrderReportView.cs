@@ -64,6 +64,8 @@
 
         public int? DeliveryTime { get; set; }
 
+        public DateTime? DeliveryDate { get; set; }
+
         public DateTime? BigingDate { get; set; }
 
         public DateTime? EndDate { get; set; }
