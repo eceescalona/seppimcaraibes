@@ -82,6 +82,16 @@ namespace SeppimCaraibesApp.Data.ORM
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Origin>()
+               .HasMany(e => e.Products)
+               .WithMany(e => e.Origins)
+               .Map(m => m.ToTable("ProductsOrigins").MapLeftKey("OriginId").MapRightKey("ProductId"));
+
+            modelBuilder.Entity<Permission>()
+               .HasMany(e => e.Roles)
+               .WithMany(e => e.Permissions)
+               .Map(m => m.ToTable("RolePermission").MapLeftKey("PermissionId").MapRightKey("RoleId"));
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(18, 4);

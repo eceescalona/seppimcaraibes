@@ -283,8 +283,8 @@
         {
             string message = string.Format("Repita, uno de los valores es incorrecto. {0} | {1}", nick, password);
 
-            //if (ValidateUser(nick, password, out Dictionary<string, string> fields))
-            //{
+            if (ValidateUser(nick, password, out Dictionary<string, string> fields))
+            {
                 var user = _mUser.GetUser(_context, nick, password);
                 if (user != null)
                 {
@@ -294,11 +294,11 @@
                 {
                     control.ShowMessage(ETypeOfMessage.Warning, message);
                 }
-            //}
-            //else
-            //{
-            //    control.ShowFieldsWithError(fields);
-            //}
+            }
+            else
+            {
+                control.ShowFieldsWithError(fields);
+            }
         }
 
         public void SetLogginUser(Data.ORM.User user)
