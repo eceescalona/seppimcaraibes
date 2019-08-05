@@ -13,7 +13,7 @@
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Domain.View.U_LogginPage());
+            Application.Run(new V_MainForm());
         }
     }
 }
