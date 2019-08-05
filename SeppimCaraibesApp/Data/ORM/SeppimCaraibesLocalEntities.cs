@@ -82,16 +82,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Origin>()
-                .HasMany(e => e.Products)
-                .WithMany(e => e.Origins)
-                .Map(m => m.ToTable("ProductsOrigins").MapLeftKey("OriginId").MapRightKey("ProductId"));
-
-            modelBuilder.Entity<Permission>()
-                .HasMany(e => e.Roles)
-                .WithMany(e => e.Permissions)
-                .Map(m => m.ToTable("RolePermission").MapLeftKey("PermissionId").MapRightKey("RoleId"));
-
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(18, 4);
@@ -116,18 +106,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<ProductsOrder>()
                 .Property(e => e.Interests)
                 .HasPrecision(18, 4);
-
-            modelBuilder.Entity<ProductsOrder>()
-                .HasRequired(po => po.Order)
-                .WithMany(o => o.ProductsOrders)
-                .HasForeignKey(po => po.OrderId)
-                .WillCascadeOnDelete();
-
-            modelBuilder.Entity<ProductsOrder>()
-                .HasRequired(po => po.Product)
-                .WithMany(p => p.ProductsOrders)
-                .HasForeignKey(po => po.ProductId)
-                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Users)
@@ -172,6 +150,10 @@ namespace SeppimCaraibesApp.Data.ORM
 
             modelBuilder.Entity<InvoicesView>()
                 .Property(e => e.Inspection)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<OrdersView>()
+                .Property(e => e.Incoterm)
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()

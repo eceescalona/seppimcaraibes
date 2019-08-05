@@ -10,9 +10,13 @@ namespace SeppimCaraibesApp.Data.ORM
         [Column(Order = 0)]
         public int RoleId { get; set; }
 
+        [Key]
+        [Column(Order = 1)]
         [StringLength(50)]
         public string Name { get; set; }
 
+        [Key]
+        [Column(Order = 2)]
         [StringLength(250)]
         public string Description { get; set; }
 

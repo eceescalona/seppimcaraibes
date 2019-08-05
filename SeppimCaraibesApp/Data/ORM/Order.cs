@@ -21,17 +21,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public int? OfferPeriod { get; set; }
 
-        public int? DeliveryTime { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? DeliveryDate { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? BigingDate { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? EndDate { get; set; }
-
         [Column(TypeName = "text")]
         public string ContractDescription { get; set; }
 
@@ -93,6 +82,17 @@ namespace SeppimCaraibesApp.Data.ORM
 
         [StringLength(50)]
         public string InvoiceReference { get; set; }
+
+        public int? DeliveryTime { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? DeliveryDate { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? BigingDate { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? EndDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductsOrder> ProductsOrders { get; set; }
