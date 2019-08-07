@@ -85,7 +85,6 @@
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-
             var order = await _mOrder.GetOrder(_context, orderCode);
             if (order == null)
             {

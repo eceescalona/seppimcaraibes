@@ -100,10 +100,6 @@
             {
                 shipmentBS.Clear();
                 shipmentBS.DataSource = order.Shipment;
-            }
-
-            if (order.Shipment != null)
-            {
                 shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
             }
 
