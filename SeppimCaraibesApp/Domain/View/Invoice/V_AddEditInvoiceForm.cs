@@ -179,6 +179,8 @@
 
                 order.InvoiceReference = _cOrder.GetInvoiceReference(order);
 
+                order.Period = (biginDateDE.DateTime - endDateDE.DateTime).Days;
+
                 _cOrder.EditOrder(this, order);
 
 

@@ -71,6 +71,9 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.bankLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.biginDateDE = new DevExpress.XtraEditors.DateEdit();
+            this.endDateDE = new DevExpress.XtraEditors.DateEdit();
+            this.periodLC = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
             this.addEditLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -114,6 +117,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditLC
@@ -236,9 +243,9 @@
             // bankPC
             // 
             this.bankPC.Controls.Add(this.bankGC);
-            this.bankPC.Location = new System.Drawing.Point(261, 12);
+            this.bankPC.Location = new System.Drawing.Point(306, 12);
             this.bankPC.Name = "bankPC";
-            this.bankPC.Size = new System.Drawing.Size(374, 319);
+            this.bankPC.Size = new System.Drawing.Size(329, 319);
             this.bankPC.TabIndex = 6;
             // 
             // bankGC
@@ -247,7 +254,7 @@
             this.bankGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bankGC.Location = new System.Drawing.Point(2, 2);
             this.bankGC.Name = "bankGC";
-            this.bankGC.Size = new System.Drawing.Size(370, 315);
+            this.bankGC.Size = new System.Drawing.Size(325, 315);
             this.bankGC.TabIndex = 0;
             this.bankGC.Text = "Banco*:";
             // 
@@ -260,7 +267,7 @@
             this.bankLC.Location = new System.Drawing.Point(2, 20);
             this.bankLC.Name = "bankLC";
             this.bankLC.Root = this.bankLCG;
-            this.bankLC.Size = new System.Drawing.Size(366, 293);
+            this.bankLC.Size = new System.Drawing.Size(321, 293);
             this.bankLC.TabIndex = 0;
             this.bankLC.Text = "layoutControl2";
             // 
@@ -286,7 +293,7 @@
             this.addBankPC.Controls.Add(this.addBankSB);
             this.addBankPC.Location = new System.Drawing.Point(12, 255);
             this.addBankPC.Name = "addBankPC";
-            this.addBankPC.Size = new System.Drawing.Size(342, 26);
+            this.addBankPC.Size = new System.Drawing.Size(297, 26);
             this.addBankPC.TabIndex = 5;
             // 
             // addBankSB
@@ -294,7 +301,7 @@
             this.addBankSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addBankSB.Location = new System.Drawing.Point(2, 2);
             this.addBankSB.Name = "addBankSB";
-            this.addBankSB.Size = new System.Drawing.Size(338, 22);
+            this.addBankSB.Size = new System.Drawing.Size(293, 22);
             this.addBankSB.TabIndex = 0;
             this.addBankSB.Text = "Adicionar Nuevo Banco";
             this.addBankSB.Click += new System.EventHandler(this.AddBankSB_Click);
@@ -304,7 +311,7 @@
             this.banlSLUEPC.Controls.Add(this.banksSLUE);
             this.banlSLUEPC.Location = new System.Drawing.Point(12, 33);
             this.banlSLUEPC.Name = "banlSLUEPC";
-            this.banlSLUEPC.Size = new System.Drawing.Size(342, 218);
+            this.banlSLUEPC.Size = new System.Drawing.Size(297, 218);
             this.banlSLUEPC.TabIndex = 4;
             // 
             // banksSLUE
@@ -366,7 +373,7 @@
             this.addBankLCI,
             this.bankErrorLCLCI});
             this.bankLCG.Name = "bankLCG";
-            this.bankLCG.Size = new System.Drawing.Size(366, 293);
+            this.bankLCG.Size = new System.Drawing.Size(321, 293);
             this.bankLCG.TextVisible = false;
             // 
             // bankSLUELCI
@@ -374,7 +381,7 @@
             this.bankSLUELCI.Control = this.banlSLUEPC;
             this.bankSLUELCI.Location = new System.Drawing.Point(0, 21);
             this.bankSLUELCI.Name = "bankSLUELCI";
-            this.bankSLUELCI.Size = new System.Drawing.Size(346, 222);
+            this.bankSLUELCI.Size = new System.Drawing.Size(301, 222);
             this.bankSLUELCI.TextSize = new System.Drawing.Size(0, 0);
             this.bankSLUELCI.TextVisible = false;
             // 
@@ -383,7 +390,7 @@
             this.addBankLCI.Control = this.addBankPC;
             this.addBankLCI.Location = new System.Drawing.Point(0, 243);
             this.addBankLCI.Name = "addBankLCI";
-            this.addBankLCI.Size = new System.Drawing.Size(346, 30);
+            this.addBankLCI.Size = new System.Drawing.Size(301, 30);
             this.addBankLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addBankLCI.TextVisible = false;
             // 
@@ -392,12 +399,15 @@
             this.bankErrorLCLCI.Control = this.bankErrorLCPC;
             this.bankErrorLCLCI.Location = new System.Drawing.Point(0, 0);
             this.bankErrorLCLCI.Name = "bankErrorLCLCI";
-            this.bankErrorLCLCI.Size = new System.Drawing.Size(346, 21);
+            this.bankErrorLCLCI.Size = new System.Drawing.Size(301, 21);
             this.bankErrorLCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.bankErrorLCLCI.TextVisible = false;
             // 
             // formPC
             // 
+            this.formPC.Controls.Add(this.periodLC);
+            this.formPC.Controls.Add(this.endDateDE);
+            this.formPC.Controls.Add(this.biginDateDE);
             this.formPC.Controls.Add(this.totalCostTE);
             this.formPC.Controls.Add(this.totalCostLC);
             this.formPC.Controls.Add(this.inspectionTE);
@@ -406,13 +416,13 @@
             this.formPC.Controls.Add(this.insuranceLC);
             this.formPC.Location = new System.Drawing.Point(12, 12);
             this.formPC.Name = "formPC";
-            this.formPC.Size = new System.Drawing.Size(245, 319);
+            this.formPC.Size = new System.Drawing.Size(290, 319);
             this.formPC.TabIndex = 4;
             // 
             // totalCostTE
             // 
             this.totalCostTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "TotalCost", true));
-            this.totalCostTE.Location = new System.Drawing.Point(75, 88);
+            this.totalCostTE.Location = new System.Drawing.Point(75, 83);
             this.totalCostTE.Name = "totalCostTE";
             this.totalCostTE.Size = new System.Drawing.Size(128, 20);
             this.totalCostTE.TabIndex = 5;
@@ -423,7 +433,7 @@
             // 
             // totalCostLC
             // 
-            this.totalCostLC.Location = new System.Drawing.Point(10, 91);
+            this.totalCostLC.Location = new System.Drawing.Point(10, 86);
             this.totalCostLC.Name = "totalCostLC";
             this.totalCostLC.Size = new System.Drawing.Size(59, 13);
             this.totalCostLC.TabIndex = 4;
@@ -432,7 +442,7 @@
             // inspectionTE
             // 
             this.inspectionTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Inspection", true));
-            this.inspectionTE.Location = new System.Drawing.Point(75, 52);
+            this.inspectionTE.Location = new System.Drawing.Point(75, 47);
             this.inspectionTE.Name = "inspectionTE";
             this.inspectionTE.Size = new System.Drawing.Size(128, 20);
             this.inspectionTE.TabIndex = 3;
@@ -447,7 +457,7 @@
             // 
             // inspectionLC
             // 
-            this.inspectionLC.Location = new System.Drawing.Point(14, 55);
+            this.inspectionLC.Location = new System.Drawing.Point(14, 50);
             this.inspectionLC.Name = "inspectionLC";
             this.inspectionLC.Size = new System.Drawing.Size(55, 13);
             this.inspectionLC.TabIndex = 1;
@@ -478,16 +488,16 @@
             this.formLCI.Control = this.formPC;
             this.formLCI.Location = new System.Drawing.Point(0, 0);
             this.formLCI.Name = "formLCI";
-            this.formLCI.Size = new System.Drawing.Size(249, 323);
+            this.formLCI.Size = new System.Drawing.Size(294, 323);
             this.formLCI.TextSize = new System.Drawing.Size(0, 0);
             this.formLCI.TextVisible = false;
             // 
             // bankLCI
             // 
             this.bankLCI.Control = this.bankPC;
-            this.bankLCI.Location = new System.Drawing.Point(249, 0);
+            this.bankLCI.Location = new System.Drawing.Point(294, 0);
             this.bankLCI.Name = "bankLCI";
-            this.bankLCI.Size = new System.Drawing.Size(378, 323);
+            this.bankLCI.Size = new System.Drawing.Size(333, 323);
             this.bankLCI.TextSize = new System.Drawing.Size(0, 0);
             this.bankLCI.TextVisible = false;
             // 
@@ -499,6 +509,38 @@
             this.buttonsLCI.Size = new System.Drawing.Size(627, 59);
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
+            // 
+            // biginDateDE
+            // 
+            this.biginDateDE.EditValue = null;
+            this.biginDateDE.Location = new System.Drawing.Point(75, 120);
+            this.biginDateDE.Name = "biginDateDE";
+            this.biginDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.biginDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.biginDateDE.Size = new System.Drawing.Size(100, 20);
+            this.biginDateDE.TabIndex = 6;
+            // 
+            // endDateDE
+            // 
+            this.endDateDE.EditValue = null;
+            this.endDateDE.Location = new System.Drawing.Point(181, 120);
+            this.endDateDE.Name = "endDateDE";
+            this.endDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.endDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.endDateDE.Size = new System.Drawing.Size(100, 20);
+            this.endDateDE.TabIndex = 7;
+            // 
+            // periodLC
+            // 
+            this.periodLC.Location = new System.Drawing.Point(29, 123);
+            this.periodLC.Name = "periodLC";
+            this.periodLC.Size = new System.Drawing.Size(40, 13);
+            this.periodLC.TabIndex = 8;
+            this.periodLC.Text = "Período:";
             // 
             // V_AddEditInvoiceForm
             // 
@@ -558,6 +600,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,5 +651,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView bankGV;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colAccountNumber;
+        private DevExpress.XtraEditors.LabelControl periodLC;
+        private DevExpress.XtraEditors.DateEdit endDateDE;
+        private DevExpress.XtraEditors.DateEdit biginDateDE;
     }
 }
