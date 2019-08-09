@@ -54,6 +54,8 @@
                         if (row.ProductId == product.ProductId)
                         {
                             row.Qty = product.Qty;
+                            row.Discount = product.Discount;
+                            row.Interests = product.Interests;
                             productsGV.SelectRow(e.RowHandle);
                         }
                     }

@@ -33,6 +33,7 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
@@ -74,7 +75,6 @@
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -104,6 +104,16 @@
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1});
             this.BottomMargin.Name = "BottomMargin";
+            // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(540F, 9.999974F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.Number;
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // Detail
             // 
@@ -531,7 +541,7 @@
             this.xrLabel20.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel20.StylePriority.UseTextAlignment = false;
             this.xrLabel20.Text = "Flete: [Freight!€0.00]";
-            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel20.WordWrap = false;
             // 
             // xrLabel19
@@ -561,16 +571,6 @@
             this.xrLabel18.SizeF = new System.Drawing.SizeF(629.9998F, 23F);
             this.xrLabel18.Text = "Contrato: [ContractDescription]";
             this.xrLabel18.WordWrap = false;
-            // 
-            // xrPageInfo1
-            // 
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(540F, 9.999974F);
-            this.xrPageInfo1.Name = "xrPageInfo1";
-            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.Number;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
-            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // R_Order
             // 
