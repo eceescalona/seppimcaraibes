@@ -228,11 +228,6 @@
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                order.EXW = productsOrders.Sum(po => po.UnitPrice * po.Qty);
-                order.TotalDiscount = decimal.ToDouble((decimal)productsOrders.Sum(po => po.Discount * po.Qty));
-                order.ToltalInterests = decimal.ToDouble((decimal)productsOrders.Sum(po => po.Interests / 100 * (po.Qty * po.UnitPrice)));
-                order.TotalCost = decimal.ToDouble((decimal)(order.EXW - (decimal)order.TotalDiscount + order.Incoterm + order.Freight + order.Insurance + (decimal)order.ToltalInterests));
-                order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
                 _mOrder.EditOrder(_context, order, productsOrders);
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }

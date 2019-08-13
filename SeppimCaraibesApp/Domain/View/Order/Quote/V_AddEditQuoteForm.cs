@@ -131,7 +131,7 @@
             grossWTE.Text = string.Empty;
             netWTE.Text = string.Empty;
             packingTE.Text = string.Empty;
-            placeDTE.Text = string.Empty;
+            placeDME.Text = string.Empty;
 
             providerRErrorLC.LookAndFeel.UseDefaultLookAndFeel = false;
             providerRErrorLC.Text = string.Empty;
@@ -213,6 +213,26 @@
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
                 shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
                 order.Shipment = shipment;
+
+                order.EXW = products.Sum(po => po.UnitPrice * po.Qty);
+
+                decimal.TryParse(expensesTE.Text, out decimal expenses);
+
+                order.TotalCost = decimal.ToDouble((decimal)(order.EXW - (decimal)order.TotalDiscount + expenses + order.Freight + order.Insurance)) + order.ToltalInterests;
+
+                order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
+
+                if (expensesTypeRG.SelectedIndex == 0)
+                {
+                    decimal.TryParse(expensesTE.Text, out decimal result);
+                    order.FCA = result;
+                }
+
+                if (expensesTypeRG.SelectedIndex == 1)
+                {
+                    decimal.TryParse(expensesTE.Text, out decimal result);
+                    order.FOB = result;
+                }
 
                 _cOrder.EditOrder(this, order, products);
 

@@ -40,7 +40,6 @@
             this.shipmentPC = new DevExpress.XtraEditors.PanelControl();
             this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
-            this.placeDTE = new DevExpress.XtraEditors.TextEdit();
             this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
             this.packingTE = new DevExpress.XtraEditors.TextEdit();
             this.netWTE = new DevExpress.XtraEditors.TextEdit();
@@ -51,6 +50,13 @@
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
+            this.interesLC = new DevExpress.XtraEditors.LabelControl();
+            this.discountLC = new DevExpress.XtraEditors.LabelControl();
+            this.interesTE = new DevExpress.XtraEditors.TextEdit();
+            this.discountTE = new DevExpress.XtraEditors.TextEdit();
+            this.expensesTypeRG = new DevExpress.XtraEditors.RadioGroup();
+            this.expensesLC = new DevExpress.XtraEditors.LabelControl();
+            this.expensesTE = new DevExpress.XtraEditors.TextEdit();
             this.deliveryDateLC = new DevExpress.XtraEditors.LabelControl();
             this.deliveryDateDE = new DevExpress.XtraEditors.DateEdit();
             this.deliveryTimeLC = new DevExpress.XtraEditors.LabelControl();
@@ -104,6 +110,9 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.placeDME = new DevExpress.XtraEditors.MemoEdit();
+            this.descriptionME = new DevExpress.XtraEditors.MemoEdit();
+            this.descriptionLC = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -118,13 +127,16 @@
             this.shipmentPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
             this.quotePC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryTimeTE.Properties)).BeginInit();
@@ -168,6 +180,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -188,7 +202,6 @@
             // 
             this.observationPC.Controls.Add(this.observationME);
             this.observationPC.Controls.Add(this.observationLC);
-            this.observationPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.observationPC.Location = new System.Drawing.Point(570, 375);
             this.observationPC.Name = "observationPC";
             this.observationPC.Size = new System.Drawing.Size(392, 121);
@@ -217,7 +230,6 @@
             // formPC
             // 
             this.formPC.Controls.Add(this.formLC);
-            this.formPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formPC.Location = new System.Drawing.Point(12, 12);
             this.formPC.Name = "formPC";
             this.formPC.Size = new System.Drawing.Size(554, 534);
@@ -237,8 +249,10 @@
             // 
             // shipmentPC
             // 
+            this.shipmentPC.Controls.Add(this.descriptionLC);
+            this.shipmentPC.Controls.Add(this.descriptionME);
+            this.shipmentPC.Controls.Add(this.placeDME);
             this.shipmentPC.Controls.Add(this.shipmentMLUE);
-            this.shipmentPC.Controls.Add(this.placeDTE);
             this.shipmentPC.Controls.Add(this.packingTE);
             this.shipmentPC.Controls.Add(this.netWTE);
             this.shipmentPC.Controls.Add(this.grossWTE);
@@ -247,7 +261,6 @@
             this.shipmentPC.Controls.Add(this.packingLC);
             this.shipmentPC.Controls.Add(this.netWeightLC);
             this.shipmentPC.Controls.Add(this.grossWeightLC);
-            this.shipmentPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.shipmentPC.Location = new System.Drawing.Point(12, 314);
             this.shipmentPC.Name = "shipmentPC";
             this.shipmentPC.Size = new System.Drawing.Size(526, 204);
@@ -255,7 +268,7 @@
             // 
             // shipmentMLUE
             // 
-            this.shipmentMLUE.Location = new System.Drawing.Point(105, 116);
+            this.shipmentMLUE.Location = new System.Drawing.Point(142, 137);
             this.shipmentMLUE.Name = "shipmentMLUE";
             this.shipmentMLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -264,14 +277,6 @@
             this.shipmentMLUE.Size = new System.Drawing.Size(219, 20);
             this.shipmentMLUE.TabIndex = 9;
             // 
-            // placeDTE
-            // 
-            this.placeDTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PlaceDeparture", true));
-            this.placeDTE.Location = new System.Drawing.Point(105, 90);
-            this.placeDTE.Name = "placeDTE";
-            this.placeDTE.Size = new System.Drawing.Size(416, 20);
-            this.placeDTE.TabIndex = 8;
-            // 
             // shipmentBS
             // 
             this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
@@ -279,7 +284,7 @@
             // packingTE
             // 
             this.packingTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "Packing", true));
-            this.packingTE.Location = new System.Drawing.Point(105, 64);
+            this.packingTE.Location = new System.Drawing.Point(142, 66);
             this.packingTE.Name = "packingTE";
             this.packingTE.Size = new System.Drawing.Size(176, 20);
             this.packingTE.TabIndex = 7;
@@ -287,7 +292,7 @@
             // netWTE
             // 
             this.netWTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "NetWeight", true));
-            this.netWTE.Location = new System.Drawing.Point(105, 38);
+            this.netWTE.Location = new System.Drawing.Point(142, 38);
             this.netWTE.Name = "netWTE";
             this.netWTE.Size = new System.Drawing.Size(100, 20);
             this.netWTE.TabIndex = 6;
@@ -295,14 +300,14 @@
             // grossWTE
             // 
             this.grossWTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "GrossWeight", true));
-            this.grossWTE.Location = new System.Drawing.Point(105, 12);
+            this.grossWTE.Location = new System.Drawing.Point(142, 12);
             this.grossWTE.Name = "grossWTE";
             this.grossWTE.Size = new System.Drawing.Size(100, 20);
             this.grossWTE.TabIndex = 5;
             // 
             // shipmentMethodLC
             // 
-            this.shipmentMethodLC.Location = new System.Drawing.Point(15, 119);
+            this.shipmentMethodLC.Location = new System.Drawing.Point(52, 140);
             this.shipmentMethodLC.Name = "shipmentMethodLC";
             this.shipmentMethodLC.Size = new System.Drawing.Size(84, 13);
             this.shipmentMethodLC.TabIndex = 4;
@@ -310,7 +315,7 @@
             // 
             // placeDepartureLC
             // 
-            this.placeDepartureLC.Location = new System.Drawing.Point(22, 93);
+            this.placeDepartureLC.Location = new System.Drawing.Point(59, 94);
             this.placeDepartureLC.Name = "placeDepartureLC";
             this.placeDepartureLC.Size = new System.Drawing.Size(77, 13);
             this.placeDepartureLC.TabIndex = 3;
@@ -318,7 +323,7 @@
             // 
             // packingLC
             // 
-            this.packingLC.Location = new System.Drawing.Point(52, 67);
+            this.packingLC.Location = new System.Drawing.Point(89, 69);
             this.packingLC.Name = "packingLC";
             this.packingLC.Size = new System.Drawing.Size(47, 13);
             this.packingLC.TabIndex = 2;
@@ -326,7 +331,7 @@
             // 
             // netWeightLC
             // 
-            this.netWeightLC.Location = new System.Drawing.Point(46, 41);
+            this.netWeightLC.Location = new System.Drawing.Point(83, 41);
             this.netWeightLC.Name = "netWeightLC";
             this.netWeightLC.Size = new System.Drawing.Size(53, 13);
             this.netWeightLC.TabIndex = 1;
@@ -334,7 +339,7 @@
             // 
             // grossWeightLC
             // 
-            this.grossWeightLC.Location = new System.Drawing.Point(43, 15);
+            this.grossWeightLC.Location = new System.Drawing.Point(80, 15);
             this.grossWeightLC.Name = "grossWeightLC";
             this.grossWeightLC.Size = new System.Drawing.Size(56, 13);
             this.grossWeightLC.TabIndex = 0;
@@ -342,6 +347,13 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.interesLC);
+            this.quotePC.Controls.Add(this.discountLC);
+            this.quotePC.Controls.Add(this.interesTE);
+            this.quotePC.Controls.Add(this.discountTE);
+            this.quotePC.Controls.Add(this.expensesTypeRG);
+            this.quotePC.Controls.Add(this.expensesLC);
+            this.quotePC.Controls.Add(this.expensesTE);
             this.quotePC.Controls.Add(this.deliveryDateLC);
             this.quotePC.Controls.Add(this.deliveryDateDE);
             this.quotePC.Controls.Add(this.deliveryTimeLC);
@@ -365,11 +377,67 @@
             this.quotePC.Controls.Add(this.incotermLC);
             this.quotePC.Controls.Add(this.periodOfferLC);
             this.quotePC.Controls.Add(this.providerReferenceLC);
-            this.quotePC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quotePC.Location = new System.Drawing.Point(12, 12);
             this.quotePC.Name = "quotePC";
             this.quotePC.Size = new System.Drawing.Size(526, 298);
             this.quotePC.TabIndex = 4;
+            // 
+            // interesLC
+            // 
+            this.interesLC.Location = new System.Drawing.Point(311, 189);
+            this.interesLC.Name = "interesLC";
+            this.interesLC.Size = new System.Drawing.Size(39, 13);
+            this.interesLC.TabIndex = 29;
+            this.interesLC.Text = "Interes:";
+            // 
+            // discountLC
+            // 
+            this.discountLC.Location = new System.Drawing.Point(295, 163);
+            this.discountLC.Name = "discountLC";
+            this.discountLC.Size = new System.Drawing.Size(55, 13);
+            this.discountLC.TabIndex = 28;
+            this.discountLC.Text = "Descuento:";
+            // 
+            // interesTE
+            // 
+            this.interesTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "ToltalInterests", true));
+            this.interesTE.Location = new System.Drawing.Point(356, 186);
+            this.interesTE.Name = "interesTE";
+            this.interesTE.Size = new System.Drawing.Size(100, 20);
+            this.interesTE.TabIndex = 27;
+            // 
+            // discountTE
+            // 
+            this.discountTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "TotalDiscount", true));
+            this.discountTE.Location = new System.Drawing.Point(356, 160);
+            this.discountTE.Name = "discountTE";
+            this.discountTE.Size = new System.Drawing.Size(100, 20);
+            this.discountTE.TabIndex = 26;
+            // 
+            // expensesTypeRG
+            // 
+            this.expensesTypeRG.Location = new System.Drawing.Point(303, 238);
+            this.expensesTypeRG.Name = "expensesTypeRG";
+            this.expensesTypeRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "FCA"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "FOB")});
+            this.expensesTypeRG.Size = new System.Drawing.Size(153, 52);
+            this.expensesTypeRG.TabIndex = 25;
+            // 
+            // expensesLC
+            // 
+            this.expensesLC.Location = new System.Drawing.Point(110, 241);
+            this.expensesLC.Name = "expensesLC";
+            this.expensesLC.Size = new System.Drawing.Size(37, 13);
+            this.expensesLC.TabIndex = 24;
+            this.expensesLC.Text = "Gastos:";
+            // 
+            // expensesTE
+            // 
+            this.expensesTE.Location = new System.Drawing.Point(153, 238);
+            this.expensesTE.Name = "expensesTE";
+            this.expensesTE.Size = new System.Drawing.Size(100, 20);
+            this.expensesTE.TabIndex = 23;
             // 
             // deliveryDateLC
             // 
@@ -631,7 +699,6 @@
             // 
             this.cancelPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelPC.Location = new System.Drawing.Point(200, 12);
             this.cancelPC.Name = "cancelPC";
             this.cancelPC.Size = new System.Drawing.Size(180, 22);
@@ -652,7 +719,6 @@
             // 
             this.acceptPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptPC.Location = new System.Drawing.Point(12, 12);
             this.acceptPC.Name = "acceptPC";
             this.acceptPC.Size = new System.Drawing.Size(184, 22);
@@ -700,7 +766,6 @@
             // productsPC
             // 
             this.productsPC.Controls.Add(this.productGC);
-            this.productsPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsPC.Location = new System.Drawing.Point(570, 12);
             this.productsPC.Name = "productsPC";
             this.productsPC.Size = new System.Drawing.Size(392, 359);
@@ -836,6 +901,29 @@
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
             // 
+            // placeDME
+            // 
+            this.placeDME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PlaceDeparture", true));
+            this.placeDME.Location = new System.Drawing.Point(142, 92);
+            this.placeDME.Name = "placeDME";
+            this.placeDME.Size = new System.Drawing.Size(379, 39);
+            this.placeDME.TabIndex = 10;
+            // 
+            // descriptionME
+            // 
+            this.descriptionME.Location = new System.Drawing.Point(142, 163);
+            this.descriptionME.Name = "descriptionME";
+            this.descriptionME.Size = new System.Drawing.Size(379, 36);
+            this.descriptionME.TabIndex = 11;
+            // 
+            // descriptionLC
+            // 
+            this.descriptionLC.Location = new System.Drawing.Point(15, 164);
+            this.descriptionLC.Name = "descriptionLC";
+            this.descriptionLC.Size = new System.Drawing.Size(121, 13);
+            this.descriptionLC.TabIndex = 12;
+            this.descriptionLC.Text = "Descripción del Embalaje:";
+            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -865,7 +953,6 @@
             this.shipmentPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).EndInit();
@@ -873,6 +960,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
             this.quotePC.ResumeLayout(false);
             this.quotePC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryTimeTE.Properties)).EndInit();
@@ -916,6 +1007,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -937,7 +1030,6 @@
         private DevExpress.XtraLayout.LayoutControlItem shipmentLCI;
         private DevExpress.XtraLayout.LayoutControlItem formLCI;
         private DevExpress.XtraEditors.LookUpEdit shipmentMLUE;
-        private DevExpress.XtraEditors.TextEdit placeDTE;
         private DevExpress.XtraEditors.TextEdit packingTE;
         private DevExpress.XtraEditors.TextEdit netWTE;
         private DevExpress.XtraEditors.TextEdit grossWTE;
@@ -996,5 +1088,15 @@
         private DevExpress.XtraEditors.TextEdit deliveryTimeTE;
         private DevExpress.XtraEditors.LabelControl deliveryDateLC;
         private DevExpress.XtraEditors.DateEdit deliveryDateDE;
+        private DevExpress.XtraEditors.RadioGroup expensesTypeRG;
+        private DevExpress.XtraEditors.LabelControl expensesLC;
+        private DevExpress.XtraEditors.TextEdit expensesTE;
+        private DevExpress.XtraEditors.LabelControl interesLC;
+        private DevExpress.XtraEditors.LabelControl discountLC;
+        private DevExpress.XtraEditors.TextEdit interesTE;
+        private DevExpress.XtraEditors.TextEdit discountTE;
+        private DevExpress.XtraEditors.LabelControl descriptionLC;
+        private DevExpress.XtraEditors.MemoEdit descriptionME;
+        private DevExpress.XtraEditors.MemoEdit placeDME;
     }
 }
