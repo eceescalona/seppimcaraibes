@@ -38,9 +38,12 @@
             this.formPC = new DevExpress.XtraEditors.PanelControl();
             this.formLC = new DevExpress.XtraLayout.LayoutControl();
             this.shipmentPC = new DevExpress.XtraEditors.PanelControl();
+            this.descriptionLC = new DevExpress.XtraEditors.LabelControl();
+            this.descriptionME = new DevExpress.XtraEditors.MemoEdit();
+            this.placeDME = new DevExpress.XtraEditors.MemoEdit();
+            this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
             this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
-            this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
             this.packingTE = new DevExpress.XtraEditors.TextEdit();
             this.netWTE = new DevExpress.XtraEditors.TextEdit();
             this.grossWTE = new DevExpress.XtraEditors.TextEdit();
@@ -110,9 +113,6 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.placeDME = new DevExpress.XtraEditors.MemoEdit();
-            this.descriptionME = new DevExpress.XtraEditors.MemoEdit();
-            this.descriptionLC = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -125,9 +125,11 @@
             this.formLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentPC)).BeginInit();
             this.shipmentPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
@@ -180,8 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -266,6 +266,33 @@
             this.shipmentPC.Size = new System.Drawing.Size(526, 204);
             this.shipmentPC.TabIndex = 0;
             // 
+            // descriptionLC
+            // 
+            this.descriptionLC.Location = new System.Drawing.Point(15, 164);
+            this.descriptionLC.Name = "descriptionLC";
+            this.descriptionLC.Size = new System.Drawing.Size(121, 13);
+            this.descriptionLC.TabIndex = 12;
+            this.descriptionLC.Text = "Descripción del Embalaje:";
+            // 
+            // descriptionME
+            // 
+            this.descriptionME.Location = new System.Drawing.Point(142, 163);
+            this.descriptionME.Name = "descriptionME";
+            this.descriptionME.Size = new System.Drawing.Size(379, 36);
+            this.descriptionME.TabIndex = 11;
+            // 
+            // placeDME
+            // 
+            this.placeDME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PlaceDeparture", true));
+            this.placeDME.Location = new System.Drawing.Point(142, 92);
+            this.placeDME.Name = "placeDME";
+            this.placeDME.Size = new System.Drawing.Size(379, 39);
+            this.placeDME.TabIndex = 10;
+            // 
+            // shipmentBS
+            // 
+            this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
+            // 
             // shipmentMLUE
             // 
             this.shipmentMLUE.Location = new System.Drawing.Point(142, 137);
@@ -276,10 +303,6 @@
             this.shipmentMLUE.Properties.NullText = "";
             this.shipmentMLUE.Size = new System.Drawing.Size(219, 20);
             this.shipmentMLUE.TabIndex = 9;
-            // 
-            // shipmentBS
-            // 
-            this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
             // 
             // packingTE
             // 
@@ -416,6 +439,7 @@
             // 
             // expensesTypeRG
             // 
+            this.expensesTypeRG.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderBS, "ExpensesType", true));
             this.expensesTypeRG.Location = new System.Drawing.Point(303, 238);
             this.expensesTypeRG.Name = "expensesTypeRG";
             this.expensesTypeRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
@@ -434,6 +458,7 @@
             // 
             // expensesTE
             // 
+            this.expensesTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Expenses", true));
             this.expensesTE.Location = new System.Drawing.Point(153, 238);
             this.expensesTE.Name = "expensesTE";
             this.expensesTE.Size = new System.Drawing.Size(100, 20);
@@ -901,29 +926,6 @@
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
             // 
-            // placeDME
-            // 
-            this.placeDME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PlaceDeparture", true));
-            this.placeDME.Location = new System.Drawing.Point(142, 92);
-            this.placeDME.Name = "placeDME";
-            this.placeDME.Size = new System.Drawing.Size(379, 39);
-            this.placeDME.TabIndex = 10;
-            // 
-            // descriptionME
-            // 
-            this.descriptionME.Location = new System.Drawing.Point(142, 163);
-            this.descriptionME.Name = "descriptionME";
-            this.descriptionME.Size = new System.Drawing.Size(379, 36);
-            this.descriptionME.TabIndex = 11;
-            // 
-            // descriptionLC
-            // 
-            this.descriptionLC.Location = new System.Drawing.Point(15, 164);
-            this.descriptionLC.Name = "descriptionLC";
-            this.descriptionLC.Size = new System.Drawing.Size(121, 13);
-            this.descriptionLC.TabIndex = 12;
-            this.descriptionLC.Text = "Descripción del Embalaje:";
-            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -951,9 +953,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipmentPC)).EndInit();
             this.shipmentPC.ResumeLayout(false);
             this.shipmentPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).EndInit();
@@ -1007,8 +1011,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

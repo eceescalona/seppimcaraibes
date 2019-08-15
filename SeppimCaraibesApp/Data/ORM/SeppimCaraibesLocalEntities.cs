@@ -58,11 +58,7 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
-                .Property(e => e.FCA)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.FOB)
+                .Property(e => e.Expenses)
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
@@ -108,14 +104,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasMany(e => e.Providers)
                 .WithMany(e => e.Products)
                 .Map(m => m.ToTable("ProductsProviders").MapLeftKey("ProductId").MapRightKey("ProviderId"));
-
-            modelBuilder.Entity<ProductsOrder>()
-                .Property(e => e.Discount)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<ProductsOrder>()
-                .Property(e => e.Interests)
-                .HasPrecision(18, 4);
 
             modelBuilder.Entity<ProductsOrder>()
                 .HasRequired(e => e.Order)

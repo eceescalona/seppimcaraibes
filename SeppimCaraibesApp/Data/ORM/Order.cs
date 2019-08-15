@@ -46,10 +46,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public decimal? Freight { get; set; }
 
-        public decimal? FCA { get; set; }
-
-        public decimal? FOB { get; set; }
-
         public decimal? Insurance { get; set; }
 
         public decimal? Inspection { get; set; }
@@ -93,6 +89,10 @@ namespace SeppimCaraibesApp.Data.ORM
 
         [Column(TypeName = "date")]
         public DateTime? EndDate { get; set; }
+
+        public EExpenses? ExpensesType { get; set; }
+
+        public decimal? Expenses { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductsOrder> ProductsOrders { get; set; }

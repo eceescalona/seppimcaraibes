@@ -54,8 +54,6 @@
                         if (row.ProductId == product.ProductId)
                         {
                             row.Qty = product.Qty;
-                            row.Discount = product.Discount;
-                            row.Interests = product.Interests;
                             productsGV.SelectRow(e.RowHandle);
                         }
                     }
@@ -221,18 +219,6 @@
                 order.TotalCost = decimal.ToDouble((decimal)(order.EXW - (decimal)order.TotalDiscount + expenses + order.Freight + order.Insurance)) + order.ToltalInterests;
 
                 order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
-
-                if (expensesTypeRG.SelectedIndex == 0)
-                {
-                    decimal.TryParse(expensesTE.Text, out decimal result);
-                    order.FCA = result;
-                }
-
-                if (expensesTypeRG.SelectedIndex == 1)
-                {
-                    decimal.TryParse(expensesTE.Text, out decimal result);
-                    order.FOB = result;
-                }
 
                 _cOrder.EditOrder(this, order, products);
 

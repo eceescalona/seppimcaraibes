@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\EExpenses.cs" />
     <Compile Include="Data\EIncoterms.cs" />
     <Compile Include="Data\EDevise.cs" />
     <Compile Include="Data\EInvoiceState.cs" />

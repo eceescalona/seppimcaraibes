@@ -17,10 +17,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public int? Qty { get; set; }
 
-        public decimal? Discount { get; set; }
-
-        public decimal? Interests { get; set; }
-
         public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }

@@ -57,8 +57,10 @@
             var reports = new List<Data.POCO.OrderReportView>();
             var products = new List<Data.POCO.ProductsOrders>();
             var rOrder = new Data.Repository.OrderRepository();
+
             var order = await rOrder.GetOrder(context, code);
             var bank = context.Banks.SingleOrDefault(b => b.BankId == order.BankId);
+
             var shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
             var customer = context.Customers.SingleOrDefault(c => c.CustomerId == order.CustomerId);
             var provider = context.Providers.SingleOrDefault(p => p.ProviderId == order.ProviderId);
@@ -104,7 +106,9 @@
                 BankName = bank == null ? string.Empty : bank.BankName,
                 AccountNumber = bank == null ? string.Empty : bank.AccountNumber,
                 AccountName = bank == null ? string.Empty : bank.AccountName,
-                InvoiceReference = order.InvoiceReference
+                InvoiceReference = order.InvoiceReference,
+                Expenses = order.Expenses,
+                ExpensesType = order.ExpensesType
             };
 
             foreach (var productOrder in order.ProductsOrders)
@@ -114,8 +118,6 @@
                     ProductId = productOrder.ProductId,
                     ProductName = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.ProductName,
                     Qty = productOrder.Qty,
-                    Discount = productOrder.Discount,
-                    Interests = productOrder.Interests,
                     UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice
                 };
 
@@ -139,9 +141,7 @@
                     {
                         OrderId = order.OrderId,
                         ProductId = product.ProductId,
-                        Qty = product.Qty,
-                        Discount = product.Discount,
-                        Interests = product.Interests
+                        Qty = product.Qty
                     };
 
                     order.ProductsOrders.Add(productOrder);
@@ -161,21 +161,6 @@
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            if (order.IncotermType == EIncoterms.EXW)
-            {
-                order.EXW = order.Incoterm;
-            }
-
-            if (order.IncotermType == EIncoterms.FOB)
-            {
-                order.FOB = order.Incoterm;
-            }
-
-            if (order.IncotermType == EIncoterms.FCA)
-            {
-                order.FCA = order.Incoterm;
-            }
-
             rOrder.EditOrder(context, order);
         }
 
@@ -190,9 +175,7 @@
                 {
                     OrderId = order.OrderId,
                     ProductId = product.ProductId,
-                    Qty = product.Qty,
-                    Discount = product.Discount,
-                    Interests = product.Interests
+                    Qty = product.Qty
                 };
 
                 productsOrders.Add(productOrder);

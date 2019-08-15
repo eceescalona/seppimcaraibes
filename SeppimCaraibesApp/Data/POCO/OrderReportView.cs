@@ -112,5 +112,9 @@
         public string ContractDescription { get; set; }
 
         public int? Period { get; set; }
+
+        public EExpenses? ExpensesType { get; set; }
+
+        public decimal? Expenses { get; set; }
     }
 }

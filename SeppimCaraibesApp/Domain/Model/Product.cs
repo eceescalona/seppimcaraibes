@@ -18,8 +18,6 @@
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
                     Qty = 0,
-                    Discount = 0,
-                    Interests = 0,
                     UnitPrice = product.UnitPrice
                 };
 
