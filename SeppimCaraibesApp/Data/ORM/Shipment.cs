@@ -20,6 +20,9 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(250)]
         public string PlaceDeparture { get; set; }
 
+        [StringLength(250)]
+        public string PackingDesciption { get; set; }
+
         public virtual Order Order { get; set; }
     }
 }

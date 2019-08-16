@@ -32,7 +32,7 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public int? Period { get; set; }
 
-        public EPeriodState? PeriodState { get; set; }
+        public ECommercialValue? CommercialValue { get; set; }
 
         public decimal? Incoterm { get; set; }
 

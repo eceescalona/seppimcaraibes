@@ -33,6 +33,7 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.titleXRL = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLine7 = new DevExpress.XtraReports.UI.XRLine();
             this.contractXRL = new DevExpress.XtraReports.UI.XRLabel();
@@ -48,6 +49,14 @@
             this.xrLine8 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine5 = new DevExpress.XtraReports.UI.XRLine();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
+            this.periodXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.paymentOptionsXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.paymentXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.accountNumberXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.accountNameXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.bankNameXRL = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.incotermXRL = new DevExpress.XtraReports.UI.XRLabel();
             this.totalInterestesXRL = new DevExpress.XtraReports.UI.XRLabel();
             this.totalDiscountXRL = new DevExpress.XtraReports.UI.XRLabel();
@@ -77,17 +86,7 @@
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
-            this.periodXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.paymentOptionsXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.paymentXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.accountNumberXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.accountNameXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.bankNameXRL = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.invoiceODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceODS)).BeginInit();
@@ -122,6 +121,17 @@
             this.BottomMargin.Dpi = 96F;
             this.BottomMargin.HeightF = 96F;
             this.BottomMargin.Name = "BottomMargin";
+            // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.Dpi = 96F;
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(518F, 10F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.Number;
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // Detail
             // 
@@ -306,6 +316,8 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine3,
+            this.exwXRL,
             this.incotermXRL,
             this.totalInterestesXRL,
             this.totalDiscountXRL,
@@ -313,15 +325,131 @@
             this.insuranceXRL,
             this.freightXRL,
             this.subEXWXRL,
-            this.exwXRL,
+            this.totalCostXRL,
             this.xrLine6,
             this.xrLine4,
-            this.xrLine3,
-            this.totalCostXRL});
+            this.xrLine1,
+            this.periodXRL,
+            this.paymentOptionsXRL,
+            this.paymentXRL,
+            this.accountNumberXRL,
+            this.accountNameXRL,
+            this.bankNameXRL,
+            this.xrLine2});
             this.GroupFooter1.Dpi = 96F;
-            this.GroupFooter1.HeightF = 265.1199F;
+            this.GroupFooter1.HeightF = 441.6001F;
             this.GroupFooter1.KeepTogether = true;
             this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // xrLine1
+            // 
+            this.xrLine1.Dpi = 96F;
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(10F, 353.2802F);
+            this.xrLine1.Name = "xrLine1";
+            this.xrLine1.SizeF = new System.Drawing.SizeF(604F, 22.08F);
+            // 
+            // periodXRL
+            // 
+            this.periodXRL.AutoWidth = true;
+            this.periodXRL.CanGrow = false;
+            this.periodXRL.Dpi = 96F;
+            this.periodXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 419.5201F);
+            this.periodXRL.Multiline = true;
+            this.periodXRL.Name = "periodXRL";
+            this.periodXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.periodXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
+            this.periodXRL.StylePriority.UseTextAlignment = false;
+            this.periodXRL.Text = "Término de Pago: [Period]";
+            this.periodXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.periodXRL.WordWrap = false;
+            // 
+            // paymentOptionsXRL
+            // 
+            this.paymentOptionsXRL.AutoWidth = true;
+            this.paymentOptionsXRL.CanGrow = false;
+            this.paymentOptionsXRL.Dpi = 96F;
+            this.paymentOptionsXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 397.4401F);
+            this.paymentOptionsXRL.Multiline = true;
+            this.paymentOptionsXRL.Name = "paymentOptionsXRL";
+            this.paymentOptionsXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.paymentOptionsXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.paymentOptionsXRL.StylePriority.UseTextAlignment = false;
+            this.paymentOptionsXRL.Text = "Forma de Pago: [PaymentOption]";
+            this.paymentOptionsXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.paymentOptionsXRL.WordWrap = false;
+            // 
+            // paymentXRL
+            // 
+            this.paymentXRL.AutoWidth = true;
+            this.paymentXRL.CanGrow = false;
+            this.paymentXRL.Dpi = 96F;
+            this.paymentXRL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.paymentXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 375.3601F);
+            this.paymentXRL.Multiline = true;
+            this.paymentXRL.Name = "paymentXRL";
+            this.paymentXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.paymentXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
+            this.paymentXRL.StylePriority.UseFont = false;
+            this.paymentXRL.Text = "Condiciones de Pago";
+            this.paymentXRL.WordWrap = false;
+            // 
+            // accountNumberXRL
+            // 
+            this.accountNumberXRL.AutoWidth = true;
+            this.accountNumberXRL.CanGrow = false;
+            this.accountNumberXRL.Dpi = 96F;
+            this.accountNumberXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AccountNumber]")});
+            this.accountNumberXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 331.2001F);
+            this.accountNumberXRL.Multiline = true;
+            this.accountNumberXRL.Name = "accountNumberXRL";
+            this.accountNumberXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.accountNumberXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
+            this.accountNumberXRL.StylePriority.UseTextAlignment = false;
+            this.accountNumberXRL.Text = "accountNumberXRL";
+            this.accountNumberXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.accountNumberXRL.WordWrap = false;
+            // 
+            // accountNameXRL
+            // 
+            this.accountNameXRL.AutoWidth = true;
+            this.accountNameXRL.CanGrow = false;
+            this.accountNameXRL.Dpi = 96F;
+            this.accountNameXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AccountName]")});
+            this.accountNameXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 309.12F);
+            this.accountNameXRL.Multiline = true;
+            this.accountNameXRL.Name = "accountNameXRL";
+            this.accountNameXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.accountNameXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.accountNameXRL.StylePriority.UseTextAlignment = false;
+            this.accountNameXRL.Text = "accountNameXRL";
+            this.accountNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.accountNameXRL.WordWrap = false;
+            // 
+            // bankNameXRL
+            // 
+            this.bankNameXRL.AutoWidth = true;
+            this.bankNameXRL.CanGrow = false;
+            this.bankNameXRL.Dpi = 96F;
+            this.bankNameXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[BankName]")});
+            this.bankNameXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 287.04F);
+            this.bankNameXRL.Multiline = true;
+            this.bankNameXRL.Name = "bankNameXRL";
+            this.bankNameXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.bankNameXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.bankNameXRL.StylePriority.UseTextAlignment = false;
+            this.bankNameXRL.Text = "bankNameXRL";
+            this.bankNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.bankNameXRL.WordWrap = false;
+            // 
+            // xrLine2
+            // 
+            this.xrLine2.Dpi = 96F;
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(10F, 264.9601F);
+            this.xrLine2.Name = "xrLine2";
+            this.xrLine2.SizeF = new System.Drawing.SizeF(604F, 22.08F);
             // 
             // incotermXRL
             // 
@@ -363,7 +491,7 @@
             this.totalDiscountXRL.Dpi = 96F;
             this.totalDiscountXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Descuento Total: [TotalDiscount]")});
-            this.totalDiscountXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 44.16F);
+            this.totalDiscountXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 44.15997F);
             this.totalDiscountXRL.Multiline = true;
             this.totalDiscountXRL.Name = "totalDiscountXRL";
             this.totalDiscountXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -424,14 +552,17 @@
             this.subEXWXRL.AutoWidth = true;
             this.subEXWXRL.CanGrow = false;
             this.subEXWXRL.Dpi = 96F;
-            this.subEXWXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 88.32004F);
+            this.subEXWXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[EXW] - [TotalDiscount]")});
+            this.subEXWXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 88.32007F);
             this.subEXWXRL.Multiline = true;
             this.subEXWXRL.Name = "subEXWXRL";
             this.subEXWXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.subEXWXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
             this.subEXWXRL.StylePriority.UseTextAlignment = false;
-            this.subEXWXRL.Text = "Sub. Total EXW: [EXW!€0.00]";
+            this.subEXWXRL.Text = "Sub. Total: ";
             this.subEXWXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.subEXWXRL.TextFormatString = "{0:€0.00}";
             this.subEXWXRL.WordWrap = false;
             // 
             // exwXRL
@@ -441,7 +572,7 @@
             this.exwXRL.Dpi = 96F;
             this.exwXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "EXW: [EXW]")});
-            this.exwXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 22.07999F);
+            this.exwXRL.LocationFloat = new DevExpress.Utils.PointFloat(518F, 22.08002F);
             this.exwXRL.Multiline = true;
             this.exwXRL.Name = "exwXRL";
             this.exwXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -462,14 +593,14 @@
             // xrLine4
             // 
             this.xrLine4.Dpi = 96F;
-            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(421F, 0F);
+            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
             this.xrLine4.Name = "xrLine4";
-            this.xrLine4.SizeF = new System.Drawing.SizeF(193F, 22.08F);
+            this.xrLine4.SizeF = new System.Drawing.SizeF(604F, 22.08F);
             // 
             // xrLine3
             // 
             this.xrLine3.Dpi = 96F;
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(421F, 220.8001F);
+            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(421F, 220.8F);
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(193F, 22.08002F);
             // 
@@ -492,8 +623,7 @@
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
-            this.GroupHeader2,
-            this.GroupFooter2});
+            this.GroupHeader2});
             this.DetailReport.DataMember = "Products";
             this.DetailReport.DataSource = this.invoiceODS;
             this.DetailReport.Dpi = 96F;
@@ -667,146 +797,10 @@
             this.xrTableCell9.Text = "Total";
             this.xrTableCell9.Weight = 0.24615384615384617D;
             // 
-            // GroupFooter2
-            // 
-            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLine2,
-            this.periodXRL,
-            this.paymentOptionsXRL,
-            this.paymentXRL,
-            this.accountNumberXRL,
-            this.accountNameXRL,
-            this.bankNameXRL,
-            this.xrLine1});
-            this.GroupFooter2.Dpi = 96F;
-            this.GroupFooter2.HeightF = 176.6401F;
-            this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // xrLine2
-            // 
-            this.xrLine2.Dpi = 96F;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
-            this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(604F, 22.08F);
-            // 
-            // periodXRL
-            // 
-            this.periodXRL.AutoWidth = true;
-            this.periodXRL.CanGrow = false;
-            this.periodXRL.Dpi = 96F;
-            this.periodXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 154.5601F);
-            this.periodXRL.Multiline = true;
-            this.periodXRL.Name = "periodXRL";
-            this.periodXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.periodXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
-            this.periodXRL.StylePriority.UseTextAlignment = false;
-            this.periodXRL.Text = "Término de Pago: [Period]";
-            this.periodXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.periodXRL.WordWrap = false;
-            // 
-            // paymentOptionsXRL
-            // 
-            this.paymentOptionsXRL.AutoWidth = true;
-            this.paymentOptionsXRL.CanGrow = false;
-            this.paymentOptionsXRL.Dpi = 96F;
-            this.paymentOptionsXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 132.4801F);
-            this.paymentOptionsXRL.Multiline = true;
-            this.paymentOptionsXRL.Name = "paymentOptionsXRL";
-            this.paymentOptionsXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.paymentOptionsXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
-            this.paymentOptionsXRL.StylePriority.UseTextAlignment = false;
-            this.paymentOptionsXRL.Text = "Forma de Pago: [PaymentOption]";
-            this.paymentOptionsXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.paymentOptionsXRL.WordWrap = false;
-            // 
-            // paymentXRL
-            // 
-            this.paymentXRL.AutoWidth = true;
-            this.paymentXRL.CanGrow = false;
-            this.paymentXRL.Dpi = 96F;
-            this.paymentXRL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.paymentXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 110.4001F);
-            this.paymentXRL.Multiline = true;
-            this.paymentXRL.Name = "paymentXRL";
-            this.paymentXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.paymentXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
-            this.paymentXRL.StylePriority.UseFont = false;
-            this.paymentXRL.Text = "Condiciones de Pago";
-            this.paymentXRL.WordWrap = false;
-            // 
-            // accountNumberXRL
-            // 
-            this.accountNumberXRL.AutoWidth = true;
-            this.accountNumberXRL.CanGrow = false;
-            this.accountNumberXRL.Dpi = 96F;
-            this.accountNumberXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AccountNumber]")});
-            this.accountNumberXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 66.24005F);
-            this.accountNumberXRL.Multiline = true;
-            this.accountNumberXRL.Name = "accountNumberXRL";
-            this.accountNumberXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.accountNumberXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
-            this.accountNumberXRL.StylePriority.UseTextAlignment = false;
-            this.accountNumberXRL.Text = "accountNumberXRL";
-            this.accountNumberXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.accountNumberXRL.WordWrap = false;
-            // 
-            // accountNameXRL
-            // 
-            this.accountNameXRL.AutoWidth = true;
-            this.accountNameXRL.CanGrow = false;
-            this.accountNameXRL.Dpi = 96F;
-            this.accountNameXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AccountName]")});
-            this.accountNameXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 44.16002F);
-            this.accountNameXRL.Multiline = true;
-            this.accountNameXRL.Name = "accountNameXRL";
-            this.accountNameXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.accountNameXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
-            this.accountNameXRL.StylePriority.UseTextAlignment = false;
-            this.accountNameXRL.Text = "accountNameXRL";
-            this.accountNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.accountNameXRL.WordWrap = false;
-            // 
-            // bankNameXRL
-            // 
-            this.bankNameXRL.AutoWidth = true;
-            this.bankNameXRL.CanGrow = false;
-            this.bankNameXRL.Dpi = 96F;
-            this.bankNameXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[BankName]")});
-            this.bankNameXRL.LocationFloat = new DevExpress.Utils.PointFloat(10F, 22.08F);
-            this.bankNameXRL.Multiline = true;
-            this.bankNameXRL.Name = "bankNameXRL";
-            this.bankNameXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.bankNameXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
-            this.bankNameXRL.StylePriority.UseTextAlignment = false;
-            this.bankNameXRL.Text = "bankNameXRL";
-            this.bankNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.bankNameXRL.WordWrap = false;
-            // 
-            // xrLine1
-            // 
-            this.xrLine1.Dpi = 96F;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(10F, 88.32007F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(604F, 22.08F);
-            // 
             // invoiceODS
             // 
             this.invoiceODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
             this.invoiceODS.Name = "invoiceODS";
-            // 
-            // xrPageInfo1
-            // 
-            this.xrPageInfo1.Dpi = 96F;
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(518F, 10F);
-            this.xrPageInfo1.Name = "xrPageInfo1";
-            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.Number;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(96F, 22.08F);
-            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
-            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // R_Invoice
             // 
@@ -848,7 +842,6 @@
         private DevExpress.XtraReports.UI.DetailReportBand DetailReport;
         private DevExpress.XtraReports.UI.DetailBand Detail1;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader2;
-        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
         private DevExpress.XtraReports.UI.XRLabel dateXRL;
         private DevExpress.XtraReports.UI.XRPictureBox logoXRPB;
         private DevExpress.XtraReports.UI.XRLabel contractXRL;

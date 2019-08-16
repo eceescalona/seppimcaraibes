@@ -110,7 +110,7 @@
     <Compile Include="Data\EOrderProcessState.cs" />
     <Compile Include="Data\EOrderState.cs" />
     <Compile Include="Data\EPaymentOption.cs" />
-    <Compile Include="Data\EPeriodState.cs" />
+    <Compile Include="Data\ECommercialValue.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
     <Compile Include="Data\ORM\CustomersView.cs" />

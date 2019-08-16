@@ -50,6 +50,8 @@
 
         public string Packing { get; set; }
 
+        public string PackingDescription { get; set; }
+
         [StringLength(250)]
         public string PlaceOfDeparture { get; set; }
 

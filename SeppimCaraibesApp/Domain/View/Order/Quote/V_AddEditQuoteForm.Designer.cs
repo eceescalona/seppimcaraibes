@@ -40,8 +40,8 @@
             this.shipmentPC = new DevExpress.XtraEditors.PanelControl();
             this.descriptionLC = new DevExpress.XtraEditors.LabelControl();
             this.descriptionME = new DevExpress.XtraEditors.MemoEdit();
-            this.placeDME = new DevExpress.XtraEditors.MemoEdit();
             this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
+            this.placeDME = new DevExpress.XtraEditors.MemoEdit();
             this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
             this.packingTE = new DevExpress.XtraEditors.TextEdit();
@@ -104,9 +104,7 @@
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colInterests = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addEditQuoteLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
@@ -126,8 +124,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipmentPC)).BeginInit();
             this.shipmentPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).BeginInit();
@@ -276,10 +274,15 @@
             // 
             // descriptionME
             // 
+            this.descriptionME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PackingDesciption", true));
             this.descriptionME.Location = new System.Drawing.Point(142, 163);
             this.descriptionME.Name = "descriptionME";
             this.descriptionME.Size = new System.Drawing.Size(379, 36);
             this.descriptionME.TabIndex = 11;
+            // 
+            // shipmentBS
+            // 
+            this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
             // 
             // placeDME
             // 
@@ -288,10 +291,6 @@
             this.placeDME.Name = "placeDME";
             this.placeDME.Size = new System.Drawing.Size(379, 39);
             this.placeDME.TabIndex = 10;
-            // 
-            // shipmentBS
-            // 
-            this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
             // 
             // shipmentMLUE
             // 
@@ -443,8 +442,8 @@
             this.expensesTypeRG.Location = new System.Drawing.Point(303, 238);
             this.expensesTypeRG.Name = "expensesTypeRG";
             this.expensesTypeRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "FCA"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "FOB")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((byte)(1)), "FCA"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((byte)(2)), "FOB")});
             this.expensesTypeRG.Size = new System.Drawing.Size(153, 52);
             this.expensesTypeRG.TabIndex = 25;
             // 
@@ -827,9 +826,7 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductName,
             this.colQty,
-            this.colDiscount,
-            this.colUnitPrice,
-            this.colInterests});
+            this.colUnitPrice});
             this.productsGV.GridControl = this.productsGridC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -838,27 +835,21 @@
             // 
             // colProductName
             // 
+            this.colProductName.Caption = "Nombre del Producto";
             this.colProductName.FieldName = "ProductName";
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 65;
+            this.colProductName.Width = 144;
             // 
             // colQty
             // 
+            this.colQty.Caption = "Cantidad";
             this.colQty.FieldName = "Qty";
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 2;
-            this.colQty.Width = 65;
-            // 
-            // colDiscount
-            // 
-            this.colDiscount.FieldName = "Discount";
-            this.colDiscount.Name = "colDiscount";
-            this.colDiscount.Visible = true;
-            this.colDiscount.VisibleIndex = 3;
-            this.colDiscount.Width = 65;
+            this.colQty.Width = 56;
             // 
             // colUnitPrice
             // 
@@ -866,16 +857,8 @@
             this.colUnitPrice.FieldName = "UnitPrice";
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
-            this.colUnitPrice.VisibleIndex = 5;
-            this.colUnitPrice.Width = 70;
-            // 
-            // colInterests
-            // 
-            this.colInterests.Caption = "Interes";
-            this.colInterests.FieldName = "Interests";
-            this.colInterests.Name = "colInterests";
-            this.colInterests.Visible = true;
-            this.colInterests.VisibleIndex = 4;
+            this.colUnitPrice.VisibleIndex = 3;
+            this.colUnitPrice.Width = 93;
             // 
             // addEditQuoteLCG
             // 
@@ -954,8 +937,8 @@
             this.shipmentPC.ResumeLayout(false);
             this.shipmentPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionME.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).EndInit();
@@ -1056,7 +1039,6 @@
         private System.Windows.Forms.BindingSource productsBS;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colDiscount;
         private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
         private DevExpress.XtraLayout.LayoutControl buttonsLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
@@ -1071,7 +1053,6 @@
         private System.Windows.Forms.BindingSource deviseBS;
         private System.Windows.Forms.BindingSource paymentOptionsBS;
         private System.Windows.Forms.BindingSource shipmentMethodBS;
-        private DevExpress.XtraGrid.Columns.GridColumn colInterests;
         private DevExpress.XtraEditors.LabelControl eIncotermLC;
         private DevExpress.XtraEditors.LookUpEdit eIncotermLUE;
         private System.Windows.Forms.BindingSource incotermsBS;
