@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
 
@@ -111,15 +110,15 @@
 
             string back = hundreds.ToString() + dozens.ToString() + units.ToString();
 
-            string orderCode = DateTime.Now.Year.ToString() + back;
+            string invoiceReference = DateTime.Now.Year.ToString() + back;
 
-            if (order.IncotermType == EIncoterms.CPT || order.IncotermType == EIncoterms.CFR || order.IncotermType == EIncoterms.FCA || order.IncotermType == EIncoterms.FOB)
+            if (order.CommercialValue == ECommercialValue.FV)
             {
-                return FV + orderCode;
+                return FV + invoiceReference;
             }
             else
             {
-                return NC + orderCode;
+                return NC + invoiceReference;
             }
         }
 
