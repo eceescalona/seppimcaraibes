@@ -521,7 +521,6 @@
     <None Include="Resources\Img\Add_32x32.png" />
     <None Include="Resources\Img\Add_16x16.png" />
     <None Include="Resources\Img\elitechicon_32x32.ico" />
-    <None Include="Resources\Img\ElitechLogo.png" />
     <None Include="Resources\Img\SeppimCaraibesLogo.png" />
     <None Include="Resources\Img\Print_32x32.png" />
     <None Include="Resources\Img\Print_16x16.png" />

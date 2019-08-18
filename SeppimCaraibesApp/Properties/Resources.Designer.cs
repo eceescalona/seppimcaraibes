@@ -173,16 +173,6 @@ namespace SeppimCaraibesApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ElitechLogo {
-            get {
-                object obj = ResourceManager.GetObject("ElitechLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ExportToPDF_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ExportToPDF_16x16", resourceCulture);

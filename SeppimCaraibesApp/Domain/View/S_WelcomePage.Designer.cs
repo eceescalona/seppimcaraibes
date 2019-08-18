@@ -33,10 +33,8 @@
             this.copyrightLC = new DevExpress.XtraEditors.LabelControl();
             this.loadLC = new DevExpress.XtraEditors.LabelControl();
             this.logoElitechPE = new DevExpress.XtraEditors.PictureEdit();
-            this.logoPE = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.loadBarMPBC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoElitechPE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoPE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // loadBarMPBC
@@ -66,7 +64,7 @@
             // 
             // logoElitechPE
             // 
-            this.logoElitechPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.ElitechLogo;
+            this.logoElitechPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.SeppimCaraibesLogo;
             this.logoElitechPE.Location = new System.Drawing.Point(12, 12);
             this.logoElitechPE.Name = "logoElitechPE";
             this.logoElitechPE.Properties.AllowFocused = false;
@@ -74,23 +72,9 @@
             this.logoElitechPE.Properties.Appearance.Options.UseBackColor = true;
             this.logoElitechPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.logoElitechPE.Properties.ShowMenu = false;
-            this.logoElitechPE.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchVertical;
+            this.logoElitechPE.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.logoElitechPE.Size = new System.Drawing.Size(426, 180);
             this.logoElitechPE.TabIndex = 9;
-            // 
-            // logoPE
-            // 
-            this.logoPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.SeppimCaraibesLogo;
-            this.logoPE.Location = new System.Drawing.Point(278, 266);
-            this.logoPE.Name = "logoPE";
-            this.logoPE.Properties.AllowFocused = false;
-            this.logoPE.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.logoPE.Properties.Appearance.Options.UseBackColor = true;
-            this.logoPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.logoPE.Properties.ShowMenu = false;
-            this.logoPE.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.logoPE.Size = new System.Drawing.Size(160, 48);
-            this.logoPE.TabIndex = 8;
             // 
             // S_WelcomePage
             // 
@@ -98,7 +82,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 320);
             this.Controls.Add(this.logoElitechPE);
-            this.Controls.Add(this.logoPE);
             this.Controls.Add(this.loadLC);
             this.Controls.Add(this.copyrightLC);
             this.Controls.Add(this.loadBarMPBC);
@@ -107,7 +90,6 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.loadBarMPBC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoElitechPE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoPE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,7 +100,6 @@
         private DevExpress.XtraEditors.MarqueeProgressBarControl loadBarMPBC;
         private DevExpress.XtraEditors.LabelControl copyrightLC;
         private DevExpress.XtraEditors.LabelControl loadLC;
-        private DevExpress.XtraEditors.PictureEdit logoPE;
         private DevExpress.XtraEditors.PictureEdit logoElitechPE;
     }
 }

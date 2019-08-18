@@ -288,7 +288,7 @@
             // 
             // logoPE
             // 
-            this.logoPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.ElitechLogo;
+            this.logoPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.SeppimCaraibesLogo;
             this.logoPE.Location = new System.Drawing.Point(77, 5);
             this.logoPE.Name = "logoPE";
             this.logoPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;

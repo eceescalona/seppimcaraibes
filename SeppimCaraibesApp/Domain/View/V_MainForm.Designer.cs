@@ -43,8 +43,8 @@
             this.ordersOACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.invoicesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.usersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.rolesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
             this.mainLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
@@ -172,6 +172,13 @@
             this.usersACE.Text = "Usuarios";
             this.usersACE.Click += new System.EventHandler(this.UsersACE_Click);
             // 
+            // rolesACE
+            // 
+            this.rolesACE.Name = "rolesACE";
+            this.rolesACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.rolesACE.Text = "Roles";
+            this.rolesACE.Click += new System.EventHandler(this.RolesACE_Click);
+            // 
             // mainFDFC
             // 
             this.mainFDFC.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -179,13 +186,6 @@
             this.mainFDFC.Name = "mainFDFC";
             this.mainFDFC.Size = new System.Drawing.Size(750, 563);
             this.mainFDFC.TabIndex = 1;
-            // 
-            // rolesACE
-            // 
-            this.rolesACE.Name = "rolesACE";
-            this.rolesACE.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.rolesACE.Text = "Roles";
-            this.rolesACE.Click += new System.EventHandler(this.RolesACE_Click);
             // 
             // V_MainForm
             // 
@@ -198,7 +198,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Elitech";
+            this.Text = "Seppim Caraibes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).EndInit();
             this.mainLC.ResumeLayout(false);
