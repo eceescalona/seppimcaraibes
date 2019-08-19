@@ -147,14 +147,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<InvoicesView>()
-                .Property(e => e.FCA)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<InvoicesView>()
-                .Property(e => e.FOB)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<InvoicesView>()
                 .Property(e => e.Insurance)
                 .HasPrecision(18, 4);
 

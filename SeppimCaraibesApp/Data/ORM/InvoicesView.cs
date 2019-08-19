@@ -65,10 +65,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public decimal? Freight { get; set; }
 
-        public decimal? FCA { get; set; }
-
-        public decimal? FOB { get; set; }
-
         public decimal? Insurance { get; set; }
 
         public decimal? Inspection { get; set; }
