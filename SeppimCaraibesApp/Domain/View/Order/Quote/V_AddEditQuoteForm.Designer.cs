@@ -438,7 +438,6 @@
             // 
             // expensesTypeRG
             // 
-            this.expensesTypeRG.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderBS, "ExpensesType", true));
             this.expensesTypeRG.Location = new System.Drawing.Point(303, 238);
             this.expensesTypeRG.Name = "expensesTypeRG";
             this.expensesTypeRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
@@ -840,7 +839,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 144;
+            this.colProductName.Width = 171;
             // 
             // colQty
             // 
@@ -849,7 +848,7 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 2;
-            this.colQty.Width = 56;
+            this.colQty.Width = 62;
             // 
             // colUnitPrice
             // 
@@ -858,7 +857,7 @@
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 3;
-            this.colUnitPrice.Width = 93;
+            this.colUnitPrice.Width = 91;
             // 
             // addEditQuoteLCG
             // 

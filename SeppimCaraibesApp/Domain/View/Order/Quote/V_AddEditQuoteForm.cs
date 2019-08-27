@@ -208,6 +208,8 @@
                 order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
                 order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
                 order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                order.ExpensesType = (EExpenses)Enum.Parse(typeof(EExpenses), expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description);
+
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
                 shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
                 order.Shipment = shipment;

@@ -108,7 +108,10 @@
                 AccountName = bank == null ? string.Empty : bank.AccountName,
                 InvoiceReference = order.InvoiceReference,
                 Expenses = order.Expenses,
-                ExpensesType = order.ExpensesType
+                ExpensesType = order.ExpensesType,
+                PackingDescription = shipment == null ? string.Empty : shipment.PackingDesciption,
+                BankAddress = bank == null ? string.Empty : bank.BankAddress,
+                DeliveryDate = order.DeliveryDate
             };
 
             foreach (var productOrder in order.ProductsOrders)

@@ -181,6 +181,8 @@
 
                 order.Period = (biginDateDE.DateTime - endDateDE.DateTime).Days;
 
+                order.CommercialValue = (ECommercialValue)Enum.Parse(typeof(ECommercialValue), commercialValueRG.Properties.Items[commercialValueRG.SelectedIndex].Description);
+
                 _cOrder.EditOrder(this, order);
 
 
