@@ -87,6 +87,7 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceODS)).BeginInit();
@@ -316,6 +317,7 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1,
             this.xrLine3,
             this.exwXRL,
             this.incotermXRL,
@@ -475,7 +477,7 @@
             this.subEXWXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.subEXWXRL.SizeF = new System.Drawing.SizeF(96F, 22.08F);
             this.subEXWXRL.StylePriority.UseTextAlignment = false;
-            this.subEXWXRL.Text = "Sub. Total: [EXW] - [TotalDiscount]";
+            this.subEXWXRL.Text = "Sub. Total:";
             this.subEXWXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.subEXWXRL.TextFormatString = "{0:€0.00}";
             this.subEXWXRL.WordWrap = false;
@@ -802,6 +804,18 @@
             this.invoiceODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
             this.invoiceODS.Name = "invoiceODS";
             // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Dpi = 96F;
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(421F, 88.32004F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(96F, 22.08F);
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "Sub. Total: ";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
             // R_Invoice
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -889,5 +903,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine8;
         private DevExpress.XtraReports.UI.XRLabel incotermXRL;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }
 }

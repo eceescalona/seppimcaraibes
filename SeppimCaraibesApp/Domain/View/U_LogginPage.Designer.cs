@@ -141,7 +141,7 @@
             this.cancelSB.Name = "cancelSB";
             this.cancelSB.Size = new System.Drawing.Size(87, 22);
             this.cancelSB.TabIndex = 0;
-            this.cancelSB.Text = "Cancelar";
+            this.cancelSB.Text = "Salir";
             this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
             // 
             // acceptPC
@@ -162,7 +162,7 @@
             this.acceptSB.Name = "acceptSB";
             this.acceptSB.Size = new System.Drawing.Size(82, 22);
             this.acceptSB.TabIndex = 0;
-            this.acceptSB.Text = "Aceptar";
+            this.acceptSB.Text = "Entrar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
             // 
             // emptyPC
