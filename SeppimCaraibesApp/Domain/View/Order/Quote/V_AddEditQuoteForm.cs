@@ -124,12 +124,11 @@
             providerReferenceTE.Text = string.Empty;
             initDateDE.DateTime = DateTime.Now;
             endDateDE.DateTime = DateTime.Now;
-            incotermTE.Text = string.Empty;
             totalCostTE.Text = string.Empty;
             grossWTE.Text = string.Empty;
             netWTE.Text = string.Empty;
-            packingTE.Text = string.Empty;
             placeDME.Text = string.Empty;
+            inspectionTE.Text = string.Empty;
 
             providerRErrorLC.LookAndFeel.UseDefaultLookAndFeel = false;
             providerRErrorLC.Text = string.Empty;

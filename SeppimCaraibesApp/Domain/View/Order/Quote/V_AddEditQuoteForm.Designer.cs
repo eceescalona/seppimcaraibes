@@ -44,12 +44,10 @@
             this.placeDME = new DevExpress.XtraEditors.MemoEdit();
             this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
-            this.packingTE = new DevExpress.XtraEditors.TextEdit();
             this.netWTE = new DevExpress.XtraEditors.TextEdit();
             this.grossWTE = new DevExpress.XtraEditors.TextEdit();
             this.shipmentMethodLC = new DevExpress.XtraEditors.LabelControl();
             this.placeDepartureLC = new DevExpress.XtraEditors.LabelControl();
-            this.packingLC = new DevExpress.XtraEditors.LabelControl();
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
@@ -60,8 +58,6 @@
             this.expensesTypeRG = new DevExpress.XtraEditors.RadioGroup();
             this.expensesLC = new DevExpress.XtraEditors.LabelControl();
             this.expensesTE = new DevExpress.XtraEditors.TextEdit();
-            this.deliveryDateLC = new DevExpress.XtraEditors.LabelControl();
-            this.deliveryDateDE = new DevExpress.XtraEditors.DateEdit();
             this.deliveryTimeLC = new DevExpress.XtraEditors.LabelControl();
             this.deliveryTimeTE = new DevExpress.XtraEditors.TextEdit();
             this.dateLimiterLC = new DevExpress.XtraEditors.LabelControl();
@@ -76,13 +72,11 @@
             this.paymentOptionLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
-            this.incotermTE = new DevExpress.XtraEditors.TextEdit();
             this.providerRErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.providerReferenceTE = new DevExpress.XtraEditors.TextEdit();
             this.deviseLC = new DevExpress.XtraEditors.LabelControl();
             this.paymentOption = new DevExpress.XtraEditors.LabelControl();
             this.totalCostLC = new DevExpress.XtraEditors.LabelControl();
-            this.incotermLC = new DevExpress.XtraEditors.LabelControl();
             this.periodOfferLC = new DevExpress.XtraEditors.LabelControl();
             this.providerReferenceLC = new DevExpress.XtraEditors.LabelControl();
             this.formLCG = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -111,6 +105,8 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -128,7 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
@@ -137,8 +132,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryTimeTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).BeginInit();
@@ -151,7 +144,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerReferenceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteLCI)).BeginInit();
@@ -180,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -251,12 +244,10 @@
             this.shipmentPC.Controls.Add(this.descriptionME);
             this.shipmentPC.Controls.Add(this.placeDME);
             this.shipmentPC.Controls.Add(this.shipmentMLUE);
-            this.shipmentPC.Controls.Add(this.packingTE);
             this.shipmentPC.Controls.Add(this.netWTE);
             this.shipmentPC.Controls.Add(this.grossWTE);
             this.shipmentPC.Controls.Add(this.shipmentMethodLC);
             this.shipmentPC.Controls.Add(this.placeDepartureLC);
-            this.shipmentPC.Controls.Add(this.packingLC);
             this.shipmentPC.Controls.Add(this.netWeightLC);
             this.shipmentPC.Controls.Add(this.grossWeightLC);
             this.shipmentPC.Location = new System.Drawing.Point(12, 314);
@@ -266,7 +257,7 @@
             // 
             // descriptionLC
             // 
-            this.descriptionLC.Location = new System.Drawing.Point(15, 164);
+            this.descriptionLC.Location = new System.Drawing.Point(15, 137);
             this.descriptionLC.Name = "descriptionLC";
             this.descriptionLC.Size = new System.Drawing.Size(121, 13);
             this.descriptionLC.TabIndex = 12;
@@ -275,7 +266,7 @@
             // descriptionME
             // 
             this.descriptionME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PackingDesciption", true));
-            this.descriptionME.Location = new System.Drawing.Point(142, 163);
+            this.descriptionME.Location = new System.Drawing.Point(142, 135);
             this.descriptionME.Name = "descriptionME";
             this.descriptionME.Size = new System.Drawing.Size(379, 36);
             this.descriptionME.TabIndex = 11;
@@ -287,14 +278,14 @@
             // placeDME
             // 
             this.placeDME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "PlaceDeparture", true));
-            this.placeDME.Location = new System.Drawing.Point(142, 92);
+            this.placeDME.Location = new System.Drawing.Point(142, 64);
             this.placeDME.Name = "placeDME";
             this.placeDME.Size = new System.Drawing.Size(379, 39);
             this.placeDME.TabIndex = 10;
             // 
             // shipmentMLUE
             // 
-            this.shipmentMLUE.Location = new System.Drawing.Point(142, 137);
+            this.shipmentMLUE.Location = new System.Drawing.Point(142, 109);
             this.shipmentMLUE.Name = "shipmentMLUE";
             this.shipmentMLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -302,14 +293,6 @@
             this.shipmentMLUE.Properties.NullText = "";
             this.shipmentMLUE.Size = new System.Drawing.Size(219, 20);
             this.shipmentMLUE.TabIndex = 9;
-            // 
-            // packingTE
-            // 
-            this.packingTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shipmentBS, "Packing", true));
-            this.packingTE.Location = new System.Drawing.Point(142, 66);
-            this.packingTE.Name = "packingTE";
-            this.packingTE.Size = new System.Drawing.Size(176, 20);
-            this.packingTE.TabIndex = 7;
             // 
             // netWTE
             // 
@@ -329,7 +312,7 @@
             // 
             // shipmentMethodLC
             // 
-            this.shipmentMethodLC.Location = new System.Drawing.Point(52, 140);
+            this.shipmentMethodLC.Location = new System.Drawing.Point(52, 112);
             this.shipmentMethodLC.Name = "shipmentMethodLC";
             this.shipmentMethodLC.Size = new System.Drawing.Size(84, 13);
             this.shipmentMethodLC.TabIndex = 4;
@@ -337,19 +320,11 @@
             // 
             // placeDepartureLC
             // 
-            this.placeDepartureLC.Location = new System.Drawing.Point(59, 94);
+            this.placeDepartureLC.Location = new System.Drawing.Point(59, 66);
             this.placeDepartureLC.Name = "placeDepartureLC";
             this.placeDepartureLC.Size = new System.Drawing.Size(77, 13);
             this.placeDepartureLC.TabIndex = 3;
             this.placeDepartureLC.Text = "Lugar de Salida:";
-            // 
-            // packingLC
-            // 
-            this.packingLC.Location = new System.Drawing.Point(89, 69);
-            this.packingLC.Name = "packingLC";
-            this.packingLC.Size = new System.Drawing.Size(47, 13);
-            this.packingLC.TabIndex = 2;
-            this.packingLC.Text = "Embalaje:";
             // 
             // netWeightLC
             // 
@@ -369,6 +344,8 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.inspectionTE);
+            this.quotePC.Controls.Add(this.inspectionLC);
             this.quotePC.Controls.Add(this.interesLC);
             this.quotePC.Controls.Add(this.discountLC);
             this.quotePC.Controls.Add(this.interesTE);
@@ -376,8 +353,6 @@
             this.quotePC.Controls.Add(this.expensesTypeRG);
             this.quotePC.Controls.Add(this.expensesLC);
             this.quotePC.Controls.Add(this.expensesTE);
-            this.quotePC.Controls.Add(this.deliveryDateLC);
-            this.quotePC.Controls.Add(this.deliveryDateDE);
             this.quotePC.Controls.Add(this.deliveryTimeLC);
             this.quotePC.Controls.Add(this.deliveryTimeTE);
             this.quotePC.Controls.Add(this.dateLimiterLC);
@@ -390,13 +365,11 @@
             this.quotePC.Controls.Add(this.deviseLUE);
             this.quotePC.Controls.Add(this.paymentOptionLUE);
             this.quotePC.Controls.Add(this.totalCostTE);
-            this.quotePC.Controls.Add(this.incotermTE);
             this.quotePC.Controls.Add(this.providerRErrorLC);
             this.quotePC.Controls.Add(this.providerReferenceTE);
             this.quotePC.Controls.Add(this.deviseLC);
             this.quotePC.Controls.Add(this.paymentOption);
             this.quotePC.Controls.Add(this.totalCostLC);
-            this.quotePC.Controls.Add(this.incotermLC);
             this.quotePC.Controls.Add(this.periodOfferLC);
             this.quotePC.Controls.Add(this.providerReferenceLC);
             this.quotePC.Location = new System.Drawing.Point(12, 12);
@@ -438,7 +411,7 @@
             // 
             // expensesTypeRG
             // 
-            this.expensesTypeRG.Location = new System.Drawing.Point(303, 238);
+            this.expensesTypeRG.Location = new System.Drawing.Point(303, 212);
             this.expensesTypeRG.Name = "expensesTypeRG";
             this.expensesTypeRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((byte)(1)), "FCA"),
@@ -462,27 +435,6 @@
             this.expensesTE.Size = new System.Drawing.Size(100, 20);
             this.expensesTE.TabIndex = 23;
             // 
-            // deliveryDateLC
-            // 
-            this.deliveryDateLC.Location = new System.Drawing.Point(261, 85);
-            this.deliveryDateLC.Name = "deliveryDateLC";
-            this.deliveryDateLC.Size = new System.Drawing.Size(89, 13);
-            this.deliveryDateLC.TabIndex = 22;
-            this.deliveryDateLC.Text = "Fecha de Entrega:";
-            // 
-            // deliveryDateDE
-            // 
-            this.deliveryDateDE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderBS, "DeliveryDate", true));
-            this.deliveryDateDE.EditValue = null;
-            this.deliveryDateDE.Location = new System.Drawing.Point(356, 82);
-            this.deliveryDateDE.Name = "deliveryDateDE";
-            this.deliveryDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deliveryDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deliveryDateDE.Size = new System.Drawing.Size(100, 20);
-            this.deliveryDateDE.TabIndex = 21;
-            // 
             // deliveryTimeLC
             // 
             this.deliveryTimeLC.Location = new System.Drawing.Point(53, 85);
@@ -496,7 +448,7 @@
             this.deliveryTimeTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "DeliveryTime", true));
             this.deliveryTimeTE.Location = new System.Drawing.Point(153, 82);
             this.deliveryTimeTE.Name = "deliveryTimeTE";
-            this.deliveryTimeTE.Size = new System.Drawing.Size(100, 20);
+            this.deliveryTimeTE.Size = new System.Drawing.Size(303, 20);
             this.deliveryTimeTE.TabIndex = 19;
             // 
             // dateLimiterLC
@@ -551,7 +503,7 @@
             // 
             // eIncotermLC
             // 
-            this.eIncotermLC.Location = new System.Drawing.Point(303, 215);
+            this.eIncotermLC.Location = new System.Drawing.Point(100, 215);
             this.eIncotermLC.Name = "eIncotermLC";
             this.eIncotermLC.Size = new System.Drawing.Size(47, 13);
             this.eIncotermLC.TabIndex = 14;
@@ -559,7 +511,7 @@
             // 
             // eIncotermLUE
             // 
-            this.eIncotermLUE.Location = new System.Drawing.Point(356, 212);
+            this.eIncotermLUE.Location = new System.Drawing.Point(153, 212);
             this.eIncotermLUE.Name = "eIncotermLUE";
             this.eIncotermLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -596,14 +548,6 @@
             this.totalCostTE.Name = "totalCostTE";
             this.totalCostTE.Size = new System.Drawing.Size(100, 20);
             this.totalCostTE.TabIndex = 10;
-            // 
-            // incotermTE
-            // 
-            this.incotermTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Incoterm", true));
-            this.incotermTE.Location = new System.Drawing.Point(153, 212);
-            this.incotermTE.Name = "incotermTE";
-            this.incotermTE.Size = new System.Drawing.Size(100, 20);
-            this.incotermTE.TabIndex = 9;
             // 
             // providerRErrorLC
             // 
@@ -643,14 +587,6 @@
             this.totalCostLC.Size = new System.Drawing.Size(38, 13);
             this.totalCostLC.TabIndex = 3;
             this.totalCostLC.Text = "Seguro:";
-            // 
-            // incotermLC
-            // 
-            this.incotermLC.Location = new System.Drawing.Point(52, 215);
-            this.incotermLC.Name = "incotermLC";
-            this.incotermLC.Size = new System.Drawing.Size(95, 13);
-            this.incotermLC.TabIndex = 2;
-            this.incotermLC.Text = "Costo del Incoterm:";
             // 
             // periodOfferLC
             // 
@@ -908,6 +844,22 @@
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
             // 
+            // inspectionLC
+            // 
+            this.inspectionLC.Location = new System.Drawing.Point(295, 111);
+            this.inspectionLC.Name = "inspectionLC";
+            this.inspectionLC.Size = new System.Drawing.Size(55, 13);
+            this.inspectionLC.TabIndex = 30;
+            this.inspectionLC.Text = "Inspección:";
+            // 
+            // inspectionTE
+            // 
+            this.inspectionTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Inspection", true));
+            this.inspectionTE.Location = new System.Drawing.Point(356, 108);
+            this.inspectionTE.Name = "inspectionTE";
+            this.inspectionTE.Size = new System.Drawing.Size(100, 20);
+            this.inspectionTE.TabIndex = 31;
+            // 
             // V_AddEditQuoteForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -940,7 +892,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.placeDME.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packingTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.netWTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
@@ -950,8 +901,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryTimeTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).EndInit();
@@ -964,7 +913,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incotermTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerReferenceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteLCI)).EndInit();
@@ -993,6 +941,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1014,22 +963,18 @@
         private DevExpress.XtraLayout.LayoutControlItem shipmentLCI;
         private DevExpress.XtraLayout.LayoutControlItem formLCI;
         private DevExpress.XtraEditors.LookUpEdit shipmentMLUE;
-        private DevExpress.XtraEditors.TextEdit packingTE;
         private DevExpress.XtraEditors.TextEdit netWTE;
         private DevExpress.XtraEditors.TextEdit grossWTE;
         private DevExpress.XtraEditors.LabelControl shipmentMethodLC;
         private DevExpress.XtraEditors.LabelControl placeDepartureLC;
-        private DevExpress.XtraEditors.LabelControl packingLC;
         private DevExpress.XtraEditors.LabelControl netWeightLC;
         private DevExpress.XtraEditors.LabelControl grossWeightLC;
         private DevExpress.XtraEditors.LookUpEdit deviseLUE;
         private DevExpress.XtraEditors.LookUpEdit paymentOptionLUE;
-        private DevExpress.XtraEditors.TextEdit incotermTE;
         private DevExpress.XtraEditors.LabelControl providerRErrorLC;
         private DevExpress.XtraEditors.TextEdit providerReferenceTE;
         private DevExpress.XtraEditors.LabelControl deviseLC;
         private DevExpress.XtraEditors.LabelControl paymentOption;
-        private DevExpress.XtraEditors.LabelControl incotermLC;
         private DevExpress.XtraEditors.LabelControl periodOfferLC;
         private DevExpress.XtraEditors.LabelControl providerReferenceLC;
         private DevExpress.XtraEditors.GroupControl productGC;
@@ -1068,8 +1013,6 @@
         private DevExpress.XtraEditors.DateEdit initDateDE;
         private DevExpress.XtraEditors.LabelControl deliveryTimeLC;
         private DevExpress.XtraEditors.TextEdit deliveryTimeTE;
-        private DevExpress.XtraEditors.LabelControl deliveryDateLC;
-        private DevExpress.XtraEditors.DateEdit deliveryDateDE;
         private DevExpress.XtraEditors.RadioGroup expensesTypeRG;
         private DevExpress.XtraEditors.LabelControl expensesLC;
         private DevExpress.XtraEditors.TextEdit expensesTE;
@@ -1080,5 +1023,7 @@
         private DevExpress.XtraEditors.LabelControl descriptionLC;
         private DevExpress.XtraEditors.MemoEdit descriptionME;
         private DevExpress.XtraEditors.MemoEdit placeDME;
+        private DevExpress.XtraEditors.LabelControl inspectionLC;
+        private DevExpress.XtraEditors.TextEdit inspectionTE;
     }
 }

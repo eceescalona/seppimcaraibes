@@ -13,10 +13,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public decimal? NetWeight { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Packing { get; set; }
-
         [StringLength(250)]
         public string PlaceDeparture { get; set; }
 

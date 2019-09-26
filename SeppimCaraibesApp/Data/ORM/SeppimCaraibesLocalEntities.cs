@@ -46,10 +46,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
                 .Property(e => e.EXW)
                 .HasPrecision(18, 4);
 
@@ -155,10 +151,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<OrdersView>()
                 .Property(e => e.Unit_Price)
                 .HasPrecision(18, 4);
 
@@ -189,10 +181,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<ProductsView>()
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
-
-            modelBuilder.Entity<QuotesView>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
 
             modelBuilder.Entity<QuotesView>()
                 .Property(e => e.Unit_Price)

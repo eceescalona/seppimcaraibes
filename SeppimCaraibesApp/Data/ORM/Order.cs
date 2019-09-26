@@ -34,8 +34,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public ECommercialValue? CommercialValue { get; set; }
 
-        public decimal? Incoterm { get; set; }
-
         public EDevise? Devise { get; set; }
 
         public EPaymentOption? PaymentOption { get; set; }
@@ -79,10 +77,7 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(50)]
         public string InvoiceReference { get; set; }
 
-        public int? DeliveryTime { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? DeliveryDate { get; set; }
+        public string DeliveryTime { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? BigingDate { get; set; }

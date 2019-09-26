@@ -48,8 +48,6 @@
 
         public decimal? NetWeight { get; set; }
 
-        public string Packing { get; set; }
-
         public string PackingDescription { get; set; }
 
         [StringLength(250)]
@@ -64,9 +62,7 @@
 
         public DateTime? Date { get; set; }
 
-        public int? DeliveryTime { get; set; }
-
-        public DateTime? DeliveryDate { get; set; }
+        public string DeliveryTime { get; set; }
 
         public DateTime? BigingDate { get; set; }
 
@@ -100,8 +96,6 @@
         public EDevise? Devise { get; set; }
 
         public EIncoterms? IncotermsType { get; set; }
-
-        public decimal? Incoterm { get; set; }
 
         public IList<ProductsOrders> Products { get; set; }
 

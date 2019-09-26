@@ -88,7 +88,6 @@
                 ShippingMethod = shippingMethod,
                 Devise = order.Devise,
                 IncotermsType = order.IncotermType,
-                Incoterm = order.Incoterm,
                 EXW = order.EXW,
                 Freight = order.Freight,
                 Inspection = order.Inspection,
@@ -98,7 +97,6 @@
                 TotalCost = order.TotalCost,
                 GrossWeight = shipment?.GrossWeight,
                 NetWeight = shipment?.NetWeight,
-                Packing = shipment == null ? string.Empty : shipment.Packing,
                 PlaceOfDeparture = shipment == null ? string.Empty : shipment.PlaceDeparture,
                 Observations = order.Observations,
                 DocRequired = order.DocRequired,
@@ -110,8 +108,7 @@
                 Expenses = order.Expenses,
                 ExpensesType = order.ExpensesType,
                 PackingDescription = shipment == null ? string.Empty : shipment.PackingDesciption,
-                BankAddress = bank == null ? string.Empty : bank.BankAddress,
-                DeliveryDate = order.DeliveryDate
+                BankAddress = bank == null ? string.Empty : bank.BankAddress
             };
 
             foreach (var productOrder in order.ProductsOrders)

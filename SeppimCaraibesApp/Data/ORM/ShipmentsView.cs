@@ -20,11 +20,6 @@ namespace SeppimCaraibesApp.Data.ORM
         [Column("Net Weight")]
         public decimal? Net_Weight { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(50)]
-        public string Packing { get; set; }
-
         [Column("Place of Departure")]
         [StringLength(250)]
         public string Place_of_Departure { get; set; }
