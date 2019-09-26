@@ -204,22 +204,54 @@
                     }
                 }
 
-                order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
-                order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
-                order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
-                order.ExpensesType = (EExpenses)Enum.Parse(typeof(EExpenses), expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description);
+                if (!string.IsNullOrWhiteSpace(paymentOptionLUE.Text))
+                {
+                    order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(deviseLUE.Text))
+                {
+                    order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(eIncotermLUE.Text))
+                {
+                    order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                }
+
+                if (expensesTypeRG.SelectedIndex >= 0)
+                {
+                    if (!string.IsNullOrWhiteSpace(expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description))
+                    {
+                        order.ExpensesType = (EExpenses)Enum.Parse(typeof(EExpenses), expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description);
+                    }
+                }
 
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
-                shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+
+                if (!string.IsNullOrWhiteSpace(shipmentMLUE.Text))
+                {
+                    shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+                }
+
                 order.Shipment = shipment;
 
                 order.EXW = products.Sum(po => po.UnitPrice * po.Qty);
 
-                decimal.TryParse(expensesTE.Text, out decimal expenses);
+                double.TryParse(expensesTE.Text, out double expenses);
 
-                order.TotalCost = decimal.ToDouble((decimal)(order.EXW - (decimal)order.TotalDiscount + expenses + order.Freight + order.Insurance)) + order.ToltalInterests;
+                double EXW = decimal.ToDouble(order.EXW == null ? 0 : (decimal)order.EXW);
+                double TotalDiscount = order.TotalDiscount == null ? 0 : (double)order.TotalDiscount;
+                double Freight = decimal.ToDouble(order.Freight == null ? 0 : (decimal)order.Freight);
+                double Insurance = decimal.ToDouble(order.Insurance == null ? 0 : (decimal)order.Insurance);
+                double ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests;
 
-                order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
+                order.TotalCost = EXW - TotalDiscount + expenses + Freight + Insurance + ToltalInterests;
+
+                if (order.BigingDate != null && order.EndDate != null)
+                {
+                    order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
+                }
 
                 _cOrder.EditOrder(this, order, products);
 
