@@ -77,6 +77,7 @@
         [StringLength(50)]
         public string ProviderPhone { get; set; }
 
+        public string ProviderAddress { get; set; }
 
         [StringLength(50)]
         public string CustomerReference { get; set; }

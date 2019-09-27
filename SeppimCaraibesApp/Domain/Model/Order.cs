@@ -80,6 +80,7 @@
                 ProviderReference = order.ProviderReference,
                 ProviderName = provider == null ? string.Empty : provider.ProviderName,
                 ProviderPhone = provider == null ? string.Empty : provider.ProviderPhone,
+                ProviderAddress = provider == null ? string.Empty : provider.ProviderAddress,
                 CustomerReference = order.CustomerReference,
                 CustomerName = customer == null ? string.Empty : customer.CustomerName,
                 CustomerAddress = customer == null ? string.Empty : customer.CustomerAddress,
@@ -199,12 +200,20 @@
             rOrder.EditOrder(context, order);
         }
 
-        public async void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
+        public async Task<bool> EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
             var order = await rOrder.GetOrder(context, code);
-            order.OrderProcessState = orderProcessState;
+
+            if (string.IsNullOrWhiteSpace(order.ProviderId))
+            {
+                return false;
+            }
+            else
+            {
+                order.OrderProcessState = orderProcessState;
+            }
 
             if (orderProcessState == EOrderProcessState.Invoice)
             {
@@ -212,6 +221,8 @@
             }
 
             rOrder.EditOrder(context, order);
+
+            return true;
         }
 
         public async void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)

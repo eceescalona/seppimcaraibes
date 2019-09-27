@@ -12,6 +12,7 @@
         private const string NC = "NC";
         private const string FIELD = "providerSLUE";
         private const string FIELD_MESSAGE = "El Campo Proveedor no puede ser vacío.";
+        private const string SELECT_PROVIDER = "Uds. necesita seleccionar un proveedor para continuar.";
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.Order _mOrder;
 
@@ -236,13 +237,19 @@
             }
         }
 
-        public void EditOrder(IListOrders listOrders, string code, EOrderProcessState orderProcessState)
+        public async void EditOrder(IListOrders listOrders, string code, EOrderProcessState orderProcessState)
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
 
-            _mOrder.EditOrder(_context, code, orderProcessState);
-            listOrders.ShowMessage(ETypeOfMessage.Information, message);
-            listOrders.RefreshView();
+            if (!(await _mOrder.EditOrder(_context, code, orderProcessState)))
+            {
+                listOrders.ShowMessage(ETypeOfMessage.Warning, SELECT_PROVIDER);
+            }
+            else
+            {
+                listOrders.ShowMessage(ETypeOfMessage.Information, message);
+                listOrders.RefreshView();
+            }
         }
 
         public void EditOrder(IListOrders listOrders, string code, EInvoiceState invoiceState)

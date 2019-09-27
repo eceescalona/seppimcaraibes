@@ -9,6 +9,8 @@
     internal partial class V_ListPreOrdersForm : Form, Controller.IListOrders
     {
         private const string NAME_FORM = "Listar Pre-Ordenes";
+        private const string SELECT_PROVIDER = "Uds. va a seleccionar un proveedor y se previsualizará el documento de la Cotización en blanco. " +
+            "¿Está seguro(a) de querer continuar?";
         private const string DELETE_MESSAGE = "Si elimina la orden del sistema, este desaparecerá permanentemente del mismo. " +
             "¿Está seguro(a) de querer eliminar la orden ";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar la nueva orden. Porfavor vuelva a intentarlo." +
@@ -24,7 +26,7 @@
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
 
-        private Controller.C_Order _cOrder;
+        private readonly Controller.C_Order _cOrder;
         private bool _isCOrdenAlive;
 
 
@@ -228,7 +230,7 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                    DialogResult result = MessageBox.Show(CONVERT_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
+                    DialogResult result = MessageBox.Show(SELECT_PROVIDER, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
