@@ -199,6 +199,7 @@
             this.Name = "V_MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seppim Caraibes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).EndInit();
             this.mainLC.ResumeLayout(false);
