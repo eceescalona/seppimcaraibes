@@ -74,6 +74,7 @@
             this.colProduct_Qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPreOrdersPC)).BeginInit();
             this.listPreOrdersPC.SuspendLayout();
@@ -88,13 +89,13 @@
             this.listPreOrdersRC.ExpandCollapseItem.Id = 0;
             this.listPreOrdersRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.listPreOrdersRC.ExpandCollapseItem,
+            this.listPreOrdersRC.SearchEditItem,
             this.registerBBI,
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
             this.listQuotesBBI,
-            this.closeBBI,
-            this.listPreOrdersRC.SearchEditItem});
+            this.closeBBI});
             this.listPreOrdersRC.Location = new System.Drawing.Point(0, 0);
             this.listPreOrdersRC.MaxItemId = 7;
             this.listPreOrdersRC.Name = "listPreOrdersRC";
@@ -324,11 +325,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(4, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(90, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Pre-Ordenes";
+            // 
             // V_ListPreOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listPreOrdersPC);
             this.Controls.Add(this.listPreOrdersRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -375,5 +385,6 @@
         private DevExpress.XtraBars.BarButtonItem listQuotesBBI;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup navigateRPG;
         private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

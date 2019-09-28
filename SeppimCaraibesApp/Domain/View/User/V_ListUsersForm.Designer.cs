@@ -65,6 +65,7 @@
             this.colRole = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.userRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersPC)).BeginInit();
             this.usersPC.SuspendLayout();
@@ -79,6 +80,7 @@
             this.userRC.ExpandCollapseItem.Id = 0;
             this.userRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.userRC.ExpandCollapseItem,
+            this.userRC.SearchEditItem,
             this.registerBBI,
             this.closeBBI,
             this.findBBI,
@@ -205,6 +207,7 @@
             this.usersGV.GridControl = this.usersGC;
             this.usersGV.GroupCount = 1;
             this.usersGV.Name = "usersGV";
+            this.usersGV.OptionsBehavior.AutoExpandAllGroups = true;
             this.usersGV.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRole, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.usersGV.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.UsersGV_RowStyle);
@@ -297,11 +300,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(4, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(70, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Usuarios";
+            // 
             // V_ListUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.usersPC);
             this.Controls.Add(this.userRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -345,5 +357,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit enableRICE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource userEIFS;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

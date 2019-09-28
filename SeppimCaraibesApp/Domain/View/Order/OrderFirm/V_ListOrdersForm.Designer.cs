@@ -84,6 +84,7 @@
             this.colDocuments_Required = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listOrdersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listOrderPC)).BeginInit();
             this.listOrderPC.SuspendLayout();
@@ -101,7 +102,8 @@
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
-            this.closeBBI});
+            this.closeBBI,
+            this.listOrdersRC.SearchEditItem});
             this.listOrdersRC.Location = new System.Drawing.Point(0, 0);
             this.listOrdersRC.MaxItemId = 5;
             this.listOrdersRC.Name = "listOrdersRC";
@@ -437,11 +439,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(70, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Ordenes";
+            // 
             // V_ListOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listOrderPC);
             this.Controls.Add(this.listOrdersRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -498,5 +509,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private System.Windows.Forms.BindingSource ordersBS;
         private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
