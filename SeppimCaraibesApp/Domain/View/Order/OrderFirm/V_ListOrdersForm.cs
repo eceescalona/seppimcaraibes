@@ -208,10 +208,28 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
-                    var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code);
-                    documentView.StartPosition = FormStartPosition.CenterScreen;
-                    documentView.BringToFront();
-                    documentView.ShowDialog();
+
+                    DialogResult result = MessageBox.Show("Uds. quiere visualizar la columna [Precio Unitario]?",
+                        _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.No)
+                    {
+                        var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code, false)
+                        {
+                            StartPosition = FormStartPosition.CenterScreen
+                        };
+                        documentView.BringToFront();
+                        documentView.ShowDialog();
+                    }
+                    else
+                    {
+                        var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code)
+                        {
+                            StartPosition = FormStartPosition.CenterScreen
+                        };
+                        documentView.BringToFront();
+                        documentView.ShowDialog();
+                    }
                 }
                 catch (Exception)
                 {

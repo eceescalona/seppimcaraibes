@@ -21,6 +21,20 @@
             _cOrder.LoadReport(this, code);
         }
 
+        public R_Order(Controller.C_Order cOrder, string code, bool flag)
+        {
+            InitializeComponent();
+
+            xrTableCell4.Visible = flag;
+            xrTableCell10.Visible = flag;
+
+            xrTable1.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
+            xrTable2.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
+
+            _cOrder = cOrder;
+            _cOrder.LoadReport(this, code);
+        }
+
 
         public void LoadData(IEnumerable<Data.POCO.OrderReportView> reportView)
         {

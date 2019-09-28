@@ -22,14 +22,32 @@
 
             Text = NAME;
 
-            LoadDocumentSource(code);
+            LoadDocumentSource(code, true);
+        }
+
+        public V_ReportOrderForm(Controller.C_Order cOrder, string code, bool flag)
+        {
+            InitializeComponent();
+            _cOrder = cOrder;
+
+            Text = NAME;
+
+            LoadDocumentSource(code, flag);
         }
 
 
-        private void LoadDocumentSource(string code)
+        private void LoadDocumentSource(string code, bool flag)
         {
-            var report = new Reports.Order.R_Order(_cOrder, code);
-            orderDV.DocumentSource = report;
+            if (flag)
+            {
+                var report = new Reports.Order.R_Order(_cOrder, code);
+                orderDV.DocumentSource = report;
+            }
+            else
+            {
+                var report = new Reports.Order.R_Order(_cOrder, code, flag);
+                orderDV.DocumentSource = report;
+            }
         }
     }
 }
