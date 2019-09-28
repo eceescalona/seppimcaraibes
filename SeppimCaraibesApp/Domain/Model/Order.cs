@@ -55,7 +55,7 @@
         public async Task<IEnumerable<Data.POCO.OrderReportView>> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
-            var products = new List<Data.POCO.ProductsOrders>();
+            var products = new List<Data.POCO.ProductsOrdersReports>();
             var rOrder = new Data.Repository.OrderRepository();
 
             var order = await rOrder.GetOrder(context, code);
@@ -114,14 +114,17 @@
                 PaymentsTerms = order.PaymentsTerms
             };
 
+
             foreach (var productOrder in order.ProductsOrders)
             {
-                var product = new Data.POCO.ProductsOrders
+                var product = new Data.POCO.ProductsOrdersReports
                 {
                     ProductId = productOrder.ProductId,
                     ProductName = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.ProductName,
                     Qty = productOrder.Qty,
-                    UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice
+                    UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice,
+                    CustomsCode = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.CustomsCode,
+                    Origin = context.ProductsViews.SingleOrDefault(p => p.Product_Code == productOrder.ProductId)?.Acronyms
                 };
 
                 products.Add(product);

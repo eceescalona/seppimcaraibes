@@ -135,6 +135,7 @@
     <Compile Include="Data\ORM\UserView.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\POCO\OrderReportView.cs" />
+    <Compile Include="Data\POCO\ProductsOrdersReports.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />

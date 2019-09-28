@@ -100,7 +100,7 @@
 
         public EIncoterms? IncotermsType { get; set; }
 
-        public IList<ProductsOrders> Products { get; set; }
+        public IList<ProductsOrdersReports> Products { get; set; }
 
         public decimal? EXW { get; set; }
 
