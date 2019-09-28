@@ -105,11 +105,13 @@
                 BankName = bank == null ? string.Empty : bank.BankName,
                 AccountNumber = bank == null ? string.Empty : bank.AccountNumber,
                 AccountName = bank == null ? string.Empty : bank.AccountName,
+                Swift = bank == null ? string.Empty : bank.Swift,
                 InvoiceReference = order.InvoiceReference,
                 Expenses = order.Expenses,
                 ExpensesType = order.ExpensesType,
                 PackingDescription = shipment == null ? string.Empty : shipment.PackingDesciption,
-                BankAddress = bank == null ? string.Empty : bank.BankAddress
+                BankAddress = bank == null ? string.Empty : bank.BankAddress,
+                PaymentsTerms = order.PaymentsTerms
             };
 
             foreach (var productOrder in order.ProductsOrders)

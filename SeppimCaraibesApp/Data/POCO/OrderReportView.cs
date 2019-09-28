@@ -20,6 +20,8 @@
 
         public string BankAddress { get; set; }
 
+        public string Swift { get; set; }
+
         [StringLength(50)]
         public string AccountNumber { get; set; }
 
@@ -113,5 +115,7 @@
         public EExpenses? ExpensesType { get; set; }
 
         public decimal? Expenses { get; set; }
+
+        public string PaymentsTerms { get; set; }
     }
 }

@@ -51,6 +51,8 @@
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
+            this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
+            this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
             this.interesLC = new DevExpress.XtraEditors.LabelControl();
             this.discountLC = new DevExpress.XtraEditors.LabelControl();
             this.interesTE = new DevExpress.XtraEditors.TextEdit();
@@ -105,8 +107,8 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
-            this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
+            this.paymentsTermsLC = new DevExpress.XtraEditors.LabelControl();
+            this.paymentsTermsTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -128,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
             this.quotePC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).BeginInit();
@@ -172,7 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -344,6 +347,8 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.paymentsTermsTE);
+            this.quotePC.Controls.Add(this.paymentsTermsLC);
             this.quotePC.Controls.Add(this.inspectionTE);
             this.quotePC.Controls.Add(this.inspectionLC);
             this.quotePC.Controls.Add(this.interesLC);
@@ -376,6 +381,22 @@
             this.quotePC.Name = "quotePC";
             this.quotePC.Size = new System.Drawing.Size(526, 298);
             this.quotePC.TabIndex = 4;
+            // 
+            // inspectionTE
+            // 
+            this.inspectionTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Inspection", true));
+            this.inspectionTE.Location = new System.Drawing.Point(356, 108);
+            this.inspectionTE.Name = "inspectionTE";
+            this.inspectionTE.Size = new System.Drawing.Size(100, 20);
+            this.inspectionTE.TabIndex = 31;
+            // 
+            // inspectionLC
+            // 
+            this.inspectionLC.Location = new System.Drawing.Point(295, 111);
+            this.inspectionLC.Name = "inspectionLC";
+            this.inspectionLC.Size = new System.Drawing.Size(55, 13);
+            this.inspectionLC.TabIndex = 30;
+            this.inspectionLC.Text = "Inspección:";
             // 
             // interesLC
             // 
@@ -844,21 +865,21 @@
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
             // 
-            // inspectionLC
+            // paymentsTermsLC
             // 
-            this.inspectionLC.Location = new System.Drawing.Point(295, 111);
-            this.inspectionLC.Name = "inspectionLC";
-            this.inspectionLC.Size = new System.Drawing.Size(55, 13);
-            this.inspectionLC.TabIndex = 30;
-            this.inspectionLC.Text = "Inspección:";
+            this.paymentsTermsLC.Location = new System.Drawing.Point(58, 273);
+            this.paymentsTermsLC.Name = "paymentsTermsLC";
+            this.paymentsTermsLC.Size = new System.Drawing.Size(89, 13);
+            this.paymentsTermsLC.TabIndex = 32;
+            this.paymentsTermsLC.Text = "Términos de Pago:";
             // 
-            // inspectionTE
+            // paymentsTermsTE
             // 
-            this.inspectionTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Inspection", true));
-            this.inspectionTE.Location = new System.Drawing.Point(356, 108);
-            this.inspectionTE.Name = "inspectionTE";
-            this.inspectionTE.Size = new System.Drawing.Size(100, 20);
-            this.inspectionTE.TabIndex = 31;
+            this.paymentsTermsTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "PaymentsTerms", true));
+            this.paymentsTermsTE.Location = new System.Drawing.Point(153, 270);
+            this.paymentsTermsTE.Name = "paymentsTermsTE";
+            this.paymentsTermsTE.Size = new System.Drawing.Size(303, 20);
+            this.paymentsTermsTE.TabIndex = 33;
             // 
             // V_AddEditQuoteForm
             // 
@@ -897,6 +918,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
             this.quotePC.ResumeLayout(false);
             this.quotePC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesTypeRG.Properties)).EndInit();
@@ -941,7 +963,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1025,5 +1047,7 @@
         private DevExpress.XtraEditors.MemoEdit placeDME;
         private DevExpress.XtraEditors.LabelControl inspectionLC;
         private DevExpress.XtraEditors.TextEdit inspectionTE;
+        private DevExpress.XtraEditors.TextEdit paymentsTermsTE;
+        private DevExpress.XtraEditors.LabelControl paymentsTermsLC;
     }
 }

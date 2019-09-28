@@ -89,6 +89,8 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public decimal? Expenses { get; set; }
 
+        public string PaymentsTerms { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductsOrder> ProductsOrders { get; set; }
 

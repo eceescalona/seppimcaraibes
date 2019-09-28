@@ -257,10 +257,13 @@
             this.printPreviewRibbonPageGroup7 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.printPreviewRibbonPageGroup8 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.offerPC = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.offerDVRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.offerPC)).BeginInit();
+            this.offerPC.SuspendLayout();
             this.SuspendLayout();
             // 
             // offerDV
@@ -268,9 +271,9 @@
             this.offerDV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.offerDV.DocumentSource = typeof(SeppimCaraibesApp.Domain.View.Reports.Offer.R_Offer);
             this.offerDV.IsMetric = false;
-            this.offerDV.Location = new System.Drawing.Point(0, 0);
+            this.offerDV.Location = new System.Drawing.Point(2, 2);
             this.offerDV.Name = "offerDV";
-            this.offerDV.Size = new System.Drawing.Size(800, 450);
+            this.offerDV.Size = new System.Drawing.Size(796, 324);
             this.offerDV.TabIndex = 0;
             // 
             // offerDVRC
@@ -340,7 +343,8 @@
             this.progressBarEditItem1,
             this.printPreviewBarItem52,
             this.printPreviewStaticItem2,
-            this.zoomTrackBarEditItem1});
+            this.zoomTrackBarEditItem1,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 57;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -1462,14 +1466,23 @@
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 27);
             // 
+            // offerPC
+            // 
+            this.offerPC.Controls.Add(this.offerDV);
+            this.offerPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.offerPC.Location = new System.Drawing.Point(0, 95);
+            this.offerPC.Name = "offerPC";
+            this.offerPC.Size = new System.Drawing.Size(800, 328);
+            this.offerPC.TabIndex = 2;
+            // 
             // V_ReportOfferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.offerPC);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
-            this.Controls.Add(this.offerDV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ReportOfferForm";
             this.Text = "V_ReportOfferForm";
@@ -1477,6 +1490,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.offerPC)).EndInit();
+            this.offerPC.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1555,5 +1570,6 @@
         private DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup printPreviewRibbonPageGroup7;
         private DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup printPreviewRibbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraEditors.PanelControl offerPC;
     }
 }
