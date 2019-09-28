@@ -494,7 +494,7 @@
             this.xrLabel18.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.StylePriority.UseTextAlignment = false;
-            this.xrLabel18.Text = "Incoterm: [IncotermsType] | [Incoterm!€0.00]";
+            this.xrLabel18.Text = "Incoterm: [IncotermsType]";
             this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel18.WordWrap = false;
             // 
@@ -676,7 +676,7 @@
             this.xrLabel11.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "Gastos: [ExpensesType] | [Expenses!€0.00]";
+            this.xrLabel11.Text = "Gastos [ExpensesType]: [Expenses!€0.00]";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel11.WordWrap = false;
             // 
