@@ -68,10 +68,10 @@
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -483,7 +483,7 @@
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseTextAlignment = false;
             this.xrLabel20.Text = "Flete: [Freight!€0.00]";
-            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel20.WordWrap = false;
             // 
             // xrLabel21
@@ -515,7 +515,7 @@
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
             this.xrLabel11.Text = "Gastos [ExpensesType]: [Expenses!€0.00]";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel11.WordWrap = false;
             // 
             // xrLine3
@@ -523,6 +523,11 @@
             this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(9.99999F, 0F);
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(629.9998F, 23F);
+            // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // GroupFooter1
             // 
@@ -568,11 +573,6 @@
             this.xrLabel18.StylePriority.UseTextAlignment = false;
             this.xrLabel18.Text = "Contrato: [ContractDescription]";
             this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopJustify;
-            // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
-            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // R_Order
             // 
