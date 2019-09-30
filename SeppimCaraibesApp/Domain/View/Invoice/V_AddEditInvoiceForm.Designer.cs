@@ -51,6 +51,7 @@
             this.addBankSB = new DevExpress.XtraEditors.SimpleButton();
             this.banlSLUEPC = new DevExpress.XtraEditors.PanelControl();
             this.banksSLUE = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.bankGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAccountNumber = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +66,7 @@
             this.endDateDE = new DevExpress.XtraEditors.DateEdit();
             this.biginDateDE = new DevExpress.XtraEditors.DateEdit();
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostLC = new DevExpress.XtraEditors.LabelControl();
             this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
             this.insuranceTE = new DevExpress.XtraEditors.TextEdit();
@@ -75,8 +77,6 @@
             this.bankLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.commercialValueBS = new System.Windows.Forms.BindingSource(this.components);
-            this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
-            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
             this.addEditLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -118,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).BeginInit();
@@ -125,7 +126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditLC
@@ -321,8 +321,9 @@
             // 
             // banksSLUE
             // 
+            this.banksSLUE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banksSLUE.EditValue = "";
-            this.banksSLUE.Location = new System.Drawing.Point(7, 5);
+            this.banksSLUE.Location = new System.Drawing.Point(2, 2);
             this.banksSLUE.Name = "banksSLUE";
             this.banksSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -332,8 +333,15 @@
             this.banksSLUE.Properties.NullValuePrompt = "Banco";
             this.banksSLUE.Properties.PopupView = this.bankGV;
             this.banksSLUE.Properties.ValueMember = "BankId";
-            this.banksSLUE.Size = new System.Drawing.Size(330, 20);
+            this.banksSLUE.Size = new System.Drawing.Size(266, 20);
             this.banksSLUE.TabIndex = 0;
+            // 
+            // banksEIFS
+            // 
+            this.banksEIFS.AreSourceRowsThreadSafe = true;
+            this.banksEIFS.DefaultSorting = "BankName ASC";
+            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
+            this.banksEIFS.KeyExpression = "BankId";
             // 
             // bankGV
             // 
@@ -477,6 +485,10 @@
             this.totalCostTE.Size = new System.Drawing.Size(128, 20);
             this.totalCostTE.TabIndex = 5;
             // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
             // totalCostLC
             // 
             this.totalCostLC.Location = new System.Drawing.Point(38, 86);
@@ -556,17 +568,6 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // banksEIFS
-            // 
-            this.banksEIFS.AreSourceRowsThreadSafe = true;
-            this.banksEIFS.DefaultSorting = "BankName ASC";
-            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
-            this.banksEIFS.KeyExpression = "BankId";
-            // 
-            // orderBS
-            // 
-            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
-            // 
             // V_AddEditInvoiceForm
             // 
             this.AcceptButton = this.acceptSB;
@@ -623,6 +624,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).EndInit();
@@ -630,7 +632,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             this.ResumeLayout(false);
 
         }
