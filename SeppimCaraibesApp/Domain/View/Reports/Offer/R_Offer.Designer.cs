@@ -224,7 +224,7 @@
             this.xrLabel9.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "No. Orden: [OrderCode]/[ProviderReference]/[CustomerReference]";
+            this.xrLabel9.Text = "No. Orden: [OrderCode]/[ProviderReference]_[CustomerReference]";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel9.WordWrap = false;
             // 
@@ -374,7 +374,7 @@
             // xrTableCell10
             // 
             this.xrTableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "BigMul([Qty], [UnitPrice])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Qty] * [UnitPrice]")});
             this.xrTableCell10.Multiline = true;
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
@@ -766,6 +766,7 @@
             this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.Text = "Peso Bruto: [GrossWeight]";
+            this.xrLabel5.TextFormatString = "{0:Kg}";
             this.xrLabel5.WordWrap = false;
             // 
             // xrLabel7
@@ -812,6 +813,7 @@
             this.xrLabel23.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel23.StylePriority.UseFont = false;
             this.xrLabel23.Text = "Peso Neto: [NetWeight]";
+            this.xrLabel23.TextFormatString = "{0:Kg}";
             this.xrLabel23.WordWrap = false;
             // 
             // xrLabel14
