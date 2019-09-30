@@ -765,7 +765,7 @@
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "Peso Bruto: [GrossWeight]";
+            this.xrLabel5.Text = "Peso Bruto: [GrossWeight!0.00:Kg]";
             this.xrLabel5.TextFormatString = "{0:Kg}";
             this.xrLabel5.WordWrap = false;
             // 
@@ -812,7 +812,7 @@
             this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel23.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel23.StylePriority.UseFont = false;
-            this.xrLabel23.Text = "Peso Neto: [NetWeight]";
+            this.xrLabel23.Text = "Peso Neto: [NetWeight!0.00:Kg]";
             this.xrLabel23.TextFormatString = "{0:Kg}";
             this.xrLabel23.WordWrap = false;
             // 
