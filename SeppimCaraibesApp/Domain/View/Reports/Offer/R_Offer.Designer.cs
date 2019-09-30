@@ -89,6 +89,7 @@
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderReportViewODS)).BeginInit();
@@ -204,6 +205,7 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel10,
             this.xrLabel9,
             this.xrLabel2,
             this.xrLabel3,
@@ -217,14 +219,14 @@
             this.xrLabel9.AutoWidth = true;
             this.xrLabel9.CanGrow = false;
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(539.9999F, 22.99999F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 22.99999F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "No. Orden: [OrderCode]/[ProviderReference]_[CustomerReference]";
+            this.xrLabel9.Text = "Referencia del Cliente:[CustomerReference]";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel9.WordWrap = false;
             // 
@@ -268,7 +270,7 @@
             // 
             this.xrLabel6.AutoWidth = true;
             this.xrLabel6.CanGrow = false;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(540F, 0F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(538.7335F, 0F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -500,7 +502,7 @@
             // 
             // xrLine6
             // 
-            this.xrLine6.LocationFloat = new DevExpress.Utils.PointFloat(10.01741F, 69.00002F);
+            this.xrLine6.LocationFloat = new DevExpress.Utils.PointFloat(437.692F, 69.00002F);
             this.xrLine6.Name = "xrLine6";
             this.xrLine6.SizeF = new System.Drawing.SizeF(201.0417F, 22.99999F);
             // 
@@ -509,7 +511,7 @@
             this.totalCostXRL.AutoWidth = true;
             this.totalCostXRL.CanGrow = false;
             this.totalCostXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.totalCostXRL.LocationFloat = new DevExpress.Utils.PointFloat(11.05906F, 253F);
+            this.totalCostXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 253.0001F);
             this.totalCostXRL.Multiline = true;
             this.totalCostXRL.Name = "totalCostXRL";
             this.totalCostXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -517,7 +519,7 @@
             this.totalCostXRL.StylePriority.UseFont = false;
             this.totalCostXRL.StylePriority.UseTextAlignment = false;
             this.totalCostXRL.Text = "Costo Total: [IncotermsType] | [TotalCost!€0.00]";
-            this.totalCostXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.totalCostXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalCostXRL.WordWrap = false;
             // 
             // subEXWXRL
@@ -527,7 +529,7 @@
             this.subEXWXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[EXW] - [TotalDiscount]")});
             this.subEXWXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.subEXWXRL.LocationFloat = new DevExpress.Utils.PointFloat(77.72578F, 91.99998F);
+            this.subEXWXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 92.00001F);
             this.subEXWXRL.Multiline = true;
             this.subEXWXRL.Name = "subEXWXRL";
             this.subEXWXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -544,7 +546,7 @@
             this.freightXRL.AutoWidth = true;
             this.freightXRL.CanGrow = false;
             this.freightXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.freightXRL.LocationFloat = new DevExpress.Utils.PointFloat(8.751138F, 138F);
+            this.freightXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 138F);
             this.freightXRL.Multiline = true;
             this.freightXRL.Name = "freightXRL";
             this.freightXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -552,7 +554,7 @@
             this.freightXRL.StylePriority.UseFont = false;
             this.freightXRL.StylePriority.UseTextAlignment = false;
             this.freightXRL.Text = "Flete: [Freight!€0.00]";
-            this.freightXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.freightXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.freightXRL.WordWrap = false;
             // 
             // insuranceXRL
@@ -560,7 +562,7 @@
             this.insuranceXRL.AutoWidth = true;
             this.insuranceXRL.CanGrow = false;
             this.insuranceXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.insuranceXRL.LocationFloat = new DevExpress.Utils.PointFloat(8.751138F, 161F);
+            this.insuranceXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 161F);
             this.insuranceXRL.Multiline = true;
             this.insuranceXRL.Name = "insuranceXRL";
             this.insuranceXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -568,7 +570,7 @@
             this.insuranceXRL.StylePriority.UseFont = false;
             this.insuranceXRL.StylePriority.UseTextAlignment = false;
             this.insuranceXRL.Text = "Seguro: [Insurance!€0.00]";
-            this.insuranceXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.insuranceXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.insuranceXRL.WordWrap = false;
             // 
             // inspectionXRL
@@ -576,7 +578,7 @@
             this.inspectionXRL.AutoWidth = true;
             this.inspectionXRL.CanGrow = false;
             this.inspectionXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.inspectionXRL.LocationFloat = new DevExpress.Utils.PointFloat(8.751138F, 184F);
+            this.inspectionXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 184F);
             this.inspectionXRL.Multiline = true;
             this.inspectionXRL.Name = "inspectionXRL";
             this.inspectionXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -584,7 +586,7 @@
             this.inspectionXRL.StylePriority.UseFont = false;
             this.inspectionXRL.StylePriority.UseTextAlignment = false;
             this.inspectionXRL.Text = "Inspección: [Inspection!€0.00]";
-            this.inspectionXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.inspectionXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.inspectionXRL.WordWrap = false;
             // 
             // totalDiscountXRL
@@ -594,7 +596,7 @@
             this.totalDiscountXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Descuento Total: [TotalDiscount]")});
             this.totalDiscountXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.totalDiscountXRL.LocationFloat = new DevExpress.Utils.PointFloat(10.01741F, 46F);
+            this.totalDiscountXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 46.00007F);
             this.totalDiscountXRL.Multiline = true;
             this.totalDiscountXRL.Name = "totalDiscountXRL";
             this.totalDiscountXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -602,7 +604,7 @@
             this.totalDiscountXRL.StylePriority.UseFont = false;
             this.totalDiscountXRL.StylePriority.UseTextAlignment = false;
             this.totalDiscountXRL.Text = "Descuento Total: [TotalDiscount!€0.00]";
-            this.totalDiscountXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.totalDiscountXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalDiscountXRL.TextFormatString = "{0:€0.00}";
             this.totalDiscountXRL.WordWrap = false;
             // 
@@ -613,7 +615,7 @@
             this.totalInterestesXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Interes Total: [ToltalInterests]")});
             this.totalInterestesXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.totalInterestesXRL.LocationFloat = new DevExpress.Utils.PointFloat(8.751138F, 207F);
+            this.totalInterestesXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 207F);
             this.totalInterestesXRL.Multiline = true;
             this.totalInterestesXRL.Name = "totalInterestesXRL";
             this.totalInterestesXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -621,7 +623,7 @@
             this.totalInterestesXRL.StylePriority.UseFont = false;
             this.totalInterestesXRL.StylePriority.UseTextAlignment = false;
             this.totalInterestesXRL.Text = "Interes Total: [ToltalInterests!€0.00]";
-            this.totalInterestesXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.totalInterestesXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalInterestesXRL.TextFormatString = "{0:€0.00}";
             this.totalInterestesXRL.WordWrap = false;
             // 
@@ -632,7 +634,7 @@
             this.exwXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "EXW: [EXW]")});
             this.exwXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.exwXRL.LocationFloat = new DevExpress.Utils.PointFloat(10.01741F, 22.99999F);
+            this.exwXRL.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 23F);
             this.exwXRL.Multiline = true;
             this.exwXRL.Name = "exwXRL";
             this.exwXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -640,13 +642,13 @@
             this.exwXRL.StylePriority.UseFont = false;
             this.exwXRL.StylePriority.UseTextAlignment = false;
             this.exwXRL.Text = "EXW: [EXW!€0.00]";
-            this.exwXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.exwXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.exwXRL.TextFormatString = "{0:€0.00}";
             this.exwXRL.WordWrap = false;
             // 
             // xrLine4
             // 
-            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(9.583919F, 230F);
+            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(437.6919F, 230F);
             this.xrLine4.Name = "xrLine4";
             this.xrLine4.SizeF = new System.Drawing.SizeF(201.0417F, 23.00002F);
             // 
@@ -654,14 +656,14 @@
             // 
             this.xrLabel8.CanGrow = false;
             this.xrLabel8.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(10.01741F, 92.00001F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(471.0252F, 92.00001F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel8.SizeF = new System.Drawing.SizeF(67.70837F, 23F);
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "Sub. Total: ";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel8.WordWrap = false;
             // 
             // xrLabel11
@@ -669,7 +671,7 @@
             this.xrLabel11.AutoWidth = true;
             this.xrLabel11.CanGrow = false;
             this.xrLabel11.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(8.751138F, 115F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 115F);
             this.xrLabel11.Multiline = true;
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -677,7 +679,7 @@
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
             this.xrLabel11.Text = "Gastos [ExpensesType]: [Expenses!€0.00]";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel11.WordWrap = false;
             // 
             // xrLabel17
@@ -832,6 +834,22 @@
             this.xrLabel14.Text = "Método de Envío: [ShippingMethod]";
             this.xrLabel14.WordWrap = false;
             // 
+            // xrLabel10
+            // 
+            this.xrLabel10.AutoWidth = true;
+            this.xrLabel10.CanGrow = false;
+            this.xrLabel10.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(538.7336F, 50F);
+            this.xrLabel10.Multiline = true;
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel10.StylePriority.UseFont = false;
+            this.xrLabel10.StylePriority.UseTextAlignment = false;
+            this.xrLabel10.Text = "Referencia: [OrderCode]/[ProviderReference]";
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel10.WordWrap = false;
+            // 
             // R_Offer
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -915,5 +933,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
     }
 }

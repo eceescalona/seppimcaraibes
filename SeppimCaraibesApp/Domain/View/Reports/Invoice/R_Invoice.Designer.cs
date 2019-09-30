@@ -718,7 +718,7 @@
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2,
             this.xrTableRow3});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(604F, 48F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(604F, 38F);
             // 
             // xrTableRow2
             // 
@@ -812,8 +812,10 @@
             this.xrTableCell15,
             this.xrTableCell12});
             this.xrTableRow3.Dpi = 96F;
+            this.xrTableRow3.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableRow3.Name = "xrTableRow3";
-            this.xrTableRow3.Weight = 23D;
+            this.xrTableRow3.StylePriority.UseFont = false;
+            this.xrTableRow3.Weight = 13.416666666666666D;
             // 
             // xrTableCell13
             // 
@@ -834,7 +836,7 @@
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseFont = false;
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
-            this.xrTableCell14.Text = "Código de Aduana:";
+            this.xrTableCell14.Text = "COD. Aduanal:";
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell14.Weight = 1.576923351675761D;
             // 

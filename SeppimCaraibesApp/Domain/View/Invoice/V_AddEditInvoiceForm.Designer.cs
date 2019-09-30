@@ -62,9 +62,6 @@
             this.formPC = new DevExpress.XtraEditors.PanelControl();
             this.commercialValueLC = new DevExpress.XtraEditors.LabelControl();
             this.commercialValueRG = new DevExpress.XtraEditors.RadioGroup();
-            this.periodLC = new DevExpress.XtraEditors.LabelControl();
-            this.endDateDE = new DevExpress.XtraEditors.DateEdit();
-            this.biginDateDE = new DevExpress.XtraEditors.DateEdit();
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
             this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostLC = new DevExpress.XtraEditors.LabelControl();
@@ -113,10 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueRG.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
@@ -296,7 +289,7 @@
             // addBankPC
             // 
             this.addBankPC.Controls.Add(this.addBankSB);
-            this.addBankPC.Location = new System.Drawing.Point(12, 255);
+            this.addBankPC.Location = new System.Drawing.Point(12, 61);
             this.addBankPC.Name = "addBankPC";
             this.addBankPC.Size = new System.Drawing.Size(270, 26);
             this.addBankPC.TabIndex = 5;
@@ -316,7 +309,7 @@
             this.banlSLUEPC.Controls.Add(this.banksSLUE);
             this.banlSLUEPC.Location = new System.Drawing.Point(12, 33);
             this.banlSLUEPC.Name = "banlSLUEPC";
-            this.banlSLUEPC.Size = new System.Drawing.Size(270, 218);
+            this.banlSLUEPC.Size = new System.Drawing.Size(270, 24);
             this.banlSLUEPC.TabIndex = 4;
             // 
             // banksSLUE
@@ -387,16 +380,16 @@
             this.bankSLUELCI.Control = this.banlSLUEPC;
             this.bankSLUELCI.Location = new System.Drawing.Point(0, 21);
             this.bankSLUELCI.Name = "bankSLUELCI";
-            this.bankSLUELCI.Size = new System.Drawing.Size(274, 222);
+            this.bankSLUELCI.Size = new System.Drawing.Size(274, 28);
             this.bankSLUELCI.TextSize = new System.Drawing.Size(0, 0);
             this.bankSLUELCI.TextVisible = false;
             // 
             // addBankLCI
             // 
             this.addBankLCI.Control = this.addBankPC;
-            this.addBankLCI.Location = new System.Drawing.Point(0, 243);
+            this.addBankLCI.Location = new System.Drawing.Point(0, 49);
             this.addBankLCI.Name = "addBankLCI";
-            this.addBankLCI.Size = new System.Drawing.Size(274, 30);
+            this.addBankLCI.Size = new System.Drawing.Size(274, 224);
             this.addBankLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addBankLCI.TextVisible = false;
             // 
@@ -413,9 +406,6 @@
             // 
             this.formPC.Controls.Add(this.commercialValueLC);
             this.formPC.Controls.Add(this.commercialValueRG);
-            this.formPC.Controls.Add(this.periodLC);
-            this.formPC.Controls.Add(this.endDateDE);
-            this.formPC.Controls.Add(this.biginDateDE);
             this.formPC.Controls.Add(this.totalCostTE);
             this.formPC.Controls.Add(this.totalCostLC);
             this.formPC.Controls.Add(this.inspectionTE);
@@ -429,7 +419,7 @@
             // 
             // commercialValueLC
             // 
-            this.commercialValueLC.Location = new System.Drawing.Point(14, 167);
+            this.commercialValueLC.Location = new System.Drawing.Point(14, 153);
             this.commercialValueLC.Name = "commercialValueLC";
             this.commercialValueLC.Size = new System.Drawing.Size(83, 13);
             this.commercialValueLC.TabIndex = 10;
@@ -437,45 +427,13 @@
             // 
             // commercialValueRG
             // 
-            this.commercialValueRG.Location = new System.Drawing.Point(103, 155);
+            this.commercialValueRG.Location = new System.Drawing.Point(103, 109);
             this.commercialValueRG.Name = "commercialValueRG";
             this.commercialValueRG.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((byte)(1)), "FV"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((byte)(2)), "NC")});
             this.commercialValueRG.Size = new System.Drawing.Size(100, 96);
             this.commercialValueRG.TabIndex = 9;
-            // 
-            // periodLC
-            // 
-            this.periodLC.Location = new System.Drawing.Point(57, 123);
-            this.periodLC.Name = "periodLC";
-            this.periodLC.Size = new System.Drawing.Size(40, 13);
-            this.periodLC.TabIndex = 8;
-            this.periodLC.Text = "Período:";
-            // 
-            // endDateDE
-            // 
-            this.endDateDE.EditValue = null;
-            this.endDateDE.Location = new System.Drawing.Point(209, 120);
-            this.endDateDE.Name = "endDateDE";
-            this.endDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDateDE.Size = new System.Drawing.Size(100, 20);
-            this.endDateDE.TabIndex = 7;
-            // 
-            // biginDateDE
-            // 
-            this.biginDateDE.EditValue = null;
-            this.biginDateDE.Location = new System.Drawing.Point(103, 120);
-            this.biginDateDE.Name = "biginDateDE";
-            this.biginDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.biginDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.biginDateDE.Size = new System.Drawing.Size(100, 20);
-            this.biginDateDE.TabIndex = 6;
             // 
             // totalCostTE
             // 
@@ -619,10 +577,6 @@
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueRG.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biginDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
@@ -679,9 +633,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView bankGV;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colAccountNumber;
-        private DevExpress.XtraEditors.LabelControl periodLC;
-        private DevExpress.XtraEditors.DateEdit endDateDE;
-        private DevExpress.XtraEditors.DateEdit biginDateDE;
         private DevExpress.XtraEditors.RadioGroup commercialValueRG;
         private System.Windows.Forms.BindingSource commercialValueBS;
         private DevExpress.XtraEditors.LabelControl commercialValueLC;
