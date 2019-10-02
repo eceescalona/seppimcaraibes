@@ -149,8 +149,10 @@ namespace SeppimCaraibesApp.Domain.View.Product
             {
                 _isCProductAlive = true;
                 var row = productsGV.GetRow(productsGV.FocusedRowHandle) as Data.ORM.ProductsView;
-                var editProduct = new V_AddEditProductForm(_cProduct, row.Product_Code);
-                editProduct.StartPosition = FormStartPosition.CenterScreen;
+                var editProduct = new V_AddEditProductForm(_cProduct, row.Product_Code)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                };
                 editProduct.BringToFront();
                 DialogResult result = editProduct.ShowDialog();
                 if (result == DialogResult.OK)
