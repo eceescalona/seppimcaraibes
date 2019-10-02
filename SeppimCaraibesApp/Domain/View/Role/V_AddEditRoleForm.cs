@@ -66,9 +66,9 @@
             if (_isAddOrEdit)
             {
                 var role = (Data.ORM.Role)roleBS.Current;
-                if (role != null && (role.Permissions != null && role.Permissions.Count > 0))
+                if (role != null && (role.RolePermissions != null && role.RolePermissions.Count > 0))
                 {
-                    foreach (var permission in role.Permissions)
+                    foreach (var permission in role.RolePermissions)
                     {
                         if (permissionSLUEV.GetRow(e.RowHandle) is Data.ORM.Permission row)
                         {
@@ -193,16 +193,22 @@
             {
                 var role = (Data.ORM.Role)roleBS.Current;
 
-                var permissions = new List<Data.ORM.Permission>();
+                var permissions = new List<Data.ORM.RolePermission>();
                 int[] indexsPermissions = permissionSLUEV.GetSelectedRows();
                 for (int i = 0; i < indexsPermissions.Length; i++)
                 {
                     if (indexsPermissions[i] != -1)
                     {
-                        permissions.Add((Data.ORM.Permission)permissionSLUEV.GetRow(indexsPermissions[i]));
+                        var permission = (Data.ORM.Permission)permissionSLUEV.GetRow(indexsPermissions[i]);
+                        var rolePermission = new Data.ORM.RolePermission()
+                        {
+                            PermissionId = permission.PermissionId,
+                            RoleId = role.RoleId
+                        };
+                        permissions.Add(rolePermission);
                     }
                 }
-                role.Permissions = permissions;
+                role.RolePermissions = permissions;
 
                 if (_isAddOrEdit)
                 {

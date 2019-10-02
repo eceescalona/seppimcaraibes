@@ -65,7 +65,7 @@
                 fields.Add(field, message);
             }
 
-            if (product.Origins == null)
+            if (product.ProductsOrigins == null)
             {
                 flag = false;
                 field = "originsSLUE";

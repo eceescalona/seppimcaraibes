@@ -49,7 +49,7 @@
                 fields.Add(field, message);
             }
 
-            if (role.Permissions != null && role.Permissions.Count > 0)
+            if (role.RolePermissions != null && role.RolePermissions.Count > 0)
             {
                 flag = false;
                 field = "permissionsSLUE";

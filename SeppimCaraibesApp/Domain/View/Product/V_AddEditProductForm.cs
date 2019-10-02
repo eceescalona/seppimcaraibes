@@ -153,9 +153,9 @@
             if (_isAddOrEdit)
             {
                 var product = (Data.ORM.Product)productBS.Current;
-                if (product != null && (product.Origins != null && product.Origins.Count > 0))
+                if (product != null && (product.ProductsOrigins != null && product.ProductsOrigins.Count > 0))
                 {
-                    foreach (var origin in product.Origins)
+                    foreach (var origin in product.ProductsOrigins)
                     {
                         if (originsSLUEV.GetRow(e.RowHandle) is Data.ORM.Origin row)
                         {
@@ -343,7 +343,7 @@
                     }
                 }
 
-                var origins = new List<Data.ORM.Origin>();
+                var origins = new List<Data.ORM.ProductsOrigin>();
 
                 int[] indexsOrigins = originsSLUEV.GetSelectedRows();
 
@@ -351,12 +351,18 @@
                 {
                     if (indexsOrigins[i] != -1)
                     {
-                        origins.Add((Data.ORM.Origin)originsSLUEV.GetRow(indexsOrigins[i]));
+                        var origin = (Data.ORM.Origin)originsSLUEV.GetRow(indexsOrigins[i]);
+                        var productOrigin = new Data.ORM.ProductsOrigin
+                        {
+                            ProductId = product.ProductId,
+                            OriginId = origin.OriginId
+                        };
+                        origins.Add(productOrigin);
                     }
                 }
 
                 product.Providers = providers;
-                product.Origins = origins;
+                product.ProductsOrigins = origins;
 
                 if (_isAddOrEdit)
                 {
