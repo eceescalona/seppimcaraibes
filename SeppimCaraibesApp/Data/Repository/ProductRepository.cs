@@ -1,13 +1,15 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq;
     using System.Threading.Tasks;
 
     internal class ProductRepository
     {
-        public DbSet<ORM.Product> GetProducts(ORM.SeppimCaraibesLocalEntities context)
+        public List<ORM.Product> GetProducts(ORM.SeppimCaraibesLocalEntities context)
         {
-            return context.Products;
+            return context.Products.ToList();
         }
 
         public async Task<ORM.Product> GetProduct(ORM.SeppimCaraibesLocalEntities context, string code)
