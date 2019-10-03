@@ -241,10 +241,10 @@
                 double.TryParse(expensesTE.Text, out double expenses);
 
                 double EXW = decimal.ToDouble(order.EXW == null ? 0 : (decimal)order.EXW);
-                double TotalDiscount = order.TotalDiscount == null ? 0 : (double)order.TotalDiscount;
+                double TotalDiscount = order.TotalDiscount == null ? 0 : (double)order.TotalDiscount*EXW/100;
                 double Freight = decimal.ToDouble(order.Freight == null ? 0 : (decimal)order.Freight);
                 double Insurance = decimal.ToDouble(order.Insurance == null ? 0 : (decimal)order.Insurance);
-                double ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests;
+                double ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests/3600*(int)order.Period *EXW;
 
                 order.TotalCost = EXW - TotalDiscount + expenses + Freight + Insurance + ToltalInterests;
 
@@ -295,6 +295,14 @@
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

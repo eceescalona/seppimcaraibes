@@ -224,10 +224,6 @@
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
-            else
-            {
-                RefreshView();
-            }
         }
 
         private void CloseSB_Click(object sender, EventArgs e)

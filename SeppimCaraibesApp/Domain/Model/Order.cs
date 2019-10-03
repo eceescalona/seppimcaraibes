@@ -153,6 +153,19 @@
                     order.ProductsOrders.Add(productOrder);
                 }
 
+                if (order.Shipment != null)
+                {
+                    var rShipment = new Data.Repository.ShipmentRepository();
+                    if (!context.Shipments.Any(s => s.ShipmentId == order.Shipment.ShipmentId))
+                    {
+                        rShipment.AddShipment(context, order.Shipment);
+                    }
+                }
+                else
+                {
+                    order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
+                }
+
                 rOrder.AddOrder(context, order);
             }
         }

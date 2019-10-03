@@ -19,7 +19,6 @@
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string CONVERT_MESSAGE = "Uds. está cambiando la Pre-Orden a Cotizar. ¿Está seguro(a) de querer continuar?";
         private const string MESSAGE_SHOW_ERROR = "El documento no pudo ser mostrado. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
@@ -135,8 +134,10 @@
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _isCOrdenAlive = true;
-            var addOrder = new V_AddEditPreOrderForm(_cOrder);
-            addOrder.StartPosition = FormStartPosition.CenterScreen;
+            var addOrder = new V_AddEditPreOrderForm(_cOrder)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             addOrder.BringToFront();
             DialogResult result = addOrder.ShowDialog();
             if (result == DialogResult.OK)
@@ -145,7 +146,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -174,7 +174,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -268,6 +268,12 @@
             listQuotes.ShowDialog();
         }
 
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
         private void V_ListPreOrdersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_isCOrdenAlive)
@@ -279,11 +285,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }

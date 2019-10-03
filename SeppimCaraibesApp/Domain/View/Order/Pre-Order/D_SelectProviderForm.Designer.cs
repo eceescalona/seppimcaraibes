@@ -172,7 +172,8 @@
             // 
             // providerSLUE
             // 
-            this.providerSLUE.Location = new System.Drawing.Point(5, 5);
+            this.providerSLUE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.providerSLUE.Location = new System.Drawing.Point(2, 2);
             this.providerSLUE.Name = "providerSLUE";
             this.providerSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -182,7 +183,7 @@
             this.providerSLUE.Properties.NullValuePrompt = "Proveedor";
             this.providerSLUE.Properties.PopupView = this.providerLUEV;
             this.providerSLUE.Properties.ValueMember = "ProviderId";
-            this.providerSLUE.Size = new System.Drawing.Size(281, 20);
+            this.providerSLUE.Size = new System.Drawing.Size(286, 20);
             this.providerSLUE.TabIndex = 0;
             // 
             // providerEIFS

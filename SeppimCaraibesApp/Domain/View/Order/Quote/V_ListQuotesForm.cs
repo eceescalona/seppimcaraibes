@@ -17,7 +17,6 @@
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string CONVERT_MESSAGE = "Uds. está cambiando la orden de Cotizar a Orden Firme. ¿Está seguro(a) de querer continuar?";
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
@@ -156,7 +155,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -227,8 +226,10 @@
 
         private void ListOrdersBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var listOrders = new V_ListOrdersForm(_cOrden);
-            listOrders.StartPosition = FormStartPosition.CenterScreen;
+            var listOrders = new V_ListOrdersForm(_cOrden)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             listOrders.BringToFront();
             listOrders.ShowDialog();
         }

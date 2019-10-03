@@ -51,6 +51,10 @@
             this.netWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.grossWeightLC = new DevExpress.XtraEditors.LabelControl();
             this.quotePC = new DevExpress.XtraEditors.PanelControl();
+            this.daysFinanceTE = new DevExpress.XtraEditors.TextEdit();
+            this.daysFinanceLC = new DevExpress.XtraEditors.LabelControl();
+            this.paymentsTermsTE = new DevExpress.XtraEditors.TextEdit();
+            this.paymentsTermsLC = new DevExpress.XtraEditors.LabelControl();
             this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
             this.inspectionLC = new DevExpress.XtraEditors.LabelControl();
             this.interesLC = new DevExpress.XtraEditors.LabelControl();
@@ -86,6 +90,8 @@
             this.shipmentLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
+            this.closePC = new DevExpress.XtraEditors.PanelControl();
+            this.closeSB = new DevExpress.XtraEditors.SimpleButton();
             this.cancelPC = new DevExpress.XtraEditors.PanelControl();
             this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
             this.acceptPC = new DevExpress.XtraEditors.PanelControl();
@@ -93,6 +99,7 @@
             this.buttonsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.closeLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsPC = new DevExpress.XtraEditors.PanelControl();
             this.productGC = new DevExpress.XtraEditors.GroupControl();
             this.productsGridC = new DevExpress.XtraGrid.GridControl();
@@ -107,8 +114,6 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentsTermsLC = new DevExpress.XtraEditors.LabelControl();
-            this.paymentsTermsTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -130,6 +135,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grossWTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).BeginInit();
             this.quotePC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.daysFinanceTE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).BeginInit();
@@ -155,6 +162,8 @@
             this.buttonsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).BeginInit();
             this.buttonsLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closePC)).BeginInit();
+            this.closePC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
             this.cancelPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
@@ -162,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).BeginInit();
             this.productsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGC)).BeginInit();
@@ -175,7 +185,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditQuoteLC
@@ -196,9 +205,9 @@
             // 
             this.observationPC.Controls.Add(this.observationME);
             this.observationPC.Controls.Add(this.observationLC);
-            this.observationPC.Location = new System.Drawing.Point(570, 375);
+            this.observationPC.Location = new System.Drawing.Point(570, 354);
             this.observationPC.Name = "observationPC";
-            this.observationPC.Size = new System.Drawing.Size(392, 121);
+            this.observationPC.Size = new System.Drawing.Size(392, 138);
             this.observationPC.TabIndex = 5;
             // 
             // observationME
@@ -253,9 +262,9 @@
             this.shipmentPC.Controls.Add(this.placeDepartureLC);
             this.shipmentPC.Controls.Add(this.netWeightLC);
             this.shipmentPC.Controls.Add(this.grossWeightLC);
-            this.shipmentPC.Location = new System.Drawing.Point(12, 314);
+            this.shipmentPC.Location = new System.Drawing.Point(12, 341);
             this.shipmentPC.Name = "shipmentPC";
-            this.shipmentPC.Size = new System.Drawing.Size(526, 204);
+            this.shipmentPC.Size = new System.Drawing.Size(526, 177);
             this.shipmentPC.TabIndex = 0;
             // 
             // descriptionLC
@@ -315,11 +324,11 @@
             // 
             // shipmentMethodLC
             // 
-            this.shipmentMethodLC.Location = new System.Drawing.Point(52, 112);
+            this.shipmentMethodLC.Location = new System.Drawing.Point(68, 112);
             this.shipmentMethodLC.Name = "shipmentMethodLC";
-            this.shipmentMethodLC.Size = new System.Drawing.Size(84, 13);
+            this.shipmentMethodLC.Size = new System.Drawing.Size(68, 13);
             this.shipmentMethodLC.TabIndex = 4;
-            this.shipmentMethodLC.Text = "Método de Envío:";
+            this.shipmentMethodLC.Text = "Tipo de Envío:";
             // 
             // placeDepartureLC
             // 
@@ -347,6 +356,8 @@
             // 
             // quotePC
             // 
+            this.quotePC.Controls.Add(this.daysFinanceTE);
+            this.quotePC.Controls.Add(this.daysFinanceLC);
             this.quotePC.Controls.Add(this.paymentsTermsTE);
             this.quotePC.Controls.Add(this.paymentsTermsLC);
             this.quotePC.Controls.Add(this.inspectionTE);
@@ -379,8 +390,40 @@
             this.quotePC.Controls.Add(this.providerReferenceLC);
             this.quotePC.Location = new System.Drawing.Point(12, 12);
             this.quotePC.Name = "quotePC";
-            this.quotePC.Size = new System.Drawing.Size(526, 298);
+            this.quotePC.Size = new System.Drawing.Size(526, 325);
             this.quotePC.TabIndex = 4;
+            // 
+            // daysFinanceTE
+            // 
+            this.daysFinanceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "Period", true));
+            this.daysFinanceTE.Location = new System.Drawing.Point(153, 296);
+            this.daysFinanceTE.Name = "daysFinanceTE";
+            this.daysFinanceTE.Size = new System.Drawing.Size(208, 20);
+            this.daysFinanceTE.TabIndex = 35;
+            // 
+            // daysFinanceLC
+            // 
+            this.daysFinanceLC.Location = new System.Drawing.Point(70, 299);
+            this.daysFinanceLC.Name = "daysFinanceLC";
+            this.daysFinanceLC.Size = new System.Drawing.Size(77, 13);
+            this.daysFinanceLC.TabIndex = 34;
+            this.daysFinanceLC.Text = "Días a financiar:";
+            // 
+            // paymentsTermsTE
+            // 
+            this.paymentsTermsTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "PaymentsTerms", true));
+            this.paymentsTermsTE.Location = new System.Drawing.Point(153, 270);
+            this.paymentsTermsTE.Name = "paymentsTermsTE";
+            this.paymentsTermsTE.Size = new System.Drawing.Size(303, 20);
+            this.paymentsTermsTE.TabIndex = 33;
+            // 
+            // paymentsTermsLC
+            // 
+            this.paymentsTermsLC.Location = new System.Drawing.Point(58, 273);
+            this.paymentsTermsLC.Name = "paymentsTermsLC";
+            this.paymentsTermsLC.Size = new System.Drawing.Size(89, 13);
+            this.paymentsTermsLC.TabIndex = 32;
+            this.paymentsTermsLC.Text = "Términos de Pago:";
             // 
             // inspectionTE
             // 
@@ -641,16 +684,16 @@
             this.quoteLCI.Control = this.quotePC;
             this.quoteLCI.Location = new System.Drawing.Point(0, 0);
             this.quoteLCI.Name = "quoteLCI";
-            this.quoteLCI.Size = new System.Drawing.Size(530, 302);
+            this.quoteLCI.Size = new System.Drawing.Size(530, 329);
             this.quoteLCI.TextSize = new System.Drawing.Size(0, 0);
             this.quoteLCI.TextVisible = false;
             // 
             // shipmentLCI
             // 
             this.shipmentLCI.Control = this.shipmentPC;
-            this.shipmentLCI.Location = new System.Drawing.Point(0, 302);
+            this.shipmentLCI.Location = new System.Drawing.Point(0, 329);
             this.shipmentLCI.Name = "shipmentLCI";
-            this.shipmentLCI.Size = new System.Drawing.Size(530, 208);
+            this.shipmentLCI.Size = new System.Drawing.Size(530, 181);
             this.shipmentLCI.TextSize = new System.Drawing.Size(0, 0);
             this.shipmentLCI.TextVisible = false;
             // 
@@ -658,39 +701,59 @@
             // 
             this.buttonsPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.buttonsPC.Controls.Add(this.buttonsLC);
-            this.buttonsPC.Location = new System.Drawing.Point(570, 500);
+            this.buttonsPC.Location = new System.Drawing.Point(570, 496);
             this.buttonsPC.Name = "buttonsPC";
-            this.buttonsPC.Size = new System.Drawing.Size(392, 46);
+            this.buttonsPC.Size = new System.Drawing.Size(392, 50);
             this.buttonsPC.TabIndex = 0;
             // 
             // buttonsLC
             // 
+            this.buttonsLC.Controls.Add(this.closePC);
             this.buttonsLC.Controls.Add(this.cancelPC);
             this.buttonsLC.Controls.Add(this.acceptPC);
             this.buttonsLC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonsLC.Location = new System.Drawing.Point(0, 0);
             this.buttonsLC.Name = "buttonsLC";
             this.buttonsLC.Root = this.buttonsLCG;
-            this.buttonsLC.Size = new System.Drawing.Size(392, 46);
+            this.buttonsLC.Size = new System.Drawing.Size(392, 50);
             this.buttonsLC.TabIndex = 0;
             this.buttonsLC.Text = "layoutControl1";
+            // 
+            // closePC
+            // 
+            this.closePC.Controls.Add(this.closeSB);
+            this.closePC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closePC.Location = new System.Drawing.Point(269, 12);
+            this.closePC.Name = "closePC";
+            this.closePC.Size = new System.Drawing.Size(111, 26);
+            this.closePC.TabIndex = 5;
+            // 
+            // closeSB
+            // 
+            this.closeSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closeSB.Location = new System.Drawing.Point(2, 2);
+            this.closeSB.Name = "closeSB";
+            this.closeSB.Size = new System.Drawing.Size(107, 22);
+            this.closeSB.TabIndex = 0;
+            this.closeSB.Text = "Terminar";
+            this.closeSB.Click += new System.EventHandler(this.CloseSB_Click);
             // 
             // cancelPC
             // 
             this.cancelPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Location = new System.Drawing.Point(200, 12);
+            this.cancelPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelPC.Location = new System.Drawing.Point(134, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(180, 22);
+            this.cancelPC.Size = new System.Drawing.Size(131, 22);
             this.cancelPC.TabIndex = 0;
             // 
             // cancelSB
             // 
-            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelSB.Location = new System.Drawing.Point(0, 0);
             this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(180, 22);
+            this.cancelSB.Size = new System.Drawing.Size(131, 22);
             this.cancelSB.TabIndex = 0;
             this.cancelSB.Text = "Cancelar";
             this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
@@ -699,9 +762,10 @@
             // 
             this.acceptPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.acceptPC.Controls.Add(this.acceptSB);
+            this.acceptPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptPC.Location = new System.Drawing.Point(12, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(184, 22);
+            this.acceptPC.Size = new System.Drawing.Size(118, 22);
             this.acceptPC.TabIndex = 4;
             // 
             // acceptSB
@@ -709,7 +773,7 @@
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptSB.Location = new System.Drawing.Point(0, 0);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(184, 22);
+            this.acceptSB.Size = new System.Drawing.Size(118, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
@@ -720,9 +784,10 @@
             this.buttonsLCG.GroupBordersVisible = false;
             this.buttonsLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.acceptLCI,
-            this.cancelLCI});
+            this.cancelLCI,
+            this.closeLCI});
             this.buttonsLCG.Name = "buttonsLCG";
-            this.buttonsLCG.Size = new System.Drawing.Size(392, 46);
+            this.buttonsLCG.Size = new System.Drawing.Size(392, 50);
             this.buttonsLCG.TextVisible = false;
             // 
             // acceptLCI
@@ -730,25 +795,34 @@
             this.acceptLCI.Control = this.acceptPC;
             this.acceptLCI.Location = new System.Drawing.Point(0, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(188, 26);
+            this.acceptLCI.Size = new System.Drawing.Size(122, 30);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // cancelLCI
             // 
             this.cancelLCI.Control = this.cancelPC;
-            this.cancelLCI.Location = new System.Drawing.Point(188, 0);
+            this.cancelLCI.Location = new System.Drawing.Point(122, 0);
             this.cancelLCI.Name = "cancelLCI";
-            this.cancelLCI.Size = new System.Drawing.Size(184, 26);
+            this.cancelLCI.Size = new System.Drawing.Size(135, 30);
             this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLCI.TextVisible = false;
+            // 
+            // closeLCI
+            // 
+            this.closeLCI.Control = this.closePC;
+            this.closeLCI.Location = new System.Drawing.Point(257, 0);
+            this.closeLCI.Name = "closeLCI";
+            this.closeLCI.Size = new System.Drawing.Size(115, 30);
+            this.closeLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.closeLCI.TextVisible = false;
             // 
             // productsPC
             // 
             this.productsPC.Controls.Add(this.productGC);
             this.productsPC.Location = new System.Drawing.Point(570, 12);
             this.productsPC.Name = "productsPC";
-            this.productsPC.Size = new System.Drawing.Size(392, 359);
+            this.productsPC.Size = new System.Drawing.Size(392, 338);
             this.productsPC.TabIndex = 0;
             // 
             // productGC
@@ -757,7 +831,7 @@
             this.productGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productGC.Location = new System.Drawing.Point(2, 2);
             this.productGC.Name = "productGC";
-            this.productGC.Size = new System.Drawing.Size(388, 355);
+            this.productGC.Size = new System.Drawing.Size(388, 334);
             this.productGC.TabIndex = 0;
             this.productGC.Text = "Productos*:";
             // 
@@ -768,7 +842,7 @@
             this.productsGridC.Location = new System.Drawing.Point(2, 20);
             this.productsGridC.MainView = this.productsGV;
             this.productsGridC.Name = "productsGridC";
-            this.productsGridC.Size = new System.Drawing.Size(384, 333);
+            this.productsGridC.Size = new System.Drawing.Size(384, 312);
             this.productsGridC.TabIndex = 0;
             this.productsGridC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
@@ -796,7 +870,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 171;
+            this.colProductName.Width = 179;
             // 
             // colQty
             // 
@@ -805,7 +879,7 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 2;
-            this.colQty.Width = 62;
+            this.colQty.Width = 53;
             // 
             // colUnitPrice
             // 
@@ -814,7 +888,7 @@
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 3;
-            this.colUnitPrice.Width = 91;
+            this.colUnitPrice.Width = 96;
             // 
             // addEditQuoteLCG
             // 
@@ -834,16 +908,16 @@
             this.productsLCI.Control = this.productsPC;
             this.productsLCI.Location = new System.Drawing.Point(558, 0);
             this.productsLCI.Name = "productsLCI";
-            this.productsLCI.Size = new System.Drawing.Size(396, 363);
+            this.productsLCI.Size = new System.Drawing.Size(396, 342);
             this.productsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLCI.TextVisible = false;
             // 
             // buttonsLCI
             // 
             this.buttonsLCI.Control = this.buttonsPC;
-            this.buttonsLCI.Location = new System.Drawing.Point(558, 488);
+            this.buttonsLCI.Location = new System.Drawing.Point(558, 484);
             this.buttonsLCI.Name = "buttonsLCI";
-            this.buttonsLCI.Size = new System.Drawing.Size(396, 50);
+            this.buttonsLCI.Size = new System.Drawing.Size(396, 54);
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
@@ -859,34 +933,16 @@
             // observationLCI
             // 
             this.observationLCI.Control = this.observationPC;
-            this.observationLCI.Location = new System.Drawing.Point(558, 363);
+            this.observationLCI.Location = new System.Drawing.Point(558, 342);
             this.observationLCI.Name = "observationLCI";
-            this.observationLCI.Size = new System.Drawing.Size(396, 125);
+            this.observationLCI.Size = new System.Drawing.Size(396, 142);
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
             // 
-            // paymentsTermsLC
-            // 
-            this.paymentsTermsLC.Location = new System.Drawing.Point(58, 273);
-            this.paymentsTermsLC.Name = "paymentsTermsLC";
-            this.paymentsTermsLC.Size = new System.Drawing.Size(89, 13);
-            this.paymentsTermsLC.TabIndex = 32;
-            this.paymentsTermsLC.Text = "Términos de Pago:";
-            // 
-            // paymentsTermsTE
-            // 
-            this.paymentsTermsTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "PaymentsTerms", true));
-            this.paymentsTermsTE.Location = new System.Drawing.Point(153, 270);
-            this.paymentsTermsTE.Name = "paymentsTermsTE";
-            this.paymentsTermsTE.Size = new System.Drawing.Size(303, 20);
-            this.paymentsTermsTE.TabIndex = 33;
-            // 
             // V_AddEditQuoteForm
             // 
-            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(974, 558);
             this.Controls.Add(this.addEditQuoteLC);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -918,6 +974,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotePC)).EndInit();
             this.quotePC.ResumeLayout(false);
             this.quotePC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.daysFinanceTE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interesTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountTE.Properties)).EndInit();
@@ -943,6 +1001,8 @@
             this.buttonsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).EndInit();
             this.buttonsLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.closePC)).EndInit();
+            this.closePC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
             this.cancelPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
@@ -950,6 +1010,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).EndInit();
             this.productsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productGC)).EndInit();
@@ -963,7 +1024,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.observationLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1008,7 +1068,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
         private DevExpress.XtraLayout.LayoutControl buttonsLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
-        private DevExpress.XtraEditors.SimpleButton cancelSB;
         private DevExpress.XtraEditors.PanelControl acceptPC;
         private DevExpress.XtraEditors.SimpleButton acceptSB;
         private DevExpress.XtraLayout.LayoutControlGroup buttonsLCG;
@@ -1049,5 +1108,11 @@
         private DevExpress.XtraEditors.TextEdit inspectionTE;
         private DevExpress.XtraEditors.TextEdit paymentsTermsTE;
         private DevExpress.XtraEditors.LabelControl paymentsTermsLC;
+        private DevExpress.XtraEditors.PanelControl closePC;
+        private DevExpress.XtraLayout.LayoutControlItem closeLCI;
+        private DevExpress.XtraEditors.TextEdit daysFinanceTE;
+        private DevExpress.XtraEditors.LabelControl daysFinanceLC;
+        private DevExpress.XtraEditors.SimpleButton closeSB;
+        private DevExpress.XtraEditors.SimpleButton cancelSB;
     }
 }

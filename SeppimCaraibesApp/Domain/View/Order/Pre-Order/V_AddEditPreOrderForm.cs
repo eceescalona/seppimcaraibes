@@ -8,7 +8,6 @@
 
     internal partial class V_AddEditPreOrderForm : Form, Controller.IAddEditOrder
     {
-        private const string CANCEL_ADD_CUSTOMER_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo cliente. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string LABEL_MESSAGE_PRODUCT = "Debe seleccionar al menos un producto";
@@ -60,6 +59,7 @@
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
+            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
         public V_AddEditPreOrderForm(Controller.C_Order cOrder, string code)
@@ -78,12 +78,15 @@
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             productsBS.DataSource = _cProduct.FillProductsOrders();
+            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
         #endregion
 
 
         private void V_AddEditPreOrderForm_Load(object sender, EventArgs e)
         {
+            InitializeLUE();
+
             if (_isAddOrEdit)
             {
                 customerSLUE.Enabled = false;
@@ -138,6 +141,27 @@
             e.HighPriority = true;
         }
 
+        private void InitializeLUE()
+        {
+            paymentOptionsBS.DataSource = typeof(EPaymentOption);
+            var tempEPO = Enum.GetValues(typeof(EPaymentOption));
+            paymentOptionsBS.Clear();
+            paymentOptionsBS.DataSource = tempEPO;
+            paymentOptionLUE.Properties.DataSource = paymentOptionsBS.List;
+
+            shipmentMethodBS.DataSource = typeof(EShippingMethod);
+            var tempESM = Enum.GetValues(typeof(EShippingMethod));
+            shipmentMethodBS.Clear();
+            shipmentMethodBS.DataSource = tempESM;
+            shipmentMLUE.Properties.DataSource = shipmentMethodBS.List;
+
+            incotermsBS.DataSource = typeof(EIncoterms);
+            var tempEI = Enum.GetValues(typeof(EIncoterms));
+            incotermsBS.Clear();
+            incotermsBS.DataSource = tempEI;
+            eIncotermLUE.Properties.DataSource = incotermsBS.List;
+        }
+
 
         #region IAddEditOrder
         public void EditOrder(Data.ORM.Order order)
@@ -145,6 +169,23 @@
             orderBS.DataSource = order;
             _idCustomer = order.CustomerId;
             customerSLUE.EditValue = _idCustomer;
+
+            if (order.Shipment != null)
+            {
+                shipmentBS.Clear();
+                shipmentBS.DataSource = order.Shipment;
+                shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
+            }
+
+            if (order.PaymentOption != null)
+            {
+                paymentOptionLUE.EditValue = order.PaymentOption;
+            }
+
+            if (order.IncotermType != null)
+            {
+                eIncotermLUE.EditValue = order.IncotermType;
+            }
         }
 
         public void RefreshView()
@@ -179,6 +220,10 @@
             orderBS.DataSource = new Data.ORM.Order();
             productsBS.ResetBindings(true);
             productsBS.DataSource = _cProduct.FillProductsOrders();
+
+            paymentOptionLUE.EditValue = null;
+            shipmentMLUE.EditValue = null;
+            eIncotermLUE.EditValue = null;
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -282,7 +327,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_ADD_CUSTOMER_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -310,6 +354,25 @@
                 }
 
                 var customer = (Data.ORM.Customer)customerSLUEV.GetFocusedRow();
+
+                if (!string.IsNullOrWhiteSpace(paymentOptionLUE.Text))
+                {
+                    order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(eIncotermLUE.Text))
+                {
+                    order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                }
+
+                var shipment = (Data.ORM.Shipment)shipmentBS.Current;
+
+                if (!string.IsNullOrWhiteSpace(shipmentMLUE.Text))
+                {
+                    shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+                }
+
+                order.Shipment = shipment;
 
                 if (_isAddOrEdit)
                 {
@@ -362,6 +425,14 @@
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

@@ -17,7 +17,6 @@
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string CONVERT_MESSAGE = "Uds. está cambiando la orden de Orden Firme a Facturar. ¿Está seguro(a) de querer continuar?";
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
@@ -144,8 +143,10 @@
             {
                 _isCOrdenAlive = true;
                 var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
-                var editOrder = new V_AddEditOrderForm(_cOrden, row.Order_Code);
-                editOrder.StartPosition = FormStartPosition.CenterScreen;
+                var editOrder = new V_AddEditOrderForm(_cOrden, row.Order_Code)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                };
                 editOrder.BringToFront();
                 DialogResult result = editOrder.ShowDialog();
                 if (result == DialogResult.OK)
@@ -154,7 +155,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -239,6 +240,11 @@
         }
 
 
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
         private void V_ListOrdersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_isCOrdenAlive && !_isCallFrom)
@@ -250,11 +256,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }
