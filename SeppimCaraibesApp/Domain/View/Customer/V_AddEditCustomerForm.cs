@@ -263,7 +263,7 @@
                 {
                     _isCCustomerAlive = true;
                     DialogResult = DialogResult.Cancel;
-                    Close();
+                    RefreshView();
                 }
             }
             else
@@ -274,16 +274,24 @@
                     {
                         _isCCustomerAlive = true;
                         DialogResult = DialogResult.Cancel;
-                        Close();
+                        RefreshView();
                     }
                     else
                     {
                         _isCCustomerAlive = false;
                         DialogResult = DialogResult.Cancel;
-                        Close();
+                        RefreshView();
                     }
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cCustomer.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

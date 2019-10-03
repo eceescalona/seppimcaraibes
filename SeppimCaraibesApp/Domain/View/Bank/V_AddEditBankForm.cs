@@ -159,6 +159,18 @@
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
+            else
+            {
+                RefreshView();
+            }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cBank.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

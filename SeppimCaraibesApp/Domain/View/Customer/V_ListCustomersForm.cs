@@ -16,9 +16,7 @@
             " Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar al cliente. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
-
-        private Controller.C_Customer _cCustomer;
+        private readonly Controller.C_Customer _cCustomer;
         private bool _isCCustomerAlive;
 
 
@@ -122,8 +120,10 @@
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _isCCustomerAlive = true;
-            var addCustomer = new V_AddEditCustomerForm(_cCustomer);
-            addCustomer.StartPosition = FormStartPosition.CenterScreen;
+            var addCustomer = new V_AddEditCustomerForm(_cCustomer)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             addCustomer.BringToFront();
             DialogResult result = addCustomer.ShowDialog();
             if (result == DialogResult.OK)
@@ -132,7 +132,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -149,8 +148,10 @@
             {
                 _isCCustomerAlive = true;
                 var row = customersGV.GetRow(customersGV.FocusedRowHandle) as Data.ORM.CustomersView;
-                var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code);
-                editCustomer.StartPosition = FormStartPosition.CenterScreen;
+                var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                };
                 editCustomer.BringToFront();
                 DialogResult result = editCustomer.ShowDialog();
                 if (result == DialogResult.OK)
@@ -160,7 +161,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -190,6 +191,11 @@
         #endregion
 
 
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
         private void V_ListCustomersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_isCCustomerAlive)
@@ -201,11 +207,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }
