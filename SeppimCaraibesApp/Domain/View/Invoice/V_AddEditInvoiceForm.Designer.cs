@@ -33,8 +33,8 @@
             this.addEditLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
+            this.closePC = new DevExpress.XtraEditors.PanelControl();
             this.cancelPC = new DevExpress.XtraEditors.PanelControl();
-            this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
             this.acceptPC = new DevExpress.XtraEditors.PanelControl();
             this.acceptSB = new DevExpress.XtraEditors.SimpleButton();
             this.emptyPC = new DevExpress.XtraEditors.PanelControl();
@@ -42,6 +42,7 @@
             this.emptyLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.closeLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.bankPC = new DevExpress.XtraEditors.PanelControl();
             this.bankGC = new DevExpress.XtraEditors.GroupControl();
             this.bankLC = new DevExpress.XtraLayout.LayoutControl();
@@ -51,7 +52,6 @@
             this.addBankSB = new DevExpress.XtraEditors.SimpleButton();
             this.banlSLUEPC = new DevExpress.XtraEditors.PanelControl();
             this.banksSLUE = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.bankGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAccountNumber = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,7 +63,6 @@
             this.commercialValueLC = new DevExpress.XtraEditors.LabelControl();
             this.commercialValueRG = new DevExpress.XtraEditors.RadioGroup();
             this.totalCostTE = new DevExpress.XtraEditors.TextEdit();
-            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.totalCostLC = new DevExpress.XtraEditors.LabelControl();
             this.inspectionTE = new DevExpress.XtraEditors.TextEdit();
             this.insuranceTE = new DevExpress.XtraEditors.TextEdit();
@@ -74,12 +73,18 @@
             this.bankLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.commercialValueBS = new System.Windows.Forms.BindingSource(this.components);
+            this.banksEIFS = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
+            this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
+            this.closeSB = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.addEditLC)).BeginInit();
             this.addEditLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
             this.buttonsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).BeginInit();
             this.buttonsLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closePC)).BeginInit();
+            this.closePC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
             this.cancelPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
@@ -89,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bankPC)).BeginInit();
             this.bankPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bankGC)).BeginInit();
@@ -111,7 +117,6 @@
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueRG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).BeginInit();
@@ -119,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditLC
@@ -130,20 +136,22 @@
             this.addEditLC.Location = new System.Drawing.Point(0, 0);
             this.addEditLC.Name = "addEditLC";
             this.addEditLC.Root = this.addEditInvoiceLCG;
-            this.addEditLC.Size = new System.Drawing.Size(647, 402);
+            this.addEditLC.Size = new System.Drawing.Size(647, 321);
             this.addEditLC.TabIndex = 0;
             this.addEditLC.Text = "layoutControl1";
             // 
             // buttonsPC
             // 
             this.buttonsPC.Controls.Add(this.buttonsLC);
-            this.buttonsPC.Location = new System.Drawing.Point(12, 335);
+            this.buttonsPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsPC.Location = new System.Drawing.Point(12, 255);
             this.buttonsPC.Name = "buttonsPC";
-            this.buttonsPC.Size = new System.Drawing.Size(623, 55);
+            this.buttonsPC.Size = new System.Drawing.Size(623, 54);
             this.buttonsPC.TabIndex = 5;
             // 
             // buttonsLC
             // 
+            this.buttonsLC.Controls.Add(this.closePC);
             this.buttonsLC.Controls.Add(this.cancelPC);
             this.buttonsLC.Controls.Add(this.acceptPC);
             this.buttonsLC.Controls.Add(this.emptyPC);
@@ -151,35 +159,35 @@
             this.buttonsLC.Location = new System.Drawing.Point(2, 2);
             this.buttonsLC.Name = "buttonsLC";
             this.buttonsLC.Root = this.buttonsLCG;
-            this.buttonsLC.Size = new System.Drawing.Size(619, 51);
+            this.buttonsLC.Size = new System.Drawing.Size(619, 50);
             this.buttonsLC.TabIndex = 0;
             this.buttonsLC.Text = "layoutControl3";
+            // 
+            // closePC
+            // 
+            this.closePC.Controls.Add(this.closeSB);
+            this.closePC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closePC.Location = new System.Drawing.Point(502, 12);
+            this.closePC.Name = "closePC";
+            this.closePC.Size = new System.Drawing.Size(105, 26);
+            this.closePC.TabIndex = 7;
             // 
             // cancelPC
             // 
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Location = new System.Drawing.Point(493, 12);
+            this.cancelPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelPC.Location = new System.Drawing.Point(392, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(114, 26);
+            this.cancelPC.Size = new System.Drawing.Size(106, 26);
             this.cancelPC.TabIndex = 6;
-            // 
-            // cancelSB
-            // 
-            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelSB.Location = new System.Drawing.Point(2, 2);
-            this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(110, 22);
-            this.cancelSB.TabIndex = 0;
-            this.cancelSB.Text = "Cancelar";
-            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
             // 
             // acceptPC
             // 
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Location = new System.Drawing.Point(374, 12);
+            this.acceptPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.acceptPC.Location = new System.Drawing.Point(269, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(115, 26);
+            this.acceptPC.Size = new System.Drawing.Size(119, 26);
             this.acceptPC.TabIndex = 5;
             // 
             // acceptSB
@@ -187,16 +195,17 @@
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptSB.Location = new System.Drawing.Point(2, 2);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(111, 22);
+            this.acceptSB.Size = new System.Drawing.Size(115, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
             // 
             // emptyPC
             // 
+            this.emptyPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emptyPC.Location = new System.Drawing.Point(12, 12);
             this.emptyPC.Name = "emptyPC";
-            this.emptyPC.Size = new System.Drawing.Size(358, 27);
+            this.emptyPC.Size = new System.Drawing.Size(253, 26);
             this.emptyPC.TabIndex = 4;
             // 
             // buttonsLCG
@@ -206,9 +215,10 @@
             this.buttonsLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptyLCI,
             this.acceptLCI,
-            this.cancelLCI});
+            this.cancelLCI,
+            this.closeLCI});
             this.buttonsLCG.Name = "buttonsLCG";
-            this.buttonsLCG.Size = new System.Drawing.Size(619, 51);
+            this.buttonsLCG.Size = new System.Drawing.Size(619, 50);
             this.buttonsLCG.TextVisible = false;
             // 
             // emptyLCI
@@ -216,34 +226,44 @@
             this.emptyLCI.Control = this.emptyPC;
             this.emptyLCI.Location = new System.Drawing.Point(0, 0);
             this.emptyLCI.Name = "emptyLCI";
-            this.emptyLCI.Size = new System.Drawing.Size(362, 31);
+            this.emptyLCI.Size = new System.Drawing.Size(257, 30);
             this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyLCI.TextVisible = false;
             // 
             // acceptLCI
             // 
             this.acceptLCI.Control = this.acceptPC;
-            this.acceptLCI.Location = new System.Drawing.Point(362, 0);
+            this.acceptLCI.Location = new System.Drawing.Point(257, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(119, 31);
+            this.acceptLCI.Size = new System.Drawing.Size(123, 30);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // cancelLCI
             // 
             this.cancelLCI.Control = this.cancelPC;
-            this.cancelLCI.Location = new System.Drawing.Point(481, 0);
+            this.cancelLCI.Location = new System.Drawing.Point(380, 0);
             this.cancelLCI.Name = "cancelLCI";
-            this.cancelLCI.Size = new System.Drawing.Size(118, 31);
+            this.cancelLCI.Size = new System.Drawing.Size(110, 30);
             this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLCI.TextVisible = false;
+            // 
+            // closeLCI
+            // 
+            this.closeLCI.Control = this.closePC;
+            this.closeLCI.Location = new System.Drawing.Point(490, 0);
+            this.closeLCI.Name = "closeLCI";
+            this.closeLCI.Size = new System.Drawing.Size(109, 30);
+            this.closeLCI.TextSize = new System.Drawing.Size(0, 0);
+            this.closeLCI.TextVisible = false;
             // 
             // bankPC
             // 
             this.bankPC.Controls.Add(this.bankGC);
+            this.bankPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bankPC.Location = new System.Drawing.Point(333, 12);
             this.bankPC.Name = "bankPC";
-            this.bankPC.Size = new System.Drawing.Size(302, 319);
+            this.bankPC.Size = new System.Drawing.Size(302, 239);
             this.bankPC.TabIndex = 6;
             // 
             // bankGC
@@ -252,7 +272,7 @@
             this.bankGC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bankGC.Location = new System.Drawing.Point(2, 2);
             this.bankGC.Name = "bankGC";
-            this.bankGC.Size = new System.Drawing.Size(298, 315);
+            this.bankGC.Size = new System.Drawing.Size(298, 235);
             this.bankGC.TabIndex = 0;
             this.bankGC.Text = "Banco*:";
             // 
@@ -265,13 +285,14 @@
             this.bankLC.Location = new System.Drawing.Point(2, 20);
             this.bankLC.Name = "bankLC";
             this.bankLC.Root = this.bankLCG;
-            this.bankLC.Size = new System.Drawing.Size(294, 293);
+            this.bankLC.Size = new System.Drawing.Size(294, 213);
             this.bankLC.TabIndex = 0;
             this.bankLC.Text = "layoutControl2";
             // 
             // bankErrorLCPC
             // 
             this.bankErrorLCPC.Controls.Add(this.bankErrorLC);
+            this.bankErrorLCPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bankErrorLCPC.Location = new System.Drawing.Point(12, 12);
             this.bankErrorLCPC.Name = "bankErrorLCPC";
             this.bankErrorLCPC.Size = new System.Drawing.Size(132, 17);
@@ -289,6 +310,7 @@
             // addBankPC
             // 
             this.addBankPC.Controls.Add(this.addBankSB);
+            this.addBankPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addBankPC.Location = new System.Drawing.Point(12, 61);
             this.addBankPC.Name = "addBankPC";
             this.addBankPC.Size = new System.Drawing.Size(270, 26);
@@ -307,6 +329,7 @@
             // banlSLUEPC
             // 
             this.banlSLUEPC.Controls.Add(this.banksSLUE);
+            this.banlSLUEPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banlSLUEPC.Location = new System.Drawing.Point(12, 33);
             this.banlSLUEPC.Name = "banlSLUEPC";
             this.banlSLUEPC.Size = new System.Drawing.Size(270, 24);
@@ -328,13 +351,6 @@
             this.banksSLUE.Properties.ValueMember = "BankId";
             this.banksSLUE.Size = new System.Drawing.Size(266, 20);
             this.banksSLUE.TabIndex = 0;
-            // 
-            // banksEIFS
-            // 
-            this.banksEIFS.AreSourceRowsThreadSafe = true;
-            this.banksEIFS.DefaultSorting = "BankName ASC";
-            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
-            this.banksEIFS.KeyExpression = "BankId";
             // 
             // bankGV
             // 
@@ -372,7 +388,7 @@
             this.addBankLCI,
             this.bankErrorLCLCI});
             this.bankLCG.Name = "bankLCG";
-            this.bankLCG.Size = new System.Drawing.Size(294, 293);
+            this.bankLCG.Size = new System.Drawing.Size(294, 213);
             this.bankLCG.TextVisible = false;
             // 
             // bankSLUELCI
@@ -389,7 +405,7 @@
             this.addBankLCI.Control = this.addBankPC;
             this.addBankLCI.Location = new System.Drawing.Point(0, 49);
             this.addBankLCI.Name = "addBankLCI";
-            this.addBankLCI.Size = new System.Drawing.Size(274, 224);
+            this.addBankLCI.Size = new System.Drawing.Size(274, 144);
             this.addBankLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addBankLCI.TextVisible = false;
             // 
@@ -414,7 +430,7 @@
             this.formPC.Controls.Add(this.insuranceLC);
             this.formPC.Location = new System.Drawing.Point(12, 12);
             this.formPC.Name = "formPC";
-            this.formPC.Size = new System.Drawing.Size(317, 319);
+            this.formPC.Size = new System.Drawing.Size(317, 239);
             this.formPC.TabIndex = 4;
             // 
             // commercialValueLC
@@ -442,10 +458,6 @@
             this.totalCostTE.Name = "totalCostTE";
             this.totalCostTE.Size = new System.Drawing.Size(128, 20);
             this.totalCostTE.TabIndex = 5;
-            // 
-            // orderBS
-            // 
-            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
             // 
             // totalCostLC
             // 
@@ -496,7 +508,7 @@
             this.bankLCI,
             this.buttonsLCI});
             this.addEditInvoiceLCG.Name = "addEditInvoiceLCG";
-            this.addEditInvoiceLCG.Size = new System.Drawing.Size(647, 402);
+            this.addEditInvoiceLCG.Size = new System.Drawing.Size(647, 321);
             this.addEditInvoiceLCG.TextVisible = false;
             // 
             // formLCI
@@ -504,7 +516,7 @@
             this.formLCI.Control = this.formPC;
             this.formLCI.Location = new System.Drawing.Point(0, 0);
             this.formLCI.Name = "formLCI";
-            this.formLCI.Size = new System.Drawing.Size(321, 323);
+            this.formLCI.Size = new System.Drawing.Size(321, 243);
             this.formLCI.TextSize = new System.Drawing.Size(0, 0);
             this.formLCI.TextVisible = false;
             // 
@@ -513,26 +525,55 @@
             this.bankLCI.Control = this.bankPC;
             this.bankLCI.Location = new System.Drawing.Point(321, 0);
             this.bankLCI.Name = "bankLCI";
-            this.bankLCI.Size = new System.Drawing.Size(306, 323);
+            this.bankLCI.Size = new System.Drawing.Size(306, 243);
             this.bankLCI.TextSize = new System.Drawing.Size(0, 0);
             this.bankLCI.TextVisible = false;
             // 
             // buttonsLCI
             // 
             this.buttonsLCI.Control = this.buttonsPC;
-            this.buttonsLCI.Location = new System.Drawing.Point(0, 323);
+            this.buttonsLCI.Location = new System.Drawing.Point(0, 243);
             this.buttonsLCI.Name = "buttonsLCI";
-            this.buttonsLCI.Size = new System.Drawing.Size(627, 59);
+            this.buttonsLCI.Size = new System.Drawing.Size(627, 58);
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
+            // banksEIFS
+            // 
+            this.banksEIFS.AreSourceRowsThreadSafe = true;
+            this.banksEIFS.DefaultSorting = "BankName ASC";
+            this.banksEIFS.DesignTimeElementType = typeof(SeppimCaraibesApp.Data.ORM.Bank);
+            this.banksEIFS.KeyExpression = "BankId";
+            // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
+            // cancelSB
+            // 
+            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelSB.Location = new System.Drawing.Point(2, 2);
+            this.cancelSB.Name = "cancelSB";
+            this.cancelSB.Size = new System.Drawing.Size(102, 22);
+            this.cancelSB.TabIndex = 0;
+            this.cancelSB.Text = "Cancelar";
+            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
+            // 
+            // closeSB
+            // 
+            this.closeSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closeSB.Location = new System.Drawing.Point(2, 2);
+            this.closeSB.Name = "closeSB";
+            this.closeSB.Size = new System.Drawing.Size(101, 22);
+            this.closeSB.TabIndex = 0;
+            this.closeSB.Text = "Terminar";
+            this.closeSB.Click += new System.EventHandler(this.CloseSB_Click);
+            // 
             // V_AddEditInvoiceForm
             // 
-            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelSB;
-            this.ClientSize = new System.Drawing.Size(647, 402);
+            this.ClientSize = new System.Drawing.Size(647, 321);
             this.Controls.Add(this.addEditLC);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditInvoiceForm";
@@ -545,6 +586,8 @@
             this.buttonsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).EndInit();
             this.buttonsLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.closePC)).EndInit();
+            this.closePC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
             this.cancelPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
@@ -554,6 +597,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bankPC)).EndInit();
             this.bankPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bankGC)).EndInit();
@@ -578,7 +622,6 @@
             this.formPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueRG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalCostTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insuranceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditInvoiceLCG)).EndInit();
@@ -586,6 +629,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bankLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commercialValueBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -602,7 +646,6 @@
         private DevExpress.XtraLayout.LayoutControlItem buttonsLCI;
         private DevExpress.XtraLayout.LayoutControl buttonsLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
-        private DevExpress.XtraEditors.SimpleButton cancelSB;
         private DevExpress.XtraEditors.PanelControl acceptPC;
         private DevExpress.XtraEditors.SimpleButton acceptSB;
         private DevExpress.XtraEditors.PanelControl emptyPC;
@@ -636,5 +679,9 @@
         private DevExpress.XtraEditors.RadioGroup commercialValueRG;
         private System.Windows.Forms.BindingSource commercialValueBS;
         private DevExpress.XtraEditors.LabelControl commercialValueLC;
+        private DevExpress.XtraEditors.PanelControl closePC;
+        private DevExpress.XtraLayout.LayoutControlItem closeLCI;
+        private DevExpress.XtraEditors.SimpleButton closeSB;
+        private DevExpress.XtraEditors.SimpleButton cancelSB;
     }
 }

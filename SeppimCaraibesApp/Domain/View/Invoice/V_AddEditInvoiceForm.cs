@@ -8,7 +8,6 @@
 
     internal partial class V_AddEditInvoiceForm : Form, Controller.IAddEditOrder
     {
-        private const string CANCEL_ADD_BANK_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo banco. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string LABEL_MESSAGE_BANK = "Debe seleccionar un banco";
@@ -159,7 +158,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_ADD_BANK_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -177,9 +175,9 @@
                 var bank = (Data.ORM.Bank)bankGV.GetFocusedRow();
                 order.BankId = bank.BankId;
 
-                order.InvoiceReference = _cOrder.GetInvoiceReference(order);
-
                 order.CommercialValue = (ECommercialValue)Enum.Parse(typeof(ECommercialValue), commercialValueRG.Properties.Items[commercialValueRG.SelectedIndex].Description);
+
+                order.InvoiceReference = _cOrder.GetInvoiceReference(order);
 
                 _cOrder.EditOrder(this, order);
 
@@ -226,6 +224,18 @@
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
+            else
+            {
+                RefreshView();
+            }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 
