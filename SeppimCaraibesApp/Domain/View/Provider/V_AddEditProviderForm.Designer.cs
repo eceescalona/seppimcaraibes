@@ -501,7 +501,7 @@
             // 
             // addressLC
             // 
-            this.addressLC.Location = new System.Drawing.Point(65, 191);
+            this.addressLC.Location = new System.Drawing.Point(65, 192);
             this.addressLC.Name = "addressLC";
             this.addressLC.Size = new System.Drawing.Size(47, 13);
             this.addressLC.TabIndex = 4;

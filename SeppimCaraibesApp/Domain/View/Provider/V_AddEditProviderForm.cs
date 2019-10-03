@@ -177,7 +177,7 @@
             productsEIFS.Refresh();
             productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
             providerBS.ResetBindings(true);
-            providerBS.DataSource = new Data.ORM.Product();
+            providerBS.DataSource = new Data.ORM.Provider();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)

@@ -69,6 +69,8 @@
             listPreOrder.Dock = DockStyle.Fill;
             listPreOrder.BringToFront();
             listPreOrder.Show();
+
+            preOrdersACE.AccordionControl.Focus();
         }
 
         private void QuotesACE_Click(object sender, EventArgs e)
@@ -81,6 +83,8 @@
             listQuotes.Dock = DockStyle.Fill;
             listQuotes.BringToFront();
             listQuotes.Show();
+
+            quotesACE.AccordionControl.Focus();
         }
 
         private void OrdersOACE_Click(object sender, EventArgs e)
@@ -93,6 +97,8 @@
             listOrders.Dock = DockStyle.Fill;
             listOrders.BringToFront();
             listOrders.Show();
+
+            ordersOACE.AccordionControl.Focus();
         }
 
         private void InvoicesACE_Click(object sender, EventArgs e)
