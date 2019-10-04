@@ -149,7 +149,7 @@
             // quotesACE
             // 
             this.quotesACE.Name = "quotesACE";
-            this.quotesACE.Text = "Cotizaciones";
+            this.quotesACE.Text = "Ofertas";
             this.quotesACE.Click += new System.EventHandler(this.QuotesACE_Click);
             // 
             // ordersOACE

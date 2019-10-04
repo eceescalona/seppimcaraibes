@@ -107,12 +107,12 @@
             this.listQuotesRC.ExpandCollapseItem.Id = 0;
             this.listQuotesRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.listQuotesRC.ExpandCollapseItem,
+            this.listQuotesRC.SearchEditItem,
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
             this.listOrdersBBI,
-            this.closeBBI,
-            this.listQuotesRC.SearchEditItem});
+            this.closeBBI});
             this.listQuotesRC.Location = new System.Drawing.Point(0, 0);
             this.listQuotesRC.MaxItemId = 7;
             this.listQuotesRC.Name = "listQuotesRC";
@@ -525,9 +525,9 @@
             // 
             this.labelControl1.Location = new System.Drawing.Point(5, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(89, 13);
+            this.labelControl1.Size = new System.Drawing.Size(66, 13);
             this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Listar Cotizaciones";
+            this.labelControl1.Text = "Listar Ofertas";
             // 
             // V_ListQuotesForm
             // 
