@@ -74,12 +74,12 @@
             this.roleRC.ExpandCollapseItem.Id = 0;
             this.roleRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.roleRC.ExpandCollapseItem,
+            this.roleRC.SearchEditItem,
             this.closeBBI,
             this.registerBBI,
             this.findBBI,
             this.filterBBI,
-            this.refreshBBI,
-            this.roleRC.SearchEditItem});
+            this.refreshBBI});
             this.roleRC.Location = new System.Drawing.Point(0, 0);
             this.roleRC.MaxItemId = 6;
             this.roleRC.Name = "roleRC";
@@ -109,6 +109,7 @@
             this.registerBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.New_32x32;
             this.registerBBI.Name = "registerBBI";
             this.registerBBI.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.registerBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RegisterBBI_ItemClick);
             // 
             // findBBI
             // 
@@ -238,6 +239,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
             // labelControl1
             // 

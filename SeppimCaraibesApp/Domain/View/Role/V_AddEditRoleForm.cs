@@ -33,6 +33,7 @@
             _isFieldWithError = false;
 
             roleBS.DataSource = new Data.ORM.Role();
+            permissionEIFS.GetQueryable += PermissionEIFS_GetQueryable;
         }
 
         public V_AddEditRoleForm(Controller.C_Role cRole, int code)
@@ -46,6 +47,7 @@
             _isFieldWithError = false;
 
             _cRole.EditRole(this, code);
+            permissionEIFS.GetQueryable += PermissionEIFS_GetQueryable;
         }
         #endregion
 
@@ -270,6 +272,14 @@
                     Close();
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cRole.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

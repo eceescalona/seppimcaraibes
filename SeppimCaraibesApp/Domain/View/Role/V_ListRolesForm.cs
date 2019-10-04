@@ -7,7 +7,6 @@
     internal partial class V_ListRolesForm : Form, Controller.IListRoles
     {
         private const string NAME_FORM = "Listar Roles";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_USER_ERROR = "Ha ocurrido un error y no se pudo registrar el nuevo usuario. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
         private const string DELETE_MESSAGE = "Si elimina un rol del sistema, este desaparecerá permanentemente del mismo. " +
@@ -125,7 +124,7 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshView();
             }
             else
             {
@@ -153,7 +152,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else
                 {
@@ -178,7 +177,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
