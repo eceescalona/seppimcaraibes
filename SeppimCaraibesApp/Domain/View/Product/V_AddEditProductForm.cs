@@ -8,7 +8,6 @@
 
     internal partial class V_AddEditProductForm : Form, Controller.IAddEditProduct
     {
-        private const string CANCEL_ADD_PRODUCT_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo proveedor. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string LABEL_MESSAGE_PROVIDER = "Debe elegir al menos un proveedor";
@@ -316,7 +315,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_ADD_PRODUCT_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -460,6 +458,14 @@
                     }
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cProduct.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

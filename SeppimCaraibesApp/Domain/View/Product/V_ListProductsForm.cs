@@ -16,9 +16,8 @@ namespace SeppimCaraibesApp.Domain.View.Product
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar el producto. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
 
-        private Controller.C_Product _cProduct;
+        private readonly Controller.C_Product _cProduct;
         private bool _isCProductAlive;
 
 
@@ -122,8 +121,10 @@ namespace SeppimCaraibesApp.Domain.View.Product
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _isCProductAlive = true;
-            var addProduct = new V_AddEditProductForm(_cProduct);
-            addProduct.StartPosition = FormStartPosition.CenterScreen;
+            var addProduct = new V_AddEditProductForm(_cProduct)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
             addProduct.BringToFront();
             DialogResult result = addProduct.ShowDialog();
             if (result == DialogResult.OK)
@@ -132,7 +133,6 @@ namespace SeppimCaraibesApp.Domain.View.Product
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -161,7 +161,7 @@ namespace SeppimCaraibesApp.Domain.View.Product
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -191,6 +191,11 @@ namespace SeppimCaraibesApp.Domain.View.Product
         #endregion
 
 
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
         private void V_ListProductsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_isCProductAlive)
@@ -202,11 +207,6 @@ namespace SeppimCaraibesApp.Domain.View.Product
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }
