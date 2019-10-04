@@ -37,6 +37,7 @@
             _changePassword = false;
 
             userBS.DataSource = new Data.ORM.User();
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
 
         public V_AddEditUserForm(Controller.C_User cUser, int idRol)
@@ -55,6 +56,7 @@
             _changePassword = false;
 
             userBS.DataSource = new Data.ORM.User();
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
 
         public V_AddEditUserForm(Controller.C_User cUser, int code, bool changePassword)
@@ -79,14 +81,10 @@
             }
 
             _cUser.EditUser(this, code);
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
         #endregion
 
-
-        private void V_AddEditUserForm_Load(object sender, EventArgs e)
-        {
-            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
-        }
 
         private void RoleEIFBS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
@@ -320,6 +318,14 @@
                     Close();
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cUser.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

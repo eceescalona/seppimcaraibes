@@ -8,7 +8,6 @@
     internal partial class V_ListUsersForm : Form, Controller.IListUsers
     {
         private const string NAME_FORM = "Listar Usuarios";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string DISSABLE_MESSAGE = "Inhabilitar un usuario causa que el mismo no pueda acceder al sistema. ¿Está seguro(a) de querer inhabilitar al usuario: ";
         private const string ENABLE_MESSAGE = "Habilitar un usuario causa que el mismo pueda acceder al sistema. ¿Está seguro(a) de querer habilitar al usuario: ";
         private const string DELETE_MESSAGE = "Si elimina un usuario del sistema, este desaparecerá permanentemente del mismo. " +
@@ -136,7 +135,6 @@
             }
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshView();
             }
             else
@@ -173,7 +171,7 @@
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshView();
                 }
                 else if (result == DialogResult.Abort)
                 {
