@@ -90,11 +90,11 @@
             this.eIncotermLC = new DevExpress.XtraEditors.LabelControl();
             this.paymentOptionLC = new DevExpress.XtraEditors.LabelControl();
             this.paymentsTermsTE = new DevExpress.XtraEditors.TextEdit();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.paymentsTermsLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.dateErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceTE = new DevExpress.XtraEditors.TextEdit();
-            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.dateDE = new DevExpress.XtraEditors.DateEdit();
             this.customerReferenceLC = new DevExpress.XtraEditors.LabelControl();
             this.dateLC = new DevExpress.XtraEditors.LabelControl();
@@ -163,8 +163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLCG)).BeginInit();
@@ -409,7 +409,7 @@
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
             this.colProductCode.VisibleIndex = 1;
-            this.colProductCode.Width = 77;
+            this.colProductCode.Width = 66;
             // 
             // colProductName
             // 
@@ -418,7 +418,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 179;
+            this.colProductName.Width = 150;
             // 
             // colQty
             // 
@@ -427,7 +427,7 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 3;
-            this.colQty.Width = 53;
+            this.colQty.Width = 50;
             // 
             // productsLCG
             // 
@@ -666,7 +666,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.shipmentMLUE.Properties.DataSource = this.shipmentMethodBS;
             this.shipmentMLUE.Properties.NullText = "";
-            this.shipmentMLUE.Size = new System.Drawing.Size(100, 20);
+            this.shipmentMLUE.Size = new System.Drawing.Size(173, 20);
             this.shipmentMLUE.TabIndex = 12;
             // 
             // eIncotermLUE
@@ -688,7 +688,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.paymentOptionLUE.Properties.DataSource = this.paymentOptionsBS;
             this.paymentOptionLUE.Properties.NullText = "";
-            this.paymentOptionLUE.Size = new System.Drawing.Size(100, 20);
+            this.paymentOptionLUE.Size = new System.Drawing.Size(173, 20);
             this.paymentOptionLUE.TabIndex = 10;
             // 
             // shipmentLC
@@ -723,6 +723,10 @@
             this.paymentsTermsTE.Size = new System.Drawing.Size(231, 20);
             this.paymentsTermsTE.TabIndex = 6;
             // 
+            // orderBS
+            // 
+            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
+            // 
             // paymentsTermsLC
             // 
             this.paymentsTermsLC.Location = new System.Drawing.Point(41, 112);
@@ -752,10 +756,6 @@
             this.customerReferenceTE.Name = "customerReferenceTE";
             this.customerReferenceTE.Size = new System.Drawing.Size(173, 20);
             this.customerReferenceTE.TabIndex = 3;
-            // 
-            // orderBS
-            // 
-            this.orderBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Order);
             // 
             // dateDE
             // 
@@ -912,8 +912,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentsTermsTE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLCG)).EndInit();

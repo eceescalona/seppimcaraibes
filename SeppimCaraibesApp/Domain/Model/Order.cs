@@ -153,6 +153,8 @@
                     order.ProductsOrders.Add(productOrder);
                 }
 
+                rOrder.AddOrder(context, order);
+
                 if (order.Shipment != null)
                 {
                     var rShipment = new Data.Repository.ShipmentRepository();
@@ -165,8 +167,6 @@
                 {
                     order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
                 }
-
-                rOrder.AddOrder(context, order);
             }
         }
 
