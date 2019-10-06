@@ -335,9 +335,11 @@
             // 
             // xrTableCell5
             // 
+            this.xrTableCell5.BorderColor = System.Drawing.Color.MidnightBlue;
             this.xrTableCell5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell5.Multiline = true;
             this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.StylePriority.UseBorderColor = false;
             this.xrTableCell5.StylePriority.UseFont = false;
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "Código";
@@ -619,7 +621,7 @@
             this.xrLabel10,
             this.xrLabel9,
             this.xrLine1});
-            this.GroupHeader2.HeightF = 97.45846F;
+            this.GroupHeader2.HeightF = 69F;
             this.GroupHeader2.KeepTogether = true;
             this.GroupHeader2.Name = "GroupHeader2";
             // 
@@ -645,7 +647,7 @@
             this.xrLabel10.CanGrow = false;
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CustomerName]")});
-            this.xrLabel10.Font = new System.Drawing.Font("Arial", 8F);
+            this.xrLabel10.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(9.552224F, 22.99999F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -714,6 +716,7 @@
             this.GroupFooter2.KeepTogether = true;
             this.GroupFooter2.Name = "GroupFooter2";
             this.GroupFooter2.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
+            this.GroupFooter2.PrintAtBottom = true;
             // 
             // xrLabel17
             // 

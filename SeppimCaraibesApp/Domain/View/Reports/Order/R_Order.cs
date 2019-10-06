@@ -30,6 +30,15 @@
 
             xrTable1.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
             xrTable2.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
+            totalCostXRL.Visible = false;
+            xrLabel31.Visible = false;
+            xrLabel21.Visible = false;
+            xrLabel24.Visible = false;
+            xrLabel20.Visible = false;
+            xrLabel11.Visible = false;
+            xrShape1.Visible = false;
+
+            GroupFooter2.Visible = false;
 
             _cOrder = cOrder;
             _cOrder.LoadReport(this, code);

@@ -104,6 +104,7 @@
             this.xrShape1 = new DevExpress.XtraReports.UI.XRShape();
             this.xrShape2 = new DevExpress.XtraReports.UI.XRShape();
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
+            this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderReportViewODS)).BeginInit();
@@ -376,6 +377,7 @@
             this.customerNameXRL});
             this.PageHeader.HeightF = 46.00002F;
             this.PageHeader.Name = "PageHeader";
+            this.PageHeader.PrintOn = ((DevExpress.XtraReports.UI.PrintOnPages)((DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader | DevExpress.XtraReports.UI.PrintOnPages.NotWithReportFooter)));
             // 
             // DetailReport
             // 
@@ -963,11 +965,11 @@
             // 
             this.xrLabel19.AutoWidth = true;
             this.xrLabel19.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(25.20895F, 343.3751F);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(25.64241F, 366.375F);
             this.xrLabel19.Multiline = true;
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(597.9126F, 23F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(597.4791F, 23F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.StylePriority.UseTextAlignment = false;
             this.xrLabel19.Text = "Observaciones: [Observations]";
@@ -976,6 +978,7 @@
             // GroupFooter2
             // 
             this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel32,
             this.xrLabel18,
             this.xrLabel17,
             this.xrLabel4,
@@ -989,10 +992,11 @@
             this.xrShape1,
             this.xrShape2,
             this.xrShape3});
-            this.GroupFooter2.HeightF = 399.7923F;
+            this.GroupFooter2.HeightF = 431.0424F;
             this.GroupFooter2.KeepTogether = true;
             this.GroupFooter2.Name = "GroupFooter2";
             this.GroupFooter2.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
+            this.GroupFooter2.PrintAtBottom = true;
             // 
             // xrLabel4
             // 
@@ -1129,12 +1133,28 @@
             this.xrShape3.BorderColor = System.Drawing.Color.MidnightBlue;
             this.xrShape3.ForeColor = System.Drawing.Color.MidnightBlue;
             this.xrShape3.LineWidth = 5;
-            this.xrShape3.LocationFloat = new DevExpress.Utils.PointFloat(11.71222F, 280.125F);
+            this.xrShape3.LocationFloat = new DevExpress.Utils.PointFloat(11.71222F, 280.1251F);
             this.xrShape3.Name = "xrShape3";
             this.xrShape3.Shape = shapeRectangle3;
-            this.xrShape3.SizeF = new System.Drawing.SizeF(628.7162F, 119.6673F);
+            this.xrShape3.SizeF = new System.Drawing.SizeF(628.7162F, 150.9173F);
             this.xrShape3.StylePriority.UseBorderColor = false;
             this.xrShape3.StylePriority.UseForeColor = false;
+            // 
+            // xrLabel32
+            // 
+            this.xrLabel32.AutoWidth = true;
+            this.xrLabel32.CanGrow = false;
+            this.xrLabel32.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(25.64241F, 343.375F);
+            this.xrLabel32.Multiline = true;
+            this.xrLabel32.Name = "xrLabel32";
+            this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel32.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel32.StylePriority.UseFont = false;
+            this.xrLabel32.StylePriority.UseTextAlignment = false;
+            this.xrLabel32.Text = "Días a Financiar: [Period]";
+            this.xrLabel32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel32.WordWrap = false;
             // 
             // R_Offer
             // 
@@ -1231,5 +1251,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel32;
     }
 }
