@@ -801,7 +801,7 @@
             this.xrLabel14.AutoWidth = true;
             this.xrLabel14.CanGrow = false;
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Método de Envío: [ShippingMethod]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Tipo de Envío: [ShippingMethod]")});
             this.xrLabel14.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(21.70091F, 235.2077F);
             this.xrLabel14.Multiline = true;
@@ -810,7 +810,7 @@
             this.xrLabel14.SizeF = new System.Drawing.SizeF(99.59535F, 23.00005F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
-            this.xrLabel14.Text = "Método de Envío: [ShippingMethod]";
+            this.xrLabel14.Text = "Tipo de Envío: [ShippingMethod]";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel14.WordWrap = false;
             // 

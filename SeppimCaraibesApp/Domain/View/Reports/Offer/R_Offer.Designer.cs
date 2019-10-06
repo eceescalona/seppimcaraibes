@@ -90,7 +90,6 @@
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
@@ -105,6 +104,7 @@
             this.xrShape2 = new DevExpress.XtraReports.UI.XRShape();
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
+            this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderReportViewODS)).BeginInit();
@@ -366,7 +366,7 @@
             this.xrLabel15.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "Condiciones de  Pago: [PaymentOption]";
+            this.xrLabel15.Text = "Forma de  Pago: [PaymentOption]";
             this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel15.WordWrap = false;
             // 
@@ -598,7 +598,7 @@
             this.xrLine4,
             this.xrLabel11,
             this.xrLine1});
-            this.GroupFooter1.HeightF = 299.1659F;
+            this.GroupFooter1.HeightF = 322.7905F;
             this.GroupFooter1.KeepTogether = true;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
@@ -924,11 +924,6 @@
             this.xrLine1.SizeF = new System.Drawing.SizeF(628.7159F, 23F);
             this.xrLine1.StylePriority.UseForeColor = false;
             // 
-            // orderReportViewODS
-            // 
-            this.orderReportViewODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
-            this.orderReportViewODS.Name = "orderReportViewODS";
-            // 
             // xrLabel18
             // 
             this.xrLabel18.AutoWidth = true;
@@ -1091,7 +1086,7 @@
             this.xrLabel14.AutoWidth = true;
             this.xrLabel14.CanGrow = false;
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Método de Envío: [ShippingMethod]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Tipo de Envío: [ShippingMethod]")});
             this.xrLabel14.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(24.78865F, 178.4582F);
             this.xrLabel14.Multiline = true;
@@ -1100,7 +1095,7 @@
             this.xrLabel14.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
-            this.xrLabel14.Text = "Método de Envío: [ShippingMethod]";
+            this.xrLabel14.Text = "Tipo de Envío: [ShippingMethod]";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel14.WordWrap = false;
             // 
@@ -1155,6 +1150,11 @@
             this.xrLabel32.Text = "Días a Financiar: [Period]";
             this.xrLabel32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel32.WordWrap = false;
+            // 
+            // orderReportViewODS
+            // 
+            this.orderReportViewODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
+            this.orderReportViewODS.Name = "orderReportViewODS";
             // 
             // R_Offer
             // 
