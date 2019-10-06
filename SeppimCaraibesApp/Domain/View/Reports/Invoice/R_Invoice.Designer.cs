@@ -540,6 +540,7 @@
             this.xrLabel31});
             this.GroupFooter2.Dpi = 96F;
             this.GroupFooter2.HeightF = 300.0397F;
+            this.GroupFooter2.KeepTogether = true;
             this.GroupFooter2.Name = "GroupFooter2";
             // 
             // quoteXRL
