@@ -133,7 +133,7 @@
             this.companyAddressXRL,
             this.quoteXRL});
             this.TopMargin.Dpi = 96F;
-            this.TopMargin.HeightF = 205.16F;
+            this.TopMargin.HeightF = 212.16F;
             this.TopMargin.Name = "TopMargin";
             // 
             // xrLabel10
@@ -142,11 +142,11 @@
             this.xrLabel10.Dpi = 96F;
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CustomerAddress]")});
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(401F, 151.08F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(370.372F, 150.16F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(213F, 22.08F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(243.628F, 22.08F);
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "xrLabel10";
             this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -154,12 +154,12 @@
             // xrLabel9
             // 
             this.xrLabel9.AutoWidth = true;
-            this.xrLabel9.CanGrow = false;
             this.xrLabel9.Dpi = 96F;
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CustomerName]")});
             this.xrLabel9.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(401F, 128.08F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(370.372F, 128.08F);
+            this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(96F, 22.08F);
@@ -167,7 +167,6 @@
             this.xrLabel9.StylePriority.UseTextAlignment = false;
             this.xrLabel9.Text = "xrLabel9";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel9.WordWrap = false;
             // 
             // xrLabel7
             // 
@@ -1378,7 +1377,7 @@
             this.DataSource = this.invoiceODS;
             this.Dpi = 96F;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(96, 96, 205, 139);
+            this.Margins = new System.Drawing.Printing.Margins(96, 96, 212, 139);
             this.PageHeight = 1056;
             this.PageWidth = 816;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.Pixels;
