@@ -114,6 +114,7 @@
                             if (row.ProductId == product.ProductId)
                             {
                                 row.Qty = product.Qty;
+                                row.SalePrice = product.Discount;
                                 productsGV.SelectRow(e.RowHandle);
                             }
                         }

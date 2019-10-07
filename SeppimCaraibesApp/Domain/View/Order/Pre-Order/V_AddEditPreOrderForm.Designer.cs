@@ -104,6 +104,7 @@
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
+            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).BeginInit();
             this.addEditPreOrderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -395,7 +396,8 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductCode,
             this.colProductName,
-            this.colQty});
+            this.colQty,
+            this.colSalePrice});
             this.productsGV.GridControl = this.productsGC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -839,6 +841,14 @@
             // 
             this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
             // 
+            // colSalePrice
+            // 
+            this.colSalePrice.Caption = "Precio de Venta";
+            this.colSalePrice.FieldName = "SalePrice";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.Visible = true;
+            this.colSalePrice.VisibleIndex = 4;
+            // 
             // V_AddEditPreOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1002,5 +1012,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton closeSB;
         private DevExpress.XtraEditors.SimpleButton cancelSB;
+        private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
     }
 }

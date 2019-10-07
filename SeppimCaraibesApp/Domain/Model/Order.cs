@@ -148,7 +148,8 @@
                     {
                         OrderId = order.OrderId,
                         ProductId = product.ProductId,
-                        Qty = product.Qty
+                        Qty = product.Qty,
+                        Discount = product.SalePrice
                     };
 
                     order.ProductsOrders.Add(productOrder);
