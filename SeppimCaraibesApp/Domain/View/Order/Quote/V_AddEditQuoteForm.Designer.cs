@@ -107,14 +107,13 @@
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addEditQuoteLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -854,7 +853,6 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductName,
             this.colQty,
-            this.colUnitPrice,
             this.colSalePrice});
             this.productsGV.GridControl = this.productsGridC;
             this.productsGV.Name = "productsGV";
@@ -869,7 +867,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 374;
+            this.colProductName.Width = 181;
             // 
             // colQty
             // 
@@ -878,16 +876,16 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 2;
-            this.colQty.Width = 64;
+            this.colQty.Width = 71;
             // 
-            // colUnitPrice
+            // colSalePrice
             // 
-            this.colUnitPrice.Caption = "Precio por Unidad";
-            this.colUnitPrice.FieldName = "UnitPrice";
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.Visible = true;
-            this.colUnitPrice.VisibleIndex = 3;
-            this.colUnitPrice.Width = 112;
+            this.colSalePrice.Caption = "Precio de Venta";
+            this.colSalePrice.FieldName = "SalePrice";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.Visible = true;
+            this.colSalePrice.VisibleIndex = 3;
+            this.colSalePrice.Width = 83;
             // 
             // addEditQuoteLCG
             // 
@@ -937,15 +935,6 @@
             this.observationLCI.Size = new System.Drawing.Size(396, 142);
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
-            // 
-            // colSalePrice
-            // 
-            this.colSalePrice.Caption = "Precio de Venta";
-            this.colSalePrice.FieldName = "SalePrice";
-            this.colSalePrice.Name = "colSalePrice";
-            this.colSalePrice.Visible = true;
-            this.colSalePrice.VisibleIndex = 4;
-            this.colSalePrice.Width = 100;
             // 
             // V_AddEditQuoteForm
             // 
@@ -1073,7 +1062,6 @@
         private System.Windows.Forms.BindingSource productsBS;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
         private DevExpress.XtraLayout.LayoutControl buttonsLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
         private DevExpress.XtraEditors.PanelControl acceptPC;

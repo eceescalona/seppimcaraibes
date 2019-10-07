@@ -57,6 +57,7 @@
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLabelsLCI = new DevExpress.XtraLayout.LayoutControlItem();
@@ -104,7 +105,6 @@
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
-            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).BeginInit();
             this.addEditPreOrderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
@@ -411,7 +411,7 @@
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
             this.colProductCode.VisibleIndex = 1;
-            this.colProductCode.Width = 66;
+            this.colProductCode.Width = 48;
             // 
             // colProductName
             // 
@@ -420,7 +420,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 150;
+            this.colProductName.Width = 96;
             // 
             // colQty
             // 
@@ -429,7 +429,16 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 3;
-            this.colQty.Width = 50;
+            this.colQty.Width = 77;
+            // 
+            // colSalePrice
+            // 
+            this.colSalePrice.Caption = "Precio de Venta";
+            this.colSalePrice.FieldName = "SalePrice";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.Visible = true;
+            this.colSalePrice.VisibleIndex = 4;
+            this.colSalePrice.Width = 84;
             // 
             // productsLCG
             // 
@@ -840,14 +849,6 @@
             // shipmentBS
             // 
             this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
-            // 
-            // colSalePrice
-            // 
-            this.colSalePrice.Caption = "Precio de Venta";
-            this.colSalePrice.FieldName = "SalePrice";
-            this.colSalePrice.Name = "colSalePrice";
-            this.colSalePrice.Visible = true;
-            this.colSalePrice.VisibleIndex = 4;
             // 
             // V_AddEditPreOrderForm
             // 

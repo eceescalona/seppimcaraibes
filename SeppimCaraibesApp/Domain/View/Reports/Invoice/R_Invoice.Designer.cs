@@ -90,8 +90,6 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
-            this.invoiceODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             this.totalCostXRL = new DevExpress.XtraReports.UI.XRLabel();
@@ -114,6 +112,8 @@
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel38 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
+            this.invoiceODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceODS)).BeginInit();
@@ -981,21 +981,6 @@
             this.GroupFooter2.KeepTogether = true;
             this.GroupFooter2.Name = "GroupFooter2";
             // 
-            // xrLine3
-            // 
-            this.xrLine3.Dpi = 96F;
-            this.xrLine3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.xrLine3.LineWidth = 5F;
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
-            this.xrLine3.Name = "xrLine3";
-            this.xrLine3.SizeF = new System.Drawing.SizeF(604F, 22.08F);
-            this.xrLine3.StylePriority.UseForeColor = false;
-            // 
-            // invoiceODS
-            // 
-            this.invoiceODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
-            this.invoiceODS.Name = "invoiceODS";
-            // 
             // xrLabel11
             // 
             this.xrLabel11.AutoWidth = true;
@@ -1115,7 +1100,7 @@
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel13";
             this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel16.TextFormatString = "{0:%}";
+            this.xrLabel16.TextFormatString = "{0:0.00%}";
             this.xrLabel16.WordWrap = false;
             // 
             // xrLabel17
@@ -1305,7 +1290,7 @@
             this.xrLabel30.StylePriority.UseTextAlignment = false;
             this.xrLabel30.Text = "xrLabel30";
             this.xrLabel30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel30.TextFormatString = "{0:%}";
+            this.xrLabel30.TextFormatString = "{0:0.00%}";
             this.xrLabel30.WordWrap = false;
             // 
             // xrLabel31
@@ -1351,7 +1336,7 @@
             this.xrLabel38.AutoWidth = true;
             this.xrLabel38.Dpi = 96F;
             this.xrLabel38.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 3600 * [Period] + [TotalCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 36000 * [Period] *  [TotalCost]")});
             this.xrLabel38.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel38.LocationFloat = new DevExpress.Utils.PointFloat(560.5846F, 198.72F);
             this.xrLabel38.Multiline = true;
@@ -1363,6 +1348,21 @@
             this.xrLabel38.Text = "xrLabel34";
             this.xrLabel38.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel38.TextFormatString = "{0:€0.00}";
+            // 
+            // xrLine3
+            // 
+            this.xrLine3.Dpi = 96F;
+            this.xrLine3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.xrLine3.LineWidth = 5F;
+            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
+            this.xrLine3.Name = "xrLine3";
+            this.xrLine3.SizeF = new System.Drawing.SizeF(604F, 22.08F);
+            this.xrLine3.StylePriority.UseForeColor = false;
+            // 
+            // invoiceODS
+            // 
+            this.invoiceODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
+            this.invoiceODS.Name = "invoiceODS";
             // 
             // R_Invoice
             // 

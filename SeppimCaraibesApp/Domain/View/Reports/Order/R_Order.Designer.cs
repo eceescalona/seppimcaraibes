@@ -719,7 +719,7 @@
             this.xrLabel15,
             this.xrLabel14,
             this.xrShape2});
-            this.GroupFooter1.HeightF = 254.7084F;
+            this.GroupFooter1.HeightF = 302.625F;
             this.GroupFooter1.KeepTogether = true;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
@@ -795,7 +795,7 @@
             this.xrShape3.LocationFloat = new DevExpress.Utils.PointFloat(9.99999F, 101.8333F);
             this.xrShape3.Name = "xrShape3";
             this.xrShape3.Shape = shapeRectangle2;
-            this.xrShape3.SizeF = new System.Drawing.SizeF(629.9998F, 152.875F);
+            this.xrShape3.SizeF = new System.Drawing.SizeF(629.9998F, 200.7917F);
             this.xrShape3.StylePriority.UseBorderColor = false;
             this.xrShape3.StylePriority.UseForeColor = false;
             // 
