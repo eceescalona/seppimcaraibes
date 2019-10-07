@@ -92,7 +92,6 @@
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
@@ -107,6 +106,7 @@
             this.xrShape1 = new DevExpress.XtraReports.UI.XRShape();
             this.xrShape2 = new DevExpress.XtraReports.UI.XRShape();
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
+            this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderReportViewODS)).BeginInit();
@@ -682,7 +682,7 @@
             this.xrLabel30.AutoWidth = true;
             this.xrLabel30.CanGrow = false;
             this.xrLabel30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 100")});
             this.xrLabel30.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(538.7332F, 216.9999F);
             this.xrLabel30.Multiline = true;
@@ -842,7 +842,7 @@
             this.xrLabel13.AutoWidth = true;
             this.xrLabel13.CanGrow = false;
             this.xrLabel13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalDiscount]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalDiscount] / 100")});
             this.xrLabel13.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(538.7333F, 55.99995F);
             this.xrLabel13.Multiline = true;
@@ -959,11 +959,6 @@
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(628.7159F, 23F);
             this.xrLine1.StylePriority.UseForeColor = false;
-            // 
-            // orderReportViewODS
-            // 
-            this.orderReportViewODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
-            this.orderReportViewODS.Name = "orderReportViewODS";
             // 
             // xrLabel18
             // 
@@ -1191,6 +1186,11 @@
             this.xrShape3.SizeF = new System.Drawing.SizeF(628.7162F, 150.9173F);
             this.xrShape3.StylePriority.UseBorderColor = false;
             this.xrShape3.StylePriority.UseForeColor = false;
+            // 
+            // orderReportViewODS
+            // 
+            this.orderReportViewODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
+            this.orderReportViewODS.Name = "orderReportViewODS";
             // 
             // R_Offer
             // 

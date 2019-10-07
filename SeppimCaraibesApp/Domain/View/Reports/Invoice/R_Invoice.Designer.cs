@@ -1088,7 +1088,7 @@
             this.xrLabel16.CanGrow = false;
             this.xrLabel16.Dpi = 96F;
             this.xrLabel16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalDiscount]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalDiscount] / 100")});
             this.xrLabel16.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(517.186F, 44.15994F);
             this.xrLabel16.Multiline = true;
@@ -1278,7 +1278,7 @@
             this.xrLabel30.CanGrow = false;
             this.xrLabel30.Dpi = 96F;
             this.xrLabel30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests]  / 100")});
             this.xrLabel30.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(517.186F, 198.7199F);
             this.xrLabel30.Multiline = true;
