@@ -36,6 +36,10 @@
             xrLabel24.Visible = false;
             xrLabel20.Visible = false;
             xrLabel11.Visible = false;
+            xrLabel12.Visible = false;
+            xrLabel13.Visible = false;
+            xrLabel16.Visible = false;
+            xrLabel17.Visible = false;
             xrShape1.Visible = false;
 
             GroupFooter2.Visible = false;

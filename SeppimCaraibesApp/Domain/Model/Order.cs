@@ -124,7 +124,8 @@
                     Qty = productOrder.Qty,
                     UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice,
                     CustomsCode = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.CustomsCode,
-                    Origin = context.ProductsViews.SingleOrDefault(p => p.Product_Code == productOrder.ProductId)?.Acronyms
+                    Origin = context.ProductsViews.SingleOrDefault(p => p.Product_Code == productOrder.ProductId)?.Acronyms,
+                    SalePrice = productOrder.Discount
                 };
 
                 products.Add(product);
@@ -194,7 +195,8 @@
                 {
                     OrderId = order.OrderId,
                     ProductId = product.ProductId,
-                    Qty = product.Qty
+                    Qty = product.Qty,
+                    Discount = product.SalePrice
                 };
 
                 productsOrders.Add(productOrder);

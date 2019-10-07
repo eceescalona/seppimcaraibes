@@ -114,6 +114,7 @@
             this.formLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.observationLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.addEditQuoteLC)).BeginInit();
             this.addEditQuoteLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.observationPC)).BeginInit();
@@ -722,7 +723,6 @@
             // closePC
             // 
             this.closePC.Controls.Add(this.closeSB);
-            this.closePC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closePC.Location = new System.Drawing.Point(269, 12);
             this.closePC.Name = "closePC";
             this.closePC.Size = new System.Drawing.Size(111, 26);
@@ -742,7 +742,6 @@
             // 
             this.cancelPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelPC.Location = new System.Drawing.Point(134, 12);
             this.cancelPC.Name = "cancelPC";
             this.cancelPC.Size = new System.Drawing.Size(131, 22);
@@ -762,7 +761,6 @@
             // 
             this.acceptPC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptPC.Location = new System.Drawing.Point(12, 12);
             this.acceptPC.Name = "acceptPC";
             this.acceptPC.Size = new System.Drawing.Size(118, 22);
@@ -856,7 +854,8 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductName,
             this.colQty,
-            this.colUnitPrice});
+            this.colUnitPrice,
+            this.colSalePrice});
             this.productsGV.GridControl = this.productsGridC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -870,7 +869,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 179;
+            this.colProductName.Width = 374;
             // 
             // colQty
             // 
@@ -879,7 +878,7 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 2;
-            this.colQty.Width = 53;
+            this.colQty.Width = 64;
             // 
             // colUnitPrice
             // 
@@ -888,7 +887,7 @@
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 3;
-            this.colUnitPrice.Width = 96;
+            this.colUnitPrice.Width = 112;
             // 
             // addEditQuoteLCG
             // 
@@ -938,6 +937,15 @@
             this.observationLCI.Size = new System.Drawing.Size(396, 142);
             this.observationLCI.TextSize = new System.Drawing.Size(0, 0);
             this.observationLCI.TextVisible = false;
+            // 
+            // colSalePrice
+            // 
+            this.colSalePrice.Caption = "Precio de Venta";
+            this.colSalePrice.FieldName = "SalePrice";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.Visible = true;
+            this.colSalePrice.VisibleIndex = 4;
+            this.colSalePrice.Width = 100;
             // 
             // V_AddEditQuoteForm
             // 
@@ -1114,5 +1122,6 @@
         private DevExpress.XtraEditors.LabelControl daysFinanceLC;
         private DevExpress.XtraEditors.SimpleButton closeSB;
         private DevExpress.XtraEditors.SimpleButton cancelSB;
+        private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
     }
 }

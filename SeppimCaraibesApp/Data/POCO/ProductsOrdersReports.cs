@@ -21,5 +21,7 @@
         public string CustomsCode { get; set; }
 
         public virtual string Origin { get; set; }
+
+        public decimal? SalePrice { get; set; }
     }
 }

@@ -18,7 +18,8 @@
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
                     Qty = 0,
-                    UnitPrice = product.UnitPrice
+                    UnitPrice = product.UnitPrice,
+                    SalePrice = 0
                 };
 
                 productsOrders.Add(productOrder);
