@@ -501,7 +501,7 @@
             this.xrLabel1,
             this.xrLabel6,
             this.firstXRL});
-            this.PageHeader.HeightF = 98.83327F;
+            this.PageHeader.HeightF = 84.4999F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = ((DevExpress.XtraReports.UI.PrintOnPages)((DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader | DevExpress.XtraReports.UI.PrintOnPages.NotWithReportFooter)));
             // 
@@ -621,7 +621,7 @@
             this.xrLabel10,
             this.xrLabel9,
             this.xrLine1});
-            this.GroupHeader2.HeightF = 69F;
+            this.GroupHeader2.HeightF = 88.00011F;
             this.GroupHeader2.KeepTogether = true;
             this.GroupHeader2.Name = "GroupHeader2";
             // 
