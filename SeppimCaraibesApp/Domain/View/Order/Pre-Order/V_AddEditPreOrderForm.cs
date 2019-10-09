@@ -161,6 +161,12 @@
             incotermsBS.Clear();
             incotermsBS.DataSource = tempEI;
             eIncotermLUE.Properties.DataSource = incotermsBS.List;
+
+            deviseBS.DataSource = typeof(EDevise);
+            var tempEDevise = Enum.GetValues(typeof(EDevise));
+            deviseBS.Clear();
+            deviseBS.DataSource = tempEDevise;
+            deviseLUE.Properties.DataSource = deviseBS.List;
         }
 
 
@@ -186,6 +192,11 @@
             if (order.IncotermType != null)
             {
                 eIncotermLUE.EditValue = order.IncotermType;
+            }
+
+            if (order.Devise != null)
+            {
+                deviseLUE.EditValue = order.Devise;
             }
         }
 
@@ -223,6 +234,7 @@
             productsBS.DataSource = _cProduct.FillProductsOrders();
 
             paymentOptionLUE.EditValue = null;
+            deviseLUE.EditValue = null;
             shipmentMLUE.EditValue = null;
             eIncotermLUE.EditValue = null;
         }
@@ -364,6 +376,11 @@
                 if (!string.IsNullOrWhiteSpace(eIncotermLUE.Text))
                 {
                     order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(deviseLUE.Text))
+                {
+                    order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
                 }
 
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
