@@ -129,11 +129,11 @@
             // 
             this.xrLabel6.AutoWidth = true;
             this.xrLabel6.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(509.387F, 93.24998F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(475.012F, 93.24998F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(164.9879F, 23F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "[OrderCode]/[ProviderReference]";

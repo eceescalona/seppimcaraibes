@@ -34,6 +34,8 @@
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle2 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle3 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.companyAddressXRL = new DevExpress.XtraReports.UI.XRLabel();
             this.companyNameXRL = new DevExpress.XtraReports.UI.XRLabel();
             this.logoXRPB = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -90,8 +92,6 @@
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrControlStyle3 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderReportViewODS)).BeginInit();
@@ -110,6 +110,41 @@
             this.quoteXRL});
             this.TopMargin.HeightF = 224.75F;
             this.TopMargin.Name = "TopMargin";
+            // 
+            // xrLabel23
+            // 
+            this.xrLabel23.AutoWidth = true;
+            this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[OrderCode]")});
+            this.xrLabel23.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(515.0785F, 115.5417F);
+            this.xrLabel23.Multiline = true;
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            this.xrLabel23.Text = "xrLabel23";
+            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.AutoWidth = true;
+            this.xrLabel16.BackColor = System.Drawing.Color.MidnightBlue;
+            this.xrLabel16.CanGrow = false;
+            this.xrLabel16.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
+            this.xrLabel16.ForeColor = System.Drawing.Color.White;
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(515.0785F, 90.45841F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
+            this.xrLabel16.StylePriority.UseBackColor = false;
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseForeColor = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            this.xrLabel16.Text = "Referencia";
+            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel16.WordWrap = false;
             // 
             // companyAddressXRL
             // 
@@ -831,37 +866,6 @@
             // 
             this.orderReportViewODS.DataSource = typeof(SeppimCaraibesApp.Data.POCO.OrderReportView);
             this.orderReportViewODS.Name = "orderReportViewODS";
-            // 
-            // xrLabel16
-            // 
-            this.xrLabel16.AutoWidth = true;
-            this.xrLabel16.BackColor = System.Drawing.Color.MidnightBlue;
-            this.xrLabel16.CanGrow = false;
-            this.xrLabel16.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel16.ForeColor = System.Drawing.Color.White;
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(515.0785F, 90.45841F);
-            this.xrLabel16.Name = "xrLabel16";
-            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
-            this.xrLabel16.StylePriority.UseBackColor = false;
-            this.xrLabel16.StylePriority.UseFont = false;
-            this.xrLabel16.StylePriority.UseForeColor = false;
-            this.xrLabel16.StylePriority.UseTextAlignment = false;
-            this.xrLabel16.Text = "Referencia";
-            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel16.WordWrap = false;
-            // 
-            // xrLabel23
-            // 
-            this.xrLabel23.AutoWidth = true;
-            this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[OrderCode]")});
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(515.0785F, 115.5417F);
-            this.xrLabel23.Multiline = true;
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel23.Text = "xrLabel23";
             // 
             // R_Quote
             // 
