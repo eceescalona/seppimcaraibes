@@ -165,15 +165,15 @@
             // 
             this.xrLabel10.AutoWidth = true;
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(478.9247F, 122.8333F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(438.7334F, 122.8333F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(159.8085F, 23F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(199.9997F, 23F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "[OrderCode]/[ProviderReference]";
-            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel1
             // 
@@ -627,7 +627,7 @@
             // 
             this.xrLabel34.AutoWidth = true;
             this.xrLabel34.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 36000 * [Period] * [EWX]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 36000 * [Period] * [EXW]")});
             this.xrLabel34.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(539.9984F, 217F);
             this.xrLabel34.Multiline = true;

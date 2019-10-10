@@ -1315,7 +1315,7 @@
             this.xrLabel37.AutoWidth = true;
             this.xrLabel37.Dpi = 96F;
             this.xrLabel37.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 36000 * [Period] * [EWX]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ToltalInterests] / 36000 * [Period] * [EXW]")});
             this.xrLabel37.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel37.LocationFloat = new DevExpress.Utils.PointFloat(518.4006F, 198.72F);
             this.xrLabel37.Multiline = true;

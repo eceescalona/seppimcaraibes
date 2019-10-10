@@ -40,7 +40,6 @@
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
         }
 
@@ -57,7 +56,6 @@
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
             shipmentBS.DataSource = new Data.ORM.Shipment();
         }
@@ -77,7 +75,6 @@
             _cOrder.EditOrder(this, code);
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             shipmentBS.DataSource = new Data.ORM.Shipment();
         }
         #endregion
@@ -85,6 +82,8 @@
 
         private void V_AddEditPreOrderForm_Load(object sender, EventArgs e)
         {
+            productsBS.DataSource = _cProduct.FillProductsOrders();
+
             InitializeLUE();
 
             if (_isAddOrEdit)

@@ -113,7 +113,7 @@
             this.xrLabel1.CanGrow = false;
             this.xrLabel1.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
             this.xrLabel1.ForeColor = System.Drawing.Color.White;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(509.387F, 68.16667F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(481.0542F, 68.16667F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
@@ -129,15 +129,15 @@
             // 
             this.xrLabel6.AutoWidth = true;
             this.xrLabel6.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(475.012F, 93.24998F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(427.275F, 93.24998F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(164.9879F, 23F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(212.7249F, 23F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "[OrderCode]/[ProviderReference]";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // dateXRL
             // 
@@ -146,7 +146,7 @@
             this.dateXRL.CanGrow = false;
             this.dateXRL.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
             this.dateXRL.ForeColor = System.Drawing.Color.White;
-            this.dateXRL.LocationFloat = new DevExpress.Utils.PointFloat(355.6078F, 68.16667F);
+            this.dateXRL.LocationFloat = new DevExpress.Utils.PointFloat(327.275F, 68.16667F);
             this.dateXRL.Name = "dateXRL";
             this.dateXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.dateXRL.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
@@ -165,7 +165,7 @@
             this.dateOrderXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")});
             this.dateOrderXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.dateOrderXRL.LocationFloat = new DevExpress.Utils.PointFloat(355.6078F, 93.24998F);
+            this.dateOrderXRL.LocationFloat = new DevExpress.Utils.PointFloat(327.275F, 93.24998F);
             this.dateOrderXRL.Name = "dateOrderXRL";
             this.dateOrderXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.dateOrderXRL.SizeF = new System.Drawing.SizeF(100F, 23F);
@@ -677,7 +677,7 @@
             this.xrLabel31.AutoWidth = true;
             this.xrLabel31.CanGrow = false;
             this.xrLabel31.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Qty] * [UnitPrice] + [Expenses] +  [Freight] + [Inspection] + [Insurance]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([Qty] * [UnitPrice]) + [Expenses] +  [Freight] + [Inspection] + [Insurance]")});
             this.xrLabel31.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(528.1229F, 115.7915F);
             this.xrLabel31.Multiline = true;
