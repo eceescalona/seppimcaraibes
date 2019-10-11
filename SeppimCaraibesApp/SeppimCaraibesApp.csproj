@@ -150,6 +150,7 @@
     <Compile Include="Data\Repository\UserRepository.cs" />
     <Compile Include="Domain\Controller\C_Bank.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
+    <Compile Include="Domain\Controller\C_Log.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
     <Compile Include="Domain\Controller\C_Permission.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Domain\Controller\Interfaces\IReport.cs" />
     <Compile Include="Domain\Controller\Interfaces\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
+    <Compile Include="Domain\Model\Log.cs" />
     <Compile Include="Domain\UserLog.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
