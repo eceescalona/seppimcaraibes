@@ -1,12 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Product
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditProductForm : Form, Controller.IAddEditProduct
+    internal partial class V_AddEditProductForm : Form, IAddEditProduct
     {
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo proveedor. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
@@ -18,8 +19,9 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Product _cProduct;
+        private readonly C_Product _cProduct;
         private bool _isCProductAlive;
         private readonly string _whereFrom;
         private readonly bool _isAddOrEdit;
@@ -34,7 +36,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cProduct = new Controller.C_Product();
+            _cProduct = new C_Product();
             _isCProductAlive = true;
             _whereFrom = CALL_FROM_PROVIDER;
             _isAddOrEdit = false;
@@ -47,7 +49,7 @@
             originsEIFS.GetQueryable += OriginsEIFS_GetQueryable;
         }
 
-        public V_AddEditProductForm(Controller.C_Product cProduct)
+        public V_AddEditProductForm(C_Product cProduct)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -65,7 +67,7 @@
             originsEIFS.GetQueryable += OriginsEIFS_GetQueryable;
         }
 
-        public V_AddEditProductForm(Controller.C_Product cProduct, string code)
+        public V_AddEditProductForm(C_Product cProduct, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -300,26 +302,37 @@
         #region ActionsButtons
         private void AddProviderSP_Click(object sender, EventArgs e)
         {
-            _isCProductAlive = true;
-            var addProvider = new Provider.V_AddEditProviderForm
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addProvider.BringToFront();
-            DialogResult result = addProvider.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _idProvider = addProvider.code;
-                providersEIFS.Refresh();
-                providersEIFS.GetQueryable += ProvidersEIFS_GetQueryable;
+                _isCProductAlive = true;
+
+                using (var addProvider = new Provider.V_AddEditProviderForm
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addProvider.BringToFront();
+                    DialogResult result = addProvider.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        _idProvider = addProvider.code;
+                        providersEIFS.Refresh();
+                        providersEIFS.GetQueryable += ProvidersEIFS_GetQueryable;
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -388,9 +401,12 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -437,6 +453,10 @@
                 {
                     _isCProductAlive = true;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -448,12 +468,20 @@
                     {
                         _isCProductAlive = true;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                     else
                     {
                         _isCProductAlive = false;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                 }
@@ -462,7 +490,10 @@
 
         private void CloseSB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cProduct.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(CLOSE_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
 
             DialogResult = DialogResult.OK;
             Close();

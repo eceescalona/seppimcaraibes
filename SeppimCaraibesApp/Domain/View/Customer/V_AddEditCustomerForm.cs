@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditCustomerForm : Form, Controller.IAddEditCustomer
+    internal partial class V_AddEditCustomerForm : Form, IAddEditCustomer
     {
         private const string CALL_FROM_ORDERS = "PreOrder";
         private const string NAME_FORM_ADD = "Registrar Cliente";

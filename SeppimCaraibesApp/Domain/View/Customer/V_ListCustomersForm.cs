@@ -6,7 +6,7 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal partial class V_ListCustomersForm : Form, Controller.IListCustomers
+    internal partial class V_ListCustomersForm : Form, IListCustomers
     {
         private const string NAME_FORM = "Listar Clientes";
         private const string DELETE_MESSAGE = "Si elimina al cliente del sistema, este desaparecerá permanentemente del mismo. " +

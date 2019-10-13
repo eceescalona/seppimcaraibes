@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditProviderForm : Form, Controller.IAddEditProvider
+    internal partial class V_AddEditProviderForm : Form, IAddEditProvider
     {
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo producto. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";

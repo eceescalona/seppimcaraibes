@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditBankForm : Form, Controller.IAddEditBank
+    internal partial class V_AddEditBankForm : Form, IAddEditBank
     {
         private const string NAME_FORM_ADD = "Registrar Banco";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +

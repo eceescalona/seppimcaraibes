@@ -6,7 +6,7 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal partial class V_ListProvidersForm : Form, Controller.IListProviders
+    internal partial class V_ListProvidersForm : Form, IListProviders
     {
         private const string NAME_FORM = "Listar Proveedores";
         private const string DELETE_MESSAGE = "Si elimina al proveedor del sistema, este desaparecerá permanentemente del mismo. " +

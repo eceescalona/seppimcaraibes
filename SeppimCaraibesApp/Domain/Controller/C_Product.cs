@@ -134,6 +134,10 @@
             if (Validate(product, out Dictionary<string, string> fields))
             {
                 _mProduct.AddProduct(_context, product);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProduct.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -155,6 +159,10 @@
             if (Validate(product, out Dictionary<string, string> fields))
             {
                 _mProduct.EditProduct(_context, product);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProduct.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -168,6 +176,10 @@
             string message = string.Format("El producto con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mProduct.DeleteProduct(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listProducts.ShowMessage(ETypeOfMessage.Information, message);
             listProducts.RefreshView();
         }
