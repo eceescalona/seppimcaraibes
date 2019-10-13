@@ -1,12 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Role
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditRoleForm : Form, Controller.IAddEditRole
+    internal partial class V_AddEditRoleForm : Form, IAddEditRole
     {
         private const string NAME_FORM_ADD = "Registrar Rol";
         private const string LABEL_MESSAGE_PERMISSION = "Debe seleccionar al menos un permiso";
@@ -14,15 +15,16 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Role _cRole;
+        private readonly C_Role _cRole;
         private readonly bool _isAddOrEdit;
         private bool _isCRoleAlive;
         private bool _isFieldWithError;
 
 
         #region Ctor
-        public V_AddEditRoleForm(Controller.C_Role cRole)
+        public V_AddEditRoleForm(C_Role cRole)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -36,7 +38,7 @@
             permissionEIFS.GetQueryable += PermissionEIFS_GetQueryable;
         }
 
-        public V_AddEditRoleForm(Controller.C_Role cRole, int code)
+        public V_AddEditRoleForm(C_Role cRole, int code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -230,10 +232,13 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -260,6 +265,10 @@
                 {
                     _isCRoleAlive = true;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -269,6 +278,10 @@
                 {
                     _isCRoleAlive = false;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -276,7 +289,10 @@
 
         private void CloseSB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cRole.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show( CLOSE_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
 
             DialogResult = DialogResult.OK;
             Close();
