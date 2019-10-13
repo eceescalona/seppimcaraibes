@@ -24,14 +24,14 @@
 
         static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
-            C_Log cLog = new C_Log();
-            cLog.Write(e.Exception.Message, ETypeOfMessage.Information);
+            C_Log _cLog = new C_Log();
+            _cLog.Write(e.Exception.Message, ETypeOfMessage.Error);
         }
 
         static void CurrentDomain_UnhandleException(object sender, UnhandledExceptionEventArgs e)
         {
-            C_Log cLog = new C_Log();
-            cLog.Write((e.ExceptionObject as Exception).Message, ETypeOfMessage.Information);
+            C_Log _cLog = new C_Log();
+            _cLog.Write((e.ExceptionObject as Exception).Message, ETypeOfMessage.Error);
         }
     }
 }
