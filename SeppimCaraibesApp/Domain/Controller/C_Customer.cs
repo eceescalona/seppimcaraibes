@@ -122,6 +122,10 @@
             if (Validate(customer, out Dictionary<string, string> fields))
             {
                 _mCustomer.AddCustomer(_context, customer);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditCustomer.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -143,6 +147,10 @@
             if (Validate(customer, out Dictionary<string, string> fields))
             {
                 _mCustomer.EditCustomer(_context, customer);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditCustomer.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -156,6 +164,10 @@
             string message = string.Format("El cliente con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mCustomer.DeleteCustomer(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listCustomers.ShowMessage(ETypeOfMessage.Information, message);
             listCustomers.RefreshView();
         }
