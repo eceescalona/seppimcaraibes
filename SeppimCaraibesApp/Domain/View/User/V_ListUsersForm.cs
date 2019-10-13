@@ -1,11 +1,12 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.User
 {
     using DevExpress.XtraEditors;
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal partial class V_ListUsersForm : Form, Controller.IListUsers
+    internal partial class V_ListUsersForm : Form, IListUsers
     {
         private const string NAME_FORM = "Listar Usuarios";
         private const string DISSABLE_MESSAGE = "Inhabilitar un usuario causa que el mismo no pueda acceder al sistema. ¿Está seguro(a) de querer inhabilitar al usuario: ";
@@ -18,8 +19,9 @@
             " Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar el usuario. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_User _cUser;
+        private readonly C_User _cUser;
         private bool _isCUserAlive;
 
 
@@ -29,11 +31,11 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cUser = new Controller.C_User();
+            _cUser = new C_User();
             _isCUserAlive = false;
         }
 
-        public V_ListUsersForm(Controller.C_User cUser)
+        public V_ListUsersForm(C_User cUser)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -122,24 +124,35 @@
         #region UserManagement
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCUserAlive = true;
-            var addUser = new V_AddEditUserForm(_cUser)
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addUser.BringToFront();
-            DialogResult result = addUser.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                RefreshView();
+                _isCUserAlive = true;
+
+                using (var addUser = new V_AddEditUserForm(_cUser)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addUser.BringToFront();
+                    DialogResult result = addUser.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -149,33 +162,52 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCUserAlive = true;
-                var row = usersGV.GetRow(usersGV.FocusedRowHandle) as Data.ORM.UserView;
-                _cUser.ShowDisableCause(this, row.UserId);
+                try
+                {
+                    _isCUserAlive = true;
+                    var row = usersGV.GetRow(usersGV.FocusedRowHandle) as Data.ORM.UserView;
+                    _cUser.ShowDisableCause(this, row.UserId);
+                }
+                catch (Exception ex)
+                {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+                }
             }
 
             if (e.Button == btnEdit.Properties.Buttons[1])
             {
-                _isCUserAlive = true;
-                var row = usersGV.GetRow(usersGV.FocusedRowHandle) as Data.ORM.UserView;
-                var editCustomer = new V_AddEditUserForm(_cUser, row.UserId, false)
+                try
                 {
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-                editCustomer.BringToFront();
-                DialogResult result = editCustomer.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    _cUser.GetContext().Entry(row).Reload();
-                    RefreshView();
+                    _isCUserAlive = true;
+                    var row = usersGV.GetRow(usersGV.FocusedRowHandle) as Data.ORM.UserView;
+
+                    using (var editCustomer = new V_AddEditUserForm(_cUser, row.UserId, false)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editCustomer.BringToFront();
+                        DialogResult result = editCustomer.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            _cUser.GetContext().Entry(row).Reload();
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    RefreshView();
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -192,8 +224,11 @@
                         _cUser.DeleteUser(this, row.UserId);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -213,12 +248,14 @@
                     DialogResult result = MessageBox.Show(DISSABLE_MESSAGE + row.User + "?", _cUser.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        var disableCause = new D_DisableCauseForm(_cUser);
-                        if (disableCause.DialogResult == DialogResult.OK)
+                        using (var disableCause = new D_DisableCauseForm(_cUser))
                         {
-                            message = disableCause.cause;
+                            if (disableCause.DialogResult == DialogResult.OK)
+                            {
+                                message = disableCause.cause;
+                            }
+                            disableCause.Dispose();
                         }
-                        disableCause.Dispose();
 
                         _cUser.DisableUser(this, row.UserId, message);
                     }
@@ -232,8 +269,11 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                 MessageBox.Show(EDIT_ERROR_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -243,6 +283,9 @@
 
         private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
             Close();
         }
 
