@@ -26,7 +26,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cBank = new Controller.C_Bank();
+            _cBank = new C_Bank();
             _isCBankAlive = true;
             _isFieldWithError = false;
 

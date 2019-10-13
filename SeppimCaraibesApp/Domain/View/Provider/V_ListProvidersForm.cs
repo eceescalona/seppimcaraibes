@@ -1,6 +1,7 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Provider
 {
     using DevExpress.XtraEditors;
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Drawing;
     using System.Windows.Forms;
@@ -16,8 +17,9 @@
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar al proveedor. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private Controller.C_Provider _cProvider;
+        private readonly C_Provider _cProvider;
         private bool _isCProviderAlive;
 
 
@@ -27,11 +29,11 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cProvider = new Controller.C_Provider();
+            _cProvider = new C_Provider();
             _isCProviderAlive = true;
         }
 
-        public V_ListProvidersForm(Controller.C_Provider cProvider)
+        public V_ListProvidersForm(C_Provider cProvider)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -120,22 +122,35 @@
         #region ProviderManage
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCProviderAlive = true;
-            var addProvider = new V_AddEditProviderForm(_cProvider);
-            addProvider.StartPosition = FormStartPosition.CenterScreen;
-            addProvider.BringToFront();
-            DialogResult result = addProvider.ShowDialog();
-            if (result == DialogResult.OK)
+            try
             {
-                RefreshView();
+                _isCProviderAlive = true;
+
+                using (var addProvider = new V_AddEditProviderForm(_cProvider)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addProvider.BringToFront();
+                    DialogResult result = addProvider.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -145,24 +160,37 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCProviderAlive = true;
-                var row = providersGV.GetRow(providersGV.FocusedRowHandle) as Data.ORM.ProvidersView;
-                var editProvider = new V_AddEditProviderForm(_cProvider, row.Provider_Code);
-                editProvider.StartPosition = FormStartPosition.CenterScreen;
-                editProvider.BringToFront();
-                DialogResult result = editProvider.ShowDialog();
-                if (result == DialogResult.OK)
+                try
                 {
-                    _cProvider.GetContext().Entry(row).Reload();
-                    RefreshView();
+                    _isCProviderAlive = true;
+                    var row = providersGV.GetRow(providersGV.FocusedRowHandle) as Data.ORM.ProvidersView;
+
+                    using (var editProvider = new V_AddEditProviderForm(_cProvider, row.Provider_Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editProvider.BringToFront();
+                        DialogResult result = editProvider.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            _cProvider.GetContext().Entry(row).Reload();
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    RefreshView();
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -179,8 +207,11 @@
                         _cProvider.DeleteProvider(this, row.Provider_Code);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -190,6 +221,9 @@
 
         private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
             Close();
         }
 

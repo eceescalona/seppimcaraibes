@@ -130,6 +130,10 @@
             if (Validate(provider, out Dictionary<string, string> fields))
             {
                 _mProvider.AddProvider(_context, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -151,6 +155,10 @@
             if (Validate(provider, out Dictionary<string, string> fields))
             {
                 _mProvider.EditProvider(_context, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -164,6 +172,10 @@
             string message = string.Format("El proveedor con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mProvider.DeleteProvider(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listProviders.ShowMessage(ETypeOfMessage.Information, message);
             listProviders.RefreshView();
         }

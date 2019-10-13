@@ -31,7 +31,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cCustomer = new Controller.C_Customer();
+            _cCustomer = new C_Customer();
             _isCCustomerAlive = true;
             _whereFrom = CALL_FROM_ORDERS;
             _isAddOrEdit = false;
@@ -40,7 +40,7 @@
             customerBS.DataSource = new Data.ORM.Customer();
         }
 
-        public V_AddEditCustomerForm(Controller.C_Customer cCustomer)
+        public V_AddEditCustomerForm(C_Customer cCustomer)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -54,7 +54,7 @@
             customerBS.DataSource = new Data.ORM.Customer();
         }
 
-        public V_AddEditCustomerForm(Controller.C_Customer cCustomer, string code)
+        public V_AddEditCustomerForm(C_Customer cCustomer, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;

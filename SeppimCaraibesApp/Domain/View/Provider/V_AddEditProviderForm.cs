@@ -1,5 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Provider
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
@@ -17,8 +18,9 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Provider _cProvider;
+        private readonly C_Provider _cProvider;
         private bool _isCProviderAlive;
         private readonly string _whereFrom;
         private readonly bool _isAddOrEdit;
@@ -33,7 +35,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cProvider = new Controller.C_Provider();
+            _cProvider = new C_Provider();
             _isCProviderAlive = true;
             _whereFrom = CALL_FROM_PRODUCT;
             _isAddOrEdit = false;
@@ -45,7 +47,7 @@
             productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
-        public V_AddEditProviderForm(Controller.C_Provider cProvider)
+        public V_AddEditProviderForm(C_Provider cProvider)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -62,7 +64,7 @@
             productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
-        public V_AddEditProviderForm(Controller.C_Provider cProvider, string code)
+        public V_AddEditProviderForm(C_Provider cProvider, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -263,26 +265,37 @@
         #region ActionsButtons
         private void AddProductSP_Click(object sender, EventArgs e)
         {
-            _isCProviderAlive = true;
-            var addProduct = new Product.V_AddEditProductForm
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addProduct.BringToFront();
-            DialogResult result = addProduct.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _idProduct = addProduct.code;
-                productsEIFS.Refresh();
-                productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+                _isCProviderAlive = true;
+
+                using (var addProduct = new Product.V_AddEditProductForm
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addProduct.BringToFront();
+                    DialogResult result = addProduct.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        _idProduct = addProduct.code;
+                        productsEIFS.Refresh();
+                        productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -332,9 +345,12 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -381,6 +397,10 @@
                 {
                     _isCProviderAlive = true;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -392,12 +412,20 @@
                     {
                         _isCProviderAlive = true;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                     else
                     {
                         _isCProviderAlive = false;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                 }
@@ -406,7 +434,10 @@
 
         private void CloseSB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cProvider.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(CLOSE_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
 
             DialogResult = DialogResult.OK;
             Close();

@@ -29,11 +29,11 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cCustomer = new Controller.C_Customer();
+            _cCustomer = new C_Customer();
             _isCCustomerAlive = true;
         }
 
-        public V_ListCustomersForm(Controller.C_Customer cCustomer)
+        public V_ListCustomersForm(C_Customer cCustomer)
         {
             InitializeComponent();
             Text = NAME_FORM;
