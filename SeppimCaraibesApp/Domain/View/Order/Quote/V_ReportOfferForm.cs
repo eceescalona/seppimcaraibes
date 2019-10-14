@@ -1,21 +1,24 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
+    using SeppimCaraibesApp.Domain.Controller;
+    using System;
     using System.Windows.Forms;
 
     internal partial class V_ReportOfferForm : Form
     {
         private const string NAME = "Vista Previa Oferta";
 
-        private readonly Controller.C_Order _cOrder;
+        private readonly C_Order _cOrder;
 
 
+        #region Ctor
         public V_ReportOfferForm()
         {
             InitializeComponent();
-            _cOrder = new Controller.C_Order();
+            _cOrder = new C_Order();
         }
 
-        public V_ReportOfferForm(Controller.C_Order cOrder, string code)
+        public V_ReportOfferForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             _cOrder = cOrder;
@@ -24,12 +27,21 @@
 
             LoadDocumentSource(code);
         }
+        #endregion
 
 
         private void LoadDocumentSource(string code)
         {
-            var report = new Reports.Offer.R_Offer(_cOrder, code);
-            offerDV.DocumentSource = report;
+            try
+            {
+                var report = new Reports.Offer.R_Offer(_cOrder, code);
+                offerDV.DocumentSource = report;
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
         }
     }
 }
