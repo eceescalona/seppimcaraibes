@@ -35,15 +35,15 @@
             {
                 _cUser.SetLogginUser(user);
 
-                using (var main = new V_MainForm(_cUser)
+                var main = new V_MainForm(_cUser)
                 {
                     Owner = this
-                })
-                {
-                    main.BringToFront();
-                    main.Show();
-                    Visible = false;
-                }
+                };
+
+                main.BringToFront();
+                main.Show();
+                Visible = false;
+
             }
             catch (Exception ex)
             {
