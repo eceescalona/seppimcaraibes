@@ -1,12 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Invoice
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditInvoiceForm : Form, Controller.IAddEditOrder
+    internal partial class V_AddEditInvoiceForm : Form, IAddEditOrder
     {
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo banco. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
@@ -15,14 +16,15 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Order _cOrder;
+        private readonly C_Order _cOrder;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
         private int _idBank;
 
 
-        public V_AddEditInvoiceForm(Controller.C_Order cOrder, string code)
+        public V_AddEditInvoiceForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -38,7 +40,7 @@
         }
 
 
-        private void V_AddEditInvoiceForm_Load(object sender, System.EventArgs e)
+        private void V_AddEditInvoiceForm_Load(object sender, EventArgs e)
         {
             if (((Data.ORM.Order)orderBS.Current)?.BankId != null)
             {
@@ -141,28 +143,39 @@
         #region ActionsButtons
         private void AddBankSB_Click(object sender, System.EventArgs e)
         {
-            _isCOrderAlive = true;
-            var addBank = new Bank.V_AddEditBankForm
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addBank.BringToFront();
-            DialogResult result = addBank.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _idBank = addBank.code;
-                banksEIFS.Refresh();
-                banksEIFS.GetQueryable += BanksEIFS_GetQueryable;
-                banksSLUE.EditValue = _idBank;
-                banksSLUE.Enabled = false;
+                _isCOrderAlive = true;
+
+                using (var addBank = new Bank.V_AddEditBankForm
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addBank.BringToFront();
+                    DialogResult result = addBank.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        _idBank = addBank.code;
+                        banksEIFS.Refresh();
+                        banksEIFS.GetQueryable += BanksEIFS_GetQueryable;
+                        banksSLUE.EditValue = _idBank;
+                        banksSLUE.Enabled = false;
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -193,10 +206,13 @@
                     Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -222,13 +238,20 @@
             {
                 _isCOrderAlive = true;
                 DialogResult = DialogResult.Cancel;
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 Close();
             }
         }
 
         private void CloseSB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Uds. a terminado, la ventana cerrará.", _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(CLOSE_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
 
             DialogResult = DialogResult.OK;
             Close();
