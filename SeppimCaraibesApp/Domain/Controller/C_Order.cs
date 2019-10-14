@@ -13,6 +13,7 @@
         private const string FIELD = "providerSLUE";
         private const string FIELD_MESSAGE = "El Campo Proveedor no puede ser vacío.";
         private const string SELECT_PROVIDER = "Uds. necesita seleccionar un proveedor para continuar.";
+
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.Order _mOrder;
 
@@ -184,6 +185,9 @@
 
                 _mOrder.AddOrder(_context, order, productsOrders);
 
+                C_Log _cLog = new C_Log();
+                _cLog.Write(Message(new object[] { order.OrderId }), ETypeOfMessage.Information);
+
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, Message(new object[] { order.OrderId }));
                 addEditOrder.RefreshView();
             }
@@ -196,9 +200,13 @@
         public void SetProviderOrder(ISelectProvider selectProvider, string code, Data.ORM.Provider provider)
         {
             string message = string.Format("El proveedor {0} ha sido selccionado satisfactoriamente para la orden {1}.", provider.ProviderName, code);
+
             if (provider != null)
             {
                 _mOrder.SetProviderOrder(_context, code, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
 
                 selectProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
@@ -219,6 +227,10 @@
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
 
             _mOrder.EditOrder(_context, order);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
         }
 
@@ -229,6 +241,10 @@
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
                 _mOrder.EditOrder(_context, order, productsOrders);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -247,6 +263,9 @@
             }
             else
             {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 listOrders.ShowMessage(ETypeOfMessage.Information, message);
                 listOrders.RefreshView();
             }
@@ -257,6 +276,10 @@
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
 
             _mOrder.EditOrder(_context, code, invoiceState);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
             listOrders.RefreshView();
         }
@@ -266,6 +289,10 @@
             string message = string.Format("La orden con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mOrder.DeleteOrder(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
             listOrders.RefreshView();
         }
