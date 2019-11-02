@@ -260,25 +260,38 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                    DialogResult result = MessageBox.Show(SELECT_PROVIDER, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
+
+                    if (_cOrder.ValidateProvider(row.Order_Code).Result)
                     {
-                        using (var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code)
+                        var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
                         {
                             StartPosition = FormStartPosition.CenterScreen
-                        })
+                        };
+                        documentView.BringToFront();
+                        documentView.ShowDialog();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show(SELECT_PROVIDER, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
                         {
-                            selectProvider.BringToFront();
-                            DialogResult resultDialog = selectProvider.ShowDialog();
-                            if (resultDialog == DialogResult.OK)
+                            using (var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code)
                             {
-                                var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
+                                StartPosition = FormStartPosition.CenterScreen
+                            })
+                            {
+                                selectProvider.BringToFront();
+                                DialogResult resultDialog = selectProvider.ShowDialog();
+                                if (resultDialog == DialogResult.OK)
                                 {
-                                    StartPosition = FormStartPosition.CenterScreen
-                                };
-                                documentView.BringToFront();
-                                documentView.ShowDialog();
+                                    var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
+                                    {
+                                        StartPosition = FormStartPosition.CenterScreen
+                                    };
+                                    documentView.BringToFront();
+                                    documentView.ShowDialog();
+                                }
                             }
                         }
                     }

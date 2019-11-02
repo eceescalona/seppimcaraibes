@@ -296,6 +296,20 @@
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
             listOrders.RefreshView();
         }
+        
+        public async Task<bool> ValidateProvider(string code) 
+        {
+            var order = await _mOrder.GetOrder(_context, code);
+
+            if (string.IsNullOrWhiteSpace(order.ProviderId))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         #endregion
     }
 }
