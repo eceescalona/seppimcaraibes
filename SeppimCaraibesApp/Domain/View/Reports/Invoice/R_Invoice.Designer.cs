@@ -278,7 +278,6 @@
             // companyAddressXRL
             // 
             this.companyAddressXRL.AutoWidth = true;
-            this.companyAddressXRL.CanGrow = false;
             this.companyAddressXRL.Dpi = 96F;
             this.companyAddressXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SeppimAddress]")});
@@ -288,13 +287,12 @@
             this.companyAddressXRL.Multiline = true;
             this.companyAddressXRL.Name = "companyAddressXRL";
             this.companyAddressXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.companyAddressXRL.SizeF = new System.Drawing.SizeF(96F, 22.07999F);
+            this.companyAddressXRL.SizeF = new System.Drawing.SizeF(192F, 22.07999F);
             this.companyAddressXRL.StylePriority.UseFont = false;
             this.companyAddressXRL.StylePriority.UseForeColor = false;
             this.companyAddressXRL.StylePriority.UseTextAlignment = false;
             this.companyAddressXRL.Text = "companyAddressXRL";
             this.companyAddressXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.companyAddressXRL.WordWrap = false;
             // 
             // quoteXRL
             // 

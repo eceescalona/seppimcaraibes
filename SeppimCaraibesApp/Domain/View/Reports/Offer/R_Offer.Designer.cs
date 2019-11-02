@@ -165,15 +165,14 @@
             // 
             this.xrLabel10.AutoWidth = true;
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(438.7334F, 122.8333F);
-            this.xrLabel10.Multiline = true;
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(456.8447F, 122.8333F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(199.9997F, 23F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(181.8885F, 23F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "[OrderCode]/[ProviderReference]";
-            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel1
             // 
@@ -225,7 +224,6 @@
             // companyAddressXRL
             // 
             this.companyAddressXRL.AutoWidth = true;
-            this.companyAddressXRL.CanGrow = false;
             this.companyAddressXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SeppimAddress]")});
             this.companyAddressXRL.Font = new System.Drawing.Font("Arial", 7F);
@@ -234,13 +232,12 @@
             this.companyAddressXRL.Multiline = true;
             this.companyAddressXRL.Name = "companyAddressXRL";
             this.companyAddressXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.companyAddressXRL.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.companyAddressXRL.SizeF = new System.Drawing.SizeF(200F, 23F);
             this.companyAddressXRL.StylePriority.UseFont = false;
             this.companyAddressXRL.StylePriority.UseForeColor = false;
             this.companyAddressXRL.StylePriority.UseTextAlignment = false;
             this.companyAddressXRL.Text = "companyAddressXRL";
             this.companyAddressXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.companyAddressXRL.WordWrap = false;
             // 
             // dateXRL
             // 
@@ -558,7 +555,7 @@
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseBackColor = false;
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
-            this.xrTableCell4.Text = "Precio de Venta";
+            this.xrTableCell4.Text = "Precio";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell4.Weight = 0.32119721415419195D;
             // 
@@ -1044,7 +1041,7 @@
             this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "Términos  de  Pago: [PaymentsTerms]";
+            this.xrLabel4.Text = "Tiempo de Entrega: [DeliveryTime]";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel4.WordWrap = false;
             // 

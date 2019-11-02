@@ -268,7 +268,7 @@
             this.enableRICE.AutoHeight = false;
             this.enableRICE.Caption = "Habilitar";
             this.enableRICE.Name = "enableRICE";
-            this.enableRICE.CheckedChanged += new System.EventHandler(this.EnableRICE_CheckedChanged);
+            this.enableRICE.Click += new System.EventHandler(this.EnableRICE_CheckedChanged);
             // 
             // colRole
             // 

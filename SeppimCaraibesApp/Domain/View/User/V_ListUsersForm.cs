@@ -248,14 +248,14 @@
                     DialogResult result = MessageBox.Show(DISSABLE_MESSAGE + row.User + "?", _cUser.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        using (var disableCause = new D_DisableCauseForm(_cUser))
+                        var disableCause = new D_DisableCauseForm(_cUser);
+                        disableCause.ShowDialog();
+
+                        if (disableCause.DialogResult == DialogResult.OK)
                         {
-                            if (disableCause.DialogResult == DialogResult.OK)
-                            {
-                                message = disableCause.cause;
-                            }
-                            disableCause.Dispose();
+                            message = disableCause.cause;
                         }
+                        disableCause.Dispose();
 
                         _cUser.DisableUser(this, row.UserId, message);
                     }

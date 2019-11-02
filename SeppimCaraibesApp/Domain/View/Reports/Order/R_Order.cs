@@ -27,6 +27,8 @@
 
             xrTableCell4.Visible = flag;
             xrTableCell10.Visible = flag;
+            xrTableCell5.Visible = flag;
+            xrTableCell6.Visible = flag;
 
             xrTable1.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
             xrTable2.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
