@@ -34,7 +34,6 @@
             _cOrder.EditOrder(this, code);
 
             productsBS.DataSource = _cProduct.FillProductsOrders();
-            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
 
