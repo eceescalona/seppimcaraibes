@@ -52,6 +52,13 @@
             return order;
         }
 
+        public Data.ORM.Order GetLastOrder(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            return rOrder.GetLastOrder(context);
+        }
+
         public async Task<IEnumerable<Data.POCO.OrderReportView>> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
