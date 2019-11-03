@@ -187,9 +187,9 @@
             throw new ArgumentException("Not found.", "description");
         }
 
-        public async void LoadReport(IReport reportQuote, string code)
+        public void LoadReport(IReport reportQuote, string code)
         {
-            var reportData = await _mOrder.GetOrderReportView(_context, code);
+            var reportData = _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(reportData);
         }
 
@@ -235,9 +235,9 @@
             }
         }
 
-        public async void EditOrder(IAddEditOrder addEditOrder, string code)
+        public void EditOrder(IAddEditOrder addEditOrder, string code)
         {
-            var order = await _mOrder.GetOrder(_context, code);
+            var order = _mOrder.GetOrder(_context, code);
             addEditOrder.EditOrder(order);
         }
 
@@ -272,11 +272,11 @@
             }
         }
 
-        public async void EditOrder(IListOrders listOrders, string code, EOrderProcessState orderProcessState)
+        public void EditOrder(IListOrders listOrders, string code, EOrderProcessState orderProcessState)
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
 
-            if (!(await _mOrder.EditOrder(_context, code, orderProcessState)))
+            if (!(_mOrder.EditOrder(_context, code, orderProcessState)))
             {
                 listOrders.ShowMessage(ETypeOfMessage.Warning, SELECT_PROVIDER);
             }
@@ -316,9 +316,9 @@
             listOrders.RefreshView();
         }
 
-        public async Task<bool> ValidateProvider(string code)
+        public bool ValidateProvider(string code)
         {
-            var order = await _mOrder.GetOrder(_context, code);
+            var order = _mOrder.GetOrder(_context, code);
 
             if (string.IsNullOrWhiteSpace(order.ProviderId))
             {

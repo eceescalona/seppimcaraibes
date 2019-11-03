@@ -31,10 +31,10 @@
         }
 
 
-        public async Task<Data.ORM.Order> GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public Data.ORM.Order GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rOrder = new Data.Repository.OrderRepository();
-            var order = await rOrder.GetOrder(context, code);
+            var order = rOrder.GetOrder(context, code);
 
             if (order != null)
             {
@@ -59,13 +59,13 @@
             return rOrder.GetLastOrder(context);
         }
 
-        public async Task<IEnumerable<Data.POCO.OrderReportView>> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public IEnumerable<Data.POCO.OrderReportView> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
             var products = new List<Data.POCO.ProductsOrdersReports>();
             var rOrder = new Data.Repository.OrderRepository();
 
-            var order = await rOrder.GetOrder(context, code);
+            var order = rOrder.GetOrder(context, code);
             var bank = context.Banks.SingleOrDefault(b => b.BankId == order.BankId);
 
             var shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
@@ -228,11 +228,11 @@
             rOrder.EditOrder(context, order);
         }
 
-        public async Task<bool> EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
+        public bool EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            var order = await rOrder.GetOrder(context, code);
+            var order = rOrder.GetOrder(context, code);
 
             if (string.IsNullOrWhiteSpace(order.ProviderId))
             {
@@ -253,11 +253,11 @@
             return true;
         }
 
-        public async void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
+        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            var order = await rOrder.GetOrder(context, code);
+            var order = rOrder.GetOrder(context, code);
             order.InvoiceState = invoiceState;
 
             rOrder.EditOrder(context, order);

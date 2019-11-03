@@ -5,9 +5,9 @@
 
     internal class OrderRepository
     {
-        public async Task<ORM.Order> GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
+        public ORM.Order GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            return await context.Orders.FindAsync(code);
+            return context.Orders.Find(code);
         }
 
         public ORM.Order GetLastOrder(ORM.SeppimCaraibesLocalEntities context)

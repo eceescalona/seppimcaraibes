@@ -261,7 +261,7 @@
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
 
-                    if (_cOrder.ValidateProvider(row.Order_Code).Result)
+                    if (_cOrder.ValidateProvider(row.Order_Code))
                     {
                         var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
                         {
