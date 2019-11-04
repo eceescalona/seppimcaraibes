@@ -7,25 +7,12 @@
     {
         public ORM.Order GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            var order = context.Orders.SingleOrDefault(o => o.OrderId.Equals(code));
-            return order;
+            return context.Orders.SingleOrDefault(o => o.OrderId.Equals(code));
         }
 
         public ORM.Order GetLastOrder(ORM.SeppimCaraibesLocalEntities context)
         {
-            var orders = context.Orders.ToList();
-            if (orders.Count < 1)
-            {
-                return null;
-            }
-            else if (orders.Count == 1)
-            {
-                return orders[0];
-            }
-            else
-            {
-                return orders[orders.Count - 1];
-            }
+            return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault();
         }
 
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)

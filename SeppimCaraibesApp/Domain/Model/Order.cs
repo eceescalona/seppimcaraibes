@@ -121,7 +121,7 @@
                 PaymentsTerms = order.PaymentsTerms
             };
 
-
+            order.ProductsOrders = context.ProductsOrders.Where(po => po.OrderId == order.OrderId).ToList();
             foreach (var productOrder in order.ProductsOrders)
             {
                 var product = new Data.POCO.ProductsOrdersReports
