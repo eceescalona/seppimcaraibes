@@ -26,6 +26,8 @@
             InitializeComponent();
             Text = NAME_FORM_EDIT;
 
+            providerReferenceTE.Select();
+
             _cOrder = cOrder;
             _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
@@ -118,6 +120,18 @@
             if (order.IncotermType != null)
             {
                 eIncotermLUE.EditValue = order.IncotermType;
+            }
+
+            if (order.ExpensesType != null)
+            {
+                if (order.ExpensesType == EExpenses.FCA)
+                {
+                    expensesTypeRG.SelectedIndex = 0;
+                }
+                else
+                {
+                    expensesTypeRG.SelectedIndex = 1;
+                }
             }
         }
 

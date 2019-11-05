@@ -80,6 +80,18 @@
                 _idBank = (int)order.BankId;
                 banksSLUE.EditValue = _idBank;
             }
+
+            if (order.CommercialValue != null)
+            {
+                if (order.CommercialValue == ECommercialValue.FV)
+                {
+                    commercialValueRG.SelectedIndex = 0;
+                }
+                else
+                {
+                    commercialValueRG.SelectedIndex = 1;
+                }
+            }
         }
 
         public void RefreshView()

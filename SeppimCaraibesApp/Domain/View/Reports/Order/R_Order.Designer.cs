@@ -105,7 +105,7 @@
             this.companyNameXRL,
             this.companyAddressXRL,
             this.xrLabel7});
-            this.TopMargin.HeightF = 256F;
+            this.TopMargin.HeightF = 248.7083F;
             this.TopMargin.Name = "TopMargin";
             // 
             // xrLabel1
@@ -115,7 +115,7 @@
             this.xrLabel1.CanGrow = false;
             this.xrLabel1.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
             this.xrLabel1.ForeColor = System.Drawing.Color.White;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(481.0542F, 121.2917F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(480.0126F, 69.37505F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
@@ -131,7 +131,7 @@
             // 
             this.xrLabel6.AutoWidth = true;
             this.xrLabel6.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(427.275F, 146.375F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(427.275F, 94.45837F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -148,7 +148,7 @@
             this.dateXRL.CanGrow = false;
             this.dateXRL.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
             this.dateXRL.ForeColor = System.Drawing.Color.White;
-            this.dateXRL.LocationFloat = new DevExpress.Utils.PointFloat(327.275F, 121.2917F);
+            this.dateXRL.LocationFloat = new DevExpress.Utils.PointFloat(326.2334F, 69.37505F);
             this.dateXRL.Name = "dateXRL";
             this.dateXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.dateXRL.SizeF = new System.Drawing.SizeF(100F, 25.08332F);
@@ -167,7 +167,7 @@
             this.dateOrderXRL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")});
             this.dateOrderXRL.Font = new System.Drawing.Font("Arial", 9F);
-            this.dateOrderXRL.LocationFloat = new DevExpress.Utils.PointFloat(327.275F, 146.375F);
+            this.dateOrderXRL.LocationFloat = new DevExpress.Utils.PointFloat(326.2334F, 94.45837F);
             this.dateOrderXRL.Name = "dateOrderXRL";
             this.dateOrderXRL.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.dateOrderXRL.SizeF = new System.Drawing.SizeF(100F, 23F);
@@ -227,7 +227,7 @@
             // xrLabel7
             // 
             this.xrLabel7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(198.149F, 47.70837F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(198.149F, 33.95834F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -523,7 +523,7 @@
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseBackColor = false;
             this.xrTableCell4.StylePriority.UseBorderColor = false;
-            this.xrTableCell4.Text = "Precio Unitario";
+            this.xrTableCell4.Text = "Precio";
             this.xrTableCell4.Weight = 1.4688328207002905D;
             // 
             // xrTableCell5
@@ -867,7 +867,7 @@
             this.orderReportViewODS});
             this.DataSource = this.orderReportViewODS;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 256, 100);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 249, 100);
             this.Version = "19.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
