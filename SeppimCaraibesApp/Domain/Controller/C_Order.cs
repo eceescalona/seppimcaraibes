@@ -89,7 +89,7 @@
             }
             else
             {
-                int code = int.Parse(order.OrderId) + 1;
+                long code = long.Parse(order.OrderId) + 1;
                 orderCode = code.ToString();
                 return orderCode;
             }
@@ -126,13 +126,13 @@
 
                 if (order.CommercialValue == ECommercialValue.FV)
                 {
-                    int code = int.Parse(lastOrderSubOne.InvoiceReference) + 1;
+                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
                     invoiceReference = code.ToString();
                     return FV + invoiceReference;
                 }
                 else
                 {
-                    int code = int.Parse(lastOrderSubOne.InvoiceReference) + 1;
+                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
                     invoiceReference = code.ToString();
                     return NC + invoiceReference;
                 }
