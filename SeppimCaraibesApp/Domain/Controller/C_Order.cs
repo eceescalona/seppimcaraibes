@@ -82,14 +82,14 @@
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-            var order = _mOrder.GetLastOrder(_context);
-            if (order == null)
+            var order = _mOrder.GetLastOrderID(_context);
+            if (string.IsNullOrWhiteSpace(order))
             {
                 return orderCode;
             }
             else
             {
-                long code = long.Parse(order.OrderId) + 1;
+                long code = long.Parse(order) + 1;
                 orderCode = code.ToString();
                 return orderCode;
             }

@@ -5,7 +5,6 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Reflection;
-    using System.Threading.Tasks;
 
     internal class Order
     {
@@ -52,11 +51,11 @@
             return order;
         }
 
-        public Data.ORM.Order GetLastOrder(Data.ORM.SeppimCaraibesLocalEntities context)
+        public string GetLastOrderID(Data.ORM.SeppimCaraibesLocalEntities context)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
-            return rOrder.GetLastOrder(context);
+            return rOrder.GetLastOrderID(context);
         }
 
         public IEnumerable<Data.POCO.OrderReportView> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)

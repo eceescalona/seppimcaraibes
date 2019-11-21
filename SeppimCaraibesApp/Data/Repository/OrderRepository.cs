@@ -1,6 +1,5 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
-    using System.Threading.Tasks;
     using System.Linq;
 
     internal class OrderRepository
@@ -10,9 +9,9 @@
             return context.Orders.SingleOrDefault(o => o.OrderId.Equals(code));
         }
 
-        public ORM.Order GetLastOrder(ORM.SeppimCaraibesLocalEntities context)
+        public string GetLastOrderID(ORM.SeppimCaraibesLocalEntities context)
         {
-            return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault();
+            return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault()?.OrderId;
         }
 
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)
