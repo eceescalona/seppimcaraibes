@@ -17,7 +17,7 @@
         }
 
 
-        public void WriteLogIntoFile(string personName, string description, Domain.ETypeOfMessage logType)
+        public void WriteLogIntoFile(string personName, string description, ETypeOfMessage logType)
         {
             TraceSource traceSource = new TraceSource(REFERENCE_ORIGIN);
             SourceSwitch level = new SourceSwitch(REFERENCE_ORIGIN);
