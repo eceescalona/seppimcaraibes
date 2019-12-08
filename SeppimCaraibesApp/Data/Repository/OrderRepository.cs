@@ -14,6 +14,11 @@
             return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault()?.OrderId;
         }
 
+        public string GetLastInvoiceID(ORM.SeppimCaraibesLocalEntities context)
+        {
+            return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault()?.InvoiceReference;
+        }
+
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)
         {
             context.Orders.Add(order);

@@ -59,7 +59,6 @@
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
             orderBS.DataSource = new Data.ORM.Order();
-            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
         public V_AddEditPreOrderForm(C_Order cOrder, string code)
@@ -77,7 +76,6 @@
             _cOrder.EditOrder(this, code);
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
         #endregion
 
@@ -151,12 +149,6 @@
             paymentOptionsBS.DataSource = tempEPO;
             paymentOptionLUE.Properties.DataSource = paymentOptionsBS.List;
 
-            shipmentMethodBS.DataSource = typeof(EShippingMethod);
-            var tempESM = Enum.GetValues(typeof(EShippingMethod));
-            shipmentMethodBS.Clear();
-            shipmentMethodBS.DataSource = tempESM;
-            shipmentMLUE.Properties.DataSource = shipmentMethodBS.List;
-
             incotermsBS.DataSource = typeof(EIncoterms);
             var tempEI = Enum.GetValues(typeof(EIncoterms));
             incotermsBS.Clear();
@@ -177,13 +169,6 @@
             orderBS.DataSource = order;
             _idCustomer = order.CustomerId;
             customerSLUE.EditValue = _idCustomer;
-
-            if (order.Shipment != null)
-            {
-                shipmentBS.Clear();
-                shipmentBS.DataSource = order.Shipment;
-                shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
-            }
 
             if (order.PaymentOption != null)
             {
@@ -236,7 +221,6 @@
 
             paymentOptionLUE.EditValue = null;
             deviseLUE.EditValue = null;
-            shipmentMLUE.EditValue = null;
             eIncotermLUE.EditValue = null;
         }
 
@@ -394,15 +378,6 @@
                 {
                     order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
                 }
-
-                var shipment = (Data.ORM.Shipment)shipmentBS.Current;
-
-                if (!string.IsNullOrWhiteSpace(shipmentMLUE.Text))
-                {
-                    shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
-                }
-
-                order.Shipment = shipment;
 
                 if (_isAddOrEdit)
                 {

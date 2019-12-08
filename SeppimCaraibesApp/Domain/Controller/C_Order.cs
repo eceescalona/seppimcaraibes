@@ -82,14 +82,14 @@
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-            var order = _mOrder.GetLastOrderID(_context);
-            if (string.IsNullOrWhiteSpace(order))
+            var orderID = _mOrder.GetLastOrderID(_context);
+            if (string.IsNullOrWhiteSpace(orderID))
             {
                 return orderCode;
             }
             else
             {
-                long code = long.Parse(order) + 1;
+                long code = long.Parse(orderID) + 1;
                 orderCode = code.ToString();
                 return orderCode;
             }
@@ -107,9 +107,8 @@
 
             string invoiceReference = DateTime.Now.Year.ToString() + back;
 
-            var orders = _context.Orders.ToList();
-
-            if (orders.Count == 1)
+            var invoiceID = _mOrder.GetLastInvoiceID(_context);
+            if (string.IsNullOrWhiteSpace(invoiceID))
             {
                 if (order.CommercialValue == ECommercialValue.FV)
                 {
@@ -117,29 +116,22 @@
                 }
                 else
                 {
-                    return NC + invoiceReference;
-                }
-            }
-            else if (orders.Count > 1)
-            {
-                var lastOrderSubOne = orders[orders.Count - 2];
-
-                if (order.CommercialValue == ECommercialValue.FV)
-                {
-                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
-                    invoiceReference = code.ToString();
-                    return FV + invoiceReference;
-                }
-                else
-                {
-                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
-                    invoiceReference = code.ToString();
                     return NC + invoiceReference;
                 }
             }
             else
             {
-                throw new ArgumentNullException();
+                long code = long.Parse(invoiceID) + 1;
+                invoiceReference = code.ToString();
+
+                if (order.CommercialValue == ECommercialValue.FV)
+                {
+                    return FV + invoiceReference;
+                }
+                else
+                {
+                    return NC + invoiceReference;
+                }
             }
         }
 
