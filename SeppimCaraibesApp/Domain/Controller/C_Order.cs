@@ -4,8 +4,6 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Reflection;
-    using System.Threading.Tasks;
-    using System.Linq;
 
     internal class C_Order : IDisposable
     {
@@ -121,7 +119,8 @@
             }
             else
             {
-                long code = long.Parse(invoiceID) + 1;
+                back = invoiceID.Substring(2);
+                long code = long.Parse(back) + 1;
                 invoiceReference = code.ToString();
 
                 if (order.CommercialValue == ECommercialValue.FV)
