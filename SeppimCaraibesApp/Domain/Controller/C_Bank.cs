@@ -52,6 +52,7 @@
             return flag;
         }
 
+
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
             return _context;
@@ -73,6 +74,29 @@
             }
         }
 
+        public T GetValueFromDescription<T>(string description)
+        {
+            var type = typeof(T);
+
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", "description");
+        }
+
 
         #region BankManage
         public void AddBank(IAddEditBank addEditBank, Data.ORM.Bank bank, out int idBank)
@@ -82,6 +106,10 @@
             if (Validate(bank, out Dictionary<string, string> fields))
             {
                 _mBank.AddBank(_context, bank);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditBank.ShowMessage(ETypeOfMessage.Information, message);
                 idBank = _mBank.GetIdBank(_context, bank.BankName, bank.BankAddress);
             }
@@ -92,6 +120,5 @@
             }
         }
         #endregion
-
     }
 }

@@ -1,7 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("InvoicesView")]
     internal partial class InvoicesView
@@ -64,10 +67,6 @@ namespace SeppimCaraibesApp.Data.ORM
         public double? Total_Discount { get; set; }
 
         public decimal? Freight { get; set; }
-
-        public decimal? FCA { get; set; }
-
-        public decimal? FOB { get; set; }
 
         public decimal? Insurance { get; set; }
 

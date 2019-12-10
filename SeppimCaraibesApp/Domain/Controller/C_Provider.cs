@@ -31,8 +31,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
+            string field;
+            string message;
 
             if (string.IsNullOrWhiteSpace(provider.ProviderId))
             {
@@ -76,6 +76,7 @@
             return flag;
         }
 
+
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
             return _context;
@@ -97,6 +98,29 @@
             }
         }
 
+        public T GetValueFromDescription<T>(string description)
+        {
+            var type = typeof(T);
+
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", "description");
+        }
+
 
         #region ProviderManage
         public void AddProvider(IAddEditProvider addEditProvider, Data.ORM.Provider provider)
@@ -106,6 +130,10 @@
             if (Validate(provider, out Dictionary<string, string> fields))
             {
                 _mProvider.AddProvider(_context, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -114,9 +142,9 @@
             }
         }
 
-        public void EditProvider(IAddEditProvider addEditProvider, string code)
+        public async void EditProvider(IAddEditProvider addEditProvider, string code)
         {
-            var provider = _mProvider.GetProvider(_context, code);
+            var provider = await _mProvider.GetProvider(_context, code);
             addEditProvider.EditProvider(provider);
         }
 
@@ -127,6 +155,10 @@
             if (Validate(provider, out Dictionary<string, string> fields))
             {
                 _mProvider.EditProvider(_context, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -140,6 +172,10 @@
             string message = string.Format("El proveedor con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mProvider.DeleteProvider(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listProviders.ShowMessage(ETypeOfMessage.Information, message);
             listProviders.RefreshView();
         }

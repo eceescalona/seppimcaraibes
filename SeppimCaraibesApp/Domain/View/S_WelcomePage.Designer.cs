@@ -28,84 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(S_WelcomePage));
+            this.loadBarMPBC = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+            this.copyrightLC = new DevExpress.XtraEditors.LabelControl();
+            this.loadLC = new DevExpress.XtraEditors.LabelControl();
+            this.logoElitechPE = new DevExpress.XtraEditors.PictureEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadBarMPBC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoElitechPE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // marqueeProgressBarControl1
+            // loadBarMPBC
             // 
-            this.marqueeProgressBarControl1.EditValue = 0;
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(23, 231);
-            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(404, 12);
-            this.marqueeProgressBarControl1.TabIndex = 5;
+            this.loadBarMPBC.EditValue = 0;
+            this.loadBarMPBC.Location = new System.Drawing.Point(23, 231);
+            this.loadBarMPBC.Name = "loadBarMPBC";
+            this.loadBarMPBC.Size = new System.Drawing.Size(404, 12);
+            this.loadBarMPBC.TabIndex = 5;
             // 
-            // labelControl1
+            // copyrightLC
             // 
-            this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl1.Location = new System.Drawing.Point(23, 286);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(47, 13);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Copyright";
+            this.copyrightLC.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.copyrightLC.Location = new System.Drawing.Point(23, 286);
+            this.copyrightLC.Name = "copyrightLC";
+            this.copyrightLC.Size = new System.Drawing.Size(47, 13);
+            this.copyrightLC.TabIndex = 6;
+            this.copyrightLC.Text = "Copyright";
             // 
-            // labelControl2
+            // loadLC
             // 
-            this.labelControl2.Location = new System.Drawing.Point(23, 206);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(59, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Cargando...";
+            this.loadLC.Location = new System.Drawing.Point(23, 206);
+            this.loadLC.Name = "loadLC";
+            this.loadLC.Size = new System.Drawing.Size(59, 13);
+            this.loadLC.TabIndex = 7;
+            this.loadLC.Text = "Cargando...";
             // 
-            // pictureEdit2
+            // logoElitechPE
             // 
-            this.pictureEdit2.EditValue = global::SeppimCaraibesApp.Properties.Resources.ElitechLogo;
-            this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.AllowFocused = false;
-            this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit2.Properties.ShowMenu = false;
-            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchVertical;
-            this.pictureEdit2.Size = new System.Drawing.Size(426, 180);
-            this.pictureEdit2.TabIndex = 9;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::SeppimCaraibesApp.Properties.Resources.SeppimCaraibesLogo;
-            this.pictureEdit1.Location = new System.Drawing.Point(278, 266);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.AllowFocused = false;
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(160, 48);
-            this.pictureEdit1.TabIndex = 8;
+            this.logoElitechPE.EditValue = global::SeppimCaraibesApp.Properties.Resources.SeppimCaraibesLogo;
+            this.logoElitechPE.Location = new System.Drawing.Point(12, 12);
+            this.logoElitechPE.Name = "logoElitechPE";
+            this.logoElitechPE.Properties.AllowFocused = false;
+            this.logoElitechPE.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.logoElitechPE.Properties.Appearance.Options.UseBackColor = true;
+            this.logoElitechPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.logoElitechPE.Properties.ShowMenu = false;
+            this.logoElitechPE.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.logoElitechPE.Size = new System.Drawing.Size(426, 180);
+            this.logoElitechPE.TabIndex = 9;
             // 
             // S_WelcomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 320);
-            this.Controls.Add(this.pictureEdit2);
-            this.Controls.Add(this.pictureEdit1);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.marqueeProgressBarControl1);
+            this.Controls.Add(this.logoElitechPE);
+            this.Controls.Add(this.loadLC);
+            this.Controls.Add(this.copyrightLC);
+            this.Controls.Add(this.loadBarMPBC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "S_WelcomePage";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadBarMPBC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoElitechPE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,10 +97,9 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.MarqueeProgressBarControl loadBarMPBC;
+        private DevExpress.XtraEditors.LabelControl copyrightLC;
+        private DevExpress.XtraEditors.LabelControl loadLC;
+        private DevExpress.XtraEditors.PictureEdit logoElitechPE;
     }
 }

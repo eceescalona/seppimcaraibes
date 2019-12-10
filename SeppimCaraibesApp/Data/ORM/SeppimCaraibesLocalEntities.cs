@@ -1,6 +1,9 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
+    using System;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
 
     internal partial class SeppimCaraibesLocalEntities : DbContext
     {
@@ -13,10 +16,15 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Origin> Origins { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductsOrder> ProductsOrders { get; set; }
+        public virtual DbSet<ProductsOrigin> ProductsOrigins { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RolePermission> RolePermissions { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<CustomersView> CustomersViews { get; set; }
         public virtual DbSet<InvoicesView> InvoicesViews { get; set; }
         public virtual DbSet<OrdersView> OrdersViews { get; set; }
@@ -24,7 +32,9 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual DbSet<ProductsView> ProductsViews { get; set; }
         public virtual DbSet<ProvidersView> ProvidersViews { get; set; }
         public virtual DbSet<QuotesView> QuotesViews { get; set; }
+        public virtual DbSet<RoleView> RoleViews { get; set; }
         public virtual DbSet<ShipmentsView> ShipmentsViews { get; set; }
+        public virtual DbSet<UserView> UserViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -41,23 +51,11 @@ namespace SeppimCaraibesApp.Data.ORM
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
                 .Property(e => e.EXW)
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.Freight)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.FCA)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.FOB)
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
@@ -69,6 +67,18 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<Order>()
+                .Property(e => e.Expenses)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.DeliveryTime)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.PaymentsTerms)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
                 .HasOptional(e => e.Shipment)
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete();
@@ -76,11 +86,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<Origin>()
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
-
-            modelBuilder.Entity<Origin>()
-                .HasMany(e => e.Products)
-                .WithMany(e => e.Origins)
-                .Map(m => m.ToTable("ProductsOrigins").MapLeftKey("OriginId").MapRightKey("ProductId"));
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
@@ -107,6 +112,11 @@ namespace SeppimCaraibesApp.Data.ORM
                 .Property(e => e.Interests)
                 .HasPrecision(18, 4);
 
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Shipment>()
                 .Property(e => e.GrossWeight)
                 .HasPrecision(18, 4);
@@ -132,14 +142,6 @@ namespace SeppimCaraibesApp.Data.ORM
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<InvoicesView>()
-                .Property(e => e.FCA)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<InvoicesView>()
-                .Property(e => e.FOB)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<InvoicesView>()
                 .Property(e => e.Insurance)
                 .HasPrecision(18, 4);
 
@@ -153,10 +155,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
             modelBuilder.Entity<OrdersView>()
                 .Property(e => e.Product_Discount)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<OrdersView>()
-                .Property(e => e.Incoterm)
                 .HasPrecision(18, 4);
 
             modelBuilder.Entity<OrdersView>()
@@ -182,10 +180,6 @@ namespace SeppimCaraibesApp.Data.ORM
             modelBuilder.Entity<ProductsView>()
                 .Property(e => e.Acronyms)
                 .IsFixedLength();
-
-            modelBuilder.Entity<QuotesView>()
-                .Property(e => e.Incoterm)
-                .HasPrecision(18, 4);
 
             modelBuilder.Entity<QuotesView>()
                 .Property(e => e.Unit_Price)

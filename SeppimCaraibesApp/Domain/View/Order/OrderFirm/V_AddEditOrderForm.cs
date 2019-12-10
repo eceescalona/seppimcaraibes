@@ -1,29 +1,29 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditOrderForm : Form, Controller.IAddEditOrder
+    internal partial class V_AddEditOrderForm : Form, IAddEditOrder
     {
         private const string NAME_FORM_EDIT = "Editar Orden Firme";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Order _cOrder;
-        private readonly Controller.C_Product _cProduct;
+        private readonly C_Order _cOrder;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
 
 
-        public V_AddEditOrderForm(Controller.C_Order cOrder, string code)
+        public V_AddEditOrderForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
 
             _cOrder = cOrder;
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isFieldWithError = false;
 
@@ -36,12 +36,12 @@
         {
             orderBS.DataSource = order;
 
-            if (string.IsNullOrWhiteSpace(order.DocRequired))
+            if (!string.IsNullOrWhiteSpace(order.DocRequired))
             {
                 docME.Text = order.DocRequired;
             }
 
-            if (string.IsNullOrWhiteSpace(order.ContractDescription))
+            if (!string.IsNullOrWhiteSpace(order.ContractDescription))
             {
                 descriptionME.Text = order.ContractDescription;
             }
@@ -93,10 +93,13 @@
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -122,8 +125,24 @@
             {
                 _isCOrderAlive = true;
                 DialogResult = DialogResult.Cancel;
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            DialogResult = DialogResult.OK;
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            Close();
         }
         #endregion
 

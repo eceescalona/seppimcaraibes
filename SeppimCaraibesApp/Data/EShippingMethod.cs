@@ -7,6 +7,8 @@
         [Description("Transporte Aéreo")]
         AirTransport = 1,
         [Description("Transporte Marítimo")]
-        MaritimeTransportation = 2
+        MaritimeTransportation = 2,
+        [Description("Transporte Aéreo/Transporte Marítimo")]
+        AirAndMaritimeTransportation = 3
     }
 }

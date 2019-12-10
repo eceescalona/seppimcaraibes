@@ -49,10 +49,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ListInvoicesForm));
             this.listInvoicesRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.closeBBI = new DevExpress.XtraBars.BarButtonItem();
             this.listInvoiceRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.listInvoicesRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.invoicesPC = new DevExpress.XtraEditors.PanelControl();
@@ -83,6 +85,7 @@
             this.colTotal_Cost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listInvoicesRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoicesPC)).BeginInit();
             this.invoicesPC.SuspendLayout();
@@ -99,17 +102,20 @@
             this.listInvoicesRC.ExpandCollapseItem,
             this.findBBI,
             this.filterBBI,
-            this.refreshBBI});
+            this.refreshBBI,
+            this.closeBBI,
+            this.listInvoicesRC.SearchEditItem});
             this.listInvoicesRC.Location = new System.Drawing.Point(0, 0);
-            this.listInvoicesRC.MaxItemId = 4;
+            this.listInvoicesRC.MaxItemId = 5;
             this.listInvoicesRC.Name = "listInvoicesRC";
+            this.listInvoicesRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listInvoicesRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.listInvoiceRP});
             this.listInvoicesRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.listInvoicesRC.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.listInvoicesRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listInvoicesRC.ShowToolbarCustomizeItem = false;
-            this.listInvoicesRC.Size = new System.Drawing.Size(873, 95);
+            this.listInvoicesRC.Size = new System.Drawing.Size(873, 116);
             this.listInvoicesRC.Toolbar.ShowCustomizeItem = false;
             this.listInvoicesRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listInvoicesRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -141,6 +147,14 @@
             this.refreshBBI.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // closeBBI
+            // 
+            this.closeBBI.Caption = "Cerrar";
+            this.closeBBI.Id = 4;
+            this.closeBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            this.closeBBI.Name = "closeBBI";
+            this.closeBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CloseBBI_ItemClick);
+            // 
             // listInvoiceRP
             // 
             this.listInvoiceRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -160,9 +174,9 @@
             // 
             this.invoicesPC.Controls.Add(this.invoiceGC);
             this.invoicesPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.invoicesPC.Location = new System.Drawing.Point(0, 95);
+            this.invoicesPC.Location = new System.Drawing.Point(0, 116);
             this.invoicesPC.Name = "invoicesPC";
-            this.invoicesPC.Size = new System.Drawing.Size(873, 355);
+            this.invoicesPC.Size = new System.Drawing.Size(873, 334);
             this.invoicesPC.TabIndex = 1;
             // 
             // invoiceGC
@@ -175,7 +189,7 @@
             this.invoiceGC.Name = "invoiceGC";
             this.invoiceGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.invoiceGC.Size = new System.Drawing.Size(869, 351);
+            this.invoiceGC.Size = new System.Drawing.Size(869, 330);
             this.invoiceGC.TabIndex = 0;
             this.invoiceGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.invoiceGV});
@@ -417,13 +431,24 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(71, 13);
+            this.labelControl1.TabIndex = 3;
+            this.labelControl1.Text = "Listar Facturas";
+            // 
             // V_ListInvoicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.invoicesPC);
             this.Controls.Add(this.listInvoicesRC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ListInvoicesForm";
             this.Text = "V_ListInvoicesForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_ListInvoicesForm_FormClosed);
@@ -476,5 +501,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private System.Windows.Forms.BindingSource invoicesBS;
+        private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

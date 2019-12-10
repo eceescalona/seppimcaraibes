@@ -1,31 +1,35 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditQuoteForm : Form, Controller.IAddEditOrder
+    internal partial class V_AddEditQuoteForm : Form, IAddEditOrder
     {
-        private const string NAME_FORM_EDIT = "Editar Cotización";
+        private const string NAME_FORM_EDIT = "Editar Oferta";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Order _cOrder;
-        private readonly Controller.C_Product _cProduct;
+        private readonly C_Order _cOrder;
+        private readonly C_Product _cProduct;
         private bool _isCOrderAlive;
         private bool _isFieldWithError;
 
 
-        public V_AddEditQuoteForm(Controller.C_Order cOrder, string code)
+        public V_AddEditQuoteForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
 
+            providerReferenceTE.Select();
+
             _cOrder = cOrder;
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
+            _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isFieldWithError = false;
 
@@ -44,19 +48,24 @@
         private void ProductsGV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
             var order = (Data.ORM.Order)orderBS.Current;
-            foreach (var product in order.ProductsOrders)
+
+            if (order != null && (order.ProductsOrders != null && order.ProductsOrders.Count > 0))
             {
-                if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
+                foreach (var product in order.ProductsOrders)
                 {
-                    if (row.ProductId == product.ProductId)
+                    if (productsGV.GetRow(e.RowHandle) is Data.POCO.ProductsOrders row)
                     {
-                        row.Qty = product.Qty;
-                        productsGV.SelectRow(e.RowHandle);
+                        if (row.ProductId == product.ProductId)
+                        {
+                            row.Qty = product.Qty;
+                            row.SalePrice = product.Discount;
+                            productsGV.SelectRow(e.RowHandle);
+                        }
                     }
                 }
-            }
 
-            e.HighPriority = true;
+                e.HighPriority = true;
+            }
         }
 
         private void InitializeLUE()
@@ -96,10 +105,6 @@
             {
                 shipmentBS.Clear();
                 shipmentBS.DataSource = order.Shipment;
-            }
-
-            if (order.Shipment != null)
-            {
                 shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
             }
 
@@ -117,18 +122,30 @@
             {
                 eIncotermLUE.EditValue = order.IncotermType;
             }
+
+            if (order.ExpensesType != null)
+            {
+                if (order.ExpensesType == EExpenses.FCA)
+                {
+                    expensesTypeRG.SelectedIndex = 0;
+                }
+                else
+                {
+                    expensesTypeRG.SelectedIndex = 1;
+                }
+            }
         }
 
         public void RefreshView()
         {
             providerReferenceTE.Text = string.Empty;
-            offerPeriodTE.Text = string.Empty;
-            incotermTE.Text = string.Empty;
+            initDateDE.DateTime = DateTime.Now;
+            endDateDE.DateTime = DateTime.Now;
             totalCostTE.Text = string.Empty;
             grossWTE.Text = string.Empty;
             netWTE.Text = string.Empty;
-            packingTE.Text = string.Empty;
-            placeDTE.Text = string.Empty;
+            placeDME.Text = string.Empty;
+            inspectionTE.Text = string.Empty;
 
             providerRErrorLC.LookAndFeel.UseDefaultLookAndFeel = false;
             providerRErrorLC.Text = string.Empty;
@@ -190,6 +207,8 @@
         {
             try
             {
+                var order = (Data.ORM.Order)orderBS.Current;
+
                 var products = new List<Data.POCO.ProductsOrders>();
 
                 int[] indexsProducts = productsGV.GetSelectedRows();
@@ -202,13 +221,61 @@
                     }
                 }
 
-                var order = (Data.ORM.Order)orderBS.Current;
-                order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
-                order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
-                order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                if (!string.IsNullOrWhiteSpace(paymentOptionLUE.Text))
+                {
+                    order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(deviseLUE.Text))
+                {
+                    order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(eIncotermLUE.Text))
+                {
+                    order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                }
+
+                if (expensesTypeRG.SelectedIndex >= 0)
+                {
+                    if (!string.IsNullOrWhiteSpace(expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description))
+                    {
+                        order.ExpensesType = (EExpenses)Enum.Parse(typeof(EExpenses), expensesTypeRG.Properties.Items[expensesTypeRG.SelectedIndex].Description);
+                    }
+                }
+
                 var shipment = (Data.ORM.Shipment)shipmentBS.Current;
-                shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+
+                if (!string.IsNullOrWhiteSpace(shipmentMLUE.Text))
+                {
+                    shipment.ShippingMethod = (EShippingMethod)Enum.Parse(typeof(EShippingMethod), shipmentMLUE.Text);
+                }
+
                 order.Shipment = shipment;
+
+                int period = order.Period == null ? 0 : (int)order.Period;
+
+                order.EXW = products.Sum(po => po.SalePrice * po.Qty);
+
+                double.TryParse(expensesTE.Text, out double expenses);
+
+                double EXW = decimal.ToDouble(order.EXW == null ? 0 : (decimal)order.EXW);
+                double TotalDiscount = order.TotalDiscount == null ? 0 : (double)order.TotalDiscount * EXW / 100;
+                double Freight = decimal.ToDouble(order.Freight == null ? 0 : (decimal)order.Freight);
+                double Insurance = decimal.ToDouble(order.Insurance == null ? 0 : (decimal)order.Insurance);
+
+                double ToltalInterests = 0;
+                if (period > 0)
+                {
+                    ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests / 36000 * period * EXW;
+                }
+
+                order.TotalCost = EXW - TotalDiscount + expenses + Freight + Insurance + ToltalInterests;
+
+                if (order.BigingDate != null && order.EndDate != null)
+                {
+                    order.OfferPeriod = (order.BigingDate - order.EndDate).Value.Days;
+                }
 
                 _cOrder.EditOrder(this, order, products);
 
@@ -221,10 +288,13 @@
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
+                DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -250,8 +320,23 @@
             {
                 _isCOrderAlive = true;
                 DialogResult = DialogResult.Cancel;
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

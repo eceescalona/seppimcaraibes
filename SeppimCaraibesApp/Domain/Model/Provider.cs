@@ -1,13 +1,14 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
     using System.Linq;
+    using System.Threading.Tasks;
 
     internal class Provider
     {
-        public Data.ORM.Provider GetProvider(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<Data.ORM.Provider> GetProvider(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rProvider = new Data.Repository.ProviderRepository();
-            return rProvider.GetProvider(context, code);
+            return await rProvider.GetProvider(context, code);
         }
 
         public void AddProvider(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Provider provider)

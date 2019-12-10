@@ -2,6 +2,7 @@
 {
     using System.ComponentModel;
     using System.Linq;
+    using System.Threading.Tasks;
 
     internal class Product
     {
@@ -17,9 +18,8 @@
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
                     Qty = 0,
-                    Discount = 0,
-                    Interests = 0,
-                    UnitPrice = product.UnitPrice
+                    UnitPrice = product.UnitPrice,
+                    SalePrice = 0
                 };
 
                 productsOrders.Add(productOrder);
@@ -28,10 +28,10 @@
             return productsOrders;
         }
 
-        public Data.ORM.Product GetProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<Data.ORM.Product> GetProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rProduct = new Data.Repository.ProductRepository();
-            return rProduct.GetProduct(context, code);
+            return await rProduct.GetProduct(context, code);
         }
 
         public void AddProduct(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Product product)
@@ -47,7 +47,6 @@
         {
             var rProduct = new Data.Repository.ProductRepository();
             rProduct.EditProduct(context, product);
-            context.Entry(product).Reload();
         }
 
         public void DeleteProduct(Data.ORM.SeppimCaraibesLocalEntities context, string code)

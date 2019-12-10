@@ -11,6 +11,7 @@
         private readonly Model.Product _mProduct;
 
 
+        #region Ctor
         public C_Product()
         {
             _mProduct = new Model.Product();
@@ -22,6 +23,7 @@
             _context = context;
             _mProduct = new Model.Product();
         }
+        #endregion
 
 
         #region IDisposable
@@ -36,8 +38,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
+            string field;
+            string message;
 
             if (string.IsNullOrWhiteSpace(product.ProductId))
             {
@@ -63,7 +65,7 @@
                 fields.Add(field, message);
             }
 
-            if (product.Origins == null)
+            if (product.ProductsOrigins == null)
             {
                 flag = false;
                 field = "originsSLUE";
@@ -72,6 +74,7 @@
             }
             return flag;
         }
+
 
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
@@ -94,6 +97,29 @@
             }
         }
 
+        public T GetValueFromDescription<T>(string description)
+        {
+            var type = typeof(T);
+
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", "description");
+        }
+
 
         #region ProductManage
         public BindingList<Data.POCO.ProductsOrders> FillProductsOrders()
@@ -108,6 +134,10 @@
             if (Validate(product, out Dictionary<string, string> fields))
             {
                 _mProduct.AddProduct(_context, product);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProduct.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -116,9 +146,9 @@
             }
         }
 
-        public void EditProduct(IAddEditProduct addEditProduct, string code)
+        public async void EditProduct(IAddEditProduct addEditProduct, string code)
         {
-            var product = _mProduct.GetProduct(_context, code);
+            var product = await _mProduct.GetProduct(_context, code);
             addEditProduct.EditProduct(product);
         }
 
@@ -129,6 +159,10 @@
             if (Validate(product, out Dictionary<string, string> fields))
             {
                 _mProduct.EditProduct(_context, product);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditProduct.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -142,6 +176,10 @@
             string message = string.Format("El producto con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mProduct.DeleteProduct(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listProducts.ShowMessage(ETypeOfMessage.Information, message);
             listProducts.RefreshView();
         }

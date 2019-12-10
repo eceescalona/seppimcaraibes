@@ -1,21 +1,22 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal partial class D_SelectProviderForm : Form, Controller.ISelectProvider
+    internal partial class D_SelectProviderForm : Form, ISelectProvider
     {
         private const string NAME = "Seleccionar Proveedor";
         private const string LABEL_MESSAGE_PROVEEDOR = "Debe seleccionar un proveedor";
 
-        private readonly Controller.C_Order _cOrder;
+        private readonly C_Order _cOrder;
         private readonly bool _isCOrderAlive;
         private bool _isFieldWithError;
         private readonly string _code;
 
 
-        public D_SelectProviderForm(Controller.C_Order cOrder, string code)
+        public D_SelectProviderForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             _cOrder = cOrder;
@@ -86,17 +87,25 @@
 
         private void AcceptSB_Click(object sender, EventArgs e)
         {
-            var provider = (Data.ORM.Provider)providerLUEV.GetFocusedRow();
-            _cOrder.SetProviderOrder(this, _code, provider);
-            DialogResult = DialogResult.OK;
-            if (!_isFieldWithError)
+            try
             {
-                RefreshView();
-                _isFieldWithError = false;
+                var provider = (Data.ORM.Provider)providerLUEV.GetFocusedRow();
+                _cOrder.SetProviderOrder(this, _code, provider);
+                DialogResult = DialogResult.OK;
+                if (!_isFieldWithError)
+                {
+                    RefreshView();
+                    _isFieldWithError = false;
+                }
+                else
+                {
+                    Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Close();
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 

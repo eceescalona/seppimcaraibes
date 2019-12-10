@@ -1,13 +1,14 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
     using System.Linq;
+    using System.Threading.Tasks;
 
     internal class Customer
     {
-        public Data.ORM.Customer GetCustomer(Data.ORM.SeppimCaraibesLocalEntities context, string code)
+        public async Task<Data.ORM.Customer> GetCustomer(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rCustomer = new Data.Repository.CustomerRepository();
-            return rCustomer.GetCustomer(context, code);
+            return await rCustomer.GetCustomer(context, code);
         }
 
         public void AddCustomer(Data.ORM.SeppimCaraibesLocalEntities context, Data.ORM.Customer customer)

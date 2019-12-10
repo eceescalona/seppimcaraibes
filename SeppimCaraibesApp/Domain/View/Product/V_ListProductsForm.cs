@@ -1,11 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using SeppimCaraibesApp.Domain.Controller;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace SeppimCaraibesApp.Domain.View.Product
 {
-    internal partial class V_ListProductsForm : Form, Controller.IListProducts
+    internal partial class V_ListProductsForm : Form, IListProducts
     {
         private const string NAME_FORM = "Listar Productos";
         private const string DELETE_MESSAGE = "Si elimina el producto del sistema, este desaparecerá permanentemente del mismo. " +
@@ -16,9 +17,9 @@ namespace SeppimCaraibesApp.Domain.View.Product
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar el producto. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private Controller.C_Product _cProduct;
+        private readonly C_Product _cProduct;
         private bool _isCProductAlive;
 
 
@@ -28,11 +29,11 @@ namespace SeppimCaraibesApp.Domain.View.Product
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cProduct = new Controller.C_Product();
+            _cProduct = new C_Product();
             _isCProductAlive = true;
         }
 
-        public V_ListProductsForm(Controller.C_Product cProduct)
+        public V_ListProductsForm(C_Product cProduct)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -48,7 +49,7 @@ namespace SeppimCaraibesApp.Domain.View.Product
             productsEIFS.GetQueryable += ProductEIFS_GetQueryable;
         }
 
-        void ProductEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProductEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProduct.GetContext();
             e.QueryableSource = dataContext.ProductsViews;
@@ -121,48 +122,74 @@ namespace SeppimCaraibesApp.Domain.View.Product
         #region ProductManage
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCProductAlive = true;
-            var addProduct = new V_AddEditProductForm(_cProduct);
-            addProduct.StartPosition = FormStartPosition.CenterScreen;
-            addProduct.BringToFront();
-            DialogResult result = addProduct.ShowDialog();
-            if (result == DialogResult.OK)
+            try
             {
-                RefreshView();
+                _isCProductAlive = true;
+
+                using (var addProduct = new V_AddEditProductForm(_cProduct)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addProduct.BringToFront();
+                    DialogResult result = addProduct.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
+
         private void ActionsRIBE_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit btnEdit = sender as ButtonEdit;
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCProductAlive = true;
-                var row = productsGV.GetRow(productsGV.FocusedRowHandle) as Data.ORM.ProductsView;
-                var editProduct = new V_AddEditProductForm(_cProduct, row.Product_Code);
-                editProduct.StartPosition = FormStartPosition.CenterScreen;
-                editProduct.BringToFront();
-                DialogResult result = editProduct.ShowDialog();
-                if (result == DialogResult.OK)
+                try
                 {
-                    RefreshView();
+                    _isCProductAlive = true;
+                    var row = productsGV.GetRow(productsGV.FocusedRowHandle) as Data.ORM.ProductsView;
+
+                    using (var editProduct = new V_AddEditProductForm(_cProduct, row.Product_Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editProduct.BringToFront();
+                        DialogResult result = editProduct.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -179,14 +206,25 @@ namespace SeppimCaraibesApp.Domain.View.Product
                         _cProduct.DeleteProduct(this, row.Product_Code);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cProduct.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         #endregion
 
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            Close();
+        }
 
         private void V_ListProductsForm_FormClosed(object sender, FormClosedEventArgs e)
         {

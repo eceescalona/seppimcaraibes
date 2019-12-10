@@ -63,6 +63,26 @@ namespace SeppimCaraibesApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Add_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Add_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Close_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Close_16x16", resourceCulture);
@@ -141,12 +161,12 @@ namespace SeppimCaraibesApp.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
-        internal static System.Drawing.Bitmap ElitechLogo {
+        internal static System.Drawing.Icon elitechicon_32x32 {
             get {
-                object obj = ResourceManager.GetObject("ElitechLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("elitechicon_32x32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -346,6 +366,26 @@ namespace SeppimCaraibesApp.Properties {
         internal static System.Drawing.Bitmap SeppimCaraibesLogo {
             get {
                 object obj = ResourceManager.GetObject("SeppimCaraibesLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Show_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Show_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Show_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Show_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

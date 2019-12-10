@@ -1,12 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Customer
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditCustomerForm : Form, Controller.IAddEditCustomer
+    internal partial class V_AddEditCustomerForm : Form, IAddEditCustomer
     {
         private const string CALL_FROM_ORDERS = "PreOrder";
         private const string NAME_FORM_ADD = "Registrar Cliente";
@@ -14,8 +15,9 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Customer _cCustomer;
+        private readonly C_Customer _cCustomer;
         private bool _isCCustomerAlive;
         private readonly string _whereFrom;
         private readonly bool _isAddOrEdit;
@@ -29,7 +31,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cCustomer = new Controller.C_Customer();
+            _cCustomer = new C_Customer();
             _isCCustomerAlive = true;
             _whereFrom = CALL_FROM_ORDERS;
             _isAddOrEdit = false;
@@ -38,7 +40,7 @@
             customerBS.DataSource = new Data.ORM.Customer();
         }
 
-        public V_AddEditCustomerForm(Controller.C_Customer cCustomer)
+        public V_AddEditCustomerForm(C_Customer cCustomer)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -52,7 +54,7 @@
             customerBS.DataSource = new Data.ORM.Customer();
         }
 
-        public V_AddEditCustomerForm(Controller.C_Customer cCustomer, string code)
+        public V_AddEditCustomerForm(C_Customer cCustomer, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -214,9 +216,12 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -263,7 +268,11 @@
                 {
                     _isCCustomerAlive = true;
                     DialogResult = DialogResult.Cancel;
-                    Close();
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
+                    RefreshView();
                 }
             }
             else
@@ -274,16 +283,35 @@
                     {
                         _isCCustomerAlive = true;
                         DialogResult = DialogResult.Cancel;
-                        Close();
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
+                        RefreshView();
                     }
                     else
                     {
                         _isCCustomerAlive = false;
                         DialogResult = DialogResult.Cancel;
-                        Close();
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
+                        RefreshView();
                     }
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

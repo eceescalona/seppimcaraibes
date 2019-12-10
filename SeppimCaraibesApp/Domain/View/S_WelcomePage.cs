@@ -8,16 +8,14 @@
         public S_WelcomePage()
         {
             InitializeComponent();
-            this.labelControl1.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
+            copyrightLC.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
         }
 
         #region Overrides
-
         public override void ProcessCommand(Enum cmd, object arg)
         {
             base.ProcessCommand(cmd, arg);
         }
-
         #endregion
 
         public enum SplashScreenCommand

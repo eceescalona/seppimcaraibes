@@ -49,11 +49,13 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ListQuotesForm));
             this.listQuotesRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
             this.listOrdersBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.closeBBI = new DevExpress.XtraBars.BarButtonItem();
             this.listQuotesRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.listQuotesRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navigationRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,6 +92,7 @@
             this.colPlace_of_Departure = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesPC)).BeginInit();
             this.listQuotesPC.SuspendLayout();
@@ -104,19 +107,23 @@
             this.listQuotesRC.ExpandCollapseItem.Id = 0;
             this.listQuotesRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.listQuotesRC.ExpandCollapseItem,
+            this.listQuotesRC.SearchEditItem,
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
-            this.listOrdersBBI});
+            this.listOrdersBBI,
+            this.closeBBI});
             this.listQuotesRC.Location = new System.Drawing.Point(0, 0);
-            this.listQuotesRC.MaxItemId = 6;
+            this.listQuotesRC.MaxItemId = 7;
             this.listQuotesRC.Name = "listQuotesRC";
+            this.listQuotesRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listQuotesRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.listQuotesRP});
             this.listQuotesRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.listQuotesRC.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.listQuotesRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.listQuotesRC.ShowToolbarCustomizeItem = false;
-            this.listQuotesRC.Size = new System.Drawing.Size(800, 95);
+            this.listQuotesRC.Size = new System.Drawing.Size(800, 116);
             this.listQuotesRC.Toolbar.ShowCustomizeItem = false;
             this.listQuotesRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listQuotesRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -153,6 +160,14 @@
             this.listOrdersBBI.Name = "listOrdersBBI";
             this.listOrdersBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ListOrdersBBI_ItemClick);
             // 
+            // closeBBI
+            // 
+            this.closeBBI.Caption = "Cerrar";
+            this.closeBBI.Id = 6;
+            this.closeBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            this.closeBBI.Name = "closeBBI";
+            this.closeBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CloseBBI_ItemClick);
+            // 
             // listQuotesRP
             // 
             this.listQuotesRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -180,9 +195,9 @@
             // 
             this.listQuotesPC.Controls.Add(this.quotesGC);
             this.listQuotesPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listQuotesPC.Location = new System.Drawing.Point(0, 95);
+            this.listQuotesPC.Location = new System.Drawing.Point(0, 116);
             this.listQuotesPC.Name = "listQuotesPC";
-            this.listQuotesPC.Size = new System.Drawing.Size(800, 355);
+            this.listQuotesPC.Size = new System.Drawing.Size(800, 334);
             this.listQuotesPC.TabIndex = 1;
             // 
             // quotesGC
@@ -195,7 +210,7 @@
             this.quotesGC.Name = "quotesGC";
             this.quotesGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.quotesGC.Size = new System.Drawing.Size(796, 351);
+            this.quotesGC.Size = new System.Drawing.Size(796, 330);
             this.quotesGC.TabIndex = 0;
             this.quotesGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.quotesGV});
@@ -506,13 +521,24 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(66, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Ofertas";
+            // 
             // V_ListQuotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listQuotesPC);
             this.Controls.Add(this.listQuotesRC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ListQuotesForm";
             this.Text = "V_ListQuotesForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_ListQuotesForm_FormClosed);
@@ -572,5 +598,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPlace_of_Departure;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

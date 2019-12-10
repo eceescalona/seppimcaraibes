@@ -38,11 +38,13 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ListProductsForm));
             this.listProductsRC = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.registerBBI = new DevExpress.XtraBars.BarButtonItem();
             this.findBBI = new DevExpress.XtraBars.BarButtonItem();
             this.filterBBI = new DevExpress.XtraBars.BarButtonItem();
             this.refreshBBI = new DevExpress.XtraBars.BarButtonItem();
+            this.closeBBI = new DevExpress.XtraBars.BarButtonItem();
             this.actionsRP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.actionsRPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.listProductsPC = new DevExpress.XtraEditors.PanelControl();
@@ -63,6 +65,7 @@
             this.colProvider_Name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listProductsRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listProductsPC)).BeginInit();
             this.listProductsPC.SuspendLayout();
@@ -79,16 +82,21 @@
             this.registerBBI,
             this.findBBI,
             this.filterBBI,
-            this.refreshBBI});
+            this.refreshBBI,
+            this.closeBBI,
+            this.listProductsRC.SearchEditItem});
             this.listProductsRC.Location = new System.Drawing.Point(0, 0);
-            this.listProductsRC.MaxItemId = 5;
+            this.listProductsRC.MaxItemId = 6;
             this.listProductsRC.Name = "listProductsRC";
+            this.listProductsRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listProductsRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.actionsRP});
             this.listProductsRC.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.listProductsRC.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.listProductsRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.listProductsRC.ShowQatLocationSelector = false;
-            this.listProductsRC.Size = new System.Drawing.Size(800, 95);
+            this.listProductsRC.ShowToolbarCustomizeItem = false;
+            this.listProductsRC.Size = new System.Drawing.Size(800, 116);
+            this.listProductsRC.Toolbar.ShowCustomizeItem = false;
             this.listProductsRC.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.listProductsRC.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -124,6 +132,14 @@
             this.refreshBBI.Name = "refreshBBI";
             this.refreshBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBBI_ItemClick);
             // 
+            // closeBBI
+            // 
+            this.closeBBI.Caption = "Cerrar";
+            this.closeBBI.Id = 5;
+            this.closeBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.Close_16x16;
+            this.closeBBI.Name = "closeBBI";
+            this.closeBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CloseBBI_ItemClick);
+            // 
             // actionsRP
             // 
             this.actionsRP.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -145,9 +161,9 @@
             // 
             this.listProductsPC.Controls.Add(this.listProductsGC);
             this.listProductsPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listProductsPC.Location = new System.Drawing.Point(0, 95);
+            this.listProductsPC.Location = new System.Drawing.Point(0, 116);
             this.listProductsPC.Name = "listProductsPC";
-            this.listProductsPC.Size = new System.Drawing.Size(800, 355);
+            this.listProductsPC.Size = new System.Drawing.Size(800, 334);
             this.listProductsPC.TabIndex = 1;
             // 
             // listProductsGC
@@ -160,7 +176,7 @@
             this.listProductsGC.Name = "listProductsGC";
             this.listProductsGC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.actionsRIBE});
-            this.listProductsGC.Size = new System.Drawing.Size(796, 351);
+            this.listProductsGC.Size = new System.Drawing.Size(796, 330);
             this.listProductsGC.TabIndex = 0;
             this.listProductsGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
@@ -324,13 +340,24 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 4);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(77, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Productos";
+            // 
             // V_ListProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listProductsPC);
             this.Controls.Add(this.listProductsRC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_ListProductsForm";
             this.Text = "V_ListProductsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_ListProductsForm_FormClosed);
@@ -373,5 +400,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colProvider_Name;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
     using System.Reflection;
 
     internal class C_Order : IDisposable
@@ -11,6 +12,8 @@
         private const string NC = "NC";
         private const string FIELD = "providerSLUE";
         private const string FIELD_MESSAGE = "El Campo Proveedor no puede ser vacío.";
+        private const string SELECT_PROVIDER = "Uds. necesita seleccionar un proveedor para continuar.";
+
         private readonly Data.ORM.SeppimCaraibesLocalEntities _context;
         private readonly Model.Order _mOrder;
 
@@ -36,6 +39,7 @@
             bool flag = true;
             string message;
             string field;
+
             if (order.Date == null)
             {
                 flag = false;
@@ -71,26 +75,25 @@
             return flag;
         }
 
-        private string OrderCode(DateTime date)
+        private string GetOrderCode(DateTime date)
         {
-            var random = new Random();
-            int units = random.Next(0, 9);
-            int dozens = random.Next(0, 9);
-            int hundreds = random.Next(0, 9);
-
-            string back = hundreds.ToString() + dozens.ToString() + units.ToString();
+            string back = "000";
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-
-            var order = _mOrder.GetOrder(_context, orderCode);
-            if (order == null)
+            if (!_context.Orders.Any(o => o.OrderId == orderCode))
             {
                 return orderCode;
             }
             else
             {
-                return OrderCode(date);
+                do
+                {
+                    long code = long.Parse(orderCode) + 1;
+                    orderCode = code.ToString();
+                } while (_context.Orders.Any(o => o.OrderId == orderCode));
+
+                return orderCode;
             }
         }
 
@@ -99,24 +102,39 @@
             return string.Format("La orden {0} ha sido registrado satisfactoriamente.", value);
         }
 
+
         public string GetInvoiceReference(Data.ORM.Order order)
         {
-            var random = new Random();
-            int units = random.Next(0, 9);
-            int dozens = random.Next(0, 9);
-            int hundreds = random.Next(0, 9);
+            string back = "000";
 
-            string back = hundreds.ToString() + dozens.ToString() + units.ToString();
+            string invoiceReference = DateTime.Now.Year.ToString() + back;
 
-            string orderCode = DateTime.Now.Year.ToString() + back;
-
-            if (order.IncotermType == EIncoterms.CPT || order.IncotermType == EIncoterms.CFR || order.IncotermType == EIncoterms.FCA || order.IncotermType == EIncoterms.FOB)
+            var invoiceID = _mOrder.GetLastInvoiceID(_context);
+            if (string.IsNullOrWhiteSpace(invoiceID))
             {
-                return FV + orderCode;
+                if (order.CommercialValue == ECommercialValue.FV)
+                {
+                    return FV + invoiceReference;
+                }
+                else
+                {
+                    return NC + invoiceReference;
+                }
             }
             else
             {
-                return NC + orderCode;
+                back = invoiceID.Substring(2);
+                long code = long.Parse(back) + 1;
+                invoiceReference = code.ToString();
+
+                if (order.CommercialValue == ECommercialValue.FV)
+                {
+                    return FV + invoiceReference;
+                }
+                else
+                {
+                    return NC + invoiceReference;
+                }
             }
         }
 
@@ -141,7 +159,30 @@
             }
         }
 
-        public void LoadQuoteReport(IReport reportQuote, string code)
+        public T GetValueFromDescription<T>(string description)
+        {
+            var type = typeof(T);
+
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", "description");
+        }
+
+        public void LoadReport(IReport reportQuote, string code)
         {
             var reportData = _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(reportData);
@@ -154,9 +195,12 @@
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                order.OrderId = OrderCode(order.Date.GetValueOrDefault());
+                order.OrderId = GetOrderCode(order.Date.GetValueOrDefault());
 
                 _mOrder.AddOrder(_context, order, productsOrders);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(Message(new object[] { order.OrderId }), ETypeOfMessage.Information);
 
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, Message(new object[] { order.OrderId }));
                 addEditOrder.RefreshView();
@@ -169,10 +213,14 @@
 
         public void SetProviderOrder(ISelectProvider selectProvider, string code, Data.ORM.Provider provider)
         {
-            string message = string.Format("El proveedor para la orden {0} ha sido selccionado satisfactoriamente.", code);
+            string message = string.Format("El proveedor {0} ha sido selccionado satisfactoriamente para la orden {1}.", provider.ProviderName, code);
+
             if (provider != null)
             {
                 _mOrder.SetProviderOrder(_context, code, provider);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
 
                 selectProvider.ShowMessage(ETypeOfMessage.Information, message);
             }
@@ -193,6 +241,10 @@
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", order.OrderId);
 
             _mOrder.EditOrder(_context, order);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
         }
 
@@ -203,6 +255,10 @@
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
                 _mOrder.EditOrder(_context, order, productsOrders);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditOrder.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -215,9 +271,18 @@
         {
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
 
-            _mOrder.EditOrder(_context, code, orderProcessState);
-            listOrders.ShowMessage(ETypeOfMessage.Information, message);
-            listOrders.RefreshView();
+            if (!(_mOrder.EditOrder(_context, code, orderProcessState)))
+            {
+                listOrders.ShowMessage(ETypeOfMessage.Warning, SELECT_PROVIDER);
+            }
+            else
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
+                listOrders.ShowMessage(ETypeOfMessage.Information, message);
+                listOrders.RefreshView();
+            }
         }
 
         public void EditOrder(IListOrders listOrders, string code, EInvoiceState invoiceState)
@@ -225,6 +290,10 @@
             string message = string.Format("Los atributos de la orden {0} han sido modificados satisfactoriamente.", code);
 
             _mOrder.EditOrder(_context, code, invoiceState);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
             listOrders.RefreshView();
         }
@@ -234,8 +303,26 @@
             string message = string.Format("La orden con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mOrder.DeleteOrder(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listOrders.ShowMessage(ETypeOfMessage.Information, message);
             listOrders.RefreshView();
+        }
+
+        public bool ValidateProvider(string code)
+        {
+            var order = _mOrder.GetOrder(_context, code);
+
+            if (string.IsNullOrWhiteSpace(order.ProviderId))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         #endregion
     }

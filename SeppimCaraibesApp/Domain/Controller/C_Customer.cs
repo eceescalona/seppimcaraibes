@@ -31,8 +31,8 @@
         {
             fields = new Dictionary<string, string>();
             bool flag = true;
-            string field = string.Empty;
-            string message = string.Empty;
+            string field;
+            string message;
 
             if (string.IsNullOrWhiteSpace(customer.CustomerId))
             {
@@ -68,6 +68,7 @@
             return flag;
         }
 
+
         public Data.ORM.SeppimCaraibesLocalEntities GetContext()
         {
             return _context;
@@ -89,6 +90,29 @@
             }
         }
 
+        public T GetValueFromDescription<T>(string description)
+        {
+            var type = typeof(T);
+
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", "description");
+        }
+
 
         #region CustomerManage
         public void AddCustomer(IAddEditCustomer addEditCustomer, Data.ORM.Customer customer)
@@ -98,6 +122,10 @@
             if (Validate(customer, out Dictionary<string, string> fields))
             {
                 _mCustomer.AddCustomer(_context, customer);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditCustomer.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -106,9 +134,9 @@
             }
         }
 
-        public void EditCustomer(IAddEditCustomer addEditCustomer, string code)
+        public async void EditCustomer(IAddEditCustomer addEditCustomer, string code)
         {
-            var customer = _mCustomer.GetCustomer(_context, code);
+            var customer = await _mCustomer.GetCustomer(_context, code);
             addEditCustomer.EditCustomer(customer);
         }
 
@@ -119,6 +147,10 @@
             if (Validate(customer, out Dictionary<string, string> fields))
             {
                 _mCustomer.EditCustomer(_context, customer);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditCustomer.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -132,6 +164,10 @@
             string message = string.Format("El cliente con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mCustomer.DeleteCustomer(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listCustomers.ShowMessage(ETypeOfMessage.Information, message);
             listCustomers.RefreshView();
         }

@@ -1,14 +1,14 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Provider
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditProviderForm : Form, Controller.IAddEditProvider
+    internal partial class V_AddEditProviderForm : Form, IAddEditProvider
     {
-        private const string CANCEL_ADD_PRODUCT_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo producto. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string LABEL_MESSAGE = "Debe elegir al menos un producto";
@@ -18,8 +18,9 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Provider _cProvider;
+        private readonly C_Provider _cProvider;
         private bool _isCProviderAlive;
         private readonly string _whereFrom;
         private readonly bool _isAddOrEdit;
@@ -34,18 +35,19 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cProvider = new Controller.C_Provider();
+            _cProvider = new C_Provider();
             _isCProviderAlive = true;
             _whereFrom = CALL_FROM_PRODUCT;
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idProduct = string.Empty;
 
-            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
             providerBS.DataSource = new Data.ORM.Provider();
+
+            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
-        public V_AddEditProviderForm(Controller.C_Provider cProvider)
+        public V_AddEditProviderForm(C_Provider cProvider)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -57,11 +59,12 @@
             _isFieldWithError = false;
             _idProduct = string.Empty;
 
-            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
             providerBS.DataSource = new Data.ORM.Provider();
+
+            productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
         }
 
-        public V_AddEditProviderForm(Controller.C_Provider cProvider, string code)
+        public V_AddEditProviderForm(C_Provider cProvider, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -94,7 +97,7 @@
             }
         }
 
-        void ProductsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
+        private void ProductsEIFS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
             Data.ORM.SeppimCaraibesLocalEntities dataContext = _cProvider.GetContext();
             e.QueryableSource = dataContext.Products;
@@ -105,18 +108,22 @@
             if (_isAddOrEdit)
             {
                 var provider = (Data.ORM.Provider)providerBS.Current;
-                foreach (var product in provider.Products)
+
+                if (provider != null && (provider.Products != null && provider.Products.Count > 0))
                 {
-                    if (productsGV.GetRow(e.RowHandle) is Data.ORM.Product row)
+                    foreach (var product in provider.Products)
                     {
-                        if (row.ProductId == product.ProductId)
+                        if (productsGV.GetRow(e.RowHandle) is Data.ORM.Product row)
                         {
-                            productsGV.SelectRow(e.RowHandle);
+                            if (row.ProductId == product.ProductId)
+                            {
+                                productsGV.SelectRow(e.RowHandle);
+                            }
                         }
                     }
-                }
 
-                e.HighPriority = true;
+                    e.HighPriority = true;
+                }
             }
             else
             {
@@ -170,6 +177,8 @@
 
             productsEIFS.Refresh();
             productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+            providerBS.ResetBindings(true);
+            providerBS.DataSource = new Data.ORM.Provider();
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -256,27 +265,37 @@
         #region ActionsButtons
         private void AddProductSP_Click(object sender, EventArgs e)
         {
-            _isCProviderAlive = true;
-            var addProduct = new Product.V_AddEditProductForm
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addProduct.BringToFront();
-            DialogResult result = addProduct.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _idProduct = addProduct.code;
-                productsEIFS.Refresh();
-                productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+                _isCProviderAlive = true;
+
+                using (var addProduct = new Product.V_AddEditProductForm
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addProduct.BringToFront();
+                    DialogResult result = addProduct.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        _idProduct = addProduct.code;
+                        productsEIFS.Refresh();
+                        productsEIFS.GetQueryable += ProductsEIFS_GetQueryable;
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_ADD_PRODUCT_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -284,6 +303,8 @@
         {
             try
             {
+                var provider = (Data.ORM.Provider)providerBS.Current;
+
                 var products = new List<Data.ORM.Product>();
 
                 int[] indexs = productsGV.GetSelectedRows();
@@ -296,7 +317,6 @@
                     }
                 }
 
-                var provider = (Data.ORM.Provider)providerBS.Current;
                 provider.Products = products;
 
                 if (_isAddOrEdit)
@@ -325,9 +345,12 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cProvider.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -374,6 +397,10 @@
                 {
                     _isCProviderAlive = true;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -385,16 +412,35 @@
                     {
                         _isCProviderAlive = true;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                     else
                     {
                         _isCProviderAlive = false;
                         DialogResult = DialogResult.Cancel;
+
+                        C_Log _cLog = new C_Log();
+                        _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                         Close();
                     }
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cProvider.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

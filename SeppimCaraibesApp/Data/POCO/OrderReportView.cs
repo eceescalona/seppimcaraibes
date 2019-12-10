@@ -10,10 +10,6 @@
 
         public string SeppimAddress { get => "Ave. Samuel Lewis, Edificio Comosa, 1er piso, Ciudad de Panamá, Panamá"; }
 
-        public  string SeppimPhone { get => "5072147082"; }
-
-        public string Contact { get => "Thomas Bouix"; }
-
 
         #region Invoice
         [StringLength(50)]
@@ -21,6 +17,10 @@
 
         [StringLength(250)]
         public string BankName { get; set; }
+
+        public string BankAddress { get; set; }
+
+        public string Swift { get; set; }
 
         [StringLength(50)]
         public string AccountNumber { get; set; }
@@ -50,7 +50,7 @@
 
         public decimal? NetWeight { get; set; }
 
-        public string Packing { get; set; }
+        public string PackingDescription { get; set; }
 
         [StringLength(250)]
         public string PlaceOfDeparture { get; set; }
@@ -64,6 +64,12 @@
 
         public DateTime? Date { get; set; }
 
+        public string DeliveryTime { get; set; }
+
+        public DateTime? BigingDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
+
         [StringLength(50)]
         public string ProviderReference { get; set; }
 
@@ -72,6 +78,8 @@
 
         [StringLength(50)]
         public string ProviderPhone { get; set; }
+
+        public string ProviderAddress { get; set; }
 
         [StringLength(50)]
         public string CustomerReference { get; set; }
@@ -84,17 +92,15 @@
 
         public string CustomerAddress { get; set; }
 
-        public EPaymentOption? PaymentOption { get; set; }
+        public string PaymentOption { get; set; }
 
-        public EShippingMethod? ShippingMethod { get; set; }
+        public string ShippingMethod { get; set; }
 
         public EDevise? Devise { get; set; }
 
         public EIncoterms? IncotermsType { get; set; }
 
-        public decimal? Incoterm { get; set; }
-
-        public IList<ProductsOrders> Products { get; set; }
+        public IList<ProductsOrdersReports> Products { get; set; }
 
         public decimal? EXW { get; set; }
 
@@ -105,5 +111,11 @@
         public string ContractDescription { get; set; }
 
         public int? Period { get; set; }
+
+        public EExpenses? ExpensesType { get; set; }
+
+        public decimal? Expenses { get; set; }
+
+        public string PaymentsTerms { get; set; }
     }
 }

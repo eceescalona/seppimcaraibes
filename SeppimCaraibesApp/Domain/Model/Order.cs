@@ -1,10 +1,35 @@
 ﻿namespace SeppimCaraibesApp.Domain.Model
 {
+    using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
+    using System.Reflection;
 
     internal class Order
     {
+        private string GetEnumDescription(Enum value)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            FieldInfo fielInfo = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] descriptionAttributes = (DescriptionAttribute[])fielInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            if (descriptionAttributes != null && descriptionAttributes.Length > 0)
+            {
+                return descriptionAttributes[0].Description;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+
         public Data.ORM.Order GetOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var rOrder = new Data.Repository.OrderRepository();
@@ -26,16 +51,35 @@
             return order;
         }
 
+        public string GetLastOrderID(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            return rOrder.GetLastOrderID(context);
+        }
+
+        public string GetLastInvoiceID(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            return rOrder.GetLastInvoiceID(context);
+        }
+
         public IEnumerable<Data.POCO.OrderReportView> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
-            var products = new List<Data.POCO.ProductsOrders>();
+            var products = new List<Data.POCO.ProductsOrdersReports>();
             var rOrder = new Data.Repository.OrderRepository();
+
             var order = rOrder.GetOrder(context, code);
             var bank = context.Banks.SingleOrDefault(b => b.BankId == order.BankId);
+
             var shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
             var customer = context.Customers.SingleOrDefault(c => c.CustomerId == order.CustomerId);
             var provider = context.Providers.SingleOrDefault(p => p.ProviderId == order.ProviderId);
+
+            var paymentOption = GetEnumDescription(order.PaymentOption);
+            var shippingMethod = GetEnumDescription(shipment?.ShippingMethod);
 
             var data = new Data.POCO.OrderReportView
             {
@@ -43,28 +87,30 @@
                 Date = order.Date,
                 OfferPeriod = order.OfferPeriod,
                 Period = order.Period,
+                BigingDate = order.BigingDate,
+                EndDate = order.EndDate,
+                DeliveryTime = order.DeliveryTime,
                 ProviderReference = order.ProviderReference,
                 ProviderName = provider == null ? string.Empty : provider.ProviderName,
                 ProviderPhone = provider == null ? string.Empty : provider.ProviderPhone,
+                ProviderAddress = provider == null ? string.Empty : provider.ProviderAddress,
                 CustomerReference = order.CustomerReference,
                 CustomerName = customer == null ? string.Empty : customer.CustomerName,
                 CustomerAddress = customer == null ? string.Empty : customer.CustomerAddress,
                 CustomerPhone = customer == null ? string.Empty : customer.CustomerPhone,
-                PaymentOption = order.PaymentOption,
-                ShippingMethod = shipment?.ShippingMethod,
+                PaymentOption = paymentOption,
+                ShippingMethod = shippingMethod,
                 Devise = order.Devise,
                 IncotermsType = order.IncotermType,
-                Incoterm = order.Incoterm,
-                EXW = order.EXW,
-                Freight = order.Freight,
-                Inspection = order.Inspection,
-                Insurance = order.Insurance,
-                TotalDiscount = order.TotalDiscount,
-                ToltalInterests = order.ToltalInterests,
+                EXW = order.EXW == null ? 0 : order.EXW,
+                Freight = order.Freight == null ? 0 : order.Freight,
+                Inspection = order.Inspection == null ? 0 : order.Inspection,
+                Insurance = order.Insurance == null ? 0 : order.Insurance,
+                TotalDiscount = order.TotalDiscount == null ? 0 : order.TotalDiscount,
+                ToltalInterests = order.ToltalInterests == null ? 0 : order.ToltalInterests,
                 TotalCost = order.TotalCost,
                 GrossWeight = shipment?.GrossWeight,
                 NetWeight = shipment?.NetWeight,
-                Packing = shipment == null ? string.Empty : shipment.Packing,
                 PlaceOfDeparture = shipment == null ? string.Empty : shipment.PlaceDeparture,
                 Observations = order.Observations,
                 DocRequired = order.DocRequired,
@@ -72,19 +118,27 @@
                 BankName = bank == null ? string.Empty : bank.BankName,
                 AccountNumber = bank == null ? string.Empty : bank.AccountNumber,
                 AccountName = bank == null ? string.Empty : bank.AccountName,
-                InvoiceReference = order.InvoiceReference
+                Swift = bank == null ? string.Empty : bank.Swift,
+                InvoiceReference = order.InvoiceReference,
+                Expenses = order.Expenses == null ? 0 : order.Expenses,
+                ExpensesType = order.ExpensesType,
+                PackingDescription = shipment == null ? string.Empty : shipment.PackingDesciption,
+                BankAddress = bank == null ? string.Empty : bank.BankAddress,
+                PaymentsTerms = order.PaymentsTerms
             };
 
+            order.ProductsOrders = context.ProductsOrders.Where(po => po.OrderId == order.OrderId).ToList();
             foreach (var productOrder in order.ProductsOrders)
             {
-                var product = new Data.POCO.ProductsOrders
+                var product = new Data.POCO.ProductsOrdersReports
                 {
                     ProductId = productOrder.ProductId,
                     ProductName = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.ProductName,
                     Qty = productOrder.Qty,
-                    Discount = productOrder.Discount,
-                    Interests = productOrder.Interests,
-                    UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice
+                    UnitPrice = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.UnitPrice,
+                    CustomsCode = context.Products.SingleOrDefault(p => p.ProductId == productOrder.ProductId)?.CustomsCode,
+                    Origin = context.ProductsViews.SingleOrDefault(p => p.Product_Code == productOrder.ProductId)?.Acronyms,
+                    SalePrice = productOrder.Discount
                 };
 
                 products.Add(product);
@@ -108,8 +162,7 @@
                         OrderId = order.OrderId,
                         ProductId = product.ProductId,
                         Qty = product.Qty,
-                        Discount = product.Discount,
-                        Interests = product.Interests
+                        Discount = product.SalePrice
                     };
 
                     order.ProductsOrders.Add(productOrder);
@@ -144,8 +197,7 @@
                     OrderId = order.OrderId,
                     ProductId = product.ProductId,
                     Qty = product.Qty,
-                    Discount = product.Discount,
-                    Interests = product.Interests
+                    Discount = product.SalePrice
                 };
 
                 productsOrders.Add(productOrder);
@@ -169,12 +221,20 @@
             rOrder.EditOrder(context, order);
         }
 
-        public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
+        public bool EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EOrderProcessState orderProcessState)
         {
             var rOrder = new Data.Repository.OrderRepository();
 
             var order = rOrder.GetOrder(context, code);
-            order.OrderProcessState = orderProcessState;
+
+            if (string.IsNullOrWhiteSpace(order.ProviderId))
+            {
+                return false;
+            }
+            else
+            {
+                order.OrderProcessState = orderProcessState;
+            }
 
             if (orderProcessState == EOrderProcessState.Invoice)
             {
@@ -182,6 +242,8 @@
             }
 
             rOrder.EditOrder(context, order);
+
+            return true;
         }
 
         public void EditOrder(Data.ORM.SeppimCaraibesLocalEntities context, string code, EInvoiceState invoiceState)

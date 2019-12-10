@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_AddEditPreOrderForm));
             this.addEditPreOrderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonsPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonsLC = new DevExpress.XtraLayout.LayoutControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.closeSB = new DevExpress.XtraEditors.SimpleButton();
             this.cancelPC = new DevExpress.XtraEditors.PanelControl();
             this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
             this.acceptPC = new DevExpress.XtraEditors.PanelControl();
@@ -40,6 +44,7 @@
             this.emptyLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsPC = new DevExpress.XtraEditors.PanelControl();
             this.productsLC = new DevExpress.XtraLayout.LayoutControl();
             this.productsLabelsPC = new DevExpress.XtraEditors.PanelControl();
@@ -47,11 +52,12 @@
             this.productsLabelC = new DevExpress.XtraEditors.LabelControl();
             this.productsGCPC = new DevExpress.XtraEditors.PanelControl();
             this.productsGC = new DevExpress.XtraGrid.GridControl();
-            this.productsBS = new System.Windows.Forms.BindingSource();
+            this.productsBS = new System.Windows.Forms.BindingSource(this.components);
             this.productsGV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLabelsLCI = new DevExpress.XtraLayout.LayoutControlItem();
@@ -75,10 +81,18 @@
             this.addCustomerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptyCustomerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.formPC = new DevExpress.XtraEditors.PanelControl();
+            this.deviseLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.deviseLC = new DevExpress.XtraEditors.LabelControl();
+            this.eIncotermLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.paymentOptionLUE = new DevExpress.XtraEditors.LookUpEdit();
+            this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.eIncotermLC = new DevExpress.XtraEditors.LabelControl();
+            this.paymentOptionLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.dateErrorLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceTE = new DevExpress.XtraEditors.TextEdit();
-            this.orderBS = new System.Windows.Forms.BindingSource();
+            this.orderBS = new System.Windows.Forms.BindingSource(this.components);
             this.dateDE = new DevExpress.XtraEditors.DateEdit();
             this.customerReferenceLC = new DevExpress.XtraEditors.LabelControl();
             this.dateLC = new DevExpress.XtraEditors.LabelControl();
@@ -87,12 +101,17 @@
             this.customerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
+            this.deviseBS = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).BeginInit();
             this.addEditPreOrderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsPC)).BeginInit();
             this.buttonsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).BeginInit();
             this.buttonsLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
             this.cancelPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
@@ -102,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).BeginInit();
             this.productsPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsLC)).BeginInit();
@@ -136,6 +156,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyCustomerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).BeginInit();
@@ -145,6 +170,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // addEditPreOrderLC
@@ -171,6 +199,7 @@
             // 
             // buttonsLC
             // 
+            this.buttonsLC.Controls.Add(this.panelControl1);
             this.buttonsLC.Controls.Add(this.cancelPC);
             this.buttonsLC.Controls.Add(this.acceptPC);
             this.buttonsLC.Controls.Add(this.emptyPC);
@@ -182,21 +211,38 @@
             this.buttonsLC.TabIndex = 0;
             this.buttonsLC.Text = "layoutControl1";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.closeSB);
+            this.panelControl1.Location = new System.Drawing.Point(613, 12);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(147, 26);
+            this.panelControl1.TabIndex = 4;
+            // 
+            // closeSB
+            // 
+            this.closeSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closeSB.Location = new System.Drawing.Point(2, 2);
+            this.closeSB.Name = "closeSB";
+            this.closeSB.Size = new System.Drawing.Size(143, 22);
+            this.closeSB.TabIndex = 0;
+            this.closeSB.Text = "Terminar";
+            this.closeSB.Click += new System.EventHandler(this.CloseSB_Click);
+            // 
             // cancelPC
             // 
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Location = new System.Drawing.Point(632, 12);
+            this.cancelPC.Location = new System.Drawing.Point(461, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(128, 26);
+            this.cancelPC.Size = new System.Drawing.Size(148, 26);
             this.cancelPC.TabIndex = 0;
             // 
             // cancelSB
             // 
-            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelSB.Location = new System.Drawing.Point(2, 2);
             this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(124, 22);
+            this.cancelSB.Size = new System.Drawing.Size(144, 22);
             this.cancelSB.TabIndex = 0;
             this.cancelSB.Text = "Cancelar";
             this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
@@ -204,9 +250,9 @@
             // acceptPC
             // 
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Location = new System.Drawing.Point(492, 12);
+            this.acceptPC.Location = new System.Drawing.Point(310, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(136, 26);
+            this.acceptPC.Size = new System.Drawing.Size(147, 26);
             this.acceptPC.TabIndex = 0;
             // 
             // acceptSB
@@ -214,7 +260,7 @@
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptSB.Location = new System.Drawing.Point(2, 2);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(132, 22);
+            this.acceptSB.Size = new System.Drawing.Size(143, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
@@ -223,7 +269,7 @@
             // 
             this.emptyPC.Location = new System.Drawing.Point(12, 12);
             this.emptyPC.Name = "emptyPC";
-            this.emptyPC.Size = new System.Drawing.Size(476, 26);
+            this.emptyPC.Size = new System.Drawing.Size(294, 26);
             this.emptyPC.TabIndex = 1;
             // 
             // buttonsLCG
@@ -233,7 +279,8 @@
             this.buttonsLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptyLCI,
             this.acceptLCI,
-            this.cancelLCI});
+            this.cancelLCI,
+            this.layoutControlItem1});
             this.buttonsLCG.Name = "buttonsLCG";
             this.buttonsLCG.Size = new System.Drawing.Size(772, 50);
             this.buttonsLCG.TextVisible = false;
@@ -243,34 +290,43 @@
             this.emptyLCI.Control = this.emptyPC;
             this.emptyLCI.Location = new System.Drawing.Point(0, 0);
             this.emptyLCI.Name = "emptyLCI";
-            this.emptyLCI.Size = new System.Drawing.Size(480, 30);
+            this.emptyLCI.Size = new System.Drawing.Size(298, 30);
             this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyLCI.TextVisible = false;
             // 
             // acceptLCI
             // 
             this.acceptLCI.Control = this.acceptPC;
-            this.acceptLCI.Location = new System.Drawing.Point(480, 0);
+            this.acceptLCI.Location = new System.Drawing.Point(298, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(140, 30);
+            this.acceptLCI.Size = new System.Drawing.Size(151, 30);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // cancelLCI
             // 
             this.cancelLCI.Control = this.cancelPC;
-            this.cancelLCI.Location = new System.Drawing.Point(620, 0);
+            this.cancelLCI.Location = new System.Drawing.Point(449, 0);
             this.cancelLCI.Name = "cancelLCI";
-            this.cancelLCI.Size = new System.Drawing.Size(132, 30);
+            this.cancelLCI.Size = new System.Drawing.Size(152, 30);
             this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLCI.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.panelControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(601, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(151, 30);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // productsPC
             // 
             this.productsPC.Controls.Add(this.productsLC);
-            this.productsPC.Location = new System.Drawing.Point(342, 12);
+            this.productsPC.Location = new System.Drawing.Point(397, 12);
             this.productsPC.Name = "productsPC";
-            this.productsPC.Size = new System.Drawing.Size(446, 368);
+            this.productsPC.Size = new System.Drawing.Size(391, 368);
             this.productsPC.TabIndex = 0;
             // 
             // productsLC
@@ -281,7 +337,7 @@
             this.productsLC.Location = new System.Drawing.Point(2, 2);
             this.productsLC.Name = "productsLC";
             this.productsLC.Root = this.productsLCG;
-            this.productsLC.Size = new System.Drawing.Size(442, 364);
+            this.productsLC.Size = new System.Drawing.Size(387, 364);
             this.productsLC.TabIndex = 0;
             this.productsLC.Text = "layoutControl1";
             // 
@@ -291,7 +347,7 @@
             this.productsLabelsPC.Controls.Add(this.productsLabelC);
             this.productsLabelsPC.Location = new System.Drawing.Point(12, 12);
             this.productsLabelsPC.Name = "productsLabelsPC";
-            this.productsLabelsPC.Size = new System.Drawing.Size(418, 23);
+            this.productsLabelsPC.Size = new System.Drawing.Size(363, 23);
             this.productsLabelsPC.TabIndex = 0;
             // 
             // productsErrorLC
@@ -315,7 +371,7 @@
             this.productsGCPC.Controls.Add(this.productsGC);
             this.productsGCPC.Location = new System.Drawing.Point(12, 39);
             this.productsGCPC.Name = "productsGCPC";
-            this.productsGCPC.Size = new System.Drawing.Size(418, 313);
+            this.productsGCPC.Size = new System.Drawing.Size(363, 313);
             this.productsGCPC.TabIndex = 1;
             // 
             // productsGC
@@ -325,7 +381,7 @@
             this.productsGC.Location = new System.Drawing.Point(2, 2);
             this.productsGC.MainView = this.productsGV;
             this.productsGC.Name = "productsGC";
-            this.productsGC.Size = new System.Drawing.Size(414, 309);
+            this.productsGC.Size = new System.Drawing.Size(359, 309);
             this.productsGC.TabIndex = 0;
             this.productsGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGV});
@@ -339,7 +395,8 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductCode,
             this.colProductName,
-            this.colQty});
+            this.colQty,
+            this.colSalePrice});
             this.productsGV.GridControl = this.productsGC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -353,7 +410,7 @@
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
             this.colProductCode.VisibleIndex = 1;
-            this.colProductCode.Width = 134;
+            this.colProductCode.Width = 48;
             // 
             // colProductName
             // 
@@ -362,7 +419,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 156;
+            this.colProductName.Width = 96;
             // 
             // colQty
             // 
@@ -371,7 +428,16 @@
             this.colQty.Name = "colQty";
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 3;
-            this.colQty.Width = 66;
+            this.colQty.Width = 77;
+            // 
+            // colSalePrice
+            // 
+            this.colSalePrice.Caption = "Precio de Venta";
+            this.colSalePrice.FieldName = "SalePrice";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.Visible = true;
+            this.colSalePrice.VisibleIndex = 4;
+            this.colSalePrice.Width = 84;
             // 
             // productsLCG
             // 
@@ -381,7 +447,7 @@
             this.productsGCLCI,
             this.productsLabelsLCI});
             this.productsLCG.Name = "productsLCG";
-            this.productsLCG.Size = new System.Drawing.Size(442, 364);
+            this.productsLCG.Size = new System.Drawing.Size(387, 364);
             this.productsLCG.TextVisible = false;
             // 
             // productsGCLCI
@@ -389,7 +455,7 @@
             this.productsGCLCI.Control = this.productsGCPC;
             this.productsGCLCI.Location = new System.Drawing.Point(0, 27);
             this.productsGCLCI.Name = "productsGCLCI";
-            this.productsGCLCI.Size = new System.Drawing.Size(422, 317);
+            this.productsGCLCI.Size = new System.Drawing.Size(367, 317);
             this.productsGCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsGCLCI.TextVisible = false;
             // 
@@ -398,16 +464,16 @@
             this.productsLabelsLCI.Control = this.productsLabelsPC;
             this.productsLabelsLCI.Location = new System.Drawing.Point(0, 0);
             this.productsLabelsLCI.Name = "productsLabelsLCI";
-            this.productsLabelsLCI.Size = new System.Drawing.Size(422, 27);
+            this.productsLabelsLCI.Size = new System.Drawing.Size(367, 27);
             this.productsLabelsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLabelsLCI.TextVisible = false;
             // 
             // customerPC
             // 
             this.customerPC.Controls.Add(this.customerLC);
-            this.customerPC.Location = new System.Drawing.Point(12, 164);
+            this.customerPC.Location = new System.Drawing.Point(12, 234);
             this.customerPC.Name = "customerPC";
-            this.customerPC.Size = new System.Drawing.Size(326, 216);
+            this.customerPC.Size = new System.Drawing.Size(381, 146);
             this.customerPC.TabIndex = 0;
             // 
             // customerLC
@@ -420,7 +486,7 @@
             this.customerLC.Location = new System.Drawing.Point(2, 2);
             this.customerLC.Name = "customerLC";
             this.customerLC.Root = this.customerLCG;
-            this.customerLC.Size = new System.Drawing.Size(322, 212);
+            this.customerLC.Size = new System.Drawing.Size(377, 142);
             this.customerLC.TabIndex = 0;
             this.customerLC.Text = "layoutControl1";
             // 
@@ -428,15 +494,15 @@
             // 
             this.emptyCustomerPC.Location = new System.Drawing.Point(12, 67);
             this.emptyCustomerPC.Name = "emptyCustomerPC";
-            this.emptyCustomerPC.Size = new System.Drawing.Size(298, 103);
+            this.emptyCustomerPC.Size = new System.Drawing.Size(353, 33);
             this.emptyCustomerPC.TabIndex = 1;
             // 
             // addCustomerPC
             // 
             this.addCustomerPC.Controls.Add(this.addCustomerSB);
-            this.addCustomerPC.Location = new System.Drawing.Point(12, 174);
+            this.addCustomerPC.Location = new System.Drawing.Point(12, 104);
             this.addCustomerPC.Name = "addCustomerPC";
-            this.addCustomerPC.Size = new System.Drawing.Size(298, 26);
+            this.addCustomerPC.Size = new System.Drawing.Size(353, 26);
             this.addCustomerPC.TabIndex = 1;
             // 
             // addCustomerSB
@@ -444,7 +510,7 @@
             this.addCustomerSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addCustomerSB.Location = new System.Drawing.Point(2, 2);
             this.addCustomerSB.Name = "addCustomerSB";
-            this.addCustomerSB.Size = new System.Drawing.Size(294, 22);
+            this.addCustomerSB.Size = new System.Drawing.Size(349, 22);
             this.addCustomerSB.TabIndex = 0;
             this.addCustomerSB.Text = "Adicionar Nuevo Cliente";
             this.addCustomerSB.Click += new System.EventHandler(this.AddCustomerSB_Click);
@@ -455,7 +521,7 @@
             this.customerLabelsPC.Controls.Add(this.customerLabelC);
             this.customerLabelsPC.Location = new System.Drawing.Point(12, 12);
             this.customerLabelsPC.Name = "customerLabelsPC";
-            this.customerLabelsPC.Size = new System.Drawing.Size(298, 23);
+            this.customerLabelsPC.Size = new System.Drawing.Size(353, 23);
             this.customerLabelsPC.TabIndex = 0;
             // 
             // customerErrorLC
@@ -479,7 +545,7 @@
             this.customerGCPC.Controls.Add(this.customerSLUE);
             this.customerGCPC.Location = new System.Drawing.Point(12, 39);
             this.customerGCPC.Name = "customerGCPC";
-            this.customerGCPC.Size = new System.Drawing.Size(298, 24);
+            this.customerGCPC.Size = new System.Drawing.Size(353, 24);
             this.customerGCPC.TabIndex = 4;
             // 
             // customerSLUE
@@ -495,7 +561,7 @@
             this.customerSLUE.Properties.NullValuePrompt = "Cliente";
             this.customerSLUE.Properties.PopupView = this.customerSLUEV;
             this.customerSLUE.Properties.ValueMember = "CustomerId";
-            this.customerSLUE.Size = new System.Drawing.Size(294, 20);
+            this.customerSLUE.Size = new System.Drawing.Size(349, 20);
             this.customerSLUE.TabIndex = 0;
             // 
             // customerEIFS
@@ -542,7 +608,7 @@
             this.addCustomerLCI,
             this.emptyCustomerLCI});
             this.customerLCG.Name = "customerLCG";
-            this.customerLCG.Size = new System.Drawing.Size(322, 212);
+            this.customerLCG.Size = new System.Drawing.Size(377, 142);
             this.customerLCG.TextVisible = false;
             // 
             // customerGCLCI
@@ -550,7 +616,7 @@
             this.customerGCLCI.Control = this.customerGCPC;
             this.customerGCLCI.Location = new System.Drawing.Point(0, 27);
             this.customerGCLCI.Name = "customerGCLCI";
-            this.customerGCLCI.Size = new System.Drawing.Size(302, 28);
+            this.customerGCLCI.Size = new System.Drawing.Size(357, 28);
             this.customerGCLCI.TextSize = new System.Drawing.Size(0, 0);
             this.customerGCLCI.TextVisible = false;
             // 
@@ -559,16 +625,16 @@
             this.customerLabelsLCI.Control = this.customerLabelsPC;
             this.customerLabelsLCI.Location = new System.Drawing.Point(0, 0);
             this.customerLabelsLCI.Name = "customerLabelsLCI";
-            this.customerLabelsLCI.Size = new System.Drawing.Size(302, 27);
+            this.customerLabelsLCI.Size = new System.Drawing.Size(357, 27);
             this.customerLabelsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.customerLabelsLCI.TextVisible = false;
             // 
             // addCustomerLCI
             // 
             this.addCustomerLCI.Control = this.addCustomerPC;
-            this.addCustomerLCI.Location = new System.Drawing.Point(0, 162);
+            this.addCustomerLCI.Location = new System.Drawing.Point(0, 92);
             this.addCustomerLCI.Name = "addCustomerLCI";
-            this.addCustomerLCI.Size = new System.Drawing.Size(302, 30);
+            this.addCustomerLCI.Size = new System.Drawing.Size(357, 30);
             this.addCustomerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.addCustomerLCI.TextVisible = false;
             // 
@@ -577,12 +643,18 @@
             this.emptyCustomerLCI.Control = this.emptyCustomerPC;
             this.emptyCustomerLCI.Location = new System.Drawing.Point(0, 55);
             this.emptyCustomerLCI.Name = "emptyCustomerLCI";
-            this.emptyCustomerLCI.Size = new System.Drawing.Size(302, 107);
+            this.emptyCustomerLCI.Size = new System.Drawing.Size(357, 37);
             this.emptyCustomerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyCustomerLCI.TextVisible = false;
             // 
             // formPC
             // 
+            this.formPC.Controls.Add(this.deviseLUE);
+            this.formPC.Controls.Add(this.deviseLC);
+            this.formPC.Controls.Add(this.eIncotermLUE);
+            this.formPC.Controls.Add(this.paymentOptionLUE);
+            this.formPC.Controls.Add(this.eIncotermLC);
+            this.formPC.Controls.Add(this.paymentOptionLC);
             this.formPC.Controls.Add(this.customerReferenceErrorLC);
             this.formPC.Controls.Add(this.dateErrorLC);
             this.formPC.Controls.Add(this.customerReferenceTE);
@@ -591,19 +663,75 @@
             this.formPC.Controls.Add(this.dateLC);
             this.formPC.Location = new System.Drawing.Point(12, 12);
             this.formPC.Name = "formPC";
-            this.formPC.Size = new System.Drawing.Size(326, 148);
+            this.formPC.Size = new System.Drawing.Size(381, 218);
             this.formPC.TabIndex = 4;
+            // 
+            // deviseLUE
+            // 
+            this.deviseLUE.Location = new System.Drawing.Point(136, 107);
+            this.deviseLUE.Name = "deviseLUE";
+            this.deviseLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deviseLUE.Properties.NullText = "";
+            this.deviseLUE.Size = new System.Drawing.Size(100, 20);
+            this.deviseLUE.TabIndex = 14;
+            // 
+            // deviseLC
+            // 
+            this.deviseLC.Location = new System.Drawing.Point(98, 110);
+            this.deviseLC.Name = "deviseLC";
+            this.deviseLC.Size = new System.Drawing.Size(32, 13);
+            this.deviseLC.TabIndex = 13;
+            this.deviseLC.Text = "Divisa:";
+            // 
+            // eIncotermLUE
+            // 
+            this.eIncotermLUE.Location = new System.Drawing.Point(136, 161);
+            this.eIncotermLUE.Name = "eIncotermLUE";
+            this.eIncotermLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.eIncotermLUE.Properties.DataSource = this.incotermsBS;
+            this.eIncotermLUE.Properties.NullText = "";
+            this.eIncotermLUE.Size = new System.Drawing.Size(100, 20);
+            this.eIncotermLUE.TabIndex = 11;
+            // 
+            // paymentOptionLUE
+            // 
+            this.paymentOptionLUE.Location = new System.Drawing.Point(136, 135);
+            this.paymentOptionLUE.Name = "paymentOptionLUE";
+            this.paymentOptionLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.paymentOptionLUE.Properties.DataSource = this.paymentOptionsBS;
+            this.paymentOptionLUE.Properties.NullText = "";
+            this.paymentOptionLUE.Size = new System.Drawing.Size(173, 20);
+            this.paymentOptionLUE.TabIndex = 10;
+            // 
+            // eIncotermLC
+            // 
+            this.eIncotermLC.Location = new System.Drawing.Point(83, 164);
+            this.eIncotermLC.Name = "eIncotermLC";
+            this.eIncotermLC.Size = new System.Drawing.Size(47, 13);
+            this.eIncotermLC.TabIndex = 8;
+            this.eIncotermLC.Text = "Incoterm:";
+            // 
+            // paymentOptionLC
+            // 
+            this.paymentOptionLC.Location = new System.Drawing.Point(54, 138);
+            this.paymentOptionLC.Name = "paymentOptionLC";
+            this.paymentOptionLC.Size = new System.Drawing.Size(76, 13);
+            this.paymentOptionLC.TabIndex = 7;
+            this.paymentOptionLC.Text = "Forma de Pago:";
             // 
             // customerReferenceErrorLC
             // 
-            this.customerReferenceErrorLC.Location = new System.Drawing.Point(136, 120);
+            this.customerReferenceErrorLC.Location = new System.Drawing.Point(136, 87);
             this.customerReferenceErrorLC.Name = "customerReferenceErrorLC";
             this.customerReferenceErrorLC.Size = new System.Drawing.Size(0, 13);
             this.customerReferenceErrorLC.TabIndex = 4;
             // 
             // dateErrorLC
             // 
-            this.dateErrorLC.Location = new System.Drawing.Point(136, 16);
+            this.dateErrorLC.Location = new System.Drawing.Point(136, 43);
             this.dateErrorLC.Name = "dateErrorLC";
             this.dateErrorLC.Size = new System.Drawing.Size(0, 13);
             this.dateErrorLC.TabIndex = 0;
@@ -611,7 +739,7 @@
             // customerReferenceTE
             // 
             this.customerReferenceTE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBS, "CustomerReference", true));
-            this.customerReferenceTE.Location = new System.Drawing.Point(136, 94);
+            this.customerReferenceTE.Location = new System.Drawing.Point(136, 61);
             this.customerReferenceTE.Name = "customerReferenceTE";
             this.customerReferenceTE.Size = new System.Drawing.Size(173, 20);
             this.customerReferenceTE.TabIndex = 3;
@@ -624,7 +752,7 @@
             // 
             this.dateDE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderBS, "Date", true));
             this.dateDE.EditValue = null;
-            this.dateDE.Location = new System.Drawing.Point(136, 35);
+            this.dateDE.Location = new System.Drawing.Point(136, 16);
             this.dateDE.Name = "dateDE";
             this.dateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -635,7 +763,7 @@
             // 
             // customerReferenceLC
             // 
-            this.customerReferenceLC.Location = new System.Drawing.Point(15, 97);
+            this.customerReferenceLC.Location = new System.Drawing.Point(15, 64);
             this.customerReferenceLC.Name = "customerReferenceLC";
             this.customerReferenceLC.Size = new System.Drawing.Size(115, 13);
             this.customerReferenceLC.TabIndex = 1;
@@ -643,7 +771,7 @@
             // 
             // dateLC
             // 
-            this.dateLC.Location = new System.Drawing.Point(91, 38);
+            this.dateLC.Location = new System.Drawing.Point(91, 19);
             this.dateLC.Name = "dateLC";
             this.dateLC.Size = new System.Drawing.Size(39, 13);
             this.dateLC.TabIndex = 0;
@@ -667,25 +795,25 @@
             this.formLCI.Control = this.formPC;
             this.formLCI.Location = new System.Drawing.Point(0, 0);
             this.formLCI.Name = "formLCI";
-            this.formLCI.Size = new System.Drawing.Size(330, 152);
+            this.formLCI.Size = new System.Drawing.Size(385, 222);
             this.formLCI.TextSize = new System.Drawing.Size(0, 0);
             this.formLCI.TextVisible = false;
             // 
             // customerLCI
             // 
             this.customerLCI.Control = this.customerPC;
-            this.customerLCI.Location = new System.Drawing.Point(0, 152);
+            this.customerLCI.Location = new System.Drawing.Point(0, 222);
             this.customerLCI.Name = "customerLCI";
-            this.customerLCI.Size = new System.Drawing.Size(330, 220);
+            this.customerLCI.Size = new System.Drawing.Size(385, 150);
             this.customerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.customerLCI.TextVisible = false;
             // 
             // productsLCI
             // 
             this.productsLCI.Control = this.productsPC;
-            this.productsLCI.Location = new System.Drawing.Point(330, 0);
+            this.productsLCI.Location = new System.Drawing.Point(385, 0);
             this.productsLCI.Name = "productsLCI";
-            this.productsLCI.Size = new System.Drawing.Size(450, 372);
+            this.productsLCI.Size = new System.Drawing.Size(395, 372);
             this.productsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.productsLCI.TextVisible = false;
             // 
@@ -700,12 +828,11 @@
             // 
             // V_AddEditPreOrderForm
             // 
-            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditPreOrderLC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "V_AddEditPreOrderForm";
             this.Text = "V_AddEditPreOrderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.V_AddEditPreOrderForm_FormClosed);
@@ -716,6 +843,8 @@
             this.buttonsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLC)).EndInit();
             this.buttonsLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
             this.cancelPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
@@ -725,6 +854,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPC)).EndInit();
             this.productsPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsLC)).EndInit();
@@ -762,6 +892,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).EndInit();
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentOptionsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerReferenceTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDE.Properties.CalendarTimeProperties)).EndInit();
@@ -771,6 +906,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -831,10 +969,25 @@
         private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colQty;
-        private DevExpress.XtraEditors.SimpleButton cancelSB;
         private DevExpress.XtraEditors.SimpleButton acceptSB;
         private DevExpress.XtraEditors.PanelControl emptyCustomerPC;
         private DevExpress.XtraLayout.LayoutControlItem emptyCustomerLCI;
         private System.Windows.Forms.BindingSource productsBS;
+        private DevExpress.XtraEditors.LabelControl paymentOptionLC;
+        private DevExpress.XtraEditors.LabelControl eIncotermLC;
+        private DevExpress.XtraEditors.LookUpEdit eIncotermLUE;
+        private DevExpress.XtraEditors.LookUpEdit paymentOptionLUE;
+        private System.Windows.Forms.BindingSource paymentOptionsBS;
+        private System.Windows.Forms.BindingSource shipmentMethodBS;
+        private System.Windows.Forms.BindingSource incotermsBS;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton closeSB;
+        private DevExpress.XtraEditors.SimpleButton cancelSB;
+        private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
+        private DevExpress.XtraEditors.LookUpEdit deviseLUE;
+        private DevExpress.XtraEditors.LabelControl deviseLC;
+        private System.Windows.Forms.BindingSource deviseBS;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

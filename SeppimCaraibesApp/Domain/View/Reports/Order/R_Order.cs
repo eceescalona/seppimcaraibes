@@ -18,7 +18,36 @@
         {
             InitializeComponent();
             _cOrder = cOrder;
-            _cOrder.LoadQuoteReport(this, code);
+            _cOrder.LoadReport(this, code);
+        }
+
+        public R_Order(Controller.C_Order cOrder, string code, bool flag)
+        {
+            InitializeComponent();
+
+            xrTableCell4.Visible = flag;
+            xrTableCell10.Visible = flag;
+            xrTableCell5.Visible = flag;
+            xrTableCell6.Visible = flag;
+
+            xrTable1.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
+            xrTable2.ProcessHiddenCellMode = ProcessHiddenCellMode.ResizeCellsEqually;
+            totalCostXRL.Visible = false;
+            xrLabel31.Visible = false;
+            xrLabel21.Visible = false;
+            xrLabel24.Visible = false;
+            xrLabel20.Visible = false;
+            xrLabel11.Visible = false;
+            xrLabel12.Visible = false;
+            xrLabel13.Visible = false;
+            xrLabel16.Visible = false;
+            xrLabel17.Visible = false;
+            xrShape1.Visible = false;
+
+            GroupFooter2.Visible = false;
+
+            _cOrder = cOrder;
+            _cOrder.LoadReport(this, code);
         }
 
 
