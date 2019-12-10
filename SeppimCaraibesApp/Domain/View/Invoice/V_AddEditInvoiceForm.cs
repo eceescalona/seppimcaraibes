@@ -204,8 +204,6 @@
 
                 order.InvoiceReference = _cOrder.GetInvoiceReference(order);
 
-                order.InvoiceState = EInvoiceState.Await;
-
                 _cOrder.EditOrder(this, order);
 
 

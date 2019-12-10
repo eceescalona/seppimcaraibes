@@ -253,6 +253,8 @@
 
                 order.Shipment = shipment;
 
+                int period = order.Period == null ? 0 : (int)order.Period;
+
                 order.EXW = products.Sum(po => po.SalePrice * po.Qty);
 
                 double.TryParse(expensesTE.Text, out double expenses);
@@ -261,7 +263,12 @@
                 double TotalDiscount = order.TotalDiscount == null ? 0 : (double)order.TotalDiscount * EXW / 100;
                 double Freight = decimal.ToDouble(order.Freight == null ? 0 : (decimal)order.Freight);
                 double Insurance = decimal.ToDouble(order.Insurance == null ? 0 : (decimal)order.Insurance);
-                double ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests / 36000 * (int)order.Period * EXW;
+
+                double ToltalInterests = 0;
+                if (period > 0)
+                {
+                    ToltalInterests = order.ToltalInterests == null ? 0 : (double)order.ToltalInterests / 36000 * period * EXW;
+                }
 
                 order.TotalCost = EXW - TotalDiscount + expenses + Freight + Insurance + ToltalInterests;
 

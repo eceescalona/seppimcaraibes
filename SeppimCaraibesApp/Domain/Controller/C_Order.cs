@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
     using System.Reflection;
 
     internal class C_Order : IDisposable
@@ -74,21 +75,24 @@
             return flag;
         }
 
-        private string OrderCode(DateTime date)
+        private string GetOrderCode(DateTime date)
         {
             string back = "000";
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-            var orderID = _mOrder.GetLastOrderID(_context);
-            if (string.IsNullOrWhiteSpace(orderID))
+            if (!_context.Orders.Any(o => o.OrderId == orderCode))
             {
                 return orderCode;
             }
             else
             {
-                long code = long.Parse(orderID) + 1;
-                orderCode = code.ToString();
+                do
+                {
+                    long code = long.Parse(orderCode) + 1;
+                    orderCode = code.ToString();
+                } while (_context.Orders.Any(o => o.OrderId == orderCode));
+
                 return orderCode;
             }
         }
@@ -191,7 +195,7 @@
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                order.OrderId = OrderCode(order.Date.GetValueOrDefault());
+                order.OrderId = GetOrderCode(order.Date.GetValueOrDefault());
 
                 _mOrder.AddOrder(_context, order, productsOrders);
 
