@@ -58,6 +58,13 @@
             return rOrder.GetLastOrderID(context);
         }
 
+        public string GetLastInvoiceID(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var rOrder = new Data.Repository.OrderRepository();
+
+            return rOrder.GetLastInvoiceID(context);
+        }
+
         public IEnumerable<Data.POCO.OrderReportView> GetOrderReportView(Data.ORM.SeppimCaraibesLocalEntities context, string code)
         {
             var reports = new List<Data.POCO.OrderReportView>();
@@ -162,19 +169,6 @@
                 }
 
                 rOrder.AddOrder(context, order);
-
-                if (order.Shipment != null)
-                {
-                    var rShipment = new Data.Repository.ShipmentRepository();
-                    if (!context.Shipments.Any(s => s.ShipmentId == order.Shipment.ShipmentId))
-                    {
-                        rShipment.AddShipment(context, order.Shipment);
-                    }
-                }
-                else
-                {
-                    order.Shipment = context.Shipments.SingleOrDefault(s => s.ShipmentId == order.OrderId);
-                }
             }
         }
 

@@ -83,13 +83,10 @@
             this.formPC = new DevExpress.XtraEditors.PanelControl();
             this.deviseLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.deviseLC = new DevExpress.XtraEditors.LabelControl();
-            this.shipmentMLUE = new DevExpress.XtraEditors.LookUpEdit();
-            this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
             this.eIncotermLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.incotermsBS = new System.Windows.Forms.BindingSource(this.components);
             this.paymentOptionLUE = new DevExpress.XtraEditors.LookUpEdit();
             this.paymentOptionsBS = new System.Windows.Forms.BindingSource(this.components);
-            this.shipmentLC = new DevExpress.XtraEditors.LabelControl();
             this.eIncotermLC = new DevExpress.XtraEditors.LabelControl();
             this.paymentOptionLC = new DevExpress.XtraEditors.LabelControl();
             this.customerReferenceErrorLC = new DevExpress.XtraEditors.LabelControl();
@@ -104,7 +101,7 @@
             this.customerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsLCI = new DevExpress.XtraLayout.LayoutControlItem();
-            this.shipmentBS = new System.Windows.Forms.BindingSource(this.components);
+            this.shipmentMethodBS = new System.Windows.Forms.BindingSource(this.components);
             this.deviseBS = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addEditPreOrderLC)).BeginInit();
@@ -160,8 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formPC)).BeginInit();
             this.formPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).BeginInit();
@@ -175,7 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -656,10 +651,8 @@
             // 
             this.formPC.Controls.Add(this.deviseLUE);
             this.formPC.Controls.Add(this.deviseLC);
-            this.formPC.Controls.Add(this.shipmentMLUE);
             this.formPC.Controls.Add(this.eIncotermLUE);
             this.formPC.Controls.Add(this.paymentOptionLUE);
-            this.formPC.Controls.Add(this.shipmentLC);
             this.formPC.Controls.Add(this.eIncotermLC);
             this.formPC.Controls.Add(this.paymentOptionLC);
             this.formPC.Controls.Add(this.customerReferenceErrorLC);
@@ -691,17 +684,6 @@
             this.deviseLC.TabIndex = 13;
             this.deviseLC.Text = "Divisa:";
             // 
-            // shipmentMLUE
-            // 
-            this.shipmentMLUE.Location = new System.Drawing.Point(136, 187);
-            this.shipmentMLUE.Name = "shipmentMLUE";
-            this.shipmentMLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.shipmentMLUE.Properties.DataSource = this.shipmentMethodBS;
-            this.shipmentMLUE.Properties.NullText = "";
-            this.shipmentMLUE.Size = new System.Drawing.Size(173, 20);
-            this.shipmentMLUE.TabIndex = 12;
-            // 
             // eIncotermLUE
             // 
             this.eIncotermLUE.Location = new System.Drawing.Point(136, 161);
@@ -723,14 +705,6 @@
             this.paymentOptionLUE.Properties.NullText = "";
             this.paymentOptionLUE.Size = new System.Drawing.Size(173, 20);
             this.paymentOptionLUE.TabIndex = 10;
-            // 
-            // shipmentLC
-            // 
-            this.shipmentLC.Location = new System.Drawing.Point(62, 190);
-            this.shipmentLC.Name = "shipmentLC";
-            this.shipmentLC.Size = new System.Drawing.Size(68, 13);
-            this.shipmentLC.TabIndex = 9;
-            this.shipmentLC.Text = "Tipo de Envío:";
             // 
             // eIncotermLC
             // 
@@ -852,10 +826,6 @@
             this.buttonsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonsLCI.TextVisible = false;
             // 
-            // shipmentBS
-            // 
-            this.shipmentBS.DataSource = typeof(SeppimCaraibesApp.Data.ORM.Shipment);
-            // 
             // V_AddEditPreOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -923,8 +893,6 @@
             this.formPC.ResumeLayout(false);
             this.formPC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deviseLUE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMLUE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eIncotermLUE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incotermsBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentOptionLUE.Properties)).EndInit();
@@ -938,7 +906,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLCI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentMethodBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviseBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -1006,12 +974,9 @@
         private DevExpress.XtraLayout.LayoutControlItem emptyCustomerLCI;
         private System.Windows.Forms.BindingSource productsBS;
         private DevExpress.XtraEditors.LabelControl paymentOptionLC;
-        private DevExpress.XtraEditors.LabelControl shipmentLC;
         private DevExpress.XtraEditors.LabelControl eIncotermLC;
-        private DevExpress.XtraEditors.LookUpEdit shipmentMLUE;
         private DevExpress.XtraEditors.LookUpEdit eIncotermLUE;
         private DevExpress.XtraEditors.LookUpEdit paymentOptionLUE;
-        private System.Windows.Forms.BindingSource shipmentBS;
         private System.Windows.Forms.BindingSource paymentOptionsBS;
         private System.Windows.Forms.BindingSource shipmentMethodBS;
         private System.Windows.Forms.BindingSource incotermsBS;

@@ -3,9 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Reflection;
-    using System.Threading.Tasks;
     using System.Linq;
+    using System.Reflection;
 
     internal class C_Order : IDisposable
     {
@@ -76,21 +75,24 @@
             return flag;
         }
 
-        private string OrderCode(DateTime date)
+        private string GetOrderCode(DateTime date)
         {
             string back = "000";
 
             string orderCode = date.Year.ToString() + date.Month.ToString() + date.Day.ToString() + back;
 
-            var order = _mOrder.GetLastOrderID(_context);
-            if (string.IsNullOrWhiteSpace(order))
+            if (!_context.Orders.Any(o => o.OrderId == orderCode))
             {
                 return orderCode;
             }
             else
             {
-                long code = long.Parse(order) + 1;
-                orderCode = code.ToString();
+                do
+                {
+                    long code = long.Parse(orderCode) + 1;
+                    orderCode = code.ToString();
+                } while (_context.Orders.Any(o => o.OrderId == orderCode));
+
                 return orderCode;
             }
         }
@@ -107,9 +109,8 @@
 
             string invoiceReference = DateTime.Now.Year.ToString() + back;
 
-            var orders = _context.Orders.ToList();
-
-            if (orders.Count == 1)
+            var invoiceID = _mOrder.GetLastInvoiceID(_context);
+            if (string.IsNullOrWhiteSpace(invoiceID))
             {
                 if (order.CommercialValue == ECommercialValue.FV)
                 {
@@ -117,29 +118,23 @@
                 }
                 else
                 {
-                    return NC + invoiceReference;
-                }
-            }
-            else if (orders.Count > 1)
-            {
-                var lastOrderSubOne = orders[orders.Count - 2];
-
-                if (order.CommercialValue == ECommercialValue.FV)
-                {
-                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
-                    invoiceReference = code.ToString();
-                    return FV + invoiceReference;
-                }
-                else
-                {
-                    long code = long.Parse(lastOrderSubOne.InvoiceReference) + 1;
-                    invoiceReference = code.ToString();
                     return NC + invoiceReference;
                 }
             }
             else
             {
-                throw new ArgumentNullException();
+                back = invoiceID.Substring(2);
+                long code = long.Parse(back) + 1;
+                invoiceReference = code.ToString();
+
+                if (order.CommercialValue == ECommercialValue.FV)
+                {
+                    return FV + invoiceReference;
+                }
+                else
+                {
+                    return NC + invoiceReference;
+                }
             }
         }
 
@@ -200,7 +195,7 @@
 
             if (Validate(order, productsOrders, out Dictionary<string, string> fields))
             {
-                order.OrderId = OrderCode(order.Date.GetValueOrDefault());
+                order.OrderId = GetOrderCode(order.Date.GetValueOrDefault());
 
                 _mOrder.AddOrder(_context, order, productsOrders);
 
