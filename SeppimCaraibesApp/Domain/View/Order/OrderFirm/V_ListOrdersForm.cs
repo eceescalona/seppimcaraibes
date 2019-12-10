@@ -5,8 +5,9 @@
     using System.Data.Entity;
     using DevExpress.XtraEditors;
     using System.Collections.Generic;
+    using SeppimCaraibesApp.Domain.Controller;
 
-    internal partial class V_ListOrdersForm : Form, Controller.IListOrders
+    internal partial class V_ListOrdersForm : Form, IListOrders
     {
         private const string NAME_FORM = "Listar Ordenes";
         private const string MESSAGE_SHOW_ERROR = "El documento no pudo ser mostrado. Porfavor vuelva a intentarlo." +
@@ -17,13 +18,13 @@
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string CONVERT_MESSAGE = "Uds. está cambiando la orden de Orden Firme a Facturar. ¿Está seguro(a) de querer continuar?";
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
         private readonly bool _isCallFrom;
-        private readonly Controller.C_Order _cOrden;
+        private readonly C_Order _cOrden;
         private bool _isCOrdenAlive;
 
 
@@ -33,12 +34,12 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cOrden = new Controller.C_Order();
+            _cOrden = new C_Order();
             _isCOrdenAlive = true;
             _isCallFrom = false;
         }
 
-        public V_ListOrdersForm(Controller.C_Order cOrden)
+        public V_ListOrdersForm(C_Order cOrden)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -50,7 +51,7 @@
             closeBBI.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             closeBBI.Enabled = false;
             listOrdersRC.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.Sizable;
         }
         #endregion
 
@@ -142,23 +143,36 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCOrdenAlive = true;
-                var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
-                var editOrder = new V_AddEditOrderForm(_cOrden, row.Order_Code);
-                editOrder.StartPosition = FormStartPosition.CenterScreen;
-                editOrder.BringToFront();
-                DialogResult result = editOrder.ShowDialog();
-                if (result == DialogResult.OK)
+                try
                 {
-                    RefreshView();
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
+
+                    using (var editOrder = new V_AddEditOrderForm(_cOrden, row.Order_Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editOrder.BringToFront();
+                        DialogResult result = editOrder.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -176,8 +190,11 @@
                         Refresh(row);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -196,8 +213,11 @@
                         Refresh(row);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -208,18 +228,51 @@
                 {
                     _isCOrdenAlive = true;
                     var row = (Data.ORM.OrdersView)ordersGV.GetRow(ordersGV.FocusedRowHandle);
-                    var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code);
-                    documentView.StartPosition = FormStartPosition.CenterScreen;
-                    documentView.BringToFront();
-                    documentView.ShowDialog();
+
+                    DialogResult result = MessageBox.Show("Uds. quiere visualizar la columna [Precio Unitario]?",
+                        _cOrden.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.No)
+                    {
+                        using (var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code, false)
+                        {
+                            StartPosition = FormStartPosition.CenterScreen
+                        })
+                        {
+                            documentView.BringToFront();
+                            documentView.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        using (var documentView = new V_ReportOrderForm(_cOrden, row.Order_Code)
+                        {
+                            StartPosition = FormStartPosition.CenterScreen
+                        })
+                        {
+                            documentView.BringToFront();
+                            documentView.ShowDialog();
+                        }
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(MESSAGE_SHOW_ERROR, _cOrden.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            Close();
+        }
 
         private void V_ListOrdersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -232,11 +285,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }

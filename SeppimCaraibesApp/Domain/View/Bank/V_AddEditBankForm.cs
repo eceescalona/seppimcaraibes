@@ -1,19 +1,21 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Bank
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditBankForm : Form, Controller.IAddEditBank
+    internal partial class V_AddEditBankForm : Form, IAddEditBank
     {
         private const string NAME_FORM_ADD = "Registrar Banco";
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Bank _cBank;
+        private readonly C_Bank _cBank;
         private bool _isCBankAlive;
         private bool _isFieldWithError;
         public int code;
@@ -24,7 +26,7 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cBank = new Controller.C_Bank();
+            _cBank = new C_Bank();
             _isCBankAlive = true;
             _isFieldWithError = false;
 
@@ -128,8 +130,11 @@
                     Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cBank.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
 
@@ -157,8 +162,23 @@
             {
                 _isCBankAlive = true;
                 DialogResult = DialogResult.Cancel;
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cBank.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

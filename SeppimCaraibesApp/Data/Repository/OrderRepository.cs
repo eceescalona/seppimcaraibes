@@ -1,12 +1,22 @@
 ﻿namespace SeppimCaraibesApp.Data.Repository
 {
-    using System.Threading.Tasks;
+    using System.Linq;
 
     internal class OrderRepository
     {
-        public async Task<ORM.Order> GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
+        public ORM.Order GetOrder(ORM.SeppimCaraibesLocalEntities context, string code)
         {
-            return await context.Orders.FindAsync(code);
+            return context.Orders.SingleOrDefault(o => o.OrderId.Equals(code));
+        }
+
+        public string GetLastOrderID(ORM.SeppimCaraibesLocalEntities context)
+        {
+            return context.Orders.OrderByDescending(o => o.Date).FirstOrDefault()?.OrderId;
+        }
+
+        public string GetLastInvoiceID(ORM.SeppimCaraibesLocalEntities context)
+        {
+            return context.Orders.OrderByDescending(o => o.Date).Where(o => o.OrderProcessState == EOrderProcessState.Invoice && !string.IsNullOrWhiteSpace(o.InvoiceReference)).FirstOrDefault()?.InvoiceReference;
         }
 
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)

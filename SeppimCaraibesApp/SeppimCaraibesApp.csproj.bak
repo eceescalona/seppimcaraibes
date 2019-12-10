@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,20 +52,32 @@
     <StartupObject>SeppimCaraibesApp.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -91,11 +103,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ECptCfr.cs" />
+    <Compile Include="Data\EIncoterms.cs" />
     <Compile Include="Data\EDevise.cs" />
     <Compile Include="Data\EInvoiceState.cs" />
     <Compile Include="Data\EOrderProcessState.cs" />
     <Compile Include="Data\EOrderState.cs" />
+    <Compile Include="Data\EPaymentOption.cs" />
+    <Compile Include="Data\EPeriodState.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
     <Compile Include="Data\ORM\CustomersView.cs" />
@@ -103,6 +117,7 @@
     <Compile Include="Data\ORM\Order.cs" />
     <Compile Include="Data\ORM\OrdersView.cs" />
     <Compile Include="Data\ORM\Origin.cs" />
+    <Compile Include="Data\ORM\Permission.cs" />
     <Compile Include="Data\ORM\PreOrdersView.cs" />
     <Compile Include="Data\ORM\Product.cs" />
     <Compile Include="Data\ORM\ProductsOrder.cs" />
@@ -110,35 +125,67 @@
     <Compile Include="Data\ORM\Provider.cs" />
     <Compile Include="Data\ORM\ProvidersView.cs" />
     <Compile Include="Data\ORM\QuotesView.cs" />
+    <Compile Include="Data\ORM\Role.cs" />
+    <Compile Include="Data\ORM\RoleView.cs" />
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
-    <Compile Include="Data\EPaymentOption.cs" />
-    <Compile Include="Data\EPeriodState.cs" />
-    <Compile Include="Data\POCO\Add\ProductsOrders.cs" />
+    <Compile Include="Data\ORM\User.cs" />
+    <Compile Include="Data\ORM\UserView.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
+    <Compile Include="Data\POCO\OrderReportView.cs" />
+    <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
+    <Compile Include="Data\Repository\PermissionRepository.cs" />
     <Compile Include="Data\Repository\ProductRepository.cs" />
     <Compile Include="Data\Repository\ProviderRepository.cs" />
     <Compile Include="Data\EShippingMethod.cs" />
+    <Compile Include="Data\Repository\RoleRepository.cs" />
+    <Compile Include="Data\Repository\ShipmentRepository.cs" />
+    <Compile Include="Data\Repository\UserRepository.cs" />
+    <Compile Include="Domain\Controller\C_Bank.cs" />
     <Compile Include="Domain\Controller\C_Customer.cs" />
     <Compile Include="Domain\Controller\C_Order.cs" />
+    <Compile Include="Domain\Controller\C_Permission.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
     <Compile Include="Domain\Controller\C_Provider.cs" />
-    <Compile Include="Domain\Controller\IAddEditCustomer.cs" />
-    <Compile Include="Domain\Controller\IAddEditOrder.cs" />
-    <Compile Include="Domain\Controller\IAddEditProduct.cs" />
-    <Compile Include="Domain\Controller\IAddEditProvider.cs" />
-    <Compile Include="Domain\Controller\IListCustomers.cs" />
-    <Compile Include="Domain\Controller\IListOrders.cs" />
-    <Compile Include="Domain\Controller\IListProducts.cs" />
-    <Compile Include="Domain\Controller\IListProviders.cs" />
+    <Compile Include="Domain\Controller\C_Role.cs" />
+    <Compile Include="Domain\Controller\C_User.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IControlUser.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditBank.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditCustomer.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditOrder.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditPermission.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditProduct.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditProvider.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditRole.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IAddEditUser.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListCustomers.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListOrders.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListPermissions.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListProducts.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListProviders.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListRoles.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IListUsers.cs" />
+    <Compile Include="Domain\Controller\Interfaces\IReport.cs" />
+    <Compile Include="Domain\Controller\Interfaces\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
+    <Compile Include="Domain\UserLog.cs" />
+    <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
     <Compile Include="Domain\Model\Order.cs" />
+    <Compile Include="Domain\Model\Permission.cs" />
     <Compile Include="Domain\Model\Product.cs" />
     <Compile Include="Domain\Model\Provider.cs" />
+    <Compile Include="Domain\Model\Role.cs" />
+    <Compile Include="Domain\Model\User.cs" />
+    <Compile Include="Domain\View\Bank\V_AddEditBankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Bank\V_AddEditBankForm.Designer.cs">
+      <DependentUpon>V_AddEditBankForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Customer\V_AddEditCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,41 +210,71 @@
     <Compile Include="Domain\View\Invoice\V_ListInvoicesForm.Designer.cs">
       <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditOrderForm.cs">
+    <Compile Include="Domain\View\Invoice\V_ReportInvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditOrderForm.Designer.cs">
+    <Compile Include="Domain\View\Invoice\V_ReportInvoiceForm.Designer.cs">
+      <DependentUpon>V_ReportInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.Designer.cs">
       <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ReportOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditPreOrderForm.Designer.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ReportOrderForm.Designer.cs">
+      <DependentUpon>V_ReportOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.Designer.cs">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_AddEditQuoteForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.Designer.cs">
+      <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\V_AddEditQuoteForm.Designer.cs">
       <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListOrdersForm.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListOrdersForm.Designer.cs">
+    <Compile Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.Designer.cs">
       <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListPreOrdersForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.Designer.cs">
       <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListQuotesForm.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ListQuotesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\View\Order\V_ListQuotesForm.Designer.cs">
+    <Compile Include="Domain\View\Order\Quote\V_ListQuotesForm.Designer.cs">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\V_ReportOfferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Quote\V_ReportOfferForm.Designer.cs">
+      <DependentUpon>V_ReportOfferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.Designer.cs">
+      <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Product\V_AddEditProductForm.cs">
       <SubType>Form</SubType>
@@ -223,6 +300,72 @@
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Reports\Invoice\R_Invoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Invoice\R_Invoice.Designer.cs">
+      <DependentUpon>R_Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Offer\R_Offer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Offer\R_Offer.Designer.cs">
+      <DependentUpon>R_Offer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Order\R_Order.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Order\R_Order.Designer.cs">
+      <DependentUpon>R_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Quote\R_Quote.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\Quote\R_Quote.Designer.cs">
+      <DependentUpon>R_Quote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_AddEditRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_AddEditRoleForm.Designer.cs">
+      <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_ListRolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Role\V_ListRolesForm.Designer.cs">
+      <DependentUpon>V_ListRolesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\S_WelcomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\S_WelcomePage.Designer.cs">
+      <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\User\D_DisableCauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\D_DisableCauseForm.Designer.cs">
+      <DependentUpon>D_DisableCauseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\User\V_AddEditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\V_AddEditUserForm.Designer.cs">
+      <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\User\V_ListUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\User\V_ListUsersForm.Designer.cs">
+      <DependentUpon>V_ListUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\U_LogginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\U_LogginPage.Designer.cs">
+      <DependentUpon>U_LogginPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\V_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,26 +374,53 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Domain\View\Bank\V_AddEditBankForm.resx">
+      <DependentUpon>V_AddEditBankForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Customer\V_AddEditCustomerForm.resx">
       <DependentUpon>V_AddEditCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Customer\V_ListCustomersForm.resx">
       <DependentUpon>V_ListCustomersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_AddEditPreOrderForm.resx">
+    <EmbeddedResource Include="Domain\View\Invoice\V_AddEditInvoiceForm.resx">
+      <DependentUpon>V_AddEditInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Invoice\V_ListInvoicesForm.resx">
+      <DependentUpon>V_ListInvoicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Invoice\V_ReportInvoiceForm.resx">
+      <DependentUpon>V_ReportInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_AddEditOrderForm.resx">
+      <DependentUpon>V_AddEditOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_ReportOrderForm.resx">
+      <DependentUpon>V_ReportOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_AddEditPreOrderForm.resx">
       <DependentUpon>V_AddEditPreOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_AddEditQuoteForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\D_SelectProviderForm.resx">
+      <DependentUpon>D_SelectProviderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_AddEditQuoteForm.resx">
       <DependentUpon>V_AddEditQuoteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListOrdersForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\OrderFirm\V_ListOrdersForm.resx">
       <DependentUpon>V_ListOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListPreOrdersForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_ListPreOrdersForm.resx">
       <DependentUpon>V_ListPreOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Domain\View\Order\V_ListQuotesForm.resx">
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_ListQuotesForm.resx">
       <DependentUpon>V_ListQuotesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Quote\V_ReportOfferForm.resx">
+      <DependentUpon>V_ReportOfferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Order\Pre-Order\V_ReportQuoteForm.resx">
+      <DependentUpon>V_ReportQuoteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Product\V_AddEditProductForm.resx">
       <DependentUpon>V_AddEditProductForm.cs</DependentUpon>
@@ -263,6 +433,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Invoice\R_Invoice.resx">
+      <DependentUpon>R_Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Offer\R_Offer.resx">
+      <DependentUpon>R_Offer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Order\R_Order.resx">
+      <DependentUpon>R_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\Quote\R_Quote.resx">
+      <DependentUpon>R_Quote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Role\V_AddEditRoleForm.resx">
+      <DependentUpon>V_AddEditRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Role\V_ListRolesForm.resx">
+      <DependentUpon>V_ListRolesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\S_WelcomePage.resx">
+      <DependentUpon>S_WelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\D_DisableCauseForm.resx">
+      <DependentUpon>D_DisableCauseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\V_AddEditUserForm.resx">
+      <DependentUpon>V_AddEditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\User\V_ListUsersForm.resx">
+      <DependentUpon>V_ListUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\U_LogginPage.resx">
+      <DependentUpon>U_LogginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\V_MainForm.resx">
       <DependentUpon>V_MainForm.cs</DependentUpon>
@@ -279,11 +482,14 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Bank.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Customer.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Order.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Product.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Provider.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Role.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.Shipment.datasource" />
+    <None Include="Properties\DataSources\SeppimCaraibesApp.Data.ORM.User.datasource" />
     <None Include="Properties\DataSources\SeppimCaraibesApp.Data.POCO.ProductsOrders.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -302,6 +508,24 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\Img\Show_32x32.png" />
+    <None Include="Resources\Img\Show_16x16.png" />
+    <None Include="Resources\Img\Add_32x32.png" />
+    <None Include="Resources\Img\Add_16x16.png" />
+    <None Include="Resources\Img\elitechicon_32x32.ico" />
+    <None Include="Resources\Img\ElitechLogo.png" />
+    <None Include="Resources\Img\SeppimCaraibesLogo.png" />
+    <None Include="Resources\Img\Print_32x32.png" />
+    <None Include="Resources\Img\Print_16x16.png" />
+    <None Include="Resources\Img\List_32x32.png" />
+    <None Include="Resources\Img\List_16x16.png" />
     <None Include="Resources\Img\Convert_32x32.png" />
     <None Include="Resources\Img\Convert_16x16.png" />
     <None Include="Resources\Img\Close_32x32.png" />
@@ -324,13 +548,6 @@
     <None Include="Resources\Img\Edit_16x16.png" />
     <None Include="Resources\Img\Delete_32x32.png" />
     <None Include="Resources\Img\Delete_16x16.png" />
-    <None Include="Resources\DB\SeppimCaraibesAppLocalDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Content Include="Resources\DB\SeppimCaraibesAppLocalDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SeppimCaraibesAppLocalDb.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7">

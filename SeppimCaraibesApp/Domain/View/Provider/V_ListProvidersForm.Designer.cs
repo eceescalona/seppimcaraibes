@@ -60,6 +60,7 @@
             this.colProduct_Name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listProvidersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listProvidersPC)).BeginInit();
             this.listProvidersPC.SuspendLayout();
@@ -77,7 +78,8 @@
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
-            this.closeBBI});
+            this.closeBBI,
+            this.listProvidersRC.SearchEditItem});
             this.listProvidersRC.Location = new System.Drawing.Point(0, 0);
             this.listProvidersRC.MaxItemId = 6;
             this.listProvidersRC.Name = "listProvidersRC";
@@ -283,11 +285,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(90, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Proveedores";
+            // 
             // V_ListProvidersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listProvidersPC);
             this.Controls.Add(this.listProvidersRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -330,5 +341,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

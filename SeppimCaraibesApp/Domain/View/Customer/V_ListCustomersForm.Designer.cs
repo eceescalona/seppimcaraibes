@@ -58,6 +58,7 @@
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listCustomersRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listCustomersPC)).BeginInit();
             this.listCustomersPC.SuspendLayout();
@@ -75,9 +76,10 @@
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
-            this.closeBBI});
+            this.closeBBI,
+            this.listCustomersRC.SearchEditItem});
             this.listCustomersRC.Location = new System.Drawing.Point(0, 0);
-            this.listCustomersRC.MaxItemId = 6;
+            this.listCustomersRC.MaxItemId = 8;
             this.listCustomersRC.Name = "listCustomersRC";
             this.listCustomersRC.PageHeaderItemLinks.Add(this.closeBBI);
             this.listCustomersRC.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -257,11 +259,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(7, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(67, 13);
+            this.labelControl1.TabIndex = 1;
+            this.labelControl1.Text = "Listar Clientes";
+            // 
             // V_ListCustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listCustomersPC);
             this.Controls.Add(this.listCustomersRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -302,5 +313,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource customersEIFS;
         private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

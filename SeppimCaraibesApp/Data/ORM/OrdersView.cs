@@ -1,8 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("OrdersView")]
     internal partial class OrdersView
@@ -49,9 +51,6 @@ namespace SeppimCaraibesApp.Data.ORM
         public EShippingMethod? Shipping_Method { get; set; }
 
         public EDevise? Devise { get; set; }
-
-        [StringLength(250)]
-        public string Incoterm { get; set; }
 
         [Column("Product Code")]
         [StringLength(50)]

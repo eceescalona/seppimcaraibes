@@ -146,6 +146,10 @@
             if (Validate(user, copyPassword, out Dictionary<string, string> fields))
             {
                 _mUser.AddUser(_context, user);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditUser.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -167,6 +171,10 @@
             if (Validate(user, PASS, out Dictionary<string, string> fields))
             {
                 _mUser.EditUser(_context, user);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditUser.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -182,6 +190,10 @@
             if (Validate(user, copyPassword, out Dictionary<string, string> fields))
             {
                 _mUser.EditUser(_context, user);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditUser.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -199,6 +211,10 @@
             string description = string.Format("El usuario {0} fue inhabilitado.", user.Nick);
 
             _mUser.EditUser(_context, user);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(description, ETypeOfMessage.Information);
+
             listUsers.ShowMessage(ETypeOfMessage.Information, description);
             listUsers.RefreshView();
         }
@@ -211,6 +227,10 @@
             string description = string.Format("El usuario {0} fue habilitado.", user.Nick);
 
             _mUser.EditUser(_context, user);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(description, ETypeOfMessage.Information);
+
             listUsers.ShowMessage(ETypeOfMessage.Information, description);
             listUsers.RefreshView();
         }
@@ -226,6 +246,10 @@
             string message = string.Format("El usuario con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mUser.DeleteUser(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listUsers.ShowMessage(ETypeOfMessage.Information, message);
             listUsers.RefreshView();
         }
@@ -288,10 +312,16 @@
                 var user = _mUser.GetUser(_context, nick, password);
                 if (user != null)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(string.Format("El usurio {0} ha entrado en el sistema.", nick), ETypeOfMessage.Information);
+
                     control.DisplayMain(user);
                 }
                 else
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(message, ETypeOfMessage.Warning);
+
                     control.ShowMessage(ETypeOfMessage.Warning, message);
                 }
             }
@@ -314,6 +344,9 @@
         public void LogOff(IControlUser control)
         {
             string message = string.Format("{0} ha cerrado sesión.", UserLog.Instance.FullName);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
 
             UserLog.Dispose();
             control.ShowMessage(ETypeOfMessage.Warning, message);

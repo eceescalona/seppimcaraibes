@@ -1,11 +1,12 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Customer
 {
     using DevExpress.XtraEditors;
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal partial class V_ListCustomersForm : Form, Controller.IListCustomers
+    internal partial class V_ListCustomersForm : Form, IListCustomers
     {
         private const string NAME_FORM = "Listar Clientes";
         private const string DELETE_MESSAGE = "Si elimina al cliente del sistema, este desaparecerá permanentemente del mismo. " +
@@ -16,9 +17,9 @@
             " Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar al cliente. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private Controller.C_Customer _cCustomer;
+        private readonly C_Customer _cCustomer;
         private bool _isCCustomerAlive;
 
 
@@ -28,11 +29,11 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cCustomer = new Controller.C_Customer();
+            _cCustomer = new C_Customer();
             _isCCustomerAlive = true;
         }
 
-        public V_ListCustomersForm(Controller.C_Customer cCustomer)
+        public V_ListCustomersForm(C_Customer cCustomer)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -121,23 +122,35 @@
         #region CustomerManage
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCCustomerAlive = true;
-            var addCustomer = new V_AddEditCustomerForm(_cCustomer);
-            addCustomer.StartPosition = FormStartPosition.CenterScreen;
-            addCustomer.BringToFront();
-            DialogResult result = addCustomer.ShowDialog();
-            if (result == DialogResult.OK)
+            try
             {
-                RefreshView();
+                _isCCustomerAlive = true;
+
+                using (var addCustomer = new V_AddEditCustomerForm(_cCustomer)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addCustomer.BringToFront();
+                    DialogResult result = addCustomer.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -147,24 +160,37 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCCustomerAlive = true;
-                var row = customersGV.GetRow(customersGV.FocusedRowHandle) as Data.ORM.CustomersView;
-                var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code);
-                editCustomer.StartPosition = FormStartPosition.CenterScreen;
-                editCustomer.BringToFront();
-                DialogResult result = editCustomer.ShowDialog();
-                if (result == DialogResult.OK)
+                try
                 {
-                    _cCustomer.GetContext().Entry(row).Reload();
-                    RefreshView();
+                    _isCCustomerAlive = true;
+                    var row = customersGV.GetRow(customersGV.FocusedRowHandle) as Data.ORM.CustomersView;
+
+                    using (var editCustomer = new V_AddEditCustomerForm(_cCustomer, row.Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editCustomer.BringToFront();
+                        DialogResult result = editCustomer.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            _cCustomer.GetContext().Entry(row).Reload();
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -181,14 +207,25 @@
                         _cCustomer.DeleteCustomer(this, row.Code);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cCustomer.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         #endregion
 
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            Close();
+        }
 
         private void V_ListCustomersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -201,11 +238,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }

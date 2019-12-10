@@ -49,7 +49,7 @@
                 fields.Add(field, message);
             }
 
-            if (role.Permissions != null && role.Permissions.Count > 0)
+            if (role.RolePermissions != null && role.RolePermissions.Count > 0)
             {
                 flag = false;
                 field = "permissionsSLUE";
@@ -115,6 +115,10 @@
             if (Validate(role, out Dictionary<string, string> fields))
             {
                 _mRole.AddRole(_context, role);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditRole.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -136,6 +140,10 @@
             if (Validate(role, out Dictionary<string, string> fields))
             {
                 _mRole.EditRole(_context, role);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditRole.ShowMessage(ETypeOfMessage.Information, message);
             }
             else
@@ -149,6 +157,10 @@
             string message = string.Format("El role con código {0} ha sido eliminado satisfactoriamente.", code);
 
             _mRole.DeleteRole(_context, code);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(message, ETypeOfMessage.Information);
+
             listRole.ShowMessage(ETypeOfMessage.Information, message);
             listRole.RefreshView();
         }

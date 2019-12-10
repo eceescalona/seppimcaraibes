@@ -106,6 +106,10 @@
             if (Validate(bank, out Dictionary<string, string> fields))
             {
                 _mBank.AddBank(_context, bank);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(message, ETypeOfMessage.Information);
+
                 addEditBank.ShowMessage(ETypeOfMessage.Information, message);
                 idBank = _mBank.GetIdBank(_context, bank.BankName, bank.BankAddress);
             }

@@ -1,13 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Role
 {
     using DevExpress.XtraEditors;
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Windows.Forms;
 
-    internal partial class V_ListRolesForm : Form, Controller.IListRoles
+    internal partial class V_ListRolesForm : Form, IListRoles
     {
         private const string NAME_FORM = "Listar Roles";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_USER_ERROR = "Ha ocurrido un error y no se pudo registrar el nuevo usuario. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
         private const string DELETE_MESSAGE = "Si elimina un rol del sistema, este desaparecerá permanentemente del mismo. " +
@@ -18,9 +18,10 @@
             " Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar el rol. Porfavor vuelva a intentarlo. Si el error persiste llame al desarrollador." +
             " Gracias y disculpe las molestias.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Role _cRole;
-        private readonly Controller.C_User _cUser;
+        private readonly C_Role _cRole;
+        private readonly C_User _cUser;
         private bool _isCRoleAlive;
 
 
@@ -30,16 +31,16 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cRole = new Controller.C_Role();
+            _cRole = new C_Role();
             _isCRoleAlive = true;
         }
 
-        public V_ListRolesForm(Controller.C_User cUser)
+        public V_ListRolesForm(C_User cUser)
         {
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cRole = new Controller.C_Role();
+            _cRole = new C_Role();
             _isCRoleAlive = true;
 
             _cUser = cUser;
@@ -112,24 +113,35 @@
         #region UserManagement
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCRoleAlive = true;
-            var addUser = new V_AddEditRoleForm(_cRole)
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addUser.BringToFront();
-            DialogResult result = addUser.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                RefreshView();
+                _isCRoleAlive = true;
+
+                using (var addUser = new V_AddEditRoleForm(_cRole)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addUser.BringToFront();
+                    DialogResult result = addUser.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -139,50 +151,72 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCRoleAlive = true;
-                var row = roleGV.GetRow(roleGV.FocusedRowHandle) as Data.ORM.RoleView;
-                var addUser = new User.V_AddEditUserForm(_cUser,row.RoleId)
+                try
                 {
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-                addUser.BringToFront();
-                DialogResult result = addUser.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    RefreshView();
+                    _isCRoleAlive = true;
+                    var row = roleGV.GetRow(roleGV.FocusedRowHandle) as Data.ORM.RoleView;
+
+                    using (var addUser = new User.V_AddEditUserForm(_cUser, row.RoleId)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        addUser.BringToFront();
+                        DialogResult result = addUser.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else
+                        {
+                            MessageBox.Show(ADD_USER_ERROR, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(ADD_USER_ERROR, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
             if (e.Button == btnEdit.Properties.Buttons[1])
             {
-                _isCRoleAlive = true;
-                var row = roleGV.GetRow(roleGV.FocusedRowHandle) as Data.ORM.RoleView;
-                var editCustomer = new V_AddEditRoleForm(_cRole, row.RoleId)
+                try
                 {
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-                editCustomer.BringToFront();
-                DialogResult result = editCustomer.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    _cRole.GetContext().Entry(row).Reload();
-                    RefreshView();
+                    _isCRoleAlive = true;
+                    var row = roleGV.GetRow(roleGV.FocusedRowHandle) as Data.ORM.RoleView;
+
+                    using (var editCustomer = new V_AddEditRoleForm(_cRole, row.RoleId)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editCustomer.BringToFront();
+                        DialogResult result = editCustomer.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            _cRole.GetContext().Entry(row).Reload();
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -199,8 +233,11 @@
                         _cRole.DeleteRole(this, row.RoleId);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cRole.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -210,6 +247,9 @@
 
         private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
             Close();
         }
 

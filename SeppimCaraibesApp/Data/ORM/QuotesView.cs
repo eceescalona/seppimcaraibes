@@ -1,8 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("QuotesView")]
     internal partial class QuotesView
@@ -53,8 +55,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         public EDevise? Devise { get; set; }
 
-        public decimal? Incoterm { get; set; }
-
         [Column("Product Code")]
         [StringLength(50)]
         public string Product_Code { get; set; }
@@ -86,9 +86,6 @@ namespace SeppimCaraibesApp.Data.ORM
 
         [Column("Net Weight")]
         public decimal? Net_Weight { get; set; }
-
-        [StringLength(50)]
-        public string Packing { get; set; }
 
         [Column("Place of Departure")]
         [StringLength(250)]

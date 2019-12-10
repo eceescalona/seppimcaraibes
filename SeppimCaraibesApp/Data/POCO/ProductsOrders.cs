@@ -15,10 +15,8 @@
 
         public int? Qty { get; set; }
 
-        public decimal? Discount { get; set; }
-
-        public decimal? Interests { get; set; }
-
         public decimal? UnitPrice { get; set; }
+
+        public decimal? SalePrice { get; set; }
     }
 }

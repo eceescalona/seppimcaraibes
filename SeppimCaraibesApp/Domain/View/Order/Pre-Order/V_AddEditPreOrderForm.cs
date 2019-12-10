@@ -1,14 +1,14 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Order
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditPreOrderForm : Form, Controller.IAddEditOrder
+    internal partial class V_AddEditPreOrderForm : Form, IAddEditOrder
     {
-        private const string CANCEL_ADD_CUSTOMER_MESSAGE = "La operación ha sido cancelada.";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar el nuevo cliente. Porfavor vuelva a intentarlo. " +
             "Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string LABEL_MESSAGE_PRODUCT = "Debe seleccionar al menos un producto";
@@ -18,9 +18,10 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_Order _cOrder;
-        private readonly Controller.C_Product _cProduct;
+        private readonly C_Order _cOrder;
+        private readonly C_Product _cProduct;
         private bool _isCOrderAlive;
         private readonly bool _isAddOrEdit;
         private bool _isFieldWithError;
@@ -33,42 +34,40 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
-            _cOrder = new Controller.C_Order();
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
+            _cOrder = new C_Order();
+            _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
         }
 
-        public V_AddEditPreOrderForm(Controller.C_Order cOrder)
+        public V_AddEditPreOrderForm(C_Order cOrder)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
             _cOrder = cOrder;
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
+            _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isAddOrEdit = false;
             _isFieldWithError = false;
             _idCustomer = string.Empty;
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             orderBS.DataSource = new Data.ORM.Order();
         }
 
-        public V_AddEditPreOrderForm(Controller.C_Order cOrder, string code)
+        public V_AddEditPreOrderForm(C_Order cOrder, string code)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
 
             _cOrder = cOrder;
-            _cProduct = new Controller.C_Product(_cOrder.GetContext());
+            _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
             _isAddOrEdit = true;
             _isFieldWithError = false;
@@ -77,13 +76,16 @@
             _cOrder.EditOrder(this, code);
 
             customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-            productsBS.DataSource = _cProduct.FillProductsOrders();
         }
         #endregion
 
 
         private void V_AddEditPreOrderForm_Load(object sender, EventArgs e)
         {
+            productsBS.DataSource = _cProduct.FillProductsOrders();
+
+            InitializeLUE();
+
             if (_isAddOrEdit)
             {
                 customerSLUE.Enabled = false;
@@ -111,6 +113,7 @@
                             if (row.ProductId == product.ProductId)
                             {
                                 row.Qty = product.Qty;
+                                row.SalePrice = product.Discount;
                                 productsGV.SelectRow(e.RowHandle);
                             }
                         }
@@ -138,6 +141,27 @@
             e.HighPriority = true;
         }
 
+        private void InitializeLUE()
+        {
+            paymentOptionsBS.DataSource = typeof(EPaymentOption);
+            var tempEPO = Enum.GetValues(typeof(EPaymentOption));
+            paymentOptionsBS.Clear();
+            paymentOptionsBS.DataSource = tempEPO;
+            paymentOptionLUE.Properties.DataSource = paymentOptionsBS.List;
+
+            incotermsBS.DataSource = typeof(EIncoterms);
+            var tempEI = Enum.GetValues(typeof(EIncoterms));
+            incotermsBS.Clear();
+            incotermsBS.DataSource = tempEI;
+            eIncotermLUE.Properties.DataSource = incotermsBS.List;
+
+            deviseBS.DataSource = typeof(EDevise);
+            var tempEDevise = Enum.GetValues(typeof(EDevise));
+            deviseBS.Clear();
+            deviseBS.DataSource = tempEDevise;
+            deviseLUE.Properties.DataSource = deviseBS.List;
+        }
+
 
         #region IAddEditOrder
         public void EditOrder(Data.ORM.Order order)
@@ -145,6 +169,21 @@
             orderBS.DataSource = order;
             _idCustomer = order.CustomerId;
             customerSLUE.EditValue = _idCustomer;
+
+            if (order.PaymentOption != null)
+            {
+                paymentOptionLUE.EditValue = order.PaymentOption;
+            }
+
+            if (order.IncotermType != null)
+            {
+                eIncotermLUE.EditValue = order.IncotermType;
+            }
+
+            if (order.Devise != null)
+            {
+                deviseLUE.EditValue = order.Devise;
+            }
         }
 
         public void RefreshView()
@@ -179,6 +218,10 @@
             orderBS.DataSource = new Data.ORM.Order();
             productsBS.ResetBindings(true);
             productsBS.DataSource = _cProduct.FillProductsOrders();
+
+            paymentOptionLUE.EditValue = null;
+            deviseLUE.EditValue = null;
+            eIncotermLUE.EditValue = null;
         }
 
         public void ShowFieldsWithError(Dictionary<string, string> fields)
@@ -265,29 +308,39 @@
         #region ActionsButtons
         private void AddCustomerSB_Click(object sender, EventArgs e)
         {
-            _isCOrderAlive = true;
-            var addCustomer = new Customer.V_AddEditCustomerForm
+            try
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            addCustomer.BringToFront();
-            DialogResult result = addCustomer.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _idCustomer = addCustomer.code;
-                customerEIFS.Refresh();
-                customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
-                customerSLUE.EditValue = _idCustomer;
-                customerSLUE.Enabled = false;
+                _isCOrderAlive = true;
+
+                using (var addCustomer = new Customer.V_AddEditCustomerForm
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addCustomer.BringToFront();
+                    DialogResult result = addCustomer.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        _idCustomer = addCustomer.code;
+                        customerEIFS.Refresh();
+                        customerEIFS.GetQueryable += CustomerEIFS_GetQueryable;
+                        customerSLUE.EditValue = _idCustomer;
+                        customerSLUE.Enabled = false;
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_ADD_CUSTOMER_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -311,6 +364,21 @@
 
                 var customer = (Data.ORM.Customer)customerSLUEV.GetFocusedRow();
 
+                if (!string.IsNullOrWhiteSpace(paymentOptionLUE.Text))
+                {
+                    order.PaymentOption = (EPaymentOption)Enum.Parse(typeof(EPaymentOption), paymentOptionLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(eIncotermLUE.Text))
+                {
+                    order.IncotermType = (EIncoterms)Enum.Parse(typeof(EIncoterms), eIncotermLUE.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(deviseLUE.Text))
+                {
+                    order.Devise = (EDevise)Enum.Parse(typeof(EDevise), deviseLUE.Text);
+                }
+
                 if (_isAddOrEdit)
                 {
                     _cOrder.EditOrder(this, order, products);
@@ -331,10 +399,13 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -359,9 +430,24 @@
             if (result == DialogResult.Yes)
             {
                 _isCOrderAlive = true;
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

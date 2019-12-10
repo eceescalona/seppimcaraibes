@@ -1,8 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Role")]
     internal partial class Role
@@ -11,7 +13,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public Role()
         {
             Users = new HashSet<User>();
-            Permissions = new HashSet<Permission>();
+            RolePermissions = new HashSet<RolePermission>();
         }
 
         public int RoleId { get; set; }
@@ -28,6 +30,6 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual ICollection<User> Users { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<RolePermission> RolePermissions { get; set; }
     }
 }

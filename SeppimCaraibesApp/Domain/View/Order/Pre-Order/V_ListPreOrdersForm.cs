@@ -5,10 +5,13 @@
     using System.Collections.Generic;
     using System.Windows.Forms;
     using System.Data.Entity;
+    using SeppimCaraibesApp.Domain.Controller;
 
-    internal partial class V_ListPreOrdersForm : Form, Controller.IListOrders
+    internal partial class V_ListPreOrdersForm : Form, IListOrders
     {
         private const string NAME_FORM = "Listar Pre-Ordenes";
+        private const string SELECT_PROVIDER = "Uds. va a seleccionar un proveedor y se previsualizará el documento de la Cotización en blanco. " +
+            "¿Está seguro(a) de querer continuar?";
         private const string DELETE_MESSAGE = "Si elimina la orden del sistema, este desaparecerá permanentemente del mismo. " +
             "¿Está seguro(a) de querer eliminar la orden ";
         private const string ADD_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo registrar la nueva orden. Porfavor vuelva a intentarlo." +
@@ -17,12 +20,14 @@
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string DELETE_ERROR_MESSAGE = "Ha ocurrido un error y no se pudo eliminar la orden. Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
-        private const string CANCEL_MESSAGE = "La operación ha sido cancelada.";
         private const string CONVERT_MESSAGE = "Uds. está cambiando la Pre-Orden a Cotizar. ¿Está seguro(a) de querer continuar?";
+        private const string MESSAGE_SHOW_ERROR = "El documento no pudo ser mostrado. Porfavor vuelva a intentarlo." +
+            " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
         private const string CONVERT_MESSAGE_ERROR = "Ha ocurrido un error y no se pudo convertir la orden.Porfavor vuelva a intentarlo." +
             " Si el error persiste llame al desarrollador. Gracias y disculpe las molestias.";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private Controller.C_Order _cOrder;
+        private readonly C_Order _cOrder;
         private bool _isCOrdenAlive;
 
 
@@ -32,11 +37,11 @@
             InitializeComponent();
             Text = NAME_FORM;
 
-            _cOrder = new Controller.C_Order();
+            _cOrder = new C_Order();
             _isCOrdenAlive = true;
         }
 
-        public V_ListPreOrdersForm(Controller.C_Order cOrden)
+        public V_ListPreOrdersForm(C_Order cOrden)
         {
             InitializeComponent();
             Text = NAME_FORM;
@@ -130,23 +135,35 @@
         #region OrderManage
         private void RegisterBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _isCOrdenAlive = true;
-            var addOrder = new V_AddEditPreOrderForm(_cOrder);
-            addOrder.StartPosition = FormStartPosition.CenterScreen;
-            addOrder.BringToFront();
-            DialogResult result = addOrder.ShowDialog();
-            if (result == DialogResult.OK)
+            try
             {
-                RefreshView();
+                _isCOrdenAlive = true;
+
+                using (var addOrder = new V_AddEditPreOrderForm(_cOrder)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    addOrder.BringToFront();
+                    DialogResult result = addOrder.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshView();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        RefreshView();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else if (result == DialogResult.Cancel)
+            catch (Exception ex)
             {
-                MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshView();
-            }
-            else
-            {
-                MessageBox.Show(ADD_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
             }
         }
 
@@ -156,23 +173,36 @@
 
             if (e.Button == btnEdit.Properties.Buttons[0])
             {
-                _isCOrdenAlive = true;
-                var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
-                var editOrder = new V_AddEditPreOrderForm(_cOrder, row.Order_Code);
-                editOrder.StartPosition = FormStartPosition.CenterScreen;
-                editOrder.BringToFront();
-                DialogResult result = editOrder.ShowDialog();
-                if (result == DialogResult.OK)
+                try
                 {
-                    RefreshView();
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
+
+                    using (var editOrder = new V_AddEditPreOrderForm(_cOrder, row.Order_Code)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen
+                    })
+                    {
+                        editOrder.BringToFront();
+                        DialogResult result = editOrder.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            RefreshView();
+                        }
+                        else if (result == DialogResult.Abort)
+                        {
+                            MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else if (result == DialogResult.Cancel)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(CANCEL_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Information), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    MessageBox.Show(EDIT_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
                 }
             }
 
@@ -191,8 +221,11 @@
                         Refresh(row);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(DELETE_ERROR_MESSAGE, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -207,20 +240,68 @@
                         MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code);
-                        selectProvider.StartPosition = FormStartPosition.CenterScreen;
-                        selectProvider.BringToFront();
-                        DialogResult resultDialog = selectProvider.ShowDialog();
-                        if (resultDialog == DialogResult.OK)
-                        {
-                            _cOrder.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
-                        }
+                        _cOrder.EditOrder(this, row.Order_Code, EOrderProcessState.Quote);
+
                         Refresh(row);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
                     MessageBox.Show(CONVERT_MESSAGE_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (e.Button == btnEdit.Properties.Buttons[3])
+            {
+                try
+                {
+                    _isCOrdenAlive = true;
+                    var row = (Data.ORM.PreOrdersView)preOrdersGV.GetRow(preOrdersGV.FocusedRowHandle);
+
+                    if (_cOrder.ValidateProvider(row.Order_Code))
+                    {
+                        var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
+                        {
+                            StartPosition = FormStartPosition.CenterScreen
+                        };
+                        documentView.BringToFront();
+                        documentView.ShowDialog();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show(SELECT_PROVIDER, _cOrder.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            using (var selectProvider = new D_SelectProviderForm(_cOrder, row.Order_Code)
+                            {
+                                StartPosition = FormStartPosition.CenterScreen
+                            })
+                            {
+                                selectProvider.BringToFront();
+                                DialogResult resultDialog = selectProvider.ShowDialog();
+                                if (resultDialog == DialogResult.OK)
+                                {
+                                    var documentView = new V_ReportQuoteForm(_cOrder, row.Order_Code)
+                                    {
+                                        StartPosition = FormStartPosition.CenterScreen
+                                    };
+                                    documentView.BringToFront();
+                                    documentView.ShowDialog();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(ex.Message, ETypeOfMessage.Error);
+
+                    MessageBox.Show(MESSAGE_SHOW_ERROR, _cOrder.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -229,10 +310,31 @@
 
         private void ListQuotesBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var listQuotes = new V_ListQuotesForm(_cOrder);
-            listQuotes.StartPosition = FormStartPosition.CenterScreen;
-            listQuotes.BringToFront();
-            listQuotes.ShowDialog();
+            try
+            {
+                using (var listQuotes = new V_ListQuotesForm(_cOrder)
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    listQuotes.BringToFront();
+                    listQuotes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
+        }
+
+
+        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            Close();
         }
 
         private void V_ListPreOrdersForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -246,11 +348,6 @@
             {
                 Dispose();
             }
-        }
-
-        private void CloseBBI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }

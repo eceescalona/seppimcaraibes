@@ -1,12 +1,13 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.User
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class V_AddEditUserForm : Form, Controller.IAddEditUser
+    internal partial class V_AddEditUserForm : Form, IAddEditUser
     {
         private const string NAME_FORM_ADD = "Registrar Usuario";
         private const string LABEL_MESSAGE_ROLE = "Debe seleccionar un rol";
@@ -14,8 +15,9 @@
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre el formulario y " +
             "vuelva a abrirlo. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "Si no guarda, perderá los datos introducidos. ¿Desea continuar?";
+        private const string CLOSE_MESSAGE = "Uds. a terminado, la ventana cerrará.";
 
-        private readonly Controller.C_User _cUser;
+        private readonly C_User _cUser;
         private readonly bool _isAddOrEdit;
         private readonly bool _changePassword;
         private bool _isCUserAlive;
@@ -24,7 +26,7 @@
 
 
         #region Ctor
-        public V_AddEditUserForm(Controller.C_User cUser)
+        public V_AddEditUserForm(C_User cUser)
         {
             InitializeComponent();
             Text = NAME_FORM_ADD;
@@ -37,9 +39,10 @@
             _changePassword = false;
 
             userBS.DataSource = new Data.ORM.User();
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
 
-        public V_AddEditUserForm(Controller.C_User cUser, int idRol)
+        public V_AddEditUserForm(C_User cUser, int idRol)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -55,9 +58,10 @@
             _changePassword = false;
 
             userBS.DataSource = new Data.ORM.User();
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
 
-        public V_AddEditUserForm(Controller.C_User cUser, int code, bool changePassword)
+        public V_AddEditUserForm(C_User cUser, int code, bool changePassword)
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
@@ -79,14 +83,10 @@
             }
 
             _cUser.EditUser(this, code);
+            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
         }
         #endregion
 
-
-        private void V_AddEditUserForm_Load(object sender, EventArgs e)
-        {
-            roleEIFBS.GetQueryable += RoleEIFBS_GetQueryable;
-        }
 
         private void RoleEIFBS_GetQueryable(object sender, DevExpress.Data.Linq.GetQueryableEventArgs e)
         {
@@ -278,10 +278,13 @@
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -308,6 +311,10 @@
                 {
                     _isCUserAlive = true;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
@@ -317,9 +324,24 @@
                 {
                     _isCUserAlive = false;
                     DialogResult = DialogResult.Cancel;
+
+                    C_Log _cLog = new C_Log();
+                    _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                     Close();
                 }
             }
+        }
+
+        private void CloseSB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CLOSE_MESSAGE, _cUser.GetEnumDescription(ETypeOfMessage.Warning), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write(CLOSE_MESSAGE, ETypeOfMessage.Information);
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
         #endregion
 

@@ -1,18 +1,19 @@
 ﻿namespace SeppimCaraibesApp.Domain.View
 {
+    using SeppimCaraibesApp.Domain.Controller;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
-    internal partial class U_LogginPage : Form, Controller.IControlUser
+    internal partial class U_LogginPage : Form, IControlUser
     {
         private const string MESSAGE_ERROR = "Ha ocurrido un error; por favor vuelva a intentarlo. Si el error persiste cierre la aplicación y " +
             "vuelva a abrirla. Gracias y disculpe las molestias.";
         private const string CANCEL_MESSAGE = "¿Desea salir?";
 
-        private readonly Controller.C_User _cUser;
+        private readonly C_User _cUser;
         private bool _isFieldWithError;
 
 
@@ -22,7 +23,7 @@
 
             nickTE.Select();
 
-            _cUser = new Controller.C_User();
+            _cUser = new C_User();
             _isFieldWithError = false;
         }
 
@@ -30,14 +31,25 @@
         #region IControlUser
         public void DisplayMain(Data.ORM.User user)
         {
-            _cUser.SetLogginUser(user);
-            var main = new V_MainForm(_cUser)
+            try
             {
-                Owner = this
-            };
-            main.BringToFront();
-            main.Show();
-            Visible = false;
+                _cUser.SetLogginUser(user);
+
+                var main = new V_MainForm(_cUser)
+                {
+                    Owner = this
+                };
+
+                main.BringToFront();
+                main.Show();
+                Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
         }
 
         public void LogOff()
@@ -129,10 +141,13 @@
                     _isFieldWithError = false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 DialogResult result = MessageBox.Show(MESSAGE_ERROR, _cUser.GetEnumDescription(ETypeOfMessage.Error), MessageBoxButtons.AbortRetryIgnore,
                     MessageBoxIcon.Error);
+
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
 
                 if (result == DialogResult.Retry)
                 {
@@ -155,6 +170,9 @@
 
             if (result == DialogResult.Yes)
             {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(CANCEL_MESSAGE, ETypeOfMessage.Information);
+
                 Close();
             }
             else
@@ -168,6 +186,10 @@
         private void U_LogginPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             _cUser.Dispose();
+
+            C_Log _cLog = new C_Log();
+            _cLog.Write("La aplicación cerró.", ETypeOfMessage.Information);
+
             Application.Exit();
         }
     }

@@ -12,7 +12,8 @@
 
         public  ORM.User GetUser(ORM.SeppimCaraibesLocalEntities context, string nick, string pass)
         {
-            return context.Users.SingleOrDefault( u => u.Nick.Equals(nick) && u.Password.Equals(pass));
+            var user = context.Users.SingleOrDefault( u => u.Nick.Equals(nick) && u.Password.Equals(pass));
+            return user;
         }
 
         public void AddUser(ORM.SeppimCaraibesLocalEntities context, ORM.User user)

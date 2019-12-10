@@ -60,6 +60,7 @@
             this.colPermissionName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.roleRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolePC)).BeginInit();
             this.rolePC.SuspendLayout();
@@ -73,6 +74,7 @@
             this.roleRC.ExpandCollapseItem.Id = 0;
             this.roleRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.roleRC.ExpandCollapseItem,
+            this.roleRC.SearchEditItem,
             this.closeBBI,
             this.registerBBI,
             this.findBBI,
@@ -107,6 +109,7 @@
             this.registerBBI.ImageOptions.Image = global::SeppimCaraibesApp.Properties.Resources.New_32x32;
             this.registerBBI.Name = "registerBBI";
             this.registerBBI.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.registerBBI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RegisterBBI_ItemClick);
             // 
             // findBBI
             // 
@@ -236,12 +239,22 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Eliminar", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.actionsRIBE.Name = "actionsRIBE";
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(6, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Roles";
             // 
             // V_ListRolesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.rolePC);
             this.Controls.Add(this.roleRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -279,5 +292,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPermissionName;
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

@@ -33,8 +33,8 @@
             this.addEditProviderLC = new DevExpress.XtraLayout.LayoutControl();
             this.buttonPC = new DevExpress.XtraEditors.PanelControl();
             this.buttonLC = new DevExpress.XtraLayout.LayoutControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cancelPC = new DevExpress.XtraEditors.PanelControl();
-            this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
             this.acceptPC = new DevExpress.XtraEditors.PanelControl();
             this.acceptSB = new DevExpress.XtraEditors.SimpleButton();
             this.emptyPC = new DevExpress.XtraEditors.PanelControl();
@@ -42,6 +42,7 @@
             this.emptyLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.acceptLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.productPC = new DevExpress.XtraEditors.PanelControl();
             this.productsGC = new DevExpress.XtraEditors.GroupControl();
             this.productsGCLC = new DevExpress.XtraLayout.LayoutControl();
@@ -79,12 +80,16 @@
             this.providerLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonLCI = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cancelSB = new DevExpress.XtraEditors.SimpleButton();
+            this.closeSB = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.addEditProviderLC)).BeginInit();
             this.addEditProviderLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonPC)).BeginInit();
             this.buttonPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLC)).BeginInit();
             this.buttonLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).BeginInit();
             this.cancelPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).BeginInit();
@@ -94,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPC)).BeginInit();
             this.productPC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGC)).BeginInit();
@@ -149,6 +155,7 @@
             // 
             // buttonLC
             // 
+            this.buttonLC.Controls.Add(this.panelControl1);
             this.buttonLC.Controls.Add(this.cancelPC);
             this.buttonLC.Controls.Add(this.acceptPC);
             this.buttonLC.Controls.Add(this.emptyPC);
@@ -160,31 +167,28 @@
             this.buttonLC.TabIndex = 0;
             this.buttonLC.Text = "layoutControl1";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.closeSB);
+            this.panelControl1.Location = new System.Drawing.Point(615, 12);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(145, 27);
+            this.panelControl1.TabIndex = 5;
+            // 
             // cancelPC
             // 
             this.cancelPC.Controls.Add(this.cancelSB);
-            this.cancelPC.Location = new System.Drawing.Point(596, 12);
+            this.cancelPC.Location = new System.Drawing.Point(458, 12);
             this.cancelPC.Name = "cancelPC";
-            this.cancelPC.Size = new System.Drawing.Size(164, 26);
+            this.cancelPC.Size = new System.Drawing.Size(153, 27);
             this.cancelPC.TabIndex = 0;
-            // 
-            // cancelSB
-            // 
-            this.cancelSB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelSB.Location = new System.Drawing.Point(2, 2);
-            this.cancelSB.Name = "cancelSB";
-            this.cancelSB.Size = new System.Drawing.Size(160, 22);
-            this.cancelSB.TabIndex = 0;
-            this.cancelSB.Text = "Cancelar";
-            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
             // 
             // acceptPC
             // 
             this.acceptPC.Controls.Add(this.acceptSB);
-            this.acceptPC.Location = new System.Drawing.Point(420, 12);
+            this.acceptPC.Location = new System.Drawing.Point(305, 12);
             this.acceptPC.Name = "acceptPC";
-            this.acceptPC.Size = new System.Drawing.Size(172, 26);
+            this.acceptPC.Size = new System.Drawing.Size(149, 26);
             this.acceptPC.TabIndex = 0;
             // 
             // acceptSB
@@ -192,7 +196,7 @@
             this.acceptSB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acceptSB.Location = new System.Drawing.Point(2, 2);
             this.acceptSB.Name = "acceptSB";
-            this.acceptSB.Size = new System.Drawing.Size(168, 22);
+            this.acceptSB.Size = new System.Drawing.Size(145, 22);
             this.acceptSB.TabIndex = 0;
             this.acceptSB.Text = "Aceptar";
             this.acceptSB.Click += new System.EventHandler(this.AcceptSB_Click);
@@ -201,7 +205,7 @@
             // 
             this.emptyPC.Location = new System.Drawing.Point(12, 12);
             this.emptyPC.Name = "emptyPC";
-            this.emptyPC.Size = new System.Drawing.Size(404, 27);
+            this.emptyPC.Size = new System.Drawing.Size(289, 27);
             this.emptyPC.TabIndex = 4;
             // 
             // buttonLCG
@@ -211,7 +215,8 @@
             this.buttonLCG.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptyLCI,
             this.acceptLCI,
-            this.cancelLCI});
+            this.cancelLCI,
+            this.layoutControlItem1});
             this.buttonLCG.Name = "buttonLCG";
             this.buttonLCG.Size = new System.Drawing.Size(772, 51);
             this.buttonLCG.TextVisible = false;
@@ -221,27 +226,36 @@
             this.emptyLCI.Control = this.emptyPC;
             this.emptyLCI.Location = new System.Drawing.Point(0, 0);
             this.emptyLCI.Name = "emptyLCI";
-            this.emptyLCI.Size = new System.Drawing.Size(408, 31);
+            this.emptyLCI.Size = new System.Drawing.Size(293, 31);
             this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyLCI.TextVisible = false;
             // 
             // acceptLCI
             // 
             this.acceptLCI.Control = this.acceptPC;
-            this.acceptLCI.Location = new System.Drawing.Point(408, 0);
+            this.acceptLCI.Location = new System.Drawing.Point(293, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(176, 31);
+            this.acceptLCI.Size = new System.Drawing.Size(153, 31);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // cancelLCI
             // 
             this.cancelLCI.Control = this.cancelPC;
-            this.cancelLCI.Location = new System.Drawing.Point(584, 0);
+            this.cancelLCI.Location = new System.Drawing.Point(446, 0);
             this.cancelLCI.Name = "cancelLCI";
-            this.cancelLCI.Size = new System.Drawing.Size(168, 31);
+            this.cancelLCI.Size = new System.Drawing.Size(157, 31);
             this.cancelLCI.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLCI.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.panelControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(603, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(149, 31);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // productPC
             // 
@@ -501,7 +515,7 @@
             // 
             // addressLC
             // 
-            this.addressLC.Location = new System.Drawing.Point(65, 191);
+            this.addressLC.Location = new System.Drawing.Point(65, 192);
             this.addressLC.Name = "addressLC";
             this.addressLC.Size = new System.Drawing.Size(47, 13);
             this.addressLC.TabIndex = 4;
@@ -578,12 +592,30 @@
             this.buttonLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonLCI.TextVisible = false;
             // 
+            // cancelSB
+            // 
+            this.cancelSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelSB.Location = new System.Drawing.Point(2, 2);
+            this.cancelSB.Name = "cancelSB";
+            this.cancelSB.Size = new System.Drawing.Size(149, 23);
+            this.cancelSB.TabIndex = 0;
+            this.cancelSB.Text = "Cancelar";
+            this.cancelSB.Click += new System.EventHandler(this.CancelSB_Click);
+            // 
+            // closeSB
+            // 
+            this.closeSB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closeSB.Location = new System.Drawing.Point(2, 2);
+            this.closeSB.Name = "closeSB";
+            this.closeSB.Size = new System.Drawing.Size(141, 23);
+            this.closeSB.TabIndex = 0;
+            this.closeSB.Text = "Terminar";
+            this.closeSB.Click += new System.EventHandler(this.CloseSB_Click);
+            // 
             // V_AddEditProviderForm
             // 
-            this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelSB;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addEditProviderLC);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -597,6 +629,8 @@
             this.buttonPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonLC)).EndInit();
             this.buttonLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cancelPC)).EndInit();
             this.cancelPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.acceptPC)).EndInit();
@@ -606,6 +640,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptyLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptLCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPC)).EndInit();
             this.productPC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsGC)).EndInit();
@@ -654,7 +689,6 @@
         private DevExpress.XtraLayout.LayoutControlItem buttonLCI;
         private DevExpress.XtraLayout.LayoutControl buttonLC;
         private DevExpress.XtraEditors.PanelControl cancelPC;
-        private DevExpress.XtraEditors.SimpleButton cancelSB;
         private DevExpress.XtraEditors.PanelControl acceptPC;
         private DevExpress.XtraEditors.SimpleButton acceptSB;
         private DevExpress.XtraEditors.PanelControl emptyPC;
@@ -693,5 +727,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colProductId;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colProductDescription;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton closeSB;
+        private DevExpress.XtraEditors.SimpleButton cancelSB;
     }
 }

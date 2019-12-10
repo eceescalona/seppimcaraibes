@@ -92,6 +92,7 @@
             this.colPlace_of_Departure = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.actionsRIBE = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesRC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listQuotesPC)).BeginInit();
             this.listQuotesPC.SuspendLayout();
@@ -106,6 +107,7 @@
             this.listQuotesRC.ExpandCollapseItem.Id = 0;
             this.listQuotesRC.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.listQuotesRC.ExpandCollapseItem,
+            this.listQuotesRC.SearchEditItem,
             this.findBBI,
             this.filterBBI,
             this.refreshBBI,
@@ -519,11 +521,20 @@
             this.actionsRIBE.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.actionsRIBE.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActionsRIBE_ButtonClick);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(66, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Listar Ofertas";
+            // 
             // V_ListQuotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.listQuotesPC);
             this.Controls.Add(this.listQuotesRC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -588,5 +599,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colActions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit actionsRIBE;
         private DevExpress.XtraBars.BarButtonItem closeBBI;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

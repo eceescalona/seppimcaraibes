@@ -1,7 +1,10 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     internal partial class Product
     {
@@ -9,7 +12,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public Product()
         {
             ProductsOrders = new HashSet<ProductsOrder>();
-            Origins = new HashSet<Origin>();
+            ProductsOrigins = new HashSet<ProductsOrigin>();
             Providers = new HashSet<Provider>();
         }
 
@@ -36,7 +39,7 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual ICollection<ProductsOrder> ProductsOrders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Origin> Origins { get; set; }
+        public virtual ICollection<ProductsOrigin> ProductsOrigins { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Provider> Providers { get; set; }

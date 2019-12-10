@@ -84,16 +84,16 @@
             this.selectProviderLC.Location = new System.Drawing.Point(0, 0);
             this.selectProviderLC.Name = "selectProviderLC";
             this.selectProviderLC.Root = this.selectProviderLCG;
-            this.selectProviderLC.Size = new System.Drawing.Size(314, 450);
+            this.selectProviderLC.Size = new System.Drawing.Size(314, 134);
             this.selectProviderLC.TabIndex = 0;
             this.selectProviderLC.Text = "layoutControl1";
             // 
             // buttonPC
             // 
             this.buttonPC.Controls.Add(this.buttonLC);
-            this.buttonPC.Location = new System.Drawing.Point(12, 383);
+            this.buttonPC.Location = new System.Drawing.Point(12, 68);
             this.buttonPC.Name = "buttonPC";
-            this.buttonPC.Size = new System.Drawing.Size(290, 55);
+            this.buttonPC.Size = new System.Drawing.Size(290, 54);
             this.buttonPC.TabIndex = 6;
             // 
             // buttonLC
@@ -104,7 +104,7 @@
             this.buttonLC.Location = new System.Drawing.Point(2, 2);
             this.buttonLC.Name = "buttonLC";
             this.buttonLC.Root = this.buttonLCG;
-            this.buttonLC.Size = new System.Drawing.Size(286, 51);
+            this.buttonLC.Size = new System.Drawing.Size(286, 50);
             this.buttonLC.TabIndex = 0;
             this.buttonLC.Text = "layoutControl2";
             // 
@@ -130,7 +130,7 @@
             // 
             this.emptyPC.Location = new System.Drawing.Point(12, 12);
             this.emptyPC.Name = "emptyPC";
-            this.emptyPC.Size = new System.Drawing.Size(165, 27);
+            this.emptyPC.Size = new System.Drawing.Size(165, 26);
             this.emptyPC.TabIndex = 4;
             // 
             // buttonLCG
@@ -141,7 +141,7 @@
             this.emptyLCI,
             this.acceptLCI});
             this.buttonLCG.Name = "buttonLCG";
-            this.buttonLCG.Size = new System.Drawing.Size(286, 51);
+            this.buttonLCG.Size = new System.Drawing.Size(286, 50);
             this.buttonLCG.TextVisible = false;
             // 
             // emptyLCI
@@ -149,7 +149,7 @@
             this.emptyLCI.Control = this.emptyPC;
             this.emptyLCI.Location = new System.Drawing.Point(0, 0);
             this.emptyLCI.Name = "emptyLCI";
-            this.emptyLCI.Size = new System.Drawing.Size(169, 31);
+            this.emptyLCI.Size = new System.Drawing.Size(169, 30);
             this.emptyLCI.TextSize = new System.Drawing.Size(0, 0);
             this.emptyLCI.TextVisible = false;
             // 
@@ -158,21 +158,22 @@
             this.acceptLCI.Control = this.acceptPC;
             this.acceptLCI.Location = new System.Drawing.Point(169, 0);
             this.acceptLCI.Name = "acceptLCI";
-            this.acceptLCI.Size = new System.Drawing.Size(97, 31);
+            this.acceptLCI.Size = new System.Drawing.Size(97, 30);
             this.acceptLCI.TextSize = new System.Drawing.Size(0, 0);
             this.acceptLCI.TextVisible = false;
             // 
             // providerPC
             // 
             this.providerPC.Controls.Add(this.providerSLUE);
-            this.providerPC.Location = new System.Drawing.Point(12, 42);
+            this.providerPC.Location = new System.Drawing.Point(12, 40);
             this.providerPC.Name = "providerPC";
-            this.providerPC.Size = new System.Drawing.Size(290, 337);
+            this.providerPC.Size = new System.Drawing.Size(290, 24);
             this.providerPC.TabIndex = 5;
             // 
             // providerSLUE
             // 
-            this.providerSLUE.Location = new System.Drawing.Point(5, 5);
+            this.providerSLUE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.providerSLUE.Location = new System.Drawing.Point(2, 2);
             this.providerSLUE.Name = "providerSLUE";
             this.providerSLUE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -182,7 +183,7 @@
             this.providerSLUE.Properties.NullValuePrompt = "Proveedor";
             this.providerSLUE.Properties.PopupView = this.providerLUEV;
             this.providerSLUE.Properties.ValueMember = "ProviderId";
-            this.providerSLUE.Size = new System.Drawing.Size(281, 20);
+            this.providerSLUE.Size = new System.Drawing.Size(286, 20);
             this.providerSLUE.TabIndex = 0;
             // 
             // providerEIFS
@@ -224,7 +225,7 @@
             this.labelsPC.Controls.Add(this.providerLC);
             this.labelsPC.Location = new System.Drawing.Point(12, 12);
             this.labelsPC.Name = "labelsPC";
-            this.labelsPC.Size = new System.Drawing.Size(290, 26);
+            this.labelsPC.Size = new System.Drawing.Size(290, 24);
             this.labelsPC.TabIndex = 4;
             // 
             // messageLC
@@ -252,7 +253,7 @@
             this.providerLCI,
             this.buttonLCI});
             this.selectProviderLCG.Name = "selectProviderLCG";
-            this.selectProviderLCG.Size = new System.Drawing.Size(314, 450);
+            this.selectProviderLCG.Size = new System.Drawing.Size(314, 134);
             this.selectProviderLCG.TextVisible = false;
             // 
             // labelsLCI
@@ -260,25 +261,25 @@
             this.labelsLCI.Control = this.labelsPC;
             this.labelsLCI.Location = new System.Drawing.Point(0, 0);
             this.labelsLCI.Name = "labelsLCI";
-            this.labelsLCI.Size = new System.Drawing.Size(294, 30);
+            this.labelsLCI.Size = new System.Drawing.Size(294, 28);
             this.labelsLCI.TextSize = new System.Drawing.Size(0, 0);
             this.labelsLCI.TextVisible = false;
             // 
             // providerLCI
             // 
             this.providerLCI.Control = this.providerPC;
-            this.providerLCI.Location = new System.Drawing.Point(0, 30);
+            this.providerLCI.Location = new System.Drawing.Point(0, 28);
             this.providerLCI.Name = "providerLCI";
-            this.providerLCI.Size = new System.Drawing.Size(294, 341);
+            this.providerLCI.Size = new System.Drawing.Size(294, 28);
             this.providerLCI.TextSize = new System.Drawing.Size(0, 0);
             this.providerLCI.TextVisible = false;
             // 
             // buttonLCI
             // 
             this.buttonLCI.Control = this.buttonPC;
-            this.buttonLCI.Location = new System.Drawing.Point(0, 371);
+            this.buttonLCI.Location = new System.Drawing.Point(0, 56);
             this.buttonLCI.Name = "buttonLCI";
-            this.buttonLCI.Size = new System.Drawing.Size(294, 59);
+            this.buttonLCI.Size = new System.Drawing.Size(294, 58);
             this.buttonLCI.TextSize = new System.Drawing.Size(0, 0);
             this.buttonLCI.TextVisible = false;
             // 
@@ -287,7 +288,7 @@
             this.AcceptButton = this.acceptSB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 450);
+            this.ClientSize = new System.Drawing.Size(314, 134);
             this.Controls.Add(this.selectProviderLC);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "D_SelectProviderForm";

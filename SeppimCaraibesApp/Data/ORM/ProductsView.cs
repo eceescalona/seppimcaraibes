@@ -1,13 +1,16 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("ProductsView")]
     internal partial class ProductsView
     {
         [Key]
-        [Column("Product Code", Order = 0)]
+        [Column("Product Code")]
         [StringLength(50)]
         public string Product_Code { get; set; }
 
@@ -40,8 +43,7 @@ namespace SeppimCaraibesApp.Data.ORM
         [StringLength(10)]
         public string Acronyms { get; set; }
 
-        [Key]
-        [Column("Provider Code", Order = 1)]
+        [Column("Provider Code")]
         [StringLength(50)]
         public string Provider_Code { get; set; }
 
