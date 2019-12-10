@@ -12,6 +12,7 @@
         FCA = 8,
         DAP = 9,
         DAT = 10,
-        DDP = 11
+        DDP = 11,
+        CPT_CFR = 12
     }
 }
