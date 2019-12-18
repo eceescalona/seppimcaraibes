@@ -111,6 +111,7 @@
     <Compile Include="Data\EOrderState.cs" />
     <Compile Include="Data\EPaymentOption.cs" />
     <Compile Include="Data\ECommercialValue.cs" />
+    <Compile Include="Data\EPeriod.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
     <Compile Include="Data\ORM\CustomersView.cs" />
@@ -133,11 +134,13 @@
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\ORM\TotalSalesView.cs" />
     <Compile Include="Data\ORM\User.cs" />
     <Compile Include="Data\ORM\UserView.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\POCO\ProductsOrdersReports.cs" />
+    <Compile Include="Data\POCO\TotalSales.cs" />
     <Compile Include="Data\Repository\BankRepository.cs" />
     <Compile Include="Data\Repository\CustomerRepository.cs" />
     <Compile Include="Data\Repository\OrderRepository.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="Domain\Controller\C_Permission.cs" />
     <Compile Include="Domain\Controller\C_Product.cs" />
     <Compile Include="Domain\Controller\C_Provider.cs" />
+    <Compile Include="Domain\Controller\C_Report.cs" />
     <Compile Include="Domain\Controller\C_Role.cs" />
     <Compile Include="Domain\Controller\C_User.cs" />
     <Compile Include="Domain\Controller\Interfaces\IControlUser.cs" />
@@ -177,6 +181,7 @@
     <Compile Include="Domain\Controller\Interfaces\ISelectProvider.cs" />
     <Compile Include="Domain\ETypeOfMessage.cs" />
     <Compile Include="Domain\Model\Log.cs" />
+    <Compile Include="Domain\Model\Report.cs" />
     <Compile Include="Domain\UserLog.cs" />
     <Compile Include="Domain\Model\Bank.cs" />
     <Compile Include="Domain\Model\Customer.cs" />
@@ -305,6 +310,18 @@
     </Compile>
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\R_TotalSales.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\R_TotalSales.Designer.cs">
+      <DependentUpon>R_TotalSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\V_ReportTotalSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\V_ReportTotalSales.Designer.cs">
+      <DependentUpon>V_ReportTotalSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Reports\Invoice\R_Invoice.cs">
       <SubType>Component</SubType>
@@ -439,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSales\R_TotalSales.resx">
+      <DependentUpon>R_TotalSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSales\V_ReportTotalSales.resx">
+      <DependentUpon>V_ReportTotalSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\Invoice\R_Invoice.resx">
       <DependentUpon>R_Invoice.cs</DependentUpon>
