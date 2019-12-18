@@ -23,7 +23,7 @@
 
         public decimal? Total_Buy { get; set; }
 
-        public double? Earnings { get; set; }
+        public double? Earning { get; set; }
 
         public double? Margin { get; set; }
     }

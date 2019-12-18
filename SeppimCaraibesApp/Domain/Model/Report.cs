@@ -19,7 +19,7 @@
                         Provider = item.Provider,
                         TotalSale = (double)item.Total_Sale,
                         TotalBuy = (decimal)item.Total_Buy,
-                        Earnings = (double)item.Earnings,
+                        Earnings = (double)item.Earning,
                         Margin = (double)item.Margin
                     };
 
@@ -39,7 +39,7 @@
                             Provider = item.Provider,
                             TotalSale = (double)item.Total_Sale,
                             TotalBuy = (decimal)item.Total_Buy,
-                            Earnings = (double)item.Earnings,
+                            Earnings = (double)item.Earning,
                             Margin = (double)item.Margin
                         };
 
@@ -60,7 +60,7 @@
                             Provider = item.Provider,
                             TotalSale = (double)item.Total_Sale,
                             TotalBuy = (decimal)item.Total_Buy,
-                            Earnings = (double)item.Earnings,
+                            Earnings = (double)item.Earning,
                             Margin = (double)item.Margin
                         };
 
@@ -81,7 +81,7 @@
                             Provider = item.Provider,
                             TotalSale = (double)item.Total_Sale,
                             TotalBuy = (decimal)item.Total_Buy,
-                            Earnings = (double)item.Earnings,
+                            Earnings = (double)item.Earning,
                             Margin = (double)item.Margin
                         };
 
