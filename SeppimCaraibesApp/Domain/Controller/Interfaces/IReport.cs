@@ -4,5 +4,6 @@
     internal interface IReport
     {
         void LoadData(IEnumerable<Data.POCO.OrderReportView> reportView);
+        void LoadData(IEnumerable<Data.POCO.TotalSales> reportView);
     }
 }

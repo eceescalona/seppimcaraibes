@@ -311,6 +311,12 @@
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\D_SelectDateOrPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSales\D_SelectDateOrPeriod.Designer.cs">
+      <DependentUpon>D_SelectDateOrPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Reports\FinalReports\TotalSales\R_TotalSales.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -456,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSales\D_SelectDateOrPeriod.resx">
+      <DependentUpon>D_SelectDateOrPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSales\R_TotalSales.resx">
       <DependentUpon>R_TotalSales.cs</DependentUpon>

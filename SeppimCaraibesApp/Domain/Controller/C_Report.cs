@@ -20,5 +20,12 @@
             _context.Dispose();
         }
         #endregion
+
+
+        public void LoadReport(IReport reportQuote, EPeriod period)
+        {
+            var reportData = _mReport.GetTotalSales(_context, period);
+            reportQuote.LoadData(reportData);
+        }
     }
 }

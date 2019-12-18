@@ -45,6 +45,8 @@
             this.usersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.rolesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.reportsACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.totalSalesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
             this.mainLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
@@ -99,6 +101,7 @@
             this.productsACE,
             this.ordersACE,
             this.invoicesACE,
+            this.reportsACE,
             this.usersACE,
             this.rolesACE});
             this.mainAC.Location = new System.Drawing.Point(0, 0);
@@ -137,6 +140,7 @@
             this.preOrdersACE,
             this.quotesACE,
             this.ordersOACE});
+            this.ordersACE.Expanded = true;
             this.ordersACE.Name = "ordersACE";
             this.ordersACE.Text = "Ordenes";
             // 
@@ -187,6 +191,20 @@
             this.mainFDFC.Size = new System.Drawing.Size(750, 563);
             this.mainFDFC.TabIndex = 1;
             // 
+            // reportsACE
+            // 
+            this.reportsACE.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.totalSalesACE});
+            this.reportsACE.Expanded = true;
+            this.reportsACE.Name = "reportsACE";
+            this.reportsACE.Text = "Reportes";
+            // 
+            // totalSalesACE
+            // 
+            this.totalSalesACE.Name = "totalSalesACE";
+            this.totalSalesACE.Text = "Total de Ventas Hasta la Fecha";
+            this.totalSalesACE.Click += new System.EventHandler(this.TotalSalesACE_Click);
+            // 
             // V_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +247,8 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer mainFDFC;
         private DevExpress.XtraBars.Navigation.AccordionControlElement usersACE;
         private DevExpress.XtraBars.Navigation.AccordionControlElement rolesACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement reportsACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesACE;
     }
 }
 

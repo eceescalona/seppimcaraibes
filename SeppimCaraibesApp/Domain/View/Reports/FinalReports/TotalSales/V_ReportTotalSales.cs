@@ -18,33 +18,23 @@
             _cReport = new C_Report();
         }
 
-        public V_ReportTotalSales(C_Report cReport, string code)
+        public V_ReportTotalSales(C_Report cReport, EPeriod period)
         {
             InitializeComponent();
             _cReport = cReport;
 
             Text = NAME;
 
-            LoadDocumentSource();
-        }
-
-        public V_ReportTotalSales(C_Report cReport, string code, bool flag)
-        {
-            InitializeComponent();
-            _cReport = cReport;
-
-            Text = NAME;
-
-            LoadDocumentSource();
+            LoadDocumentSource(period);
         }
         #endregion
 
 
-        private void LoadDocumentSource()
+        private void LoadDocumentSource(EPeriod period)
         {
             try
             {
-                var report = new R_TotalSales();
+                var report = new R_TotalSales(_cReport, period);
                 totalSalesDV.DocumentSource = report;
             }
             catch (Exception ex)
