@@ -17,7 +17,7 @@
         {
             InitializeComponent();
             _cReport = cReport;
-            _cReport.LoadReport(this, period);
+            _cReport.LoadTotalSales(this, period);
         }
 
         public void LoadData(IEnumerable<Data.POCO.TotalSales> reportView)

@@ -22,9 +22,15 @@
         #endregion
 
 
-        public void LoadReport(IReport reportQuote, EPeriod period)
+        public void LoadTotalSales(IReport reportQuote, EPeriod period)
         {
             var reportData = _mReport.GetTotalSales(_context, period);
+            reportQuote.LoadData(reportData);
+        }
+
+        public void LoadTotalSalesProvider(IReport reportQuote)
+        {
+            var reportData = _mReport.GetTotalSalesProvider(_context);
             reportQuote.LoadData(reportData);
         }
     }

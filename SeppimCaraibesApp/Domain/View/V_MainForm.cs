@@ -209,6 +209,29 @@
             }
         }
 
+        private void TotalSalesProviderACE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var cReport = new C_Report())
+                {
+                    var totalSalesProviderReport = new Domain.View.Reports.FinalReports.TotalSalesProvider.V_ReportTotalSalesProvider
+                    {
+                        TopLevel = false
+                    };
+                    viewsPC.Controls.Add(totalSalesProviderReport);
+                    totalSalesProviderReport.Dock = DockStyle.Fill;
+                    totalSalesProviderReport.BringToFront();
+                    totalSalesProviderReport.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
+        }
+
         private void UsersACE_Click(object sender, EventArgs e)
         {
             try

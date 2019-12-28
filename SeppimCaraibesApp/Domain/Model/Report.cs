@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
 
     internal class Report
     {
-        public IEnumerable<Data.POCO.TotalSales> GetTotalSales(Data.ORM.SeppimCaraibesLocalEntities context,EPeriod period)
+        public IEnumerable<Data.POCO.TotalSales> GetTotalSales(Data.ORM.SeppimCaraibesLocalEntities context, EPeriod period)
         {
             var totalSales = new List<Data.POCO.TotalSales>();
 
@@ -26,7 +28,7 @@
                     totalSales.Add(total);
                 }
             }
-            else if(period == EPeriod.quarterly)
+            else if (period == EPeriod.quarterly)
             {
                 var date = DateTime.Today.AddMonths(-3);
                 foreach (var item in context.TotalSalesViews)
@@ -88,6 +90,24 @@
                         totalSales.Add(total);
                     }
                 }
+            }
+
+            return totalSales;
+        }
+
+        public IEnumerable<Data.POCO.TotalSales> GetTotalSalesProvider(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var totalSales = new List<Data.POCO.TotalSales>();
+
+            foreach (var item in context.TotalSalesProviderView)
+            {
+                var total = new Data.POCO.TotalSales
+                {
+                    Provider = item.Provider,
+                    TotalSale = (double)item.Total_Sale
+                };
+
+                totalSales.Add(total);
             }
 
             return totalSales;
