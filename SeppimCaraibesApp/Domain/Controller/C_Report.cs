@@ -33,5 +33,11 @@
             var reportData = _mReport.GetTotalSalesProvider(_context);
             reportQuote.LoadData(reportData);
         }
+
+        public void LoadTotalSalesCustomer(IReport reportQuote)
+        {
+            var reportData = _mReport.GetTotalSalesCustomer(_context);
+            reportQuote.LoadData(reportData);
+        }
     }
 }

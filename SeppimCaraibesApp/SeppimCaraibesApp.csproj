@@ -134,6 +134,7 @@
     <Compile Include="Data\ORM\SeppimCaraibesLocalEntities.cs" />
     <Compile Include="Data\ORM\Shipment.cs" />
     <Compile Include="Data\ORM\ShipmentsView.cs" />
+    <Compile Include="Data\ORM\TotalSalesCustomerView.cs" />
     <Compile Include="Data\ORM\TotalSalesProviderView.cs" />
     <Compile Include="Data\ORM\TotalSalesView.cs" />
     <Compile Include="Data\ORM\User.cs" />
@@ -312,6 +313,18 @@
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\R_TotalSalesCustomer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\R_TotalSalesCustomer.Designer.cs">
+      <DependentUpon>R_TotalSalesCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\V_ReportTotalSalesCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\V_ReportTotalSalesCustomer.Designer.cs">
+      <DependentUpon>V_ReportTotalSalesCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\View\Reports\FinalReports\TotalSalesProvider\R_TotalSalesProvider.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -475,6 +488,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\R_TotalSalesCustomer.resx">
+      <DependentUpon>R_TotalSalesCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\V_ReportTotalSalesCustomer.resx">
+      <DependentUpon>V_ReportTotalSalesCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSalesProvider\R_TotalSalesProvider.resx">
       <DependentUpon>R_TotalSalesProvider.cs</DependentUpon>

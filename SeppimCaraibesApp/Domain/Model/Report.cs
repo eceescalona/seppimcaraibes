@@ -112,5 +112,23 @@
 
             return totalSales;
         }
+
+        public IEnumerable<Data.POCO.TotalSales> GetTotalSalesCustomer(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var totalSales = new List<Data.POCO.TotalSales>();
+
+            foreach (var item in context.TotalSalesCustomerView)
+            {
+                var total = new Data.POCO.TotalSales
+                {
+                    Customer = item.Customer,
+                    TotalSale = (double)item.Total_Sale
+                };
+
+                totalSales.Add(total);
+            }
+
+            return totalSales;
+        }
     }
 }
