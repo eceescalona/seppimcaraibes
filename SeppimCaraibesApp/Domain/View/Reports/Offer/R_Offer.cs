@@ -1,7 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.View.Reports.Offer
 {
     using DevExpress.XtraReports.UI;
-    using SeppimCaraibesApp.Data.POCO;
     using System.Collections.Generic;
 
     internal partial class R_Offer : XtraReport, Controller.IReport
@@ -27,7 +26,12 @@
             DataSource = reportView;
         }
 
-        public void LoadData(IEnumerable<TotalSales> reportView)
+        public void LoadData(IEnumerable<Data.POCO.TotalSales> reportView)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LoadData(IEnumerable<Data.POCO.AccountReceivable> reportView)
         {
             throw new System.NotImplementedException();
         }

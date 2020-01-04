@@ -39,5 +39,11 @@
             var reportData = _mReport.GetTotalSalesCustomer(_context);
             reportQuote.LoadData(reportData);
         }
+
+        public void LoadAccountsReceivableCustomer(IReport reportQuote)
+        {
+            var reportData = _mReport.GetAccountsReceivableCustomer(_context);
+            reportQuote.LoadData(reportData);
+        }
     }
 }

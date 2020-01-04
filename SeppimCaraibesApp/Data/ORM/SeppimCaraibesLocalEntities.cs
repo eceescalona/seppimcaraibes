@@ -9,6 +9,7 @@ namespace SeppimCaraibesApp.Data.ORM
         {
         }
 
+        public virtual DbSet<AccountReceivableCustomerView> AccountReceivableCustomerView { get; set; }
         public virtual DbSet<Bank> Banks { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }

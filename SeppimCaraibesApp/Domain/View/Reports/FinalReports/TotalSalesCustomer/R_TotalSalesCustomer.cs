@@ -29,5 +29,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public void LoadData(IEnumerable<Data.POCO.AccountReceivable> reportView)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

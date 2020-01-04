@@ -130,5 +130,31 @@
 
             return totalSales;
         }
+
+        public IEnumerable<Data.POCO.AccountReceivable> GetAccountsReceivableCustomer(Data.ORM.SeppimCaraibesLocalEntities context)
+        {
+            var accounts = new List<Data.POCO.AccountReceivable>();
+            var orderTotal = new Dictionary<string, double>();
+            var view = context.AccountReceivableCustomerView.GroupBy(a => a.Customer).ToList();
+
+            foreach (var item in view)
+            {
+                foreach (var pair in item.ToList())
+                {
+                    orderTotal.Add(pair.OrderId, (double)pair.TotalByOrder);
+                }
+
+                var account = new Data.POCO.AccountReceivable
+                {
+                    Customer = item.Key,
+                    OrderIdTotalByOrder = orderTotal,
+                    Total = orderTotal.Sum(o => o.Value)
+                };
+
+                accounts.Add(account);
+            }
+
+            return accounts;
+        }
     }
 }

@@ -112,6 +112,7 @@
     <Compile Include="Data\EPaymentOption.cs" />
     <Compile Include="Data\ECommercialValue.cs" />
     <Compile Include="Data\EPeriod.cs" />
+    <Compile Include="Data\ORM\AccountReceivableCustomerView.cs" />
     <Compile Include="Data\ORM\Bank.cs" />
     <Compile Include="Data\ORM\Customer.cs" />
     <Compile Include="Data\ORM\CustomersView.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Data\ORM\TotalSalesView.cs" />
     <Compile Include="Data\ORM\User.cs" />
     <Compile Include="Data\ORM\UserView.cs" />
+    <Compile Include="Data\POCO\AccountReceivable.cs" />
     <Compile Include="Data\POCO\ProductsOrders.cs" />
     <Compile Include="Data\POCO\OrderReportView.cs" />
     <Compile Include="Data\POCO\ProductsOrdersReports.cs" />
@@ -312,6 +314,18 @@
     </Compile>
     <Compile Include="Domain\View\Provider\V_ListProvidersForm.Designer.cs">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\R_AccountsReceivableCustomer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\R_AccountsReceivableCustomer.Designer.cs">
+      <DependentUpon>R_AccountsReceivableCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\V_AccountsReceivableCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\V_AccountsReceivableCustomer.Designer.cs">
+      <DependentUpon>V_AccountsReceivableCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\R_TotalSalesCustomer.cs">
       <SubType>Component</SubType>
@@ -489,6 +503,12 @@
     <EmbeddedResource Include="Domain\View\Provider\V_ListProvidersForm.resx">
       <DependentUpon>V_ListProvidersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\R_AccountsReceivableCustomer.resx">
+      <DependentUpon>R_AccountsReceivableCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\View\Reports\FinalReports\AccountsReceivableCustomer\V_AccountsReceivableCustomer.resx">
+      <DependentUpon>V_AccountsReceivableCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\View\Reports\FinalReports\TotalSalesCustomer\R_TotalSalesCustomer.resx">
       <DependentUpon>R_TotalSalesCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -636,6 +656,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Domain\View\Reports\FinalReports\AccountsReceivableProvider\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
