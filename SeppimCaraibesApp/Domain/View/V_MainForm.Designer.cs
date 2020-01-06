@@ -44,10 +44,11 @@
             this.invoicesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.reportsACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.totalSalesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.totalSalesProviderACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.usersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.rolesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
-            this.totalSalesProviderACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.totalSalesCustomerACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
             this.mainLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
@@ -173,7 +174,8 @@
             // 
             this.reportsACE.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.totalSalesACE,
-            this.totalSalesProviderACE});
+            this.totalSalesProviderACE,
+            this.totalSalesCustomerACE});
             this.reportsACE.Expanded = true;
             this.reportsACE.Name = "reportsACE";
             this.reportsACE.Text = "Reportes";
@@ -183,6 +185,12 @@
             this.totalSalesACE.Name = "totalSalesACE";
             this.totalSalesACE.Text = "Total de Ventas Hasta la Fecha";
             this.totalSalesACE.Click += new System.EventHandler(this.TotalSalesACE_Click);
+            // 
+            // totalSalesProviderACE
+            // 
+            this.totalSalesProviderACE.Name = "totalSalesProviderACE";
+            this.totalSalesProviderACE.Text = "Total de Ventas por Poveedor";
+            this.totalSalesProviderACE.Click += new System.EventHandler(this.TotalSalesProviderACE_Click);
             // 
             // usersACE
             // 
@@ -206,11 +214,11 @@
             this.mainFDFC.Size = new System.Drawing.Size(750, 563);
             this.mainFDFC.TabIndex = 1;
             // 
-            // totalSalesProviderACE
+            // totalSalesCustomerACE
             // 
-            this.totalSalesProviderACE.Name = "totalSalesProviderACE";
-            this.totalSalesProviderACE.Text = "Total de Ventas por Poveedor";
-            this.totalSalesProviderACE.Click += new System.EventHandler(this.TotalSalesProviderACE_Click);
+            this.totalSalesCustomerACE.Name = "totalSalesCustomerACE";
+            this.totalSalesCustomerACE.Text = "Total de Ventas por Cliente";
+            this.totalSalesCustomerACE.Click += new System.EventHandler(this.TotalSalesCustomerACE_Click);
             // 
             // V_MainForm
             // 
@@ -257,6 +265,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement reportsACE;
         private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesACE;
         private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesProviderACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesCustomerACE;
     }
 }
 
