@@ -16,7 +16,7 @@
 
         public string GetLastInvoiceID(ORM.SeppimCaraibesLocalEntities context)
         {
-            return context.Orders.OrderByDescending(o => o.Date).Where(o => o.OrderProcessState == EOrderProcessState.Invoice && !string.IsNullOrWhiteSpace(o.InvoiceReference)).FirstOrDefault()?.InvoiceReference;
+            return context.Orders.OrderByDescending(o => o.Date).Where(o => o.OrderProcessState == EOrderProcessState.Invoice && o.InvoiceReference != null).FirstOrDefault()?.InvoiceReference;
         }
 
         public void AddOrder(ORM.SeppimCaraibesLocalEntities context, ORM.Order order)

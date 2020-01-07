@@ -10,6 +10,11 @@
 
         public string SeppimAddress { get => "Ave. Samuel Lewis, Edificio Comosa, 1er piso, Ciudad de Panamá, Panamá"; }
 
+        public string Phone { get => "+507 214 7082"; }
+
+        public string Fax { get => "+507 214 7083"; }
+
+        public string Mail { get => "info@seppimcaraibes.com"; }
 
         #region Invoice
         [StringLength(50)]
