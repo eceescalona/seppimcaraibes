@@ -273,7 +273,7 @@
             this.dateOrderXRL.StylePriority.UseTextAlignment = false;
             this.dateOrderXRL.Text = "dateOrderXRL";
             this.dateOrderXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.dateOrderXRL.TextFormatString = "{0:MM/dd/yyyy}";
+            this.dateOrderXRL.TextFormatString = "{0:dd/MM/yyyy}";
             this.dateOrderXRL.WordWrap = false;
             // 
             // quoteXRL
