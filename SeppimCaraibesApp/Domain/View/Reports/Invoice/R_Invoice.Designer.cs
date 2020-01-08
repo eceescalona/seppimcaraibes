@@ -159,7 +159,7 @@
             this.companyMailXRL.StylePriority.UseForeColor = false;
             this.companyMailXRL.StylePriority.UseTextAlignment = false;
             this.companyMailXRL.Text = "companyAddressXRL";
-            this.companyMailXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.companyMailXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // companyFaxXRL
             // 
@@ -178,7 +178,7 @@
             this.companyFaxXRL.StylePriority.UseForeColor = false;
             this.companyFaxXRL.StylePriority.UseTextAlignment = false;
             this.companyFaxXRL.Text = "companyAddressXRL";
-            this.companyFaxXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.companyFaxXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // companyPhoneXRL
             // 
@@ -197,7 +197,7 @@
             this.companyPhoneXRL.StylePriority.UseForeColor = false;
             this.companyPhoneXRL.StylePriority.UseTextAlignment = false;
             this.companyPhoneXRL.Text = "companyAddressXRL";
-            this.companyPhoneXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.companyPhoneXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // customerAddressXRL
             // 
@@ -335,7 +335,7 @@
             this.companyNameXRL.StylePriority.UseForeColor = false;
             this.companyNameXRL.StylePriority.UseTextAlignment = false;
             this.companyNameXRL.Text = "companyNameXRL";
-            this.companyNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.companyNameXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.companyNameXRL.WordWrap = false;
             // 
             // companyAddressXRL
@@ -355,7 +355,7 @@
             this.companyAddressXRL.StylePriority.UseForeColor = false;
             this.companyAddressXRL.StylePriority.UseTextAlignment = false;
             this.companyAddressXRL.Text = "companyAddressXRL";
-            this.companyAddressXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.companyAddressXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // quoteXRL
             // 

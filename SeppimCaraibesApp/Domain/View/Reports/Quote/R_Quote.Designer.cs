@@ -824,13 +824,14 @@
             // 
             this.xrLabel14.AutoWidth = true;
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([IncotermsType] == 1, \'Transporte Aéreo\', \'Transporte Marítimo\')")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([IncotermsType] == 1, \'Transporte Aéreo\', Iif([IncotermsType] == 2, \'Transpor" +
+                    "te Marítimo\', \'Transporte Aéreo/Transporte Marítimo\'))")});
             this.xrLabel14.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(121.7009F, 235.2079F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(107.7F, 235.2079F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(277.7203F, 23.00005F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(377.9948F, 23.00005F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
             this.xrLabel14.Text = "Tipo de Envío:";
