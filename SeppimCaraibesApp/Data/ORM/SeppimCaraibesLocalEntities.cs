@@ -1,9 +1,6 @@
 namespace SeppimCaraibesApp.Data.ORM
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
 
     internal partial class SeppimCaraibesLocalEntities : DbContext
     {
@@ -12,6 +9,7 @@ namespace SeppimCaraibesApp.Data.ORM
         {
         }
 
+        public virtual DbSet<AccountReceivableCustomerView> AccountReceivableCustomerView { get; set; }
         public virtual DbSet<Bank> Banks { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -34,6 +32,9 @@ namespace SeppimCaraibesApp.Data.ORM
         public virtual DbSet<QuotesView> QuotesViews { get; set; }
         public virtual DbSet<RoleView> RoleViews { get; set; }
         public virtual DbSet<ShipmentsView> ShipmentsViews { get; set; }
+        public virtual DbSet<TotalSalesView> TotalSalesViews { get; set; }
+        public virtual DbSet<TotalSalesProviderView> TotalSalesProviderView { get; set; }
+        public virtual DbSet<TotalSalesCustomerView> TotalSalesCustomerView { get; set; }
         public virtual DbSet<UserView> UserViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -211,6 +212,10 @@ namespace SeppimCaraibesApp.Data.ORM
 
             modelBuilder.Entity<ShipmentsView>()
                 .Property(e => e.Net_Weight)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<TotalSalesView>()
+                .Property(e => e.Total_Buy)
                 .HasPrecision(18, 4);
         }
     }

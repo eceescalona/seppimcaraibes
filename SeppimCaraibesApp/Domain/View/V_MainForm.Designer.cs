@@ -42,9 +42,13 @@
             this.quotesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ordersOACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.invoicesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.reportsACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.totalSalesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.totalSalesProviderACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.usersACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.rolesACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainFDFC = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.totalSalesCustomerACE = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.mainLC)).BeginInit();
             this.mainLC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewsPC)).BeginInit();
@@ -99,6 +103,7 @@
             this.productsACE,
             this.ordersACE,
             this.invoicesACE,
+            this.reportsACE,
             this.usersACE,
             this.rolesACE});
             this.mainAC.Location = new System.Drawing.Point(0, 0);
@@ -165,6 +170,28 @@
             this.invoicesACE.Text = "Facturas";
             this.invoicesACE.Click += new System.EventHandler(this.InvoicesACE_Click);
             // 
+            // reportsACE
+            // 
+            this.reportsACE.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.totalSalesACE,
+            this.totalSalesProviderACE,
+            this.totalSalesCustomerACE});
+            this.reportsACE.Expanded = true;
+            this.reportsACE.Name = "reportsACE";
+            this.reportsACE.Text = "Reportes";
+            // 
+            // totalSalesACE
+            // 
+            this.totalSalesACE.Name = "totalSalesACE";
+            this.totalSalesACE.Text = "Total de Ventas Hasta la Fecha";
+            this.totalSalesACE.Click += new System.EventHandler(this.TotalSalesACE_Click);
+            // 
+            // totalSalesProviderACE
+            // 
+            this.totalSalesProviderACE.Name = "totalSalesProviderACE";
+            this.totalSalesProviderACE.Text = "Total de Ventas por Poveedor";
+            this.totalSalesProviderACE.Click += new System.EventHandler(this.TotalSalesProviderACE_Click);
+            // 
             // usersACE
             // 
             this.usersACE.Name = "usersACE";
@@ -186,6 +213,12 @@
             this.mainFDFC.Name = "mainFDFC";
             this.mainFDFC.Size = new System.Drawing.Size(750, 563);
             this.mainFDFC.TabIndex = 1;
+            // 
+            // totalSalesCustomerACE
+            // 
+            this.totalSalesCustomerACE.Name = "totalSalesCustomerACE";
+            this.totalSalesCustomerACE.Text = "Total de Ventas por Cliente";
+            this.totalSalesCustomerACE.Click += new System.EventHandler(this.TotalSalesCustomerACE_Click);
             // 
             // V_MainForm
             // 
@@ -229,6 +262,10 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer mainFDFC;
         private DevExpress.XtraBars.Navigation.AccordionControlElement usersACE;
         private DevExpress.XtraBars.Navigation.AccordionControlElement rolesACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement reportsACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesProviderACE;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement totalSalesCustomerACE;
     }
 }
 

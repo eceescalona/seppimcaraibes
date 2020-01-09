@@ -55,5 +55,15 @@
         {
             DataSource = reportView;
         }
+
+        public void LoadData(IEnumerable<Data.POCO.TotalSales> reportView)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LoadData(IEnumerable<Data.POCO.AccountReceivable> reportView)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

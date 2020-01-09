@@ -81,6 +81,7 @@
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle2 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
@@ -90,7 +91,6 @@
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrControlStyle3 = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.orderReportViewODS = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -207,7 +207,7 @@
             this.dateOrderXRL.StylePriority.UseTextAlignment = false;
             this.dateOrderXRL.Text = "dateOrderXRL";
             this.dateOrderXRL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.dateOrderXRL.TextFormatString = "{0:MM/dd/yyyy}";
+            this.dateOrderXRL.TextFormatString = "{0:dd/MM/yyyy}";
             this.dateOrderXRL.WordWrap = false;
             // 
             // dateXRL
@@ -740,6 +740,21 @@
             this.GroupFooter2.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
             this.GroupFooter2.PrintAtBottom = true;
             // 
+            // xrLabel11
+            // 
+            this.xrLabel11.AutoWidth = true;
+            this.xrLabel11.CanGrow = false;
+            this.xrLabel11.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(21.70091F, 235.2077F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(100F, 22.99998F);
+            this.xrLabel11.StylePriority.UseFont = false;
+            this.xrLabel11.StylePriority.UseTextAlignment = false;
+            this.xrLabel11.Text = "Tipo de Envío:";
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel11.WordWrap = false;
+            // 
             // xrLabel17
             // 
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 9F);
@@ -809,13 +824,14 @@
             // 
             this.xrLabel14.AutoWidth = true;
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([IncotermsType] == 1, \'Transporte Aéreo\', \'Transporte Marítimo\')")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([IncotermsType] == 1, \'Transporte Aéreo\', Iif([IncotermsType] == 2, \'Transpor" +
+                    "te Marítimo\', \'Transporte Aéreo/Transporte Marítimo\'))")});
             this.xrLabel14.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(121.7009F, 235.2079F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(107.7F, 235.2079F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(99.59535F, 23.00005F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(377.9948F, 23.00005F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
             this.xrLabel14.Text = "Tipo de Envío:";
@@ -844,21 +860,6 @@
             // 
             this.xrControlStyle3.Name = "xrControlStyle3";
             this.xrControlStyle3.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            // 
-            // xrLabel11
-            // 
-            this.xrLabel11.AutoWidth = true;
-            this.xrLabel11.CanGrow = false;
-            this.xrLabel11.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(21.70091F, 235.2077F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(100F, 22.99998F);
-            this.xrLabel11.StylePriority.UseFont = false;
-            this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "Tipo de Envío:";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel11.WordWrap = false;
             // 
             // orderReportViewODS
             // 

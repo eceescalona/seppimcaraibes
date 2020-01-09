@@ -171,6 +171,90 @@
             }
         }
 
+        private void TotalSalesACE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EPeriod period = 0;
+
+                using (var periodDialog = new Domain.View.Reports.FinalReports.TotalSales.D_SelectDateOrPeriod()
+                {
+                    StartPosition = FormStartPosition.CenterScreen
+                })
+                {
+                    periodDialog.BringToFront();
+                    DialogResult resultDialog = periodDialog.ShowDialog();
+                    if (resultDialog == DialogResult.OK)
+                    {
+                        period = periodDialog.Period;
+                    }
+                }
+
+                using (var cReport = new C_Report())
+                {
+                    var totalSalesReport = new Domain.View.Reports.FinalReports.TotalSales.V_ReportTotalSales(cReport, period)
+                    {
+                        TopLevel = false
+                    };
+                    viewsPC.Controls.Add(totalSalesReport);
+                    totalSalesReport.Dock = DockStyle.Fill;
+                    totalSalesReport.BringToFront();
+                    totalSalesReport.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
+        }
+
+        private void TotalSalesProviderACE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var cReport = new C_Report())
+                {
+                    var totalSalesProviderReport = new Domain.View.Reports.FinalReports.TotalSalesProvider.V_ReportTotalSalesProvider
+                    {
+                        TopLevel = false
+                    };
+                    viewsPC.Controls.Add(totalSalesProviderReport);
+                    totalSalesProviderReport.Dock = DockStyle.Fill;
+                    totalSalesProviderReport.BringToFront();
+                    totalSalesProviderReport.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
+        }
+
+        private void TotalSalesCustomerACE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var cReport = new C_Report())
+                {
+                    var totalSalesCustomerReport = new Domain.View.Reports.FinalReports.TotalSalesCustomer.V_ReportTotalSalesCustomer
+                    {
+                        TopLevel = false
+                    };
+                    viewsPC.Controls.Add(totalSalesCustomerReport);
+                    totalSalesCustomerReport.Dock = DockStyle.Fill;
+                    totalSalesCustomerReport.BringToFront();
+                    totalSalesCustomerReport.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                C_Log _cLog = new C_Log();
+                _cLog.Write(ex.Message, ETypeOfMessage.Error);
+            }
+        }
+
         private void UsersACE_Click(object sender, EventArgs e)
         {
             try
