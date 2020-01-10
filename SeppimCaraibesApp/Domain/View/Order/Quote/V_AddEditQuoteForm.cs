@@ -35,7 +35,6 @@
 
             _cOrder.EditOrder(this, code);
 
-            productsBS.DataSource = _cProduct.FillProductsOrders();
             shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
@@ -57,9 +56,8 @@
                     {
                         if (row.ProductId == product.ProductId)
                         {
-                            row.Qty = product.Qty;
-                            row.SalePrice = product.Discount;
                             productsGV.SelectRow(e.RowHandle);
+                            productsGV.TopRowIndex = e.RowHandle;
                         }
                     }
                 }
@@ -100,6 +98,8 @@
         public void EditOrder(Data.ORM.Order order)
         {
             orderBS.DataSource = order;
+
+            productsBS.DataSource = _cOrder.FillProductsView(_cProduct.FillProductsOrders(), order);
 
             if (order.Shipment != null)
             {

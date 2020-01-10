@@ -188,6 +188,26 @@
             reportQuote.LoadData(reportData);
         }
 
+        public BindingList<Data.POCO.ProductsOrders> FillProductsView(BindingList<Data.POCO.ProductsOrders> productsOrders, Data.ORM.Order order)
+        {
+            if (order != null && (order.ProductsOrders != null && order.ProductsOrders.Count > 0))
+            {
+                foreach (var product in order.ProductsOrders)
+                {
+                    for (int i = 0; i < productsOrders.Count; i++)
+                    {
+                        if (productsOrders[i].ProductId == product.ProductId)
+                        {
+                            productsOrders[i].Qty = product.Qty;
+                            productsOrders[i].SalePrice = product.Discount;
+                        }
+                    }
+                }
+            }
+
+            return productsOrders;
+        }
+
 
         #region OrderManage
         public void AddOrder(IAddEditOrder addEditOrder, Data.ORM.Order order, List<Data.POCO.ProductsOrders> productsOrders)
