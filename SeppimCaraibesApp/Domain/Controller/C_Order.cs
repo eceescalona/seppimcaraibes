@@ -1,5 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.Controller
 {
+    using DevExpress.Data.Extensions;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -202,6 +203,14 @@
                             productsOrders[i].SalePrice = product.Discount;
                         }
                     }
+                }
+
+                for (int i = 0; i < order.ProductsOrders.Count; i++)
+                {
+                    var index = productsOrders.FindIndex(x => x.ProductId == order.ProductsOrders.ToList()[i].ProductId);
+                    var item = productsOrders[index];
+                    productsOrders[index] = productsOrders[i];
+                    productsOrders[i] = item;
                 }
             }
 

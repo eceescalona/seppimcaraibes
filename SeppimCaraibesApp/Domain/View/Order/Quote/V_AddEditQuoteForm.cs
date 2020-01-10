@@ -57,7 +57,6 @@
                         if (row.ProductId == product.ProductId)
                         {
                             productsGV.SelectRow(e.RowHandle);
-                            productsGV.TopRowIndex = e.RowHandle;
                         }
                     }
                 }
