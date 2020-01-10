@@ -34,8 +34,6 @@
             _isFieldWithError = false;
 
             _cOrder.EditOrder(this, code);
-
-            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
 
@@ -102,9 +100,12 @@
 
             if (order.Shipment != null)
             {
-                shipmentBS.Clear();
                 shipmentBS.DataSource = order.Shipment;
                 shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
+            }
+            else
+            {
+                shipmentBS.DataSource = new Data.ORM.Shipment();
             }
 
             if (order.Devise != null)
