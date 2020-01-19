@@ -364,7 +364,9 @@
                 {
                     if (indexsProducts[i] != -1)
                     {
-                        products.Add((Data.POCO.ProductsOrders)productsGV.GetRow(indexsProducts[i]));
+                        var product = (Data.POCO.ProductsOrders)productsGV.GetRow(indexsProducts[i]);
+                        product.SalePrice = product.UnitPrice / product.SalePrice * 100;
+                        products.Add(product);
                     }
                 }
 
