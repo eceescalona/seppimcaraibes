@@ -23,6 +23,8 @@
             InitializeComponent();
             Text = NAME_FORM_EDIT;
 
+            descriptionME.Select();
+
             _cOrder = cOrder;
             _isCOrderAlive = true;
             _isFieldWithError = false;

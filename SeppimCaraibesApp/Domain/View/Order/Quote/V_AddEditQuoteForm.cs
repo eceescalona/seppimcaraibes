@@ -34,9 +34,6 @@
             _isFieldWithError = false;
 
             _cOrder.EditOrder(this, code);
-
-            productsBS.DataSource = _cProduct.FillProductsOrders();
-            shipmentBS.DataSource = new Data.ORM.Shipment();
         }
 
 
@@ -57,8 +54,6 @@
                     {
                         if (row.ProductId == product.ProductId)
                         {
-                            row.Qty = product.Qty;
-                            row.SalePrice = product.Discount;
                             productsGV.SelectRow(e.RowHandle);
                         }
                     }
@@ -101,11 +96,16 @@
         {
             orderBS.DataSource = order;
 
+            productsBS.DataSource = _cOrder.FillProductsView(_cProduct.FillProductsOrders(), order);
+
             if (order.Shipment != null)
             {
-                shipmentBS.Clear();
                 shipmentBS.DataSource = order.Shipment;
                 shipmentMLUE.EditValue = order.Shipment.ShippingMethod;
+            }
+            else
+            {
+                shipmentBS.DataSource = new Data.ORM.Shipment();
             }
 
             if (order.Devise != null)

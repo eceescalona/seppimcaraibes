@@ -34,6 +34,8 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
+            dateDE.Select();
+
             _cOrder = new C_Order();
             _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
@@ -50,6 +52,8 @@
             InitializeComponent();
             Text = NAME_FORM_ADD;
 
+            dateDE.Select();
+
             _cOrder = cOrder;
             _cProduct = new C_Product(_cOrder.GetContext());
             _isCOrderAlive = true;
@@ -65,6 +69,8 @@
         {
             InitializeComponent();
             Text = NAME_FORM_EDIT;
+
+            dateDE.Select();
 
             _cOrder = cOrder;
             _cProduct = new C_Product(_cOrder.GetContext());

@@ -1,5 +1,6 @@
 ﻿namespace SeppimCaraibesApp.Domain.Controller
 {
+    using DevExpress.Data.Extensions;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -186,6 +187,34 @@
         {
             var reportData = _mOrder.GetOrderReportView(_context, code);
             reportQuote.LoadData(reportData);
+        }
+
+        public BindingList<Data.POCO.ProductsOrders> FillProductsView(BindingList<Data.POCO.ProductsOrders> productsOrders, Data.ORM.Order order)
+        {
+            if (order != null && (order.ProductsOrders != null && order.ProductsOrders.Count > 0))
+            {
+                foreach (var product in order.ProductsOrders)
+                {
+                    for (int i = 0; i < productsOrders.Count; i++)
+                    {
+                        if (productsOrders[i].ProductId == product.ProductId)
+                        {
+                            productsOrders[i].Qty = product.Qty;
+                            productsOrders[i].SalePrice = product.Product.UnitPrice / product.Discount * 100;
+                        }
+                    }
+                }
+
+                for (int i = 0; i < order.ProductsOrders.Count; i++)
+                {
+                    var index = productsOrders.FindIndex(x => x.ProductId == order.ProductsOrders.ToList()[i].ProductId);
+                    var item = productsOrders[index];
+                    productsOrders[index] = productsOrders[i];
+                    productsOrders[i] = item;
+                }
+            }
+
+            return productsOrders;
         }
 
 
