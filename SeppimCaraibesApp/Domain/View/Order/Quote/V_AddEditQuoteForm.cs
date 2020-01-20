@@ -153,7 +153,7 @@
             providerRErrorLC.ForeColor = Color.Black;
 
             productsBS.ResetBindings(true);
-            productsBS.DataSource = _cProduct.FillProductsOrders();
+            productsBS.DataSource = _cOrder.FillProductsView(_cProduct.FillProductsOrders(), (Data.ORM.Order)orderBS.Current);
             deviseLUE.EditValue = null;
             paymentOptionLUE.EditValue = null;
             shipmentMLUE.EditValue = null;
