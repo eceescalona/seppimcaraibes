@@ -200,7 +200,7 @@
                         if (productsOrders[i].ProductId == product.ProductId)
                         {
                             productsOrders[i].Qty = product.Qty;
-                            productsOrders[i].SalePrice = product.Discount;
+                            productsOrders[i].SalePrice = product.Discount == 0 ? 0 : product.Product.UnitPrice * 100 / product.Discount;
                         }
                     }
                 }
