@@ -57,7 +57,6 @@
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productsLCG = new DevExpress.XtraLayout.LayoutControlGroup();
             this.productsGCLCI = new DevExpress.XtraLayout.LayoutControlItem();
             this.productsLabelsLCI = new DevExpress.XtraLayout.LayoutControlItem();
@@ -395,8 +394,7 @@
             this.productsGV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductCode,
             this.colProductName,
-            this.colQty,
-            this.colSalePrice});
+            this.colQty});
             this.productsGV.GridControl = this.productsGC;
             this.productsGV.Name = "productsGV";
             this.productsGV.OptionsSelection.MultiSelect = true;
@@ -429,15 +427,6 @@
             this.colQty.Visible = true;
             this.colQty.VisibleIndex = 3;
             this.colQty.Width = 77;
-            // 
-            // colSalePrice
-            // 
-            this.colSalePrice.Caption = "% de Venta";
-            this.colSalePrice.FieldName = "SalePrice";
-            this.colSalePrice.Name = "colSalePrice";
-            this.colSalePrice.Visible = true;
-            this.colSalePrice.VisibleIndex = 4;
-            this.colSalePrice.Width = 84;
             // 
             // productsLCG
             // 
@@ -984,7 +973,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton closeSB;
         private DevExpress.XtraEditors.SimpleButton cancelSB;
-        private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
         private DevExpress.XtraEditors.LookUpEdit deviseLUE;
         private DevExpress.XtraEditors.LabelControl deviseLC;
         private System.Windows.Forms.BindingSource deviseBS;
