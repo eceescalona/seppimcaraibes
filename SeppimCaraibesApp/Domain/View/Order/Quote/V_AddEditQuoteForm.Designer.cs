@@ -880,7 +880,7 @@
             // 
             // colSalePrice
             // 
-            this.colSalePrice.Caption = "% de Venta";
+            this.colSalePrice.Caption = "Precio de Venta";
             this.colSalePrice.FieldName = "SalePrice";
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.Visible = true;
